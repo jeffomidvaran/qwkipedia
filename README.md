@@ -55,4 +55,7 @@
 
 
 ## Notes
-The domain name www.qwkipedia.com has been reserved. 
+The domain name www.qwkipedia.com has been reserved. <br/>
+
+free for commercial use font used for logo <br/>
+https://fonts.google.com/specimen/Quicksand#standard-styles
