@@ -1,9 +1,9 @@
 # Qwkipedia
 
 ## Team Member 
- Anahita Abadian aabadian@uci.edu
- Yifei Li yifeil27@uci.edu
- Jeff Omidvaran jomidvar@uci.edu
+ Anahita Abadian aabadian@uci.edu <br/>
+ Yifei Li yifeil27@uci.edu <br/>
+ Jeff Omidvaran jomidvar@uci.edu <br/>
 
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
