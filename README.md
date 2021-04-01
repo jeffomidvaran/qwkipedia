@@ -1,6 +1,6 @@
 # Qwkipedia
 
-## Team Member 
+## Team Members 
  Anahita Abadian aabadian@uci.edu <br/>
  Yifei Li yifeil27@uci.edu <br/>
  Jeff Omidvaran jomidvar@uci.edu <br/>
