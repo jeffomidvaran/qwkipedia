@@ -1,7 +1,7 @@
 # Qwikipedia
 
 ## Main Features of Qwikipedia
-### qwik description of the topic (limited to 1000 words) 
+### Qwik description of the topic (limited to 1000 words) 
   * limiting the number of words forces responses to be kept simple and easily digestible
   * users can vote on qwik descriptions and the qwik desciptions will be displayed on the main qwiki page
  
