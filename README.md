@@ -1,5 +1,10 @@
 # Qwkipedia
 
+## Team Member 
+ Anahita Abadian aabadian@uci.edu
+ Yifei Li yifeil27@uci.edu
+ Jeff Omidvaran jomidvar@uci.edu
+
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
   * limiting the number of words forces responses to be kept simple and easily digestible
@@ -37,6 +42,7 @@
 * searched pages
 * comments and iteractions with other users
 * infomation added to a qwki page
+### Sponsored Pages
 
 
 ## To Do 
