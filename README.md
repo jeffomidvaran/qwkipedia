@@ -43,3 +43,7 @@
 1. Plan and create wireframes for all parts of the project before coding to ensure consistent design throughout the project and avoid having to recode mismatched parts of the project. 
 2. Research and Agree on all technologies that we want to use for the project. 
 3. Many popular websites start with a niche user base. For example amazon started with rare books, Facebook started with a single college. So we niche group of people that can be our intial users and get the product to them. 
+
+
+## Notes
+The domain name www.qwkipedia.com has been reserved. 
