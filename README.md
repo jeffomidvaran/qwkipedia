@@ -4,6 +4,9 @@
  Anahita Abadian aabadian@uci.edu <br/>
  Yifei Li yifeil27@uci.edu <br/>
  Jeff Omidvaran jomidvar@uci.edu <br/>
+ 
+ ## Google Jam Board Wireframe
+ https://jamboard.google.com/d/1LWynuxxVeyc45X6N41isY2PIyIDuo3jgYEzz5vUAx0I/viewer?f=0
 
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
