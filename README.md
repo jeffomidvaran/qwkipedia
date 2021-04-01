@@ -41,11 +41,11 @@
 
 
 ## How This Project Can Generate Profit
-### User Data that can be used to target ads
-* searched pages
-* comments and iteractions with other users
-* infomation added to a qwki page
-### Sponsored Pages
+1.User Data that can be used to target ads
+ * searched pages
+ * comments and iteractions with other users
+ * infomation added to a qwki page
+2. Sponsored Pages
 
 
 ## To Do 
