@@ -61,6 +61,7 @@
 
 ## Notes
 The domain name www.qwkipedia.com has been reserved. <br/>
+The Name Qwkipeda has been reserved in the Apple App store <br/>
 
 free for commercial use font used for logo <br/>
 https://fonts.google.com/specimen/Quicksand#standard-styles
