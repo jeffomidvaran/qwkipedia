@@ -21,6 +21,10 @@
  * images can be uploaded to the main qwki page.
  * Users can vote for the top image that best demonstrates the topic. 
 
+### Audio (add later)
+ * audio can be uploaded to the main qwki page.
+ * Users can vote for the top audio that best demonstrates the topic. 
+
 ### Expert written Summary 
   * A longer more in depth summary can be written by an expert in the field
   * A user can request to write an expert summary and do so if they are approved
