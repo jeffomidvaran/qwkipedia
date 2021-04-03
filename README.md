@@ -33,6 +33,7 @@
  * links can be embedded on the main qwki page.
  * users will vote for the best link. The top voted link will appear on the main page.
 
+
 ### Socal Media 
   * in order to ensure that the most up to date information is availible user will be able to discuss topic on the main qwki page
   * in order to do so they will need to create a user account (giving personal informataion)
@@ -63,3 +64,6 @@ The domain name www.qwkipedia.com has been reserved. <br/>
 
 free for commercial use font used for logo <br/>
 https://fonts.google.com/specimen/Quicksand#standard-styles
+
+wireframes ios <br/>
+https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
