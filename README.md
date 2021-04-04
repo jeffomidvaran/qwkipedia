@@ -6,9 +6,10 @@
  Jeff Omidvaran jomidvar@uci.edu <br/>
  
  ## To Do 
-1. Plan and create wireframes for all parts of the project before coding to ensure consistent design throughout the project and avoid having to recode mismatched parts of the project. 
-2. Research and Agree on all technologies that we want to use for the project. 
-3. Many popular websites start with a niche user base. For example amazon started with rare books, Facebook started with a single college. So we niche group of people that can be our intial users and get the product to them.
+1. Decide between SwiftUI and StoryBoard
+2. find a Web techonology to use
+3. make ugly figma   
+4. Many popular websites start with a niche user base. For example amazon started with rare books, Facebook started with a single college. So we niche group of people that can be our intial users and get the product to them.
  
  ## Google Jam Board Wireframe
  https://jamboard.google.com/d/1LWynuxxVeyc45X6N41isY2PIyIDuo3jgYEzz5vUAx0I/viewer?f=0
@@ -38,7 +39,6 @@
  * links can be embedded on the main qwki page.
  * users will vote for the best link. The top voted link will appear on the main page.
 
-
 ### Socal Media 
   * in order to ensure that the most up to date information is availible user will be able to discuss topic on the main qwki page
   * in order to do so they will need to create a user account (giving personal informataion)
@@ -49,7 +49,6 @@
   * suggested pages can include links to sponsored qwki pages
   * This will require use of machine learning 
 
-
 ## How This Project Can Generate Profit
 1. User Data that can be used to target ads
   * searched pages
@@ -57,8 +56,6 @@
   * infomation added to a qwki page
 2. Sponsored Pages
  
-
-
 ## Notes
 The domain name www.qwkipedia.com has been reserved. <br/>
 The Name Qwkipeda has been reserved in the Apple App store <br/>
