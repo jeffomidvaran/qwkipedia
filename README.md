@@ -39,7 +39,7 @@
  * links can be embedded on the main qwki page.
  * users will vote for the best link. The top voted link will appear on the main page.
 
-### Socal Media 
+### Social Media 
   * in order to ensure that the most up to date information is availible user will be able to discuss topic on the main qwki page
   * in order to do so they will need to create a user account (giving personal informataion)
   * It will be necessary to create a user profile pages (these pages will ask for users intrests)
