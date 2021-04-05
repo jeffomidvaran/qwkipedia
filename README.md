@@ -11,8 +11,8 @@
 3. make ugly figma   
 4. Many popular websites start with a niche user base. For example amazon started with rare books, Facebook started with a single college. So we niche group of people that can be our intial users and get the product to them.
  
- ## Google Jam Board Wireframe
- https://jamboard.google.com/d/1LWynuxxVeyc45X6N41isY2PIyIDuo3jgYEzz5vUAx0I/viewer?f=0
+ ## Capstone Project Description
+https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/edit#
 
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
