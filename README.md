@@ -65,3 +65,6 @@ https://fonts.google.com/specimen/Quicksand#standard-styles
 
 wireframes ios <br/>
 https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
+
+User Stories (Trello Board) <br/>
+https://trello.com/b/DvvhAHqT/user-stories
