@@ -14,6 +14,13 @@
  ## Capstone Project Description
 https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/edit#
 
+## wireframes ios 
+https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
+
+## User Stories (Trello Board) 
+https://trello.com/b/DvvhAHqT/user-stories
+
+
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
   * limiting the number of words forces responses to be kept simple and easily digestible
@@ -63,8 +70,3 @@ The Name Qwkipeda has been reserved in the Apple App store <br/>
 free for commercial use font used for logo <br/>
 https://fonts.google.com/specimen/Quicksand#standard-styles
 
-wireframes ios <br/>
-https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
-
-User Stories (Trello Board) <br/>
-https://trello.com/b/DvvhAHqT/user-stories
