@@ -5,3 +5,12 @@
 2. This project was built to support iOS 13.6 and higher
 3. Device Orientation is set to Portrait only
 4. This project was built using Xcode 12.4
+
+
+## For Anahita
+A good place to start since we are doing storyboards is with Swift and Constraints. <br/>
+https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html <br/>
+https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithConstraintsinInterfaceBuidler.html <br/>
+
+Not sure if there is time but this series of lectures is great too <br/>
+https://www.youtube.com/watch?v=71pyOB4TPRE&list=PLPA-ayBrweUzGFmkT_W65z64MoGnKRZMq <br/>
