@@ -1,0 +1,6 @@
+framework module Pods_qwkipedia {
+  umbrella header "Pods-qwkipedia-umbrella.h"
+
+  export *
+  module * { export * }
+}
