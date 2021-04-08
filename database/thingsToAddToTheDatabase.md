@@ -1,4 +1,5 @@
-# User
+# Things To Add To The Database
+## User
 1. Interest tags 
 2. Bio
 3. Friends list 
