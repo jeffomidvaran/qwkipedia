@@ -17,6 +17,9 @@ https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/
 ## wireframes ios 
 https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
 
+## wireframes Web
+https://www.figma.com/file/8tkYium9KhovWYdGKi9QK2/Qwkipedia-Web-Wireframes?node-id=0%3A1
+
 ## User Stories (Trello Board) 
 https://trello.com/b/DvvhAHqT/user-stories
 
