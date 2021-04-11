@@ -25,6 +25,9 @@ https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/
 ### Sprint Report 1
 https://docs.google.com/document/d/1IRlAaqaTfWHla5Km-LmWlZBQEmPyTG9OFmdWmQ_2OBk/edit
 
+### Slides For Class Presentation
+https://docs.google.com/presentation/d/1oafXez6u-Zjw5Sa51GYDInLvimq5KTy6cpX7Q22lw14/edit#slide=id.p
+
 
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
