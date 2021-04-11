@@ -39,7 +39,7 @@ https://docs.google.com/document/d/1IRlAaqaTfWHla5Km-LmWlZBQEmPyTG9OFmdWmQ_2OBk/
  * images can be uploaded to the main qwki page.
  * Users can vote for the top image that best demonstrates the topic. 
 
-### Audio (add later)
+### Audio
  * audio can be uploaded to the main qwki page.
  * Users can vote for the top audio that best demonstrates the topic. 
 
