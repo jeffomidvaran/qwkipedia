@@ -5,23 +5,28 @@
  Yifei Li yifeil27@uci.edu <br/>
  Jeff Omidvaran jomidvar@uci.edu <br/>
  
- ## To Do 
-1. Decide between SwiftUI and StoryBoard
-2. find a Web techonology to use
-3. make ugly figma   
+## To Do 
 4. Many popular websites start with a niche user base. For example amazon started with rare books, Facebook started with a single college. So we niche group of people that can be our intial users and get the product to them.
  
- ## Capstone Project Description
-https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/edit#
 
-## wireframes ios 
+## Wireframes
+### Wireframes iOS 
 https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
 
-## wireframes Web
+### Wireframes Web
 https://www.figma.com/file/8tkYium9KhovWYdGKi9QK2/Qwkipedia-Web-Wireframes?node-id=0%3A1
 
 ## User Stories (Trello Board) 
 https://trello.com/b/DvvhAHqT/user-stories
+
+
+
+## Assignments
+### Capstone Project Description
+https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/edit#
+
+### Sprint Report 1
+https://docs.google.com/document/d/1IRlAaqaTfWHla5Km-LmWlZBQEmPyTG9OFmdWmQ_2OBk/edit
 
 
 ## Main Features of Qwkipedia
