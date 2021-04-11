@@ -5,9 +5,9 @@
  Yifei Li yifeil27@uci.edu <br/>
  Jeff Omidvaran jomidvar@uci.edu <br/>
  
-## To Do 
-4. Many popular websites start with a niche user base. For example amazon started with rare books, Facebook started with a single college. So we niche group of people that can be our intial users and get the product to them.
- 
+
+ ## User Stories (Trello Board/ TO DO) 
+https://trello.com/b/DvvhAHqT/user-stories
 
 ## Wireframes
 ### Wireframes iOS 
@@ -15,9 +15,6 @@ https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-
 
 ### Wireframes Web
 https://www.figma.com/file/8tkYium9KhovWYdGKi9QK2/Qwkipedia-Web-Wireframes?node-id=0%3A1
-
-## User Stories (Trello Board) 
-https://trello.com/b/DvvhAHqT/user-stories
 
 
 
