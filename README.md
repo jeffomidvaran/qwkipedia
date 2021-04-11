@@ -10,10 +10,10 @@
 https://trello.com/b/DvvhAHqT/user-stories
 
 ## Wireframes
-### Wireframes iOS 
+### iOS 
 https://www.figma.com/file/v7gDIViwycv1IfzeTimGhO/qwkipedia-iOS-WireFrames?node-id=0%3A1
 
-### Wireframes Web
+### Web
 https://www.figma.com/file/8tkYium9KhovWYdGKi9QK2/Qwkipedia-Web-Wireframes?node-id=0%3A1
 
 
