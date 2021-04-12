@@ -28,6 +28,13 @@ https://docs.google.com/document/d/1IRlAaqaTfWHla5Km-LmWlZBQEmPyTG9OFmdWmQ_2OBk/
 ### Slides For Class Presentation 1
 https://docs.google.com/presentation/d/1oafXez6u-Zjw5Sa51GYDInLvimq5KTy6cpX7Q22lw14/edit#slide=id.p
 
+## Link For The Class Meetings
+### Spread Sheet
+https://docs.google.com/spreadsheets/d/1q9Mlgjoe_z72NS4QfSyyczqWh6lJ5yLKohvbTezIIoQ/edit#gid=0
+
+### Zoom Room
+https://uci.zoom.us/j/95989354121
+
 
 ## Main Features of Qwkipedia
 ### Qwk description of the topic (limited to 1000 words) 
