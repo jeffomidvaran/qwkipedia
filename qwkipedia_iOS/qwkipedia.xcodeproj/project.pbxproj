@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C07E6BE262A55E2000C054E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C07E6BD262A55E2000C054E /* GoogleService-Info.plist */; };
+		1C69035F262DE70500BB4DED /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69035E262DE70500BB4DED /* HomePageViewController.swift */; };
 		1C6C4E82262CB4680067B444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6C4E81262CB4680067B444 /* Assets.xcassets */; };
 		1C6C4EA1262CD2D60067B444 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */; };
 		1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA3262CD5170067B444 /* Constants.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		1C07E6BD262A55E2000C054E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C69035E262DE70500BB4DED /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		1C6C4E81262CB4680067B444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/AppIcons/Assets.xcassets; sourceTree = "<group>"; };
 		1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C6C4EA3262CD5170067B444 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */,
 				1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */,
 				1C6C4EBB262CD7D50067B444 /* SetInterestsViewController.swift */,
+				1C69035E262DE70500BB4DED /* HomePageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C6C4EBC262CD7D50067B444 /* SetInterestsViewController.swift in Sources */,
+				1C69035F262DE70500BB4DED /* HomePageViewController.swift in Sources */,
 				1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */,
 				1C6C4EA1262CD2D60067B444 /* LoginViewController.swift in Sources */,
 				7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */,

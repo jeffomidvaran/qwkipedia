@@ -11,6 +11,7 @@ struct K {
     static let creatoInterstSegue = "CreateToSetInterests"
     static let logintoCreateSegue = "LoginToCreate"
     static let createtologinSegue = "CreateToLogin"
+    static let loginToHomeSegue = "LoginToHome"
     
     
 }
