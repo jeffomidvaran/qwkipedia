@@ -81,8 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				7C1C34BD261D913F00C9F893 /* qwkipedia */,
-				1C6C4E7F262C97F90067B444 /* Views */,
-				1C6C4E85262CCCA00067B444 /* Controller */,
 				7C1C34BC261D913F00C9F893 /* Products */,
 				6B49817A744B645A23D8B78E /* Pods */,
 				8DB2F9B4F35BFE394B25D225 /* Frameworks */,
@@ -102,6 +100,8 @@
 			children = (
 				7C1C34BE261D913F00C9F893 /* AppDelegate.swift */,
 				7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */,
+				1C6C4E7F262C97F90067B444 /* Views */,
+				1C6C4E85262CCCA00067B444 /* Controller */,
 				1C6C4E81262CB4680067B444 /* Assets.xcassets */,
 				7C1C34C9261D914100C9F893 /* LaunchScreen.storyboard */,
 				7C1C34CC261D914100C9F893 /* Info.plist */,

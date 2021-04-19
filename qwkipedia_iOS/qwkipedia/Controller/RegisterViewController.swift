@@ -11,8 +11,8 @@ import Firebase
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var emailTextfield: UITextField!
-    
     @IBOutlet weak var passwordTextfield: UITextField!
+    
     @IBAction func createPressed(_ sender: UIButton) {
         
         if let email = emailTextfield.text, let password = passwordTextfield.text {
