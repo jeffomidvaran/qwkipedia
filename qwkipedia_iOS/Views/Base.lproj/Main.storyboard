@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Create account"/>
                                 <connections>
-                                    <segue destination="5W5-Q2-y6p" kind="show" identifier="LoginToCreate" id="Tht-qd-eLD"/>
+                                    <segue destination="5W5-Q2-y6p" kind="show" id="wOa-JU-Iwq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcom back," textAlignment="natural" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wit-3V-vGp">
@@ -108,7 +108,7 @@
         <!--Register View Controller-->
         <scene sceneID="7bm-dq-25v">
             <objects>
-                <viewController id="5W5-Q2-y6p" customClass="RegisterViewController" sceneMemberID="viewController">
+                <viewController id="5W5-Q2-y6p" customClass="RegisterViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xZK-IU-wRe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,9 +117,6 @@
                                 <rect key="frame" x="269" y="830" width="55" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Sign in"/>
-                                <connections>
-                                    <segue destination="Wtl-0J-e9P" kind="show" identifier="CreateToLogin" id="VLL-sx-0lX"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="YKU-RJ-iQH">
                                 <rect key="frame" x="44" y="351" width="326" height="146"/>
@@ -158,6 +155,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createPressed:" destination="5W5-Q2-y6p" eventType="touchUpInside" id="gTc-XM-4eB"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Create account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sEY-D1-M1g">
                                 <rect key="frame" x="102" y="222" width="210" height="39"/>
@@ -185,6 +185,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="NbD-A0-zSe"/>
                     <connections>
+                        <outlet property="EmailTextfield" destination="JAg-vg-xKk" id="RmC-Mb-0fl"/>
+                        <outlet property="passwordTextfield" destination="bFg-AX-GgO" id="L6z-TY-qys"/>
                         <segue destination="2Rv-m8-KtW" kind="show" identifier="CreateToSetInterests" id="J0N-aD-qUG"/>
                     </connections>
                 </viewController>
@@ -213,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l13-EK-Zmu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2792.753623188406" y="-433.25892857142856"/>
+            <point key="canvasLocation" x="2817" y="-546"/>
         </scene>
         <!--Set Bio View Controller-->
         <scene sceneID="94D-37-2wd">
