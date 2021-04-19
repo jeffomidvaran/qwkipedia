@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"
+            href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="big-box">
+  <div class="welcome-box">
+    <h4 class= "welcome-text">Welcome!</h4>
+    <h2 class= "signin-text">Sign In</h2>
+  </div>
+
+  <div class="input-div">
+    <EU> E-Mail or Username </EU> <br>
+    <i class="fa fa-envelope icon">
+    </i>
+    <input class="inputbox" type="input" placeholder="e.g.:elonmusk@mars.com"> <br>
+      <EU> Password </EU> <br>
+      <i class="fa fa-lock" style="font-size:22px"></i>
+    <input class="inputbox" type="password" placeholder="e.g.:abcd1234!#"></input> <br>
+  </div>
+  <p class="forgot-text" type="bold"> Forgot Password? </p><br><br>
+
+  <button type="button" onclick="login()">Sign In</button>
+  </div>
+</body>
+<style>
+.big-box {
+  /* container */
+/* Auto Layout */
+
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 28px 40px;
+
+position: fixed;
+width: 404px;
+height: 492px;
+left: 518px;
+top: 220px;
+
+background: #FFFFFF;
+/* Grey / T4 */
+
+border: 2px solid #ECECEC;
+box-sizing: border-box;
+border-radius: 16px;
+
+
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+
+}
+.welcome-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: 324px;
+  height: 56px;
+  left: 40px;
+  top: 48px;
+
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px 40px;
+
+}
+
+.welcome-text {
+  position: static;
+  width: 76px;
+  height: 20px;
+  left: 0px;
+  top: 0px;
+}
+/* H4 */
+h4 {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+/* identical to box height, or 125% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #98989E;
+
+}
+.signin-text {
+  /* Sign In */
+
+position: static;
+width: 80px;
+height: 32px;
+left: 0px;
+top: 24px;
+}
+h2 {
+/* H2 */
+  font-family: Inter;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+
+  color: #212429;
+  /* Inside Auto Layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 4px 0px;
+}
+
+.gap-40 {
+  width:100%;
+  height:40px;
+}
+.input-div {
+  position: static;
+}
+.input-div i {
+    position: absolute;
+    padding: 10px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 9px 0px;
+}
+
+
+  .input-block {
+    /* Auto Layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 324px;
+    height: 152px;
+    left: 40px;
+    top: 144px;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px 0px;
+  }
+
+  EU {
+    /* E-Mail or Username */
+
+
+      position: static;
+      width: 114px;
+      height: 16px;
+      left: 0px;
+      top: 0px;
+
+      /* Body 2 */
+
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      /* identical to box height, or 133% */
+
+
+      /* Black */
+
+      color: #212429;
+  }
+
+  bold {
+    position: static;
+    width: 136px;
+    height: 20px;
+    left: 40px;
+    top: 336px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 10px;
+  }
+  .input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+  .inputbox {
+    position: static;
+    width: 324px;
+    height: 40px;
+    left: 0px;
+    top: 24px;
+    padding: 10px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 8px 0px;
+
+    position: static;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    border: px solid #D8D8D8;
+    box-sizing: border-box;
+    border-radius: 24px;
+    padding-left: 40px;
+
+  }
+  .forgot-text {
+    /* Forgot password? */
+
+
+    position: static;
+    width: 136px;
+    height: 20px;
+    left: 40px;
+    top: 336px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 10px;
+    /* or 67% */
+
+
+    color: #000000;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+  button {
+    position: static;
+    width: 324px;
+    height: 48px;
+    left: 40px;
+    top: 396px;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 3;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 40px 0px;
+
+    position: static;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    background: #3C64B1;
+    border-radius: 24px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+  }
+</style>
+
+<script type="text/javascript">
+
+
+  function login() {
+    let email = document.getElementById("email_login").value;
+    let password = document.getElementById("password_login").value;
+    auth.signInWithEmailAndPassword(email, password).then(function() {
+      // Sign-in successful.
+      window.location.href = "./main.html";
+    }).catch(function(error) {
+      // An error happened.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      alert(errorMessage  + "\nPlease try again.");
+    });
+  }
+</script>
+
+</html>
