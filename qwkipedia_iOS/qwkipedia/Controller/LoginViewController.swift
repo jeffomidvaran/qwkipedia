@@ -12,13 +12,18 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var email: UITextField!    
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func signinPressed(_ sender: UIButton) {
+        
         if let email = email.text, let password = password.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if let e = error {
-                    print(e)
-                } else {
+                if error != nil {
+                    // Couldn't sign in
+                    self.errorLabel.text = error!.localizedDescription
+                    self.errorLabel.alpha = 1
+                }
+                else {
                     self.performSegue(withIdentifier: K.loginToHomeSegue, sender: self)
                 }
             }
@@ -27,6 +32,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        errorLabel.alpha = 0 //Hiding the error label
     }
 
     
