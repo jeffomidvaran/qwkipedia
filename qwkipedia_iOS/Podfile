@@ -9,6 +9,7 @@ target 'qwkipedia' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'IQKeyboardManager' 
   
   post_install do |installer|
    installer.pods_project.targets.each do |target|

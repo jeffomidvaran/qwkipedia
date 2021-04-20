@@ -15,6 +15,16 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var NameTextfield: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,7 +92,7 @@ class RegisterViewController: UIViewController {
                         }
                 }
                     //transition to Home page
-                    self.performSegue(withIdentifier: K.creatoInterstSegue, sender: self)
+                    self.performSegue(withIdentifier: Segues.createtoInterstSegue, sender: self)
             }
         }
     }

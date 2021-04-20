@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!    
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var animatedText: UITextField!
     
     @IBAction func signinPressed(_ sender: UIButton) {
         
@@ -24,15 +25,35 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 }
                 else {
-                    self.performSegue(withIdentifier: K.loginToHomeSegue, sender: self)
+                    self.performSegue(withIdentifier: Segues.loginToHomeSegue, sender: self)
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         errorLabel.alpha = 0 //Hiding the error label
+        animatedText.text = ""
+        var charIndex = 0.0
+        let titleText = "Sign in to continue"
+        for letter in titleText {
+            Timer.scheduledTimer(withTimeInterval: 0.08 * charIndex, repeats: false) { (timer) in
+                self.animatedText.text?.append(letter)
+            }
+            charIndex += 1
+        }
+        
     }
 
     

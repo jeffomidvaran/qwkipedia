@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct K {
-    static let creatoInterstSegue = "CreateToSetInterests"
+struct Segues {
+    static let createtoInterstSegue = "CreateToSetInterests"
     static let logintoCreateSegue = "LoginToCreate"
     static let createtologinSegue = "CreateToLogin"
     static let loginToHomeSegue = "LoginToHome"
