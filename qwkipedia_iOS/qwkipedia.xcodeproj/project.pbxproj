@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A499EA1345D9A66EFF96BA6 /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC6913478EBFF01F5B50BE9 /* Pods_qwkipedia.framework */; };
+		1C69035F262DE70500BB4DED /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C69035E262DE70500BB4DED /* HomePageViewController.swift */; };
+		1C6C4E82262CB4680067B444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C6C4E81262CB4680067B444 /* Assets.xcassets */; };
+		1C6C4EA1262CD2D60067B444 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */; };
+		1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA3262CD5170067B444 /* Constants.swift */; };
+		1C6C4EBC262CD7D50067B444 /* SetInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EBB262CD7D50067B444 /* SetInterestsViewController.swift */; };
+		1C6EE592262E7FE20067F869 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE591262E7FE20067F869 /* Utilities.swift */; };
 		7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34BE261D913F00C9F893 /* AppDelegate.swift */; };
 		7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */; };
+		7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */; };
 		7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C34C4261D913F00C9F893 /* Main.storyboard */; };
-		7C1C34C8261D914100C9F893 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C34C7261D914100C9F893 /* Assets.xcassets */; };
 		7C1C34CB261D914100C9F893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C34C9261D914100C9F893 /* LaunchScreen.storyboard */; };
 		7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */; };
 		7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */; };
@@ -20,15 +25,22 @@
 		7C653983262E41B800014A51 /* QwkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653982262E41B800014A51 /* QwkColors.swift */; };
 		7C65398B262E63B000014A51 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65398A262E63B000014A51 /* UIImageExtensions.swift */; };
 		7C689410262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */; };
+		7C95ECD9262FD52600190EDA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C95ECD8262FD52600190EDA /* GoogleService-Info.plist */; };
+		9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6FDB4B64A435917A86AFCFB4 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
+		1C69035E262DE70500BB4DED /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		1C6C4E81262CB4680067B444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1C6C4EA3262CD5170067B444 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1C6C4EBB262CD7D50067B444 /* SetInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInterestsViewController.swift; sourceTree = "<group>"; };
+		1C6EE591262E7FE20067F869 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1C34BE261D913F00C9F893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7C1C34C5261D913F00C9F893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7C1C34C7261D914100C9F893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C1C34CA261D914100C9F893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C1C34CC261D914100C9F893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +50,10 @@
 		7C653982262E41B800014A51 /* QwkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwkColors.swift; sourceTree = "<group>"; };
 		7C65398A262E63B000014A51 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		85140156F0AF48A080959851 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
-		BDC6913478EBFF01F5B50BE9 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C95ECD8262FD52600190EDA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
+		92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,18 +61,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A499EA1345D9A66EFF96BA6 /* Pods_qwkipedia.framework in Frameworks */,
+				9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C6C4E85262CCCA00067B444 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C653977262E14CB00014A51 /* HomePageCollectionViewController.swift */,
+				7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */,
+				7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */,
+				7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */,
+				1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */,
+				1C6C4EBB262CD7D50067B444 /* SetInterestsViewController.swift */,
+				1C69035E262DE70500BB4DED /* HomePageViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1C6EE590262E7FB60067F869 /* GlobalModels */ = {
+			isa = PBXGroup;
+			children = (
+				7C65398A262E63B000014A51 /* UIImageExtensions.swift */,
+				7C653982262E41B800014A51 /* QwkColors.swift */,
+				1C6C4EA3262CD5170067B444 /* Constants.swift */,
+				1C6EE591262E7FE20067F869 /* Utilities.swift */,
+			);
+			path = GlobalModels;
+			sourceTree = "<group>";
+		};
+		48243A56626DBE4CC21AB469 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6B49817A744B645A23D8B78E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6FDB4B64A435917A86AFCFB4 /* Pods-qwkipedia.debug.xcconfig */,
-				85140156F0AF48A080959851 /* Pods-qwkipedia.release.xcconfig */,
+				B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */,
+				8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -69,7 +116,7 @@
 				7C1C34BD261D913F00C9F893 /* qwkipedia */,
 				7C1C34BC261D913F00C9F893 /* Products */,
 				6B49817A744B645A23D8B78E /* Pods */,
-				8DB2F9B4F35BFE394B25D225 /* Frameworks */,
+				48243A56626DBE4CC21AB469 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,26 +134,24 @@
 				7C1C34BE261D913F00C9F893 /* AppDelegate.swift */,
 				7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */,
 				7C1C34C4261D913F00C9F893 /* Main.storyboard */,
-				7C653977262E14CB00014A51 /* HomePageCollectionViewController.swift */,
-				7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */,
-				7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */,
-				7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */,
-				7C65397B262E181800014A51 /* TopicPreviewCollectionViewCell.swift */,
-				7C1C34C7261D914100C9F893 /* Assets.xcassets */,
+				1C6EE590262E7FB60067F869 /* GlobalModels */,
+				1C6C4E85262CCCA00067B444 /* ViewControllers */,
+				7CAE80CF262FEE4700CB1979 /* CollectionViewCells */,
+				1C6C4E81262CB4680067B444 /* Assets.xcassets */,
 				7C1C34C9261D914100C9F893 /* LaunchScreen.storyboard */,
+				7C95ECD8262FD52600190EDA /* GoogleService-Info.plist */,
 				7C1C34CC261D914100C9F893 /* Info.plist */,
-				7C65398A262E63B000014A51 /* UIImageExtensions.swift */,
-				7C653982262E41B800014A51 /* QwkColors.swift */,
 			);
 			path = qwkipedia;
 			sourceTree = "<group>";
 		};
-		8DB2F9B4F35BFE394B25D225 /* Frameworks */ = {
+		7CAE80CF262FEE4700CB1979 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				BDC6913478EBFF01F5B50BE9 /* Pods_qwkipedia.framework */,
+				7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */,
+				7C65397B262E181800014A51 /* TopicPreviewCollectionViewCell.swift */,
 			);
-			name = Frameworks;
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,11 +161,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C1C34CF261D914100C9F893 /* Build configuration list for PBXNativeTarget "qwkipedia" */;
 			buildPhases = (
-				A219D8ACFADF4B4F7379062D /* [CP] Check Pods Manifest.lock */,
+				392D4B05BFFA63450DB8EA97 /* [CP] Check Pods Manifest.lock */,
 				7C1C34B7261D913F00C9F893 /* Sources */,
 				7C1C34B8261D913F00C9F893 /* Frameworks */,
 				7C1C34B9261D913F00C9F893 /* Resources */,
-				727B5DF98EB0FEBADF40F228 /* [CP] Embed Pods Frameworks */,
+				3245C159A1A00AB7BE9C088F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -169,15 +214,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C1C34CB261D914100C9F893 /* LaunchScreen.storyboard in Resources */,
-				7C1C34C8261D914100C9F893 /* Assets.xcassets in Resources */,
+				7C95ECD9262FD52600190EDA /* GoogleService-Info.plist in Resources */,
 				7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */,
+				1C6C4E82262CB4680067B444 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		727B5DF98EB0FEBADF40F228 /* [CP] Embed Pods Frameworks */ = {
+		3245C159A1A00AB7BE9C088F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -194,7 +240,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A219D8ACFADF4B4F7379062D /* [CP] Check Pods Manifest.lock */ = {
+		392D4B05BFFA63450DB8EA97 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -229,6 +275,12 @@
 				7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */,
 				7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */,
 				7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */,
+				1C6C4EBC262CD7D50067B444 /* SetInterestsViewController.swift in Sources */,
+				1C69035F262DE70500BB4DED /* HomePageViewController.swift in Sources */,
+				1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */,
+				1C6C4EA1262CD2D60067B444 /* LoginViewController.swift in Sources */,
+				7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */,
+				1C6EE592262E7FE20067F869 /* Utilities.swift in Sources */,
 				7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */,
 				7C65397C262E181800014A51 /* TopicPreviewCollectionViewCell.swift in Sources */,
 				7C653983262E41B800014A51 /* QwkColors.swift in Sources */,
@@ -308,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -363,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -375,10 +427,8 @@
 		};
 		7C1C34D0261D914100C9F893 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FDB4B64A435917A86AFCFB4 /* Pods-qwkipedia.debug.xcconfig */;
+			baseConfigurationReference = B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PTR25572E;
 				INFOPLIST_FILE = qwkipedia/Info.plist;
@@ -396,10 +446,8 @@
 		};
 		7C1C34D1261D914100C9F893 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85140156F0AF48A080959851 /* Pods-qwkipedia.release.xcconfig */;
+			baseConfigurationReference = 8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PTR25572E;
 				INFOPLIST_FILE = qwkipedia/Info.plist;

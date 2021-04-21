@@ -1,5 +1,5 @@
 #Uncomment the next line to define a global platform for your project
-# platform :ios, '12.0'
+platform :ios, '12.0'
 
 target 'qwkipedia' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -9,5 +9,7 @@ target 'qwkipedia' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'IQKeyboardManager'
+
 
 end
