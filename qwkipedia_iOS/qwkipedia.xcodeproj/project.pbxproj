@@ -18,6 +18,7 @@
 		7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */; };
 		7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C34C4261D913F00C9F893 /* Main.storyboard */; };
 		7C1C34CB261D914100C9F893 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C34C9261D914100C9F893 /* LaunchScreen.storyboard */; };
+		7C2D5C8D2630E01D00342658 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C2D5C8C2630E01D00342658 /* GoogleService-Info.plist */; };
 		7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */; };
 		7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */; };
 		7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653977262E14CB00014A51 /* HomePageCollectionViewController.swift */; };
@@ -25,7 +26,6 @@
 		7C653983262E41B800014A51 /* QwkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653982262E41B800014A51 /* QwkColors.swift */; };
 		7C65398B262E63B000014A51 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65398A262E63B000014A51 /* UIImageExtensions.swift */; };
 		7C689410262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */; };
-		7C95ECD9262FD52600190EDA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C95ECD8262FD52600190EDA /* GoogleService-Info.plist */; };
 		9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +43,7 @@
 		7C1C34C5261D913F00C9F893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C1C34CA261D914100C9F893 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C1C34CC261D914100C9F893 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C2D5C8C2630E01D00342658 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		7C653977262E14CB00014A51 /* HomePageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		7C653982262E41B800014A51 /* QwkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwkColors.swift; sourceTree = "<group>"; };
 		7C65398A262E63B000014A51 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		7C95ECD8262FD52600190EDA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
 		92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				7CAE80CF262FEE4700CB1979 /* CollectionViewCells */,
 				1C6C4E81262CB4680067B444 /* Assets.xcassets */,
 				7C1C34C9261D914100C9F893 /* LaunchScreen.storyboard */,
-				7C95ECD8262FD52600190EDA /* GoogleService-Info.plist */,
+				7C2D5C8C2630E01D00342658 /* GoogleService-Info.plist */,
 				7C1C34CC261D914100C9F893 /* Info.plist */,
 			);
 			path = qwkipedia;
@@ -214,7 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C1C34CB261D914100C9F893 /* LaunchScreen.storyboard in Resources */,
-				7C95ECD9262FD52600190EDA /* GoogleService-Info.plist in Resources */,
+				7C2D5C8D2630E01D00342658 /* GoogleService-Info.plist in Resources */,
 				7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */,
 				1C6C4E82262CB4680067B444 /* Assets.xcassets in Resources */,
 			);
