@@ -9,22 +9,21 @@ import UIKit
 
 class SearchCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    
+    let tableViewCellReuseIdentifier = "SearchResultTableViewCell"
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
-    let tableViewCellReuseIdentifier = "SearchResultTableViewCell"
     
-    var allData = ["Animals", "Puppies", "Cats", "Guitars", "Basketball", "Irvine, California"]
+    let allData = ["Animals", "Apples", "Puppies", "Cats", "Guitars", "Basketball", "Irvine, California"]
     var filteredSearchResults = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchResultsTableView.delegate = self
+        searchResultsTableView.dataSource = self
         navigationItem.titleView = searchBar
         filteredSearchResults = allData
     }
-
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredSearchResults.count
@@ -39,8 +38,26 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let indexPath = searchResultsTableView.indexPathForSelectedRow
+        let topicViewController = segue.destination as! TopicPageViewController
+        topicViewController.text = filteredSearchResults[indexPath!.row]
     }
 
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredSearchResults = allData.filter({
+            $0.prefix(searchText.count).lowercased() == searchText.lowercased()
+            
+        })
+        searchResultsTableView.reloadData()
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = "Search"
+        filteredSearchResults = allData
+        searchResultsTableView.reloadData()
+    }
+    
+    
 }
