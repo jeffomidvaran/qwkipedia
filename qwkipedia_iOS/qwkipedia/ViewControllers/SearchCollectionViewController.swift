@@ -46,8 +46,14 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredSearchResults = allData.filter({
-            $0.prefix(searchText.count).lowercased() == searchText.lowercased()
-            
+            let tokens = $0.components(separatedBy: ", ")
+            for token in tokens {
+                let result = token.prefix(searchText.count).lowercased() == searchText.lowercased()
+                if result == true {
+                    return true
+                }
+            }
+            return false
         })
         searchResultsTableView.reloadData()
     }

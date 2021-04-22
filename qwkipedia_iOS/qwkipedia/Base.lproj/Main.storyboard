@@ -531,10 +531,10 @@
                         <viewLayoutGuide key="safeArea" id="edC-Ju-hgv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="trailing" secondItem="edC-Ju-hgv" secondAttribute="trailing" constant="8" id="Hhq-Cb-Jrm"/>
-                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="leading" secondItem="edC-Ju-hgv" secondAttribute="leading" constant="8" id="aiY-Fn-tA1"/>
-                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="bottom" secondItem="edC-Ju-hgv" secondAttribute="bottom" constant="8" id="f4q-FT-Afs"/>
-                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="top" secondItem="edC-Ju-hgv" secondAttribute="top" constant="8" id="jSP-z4-ce6"/>
+                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="leading" secondItem="edC-Ju-hgv" secondAttribute="leading" constant="8" id="Awq-Uc-Yu7"/>
+                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="trailing" secondItem="edC-Ju-hgv" secondAttribute="trailing" constant="8" id="IQA-kv-WGB"/>
+                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="top" secondItem="edC-Ju-hgv" secondAttribute="top" constant="8" id="Oef-3Q-mP2"/>
+                            <constraint firstItem="4Xb-XJ-MXb" firstAttribute="bottom" secondItem="edC-Ju-hgv" secondAttribute="bottom" constant="8" id="oK4-RF-6XZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MEL-Qj-Eq8"/>
@@ -553,7 +553,7 @@
                     </connections>
                 </searchBar>
             </objects>
-            <point key="canvasLocation" x="6239" y="3417"/>
+            <point key="canvasLocation" x="6237.68115942029" y="3416.5178571428569"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="08r-7k-Pb9">
