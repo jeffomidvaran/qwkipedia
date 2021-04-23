@@ -7,28 +7,43 @@
 
 import UIKit
 
-class TopicPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class TopicPageViewController: UIViewController {
+     
     
-    let headerReuseIdentifier = "topicPageHeaderCell"
-    let qwkDescriptionReuseIdentifier = "qwkDescriptionCell"
-    let videoReuseIdentifier = "topicPageVideoCell"
-    let imageReuseIdentifier = "topicPageImageCell"
-    let audioReuseIdentifier = "topicPageAudioCell"
-    let discussionReuseIdentifier = "topicPageDiscussionCell"
-    let expertSummaryReuseIdentifier = "topicPageExpertSummaryCell"
-    let externalLinksReuseIdentifier = "topicPageExternalLinksCell"
-    let qwkRecommendationsReuseIdentifier = "topicPageQwkRecomnedationsCell"
+    fileprivate let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(TopicHeaderCollectionViewCell.self, forCellWithReuseIdentifier: TopicHeaderCollectionViewCell.identifier)
+        cv.register(TopicQwkDescriptionCollectionViewCell.self, forCellWithReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier)
+        cv.register(TopicVideoCollectionViewCell.self, forCellWithReuseIdentifier: TopicVideoCollectionViewCell.identifier)
+        cv.register(TopicImageCollectionViewCell.self, forCellWithReuseIdentifier: TopicImageCollectionViewCell.identifier)
+        cv.register(TopicAudioCollectionViewCell.self, forCellWithReuseIdentifier: TopicAudioCollectionViewCell.identifier)
+        cv.register(TopicDiscussionCollectionViewCell.self, forCellWithReuseIdentifier: TopicDiscussionCollectionViewCell.identifier)
+        cv.register(TopicExpertSummaryCollectionViewCell.self, forCellWithReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier)
+        cv.register(TopicExternalLinksCollectionViewCell.self, forCellWithReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier)
+        cv.register(TopicQwkRecomendtionsCollectionViewCell.self, forCellWithReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier)
+        return cv
+    }()
     
-    
-    @IBOutlet weak var topicPageCollectionView: UICollectionView!
-    var text = "Nothing Set"
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = topicPageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: view.frame.width - 16, height: 144.5)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+        ])
     }
-    
-    
+}
+
+
+extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 9
     }
@@ -37,40 +52,32 @@ class TopicPageViewController: UIViewController, UICollectionViewDataSource, UIC
         
         switch indexPath[1]{
         case 0:
-            print("Header")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: headerReuseIdentifier , for: indexPath) as! TopicHeaderCollectionViewCell
+            print("in the zero case")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicHeaderCollectionViewCell.identifier , for: indexPath) as! TopicHeaderCollectionViewCell
             return cell
         case 1:
-            print("QwkDescription")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: qwkDescriptionReuseIdentifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
             return cell
         case 2:
-            print("Video")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: videoReuseIdentifier , for: indexPath) as! TopicVideoCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicVideoCollectionViewCell.identifier  , for: indexPath) as! TopicVideoCollectionViewCell
             return cell
         case 3:
-            print("Image")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageReuseIdentifier , for: indexPath) as! TopicImageCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
             return cell
         case 4:
-            print("Audio")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: audioReuseIdentifier , for: indexPath) as! TopicAudioCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicAudioCollectionViewCell.identifier  , for: indexPath) as! TopicAudioCollectionViewCell
             return cell
         case 5:
-            print("Discussion")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: discussionReuseIdentifier , for: indexPath) as! TopicDiscussionCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
             return cell
         case 6:
-            print("Expert Summary")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: expertSummaryReuseIdentifier , for: indexPath) as! TopicExpertSummaryCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier  , for: indexPath) as! TopicExpertSummaryCollectionViewCell
             return cell
         case 7:
-            print("External Links")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: externalLinksReuseIdentifier , for: indexPath) as! TopicExternalLinksCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
             return cell
         case 8:
-            print("Qwk Recommendations")
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: qwkRecommendationsReuseIdentifier , for: indexPath) as! TopicQwkRecomendtionsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier , for: indexPath) as! TopicQwkRecomendtionsCollectionViewCell
             return cell
         default:
             fatalError()
@@ -80,46 +87,33 @@ class TopicPageViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let frameWidth = view.safeAreaLayoutGuide.layoutFrame.width
-        let frameHeight = view.safeAreaLayoutGuide.layoutFrame.height
         
-        var width: CGFloat = frameWidth
-        var height: CGFloat = 10.0
+        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width
+        var height: CGFloat =  0.0
         
         switch indexPath[1]{
         case 0:
-            print("Header")
-            height = 50.0
+            height = 30.0
         case 1:
-            print("QwkDescription")
             height = 200.0
         case 2:
-            print("Video")
             height = 400.0
         case 3:
-            print("Image")
             height = 400.0
         case 4:
-            print("Audio")
             height = 100.0
         case 5:
-            print("Discussion")
             height = 400.0
         case 6:
-            print("Expert Summary")
             height = 600.0
         case 7:
-            print("External Links")
             height = 200.0
         case 8:
-            print("Qwk Recommendations")
             height = 100.0
         default:
             fatalError()
         }
         return CGSize(width: width, height: height)
     }
-    
-    
-}
 
+}
