@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wtl-0J-e9P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iVz-c7-fqT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -326,7 +326,7 @@
             </objects>
             <point key="canvasLocation" x="-3919" y="3277"/>
         </scene>
-        <!--Home Page Collection View Controller-->
+        <!--Qwkipedia-->
         <scene sceneID="1w7-zp-xez">
             <objects>
                 <collectionViewController id="ni6-tP-Gk3" customClass="HomePageCollectionViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -395,10 +395,7 @@
                             <outlet property="delegate" destination="ni6-tP-Gk3" id="HI4-4j-IWp"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="DTD-3w-lSk">
-                        <barButtonItem key="leftBarButtonItem" title="Qwkipedia" id="j6a-Ll-WCk"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="OFS-Ri-rpO"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Qwkipedia" largeTitleDisplayMode="always" id="DTD-3w-lSk"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRd-lf-L81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -416,10 +413,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="QO8-sv-4sl" kind="relationship" relationship="viewControllers" id="eUU-35-QGt"/>
                         <segue destination="oWl-63-JwS" kind="relationship" relationship="viewControllers" id="ef0-C4-7xV"/>
                         <segue destination="fIM-Rz-Pmh" kind="relationship" relationship="viewControllers" id="14w-Jz-s6c"/>
-                        <segue destination="QO8-sv-4sl" kind="relationship" relationship="viewControllers" id="eUU-35-QGt"/>
-                        <segue destination="wSy-Ul-WhB" kind="relationship" relationship="viewControllers" id="x1c-cL-Z8K"/>
+                        <segue destination="lEW-tt-NiA" kind="relationship" relationship="viewControllers" id="x1c-cL-Z8K"/>
                         <segue destination="boe-7u-TeL" kind="relationship" relationship="viewControllers" id="Ibg-ul-dCG"/>
                     </connections>
                 </tabBarController>
@@ -581,12 +578,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="V0O-EC-ZNe">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="0E0-ta-QPh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="0E0-ta-QPh">
+                            <connections>
+                                <segue destination="zYa-9n-Jya" kind="popoverPresentation" popoverAnchorBarButtonItem="0E0-ta-QPh" id="Sy1-AD-bdp">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6G-ax-FiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6239.130434782609" y="4810.7142857142853"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pYh-Zo-YFa">
+            <objects>
+                <viewController id="zYa-9n-Jya" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KlN-LC-3bB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="F6n-Hm-hnf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3wV-t0-87k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FA-l2-IQs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7261" y="4811"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZRN-uF-q4Q">
@@ -598,11 +617,11 @@
                         <viewLayoutGuide key="safeArea" id="m3x-j1-9jf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="message" catalog="system" id="v4P-XO-Xcu"/>
+                    <navigationItem key="navigationItem" id="Gx7-aK-RQO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0k-dC-Oge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5330" y="4151"/>
+            <point key="canvasLocation" x="6239.130434782609" y="4150.4464285714284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M8c-31-ebZ">
@@ -698,7 +717,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topicPageHeaderCell" id="gyl-fg-zoI">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="topicPageHeaderCell" id="gyl-fg-zoI" customClass="TopicHeaderCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="le3-ye-dsG">
@@ -708,7 +727,7 @@
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <size key="customSize" width="119" height="128"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="qwkDescriptionCell" id="YDN-gX-rBv">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="qwkDescriptionCell" id="YDN-gX-rBv" customClass="TopicQwkDescriptionCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="147.5" y="0.0" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qms-ep-zNk">
@@ -717,7 +736,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageVideoCell" id="7SY-eX-NGS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageVideoCell" id="7SY-eX-NGS" customClass="TopicVideoCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="295" y="0.0" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9ga-vn-onZ">
@@ -726,7 +745,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageImageCell" id="MN7-C1-U6G">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageImageCell" id="MN7-C1-U6G" customClass="TopicImageCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="138" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uaa-2I-4Wb">
@@ -735,7 +754,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageAudioCell" id="NHm-aO-c6s">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageAudioCell" id="NHm-aO-c6s" customClass="TopicAudioCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="147.5" y="138" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hew-Jy-AZA">
@@ -744,7 +763,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageDiscussionCell" id="IuV-7o-cby">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageDiscussionCell" id="IuV-7o-cby" customClass="TopicDiscussionCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="295" y="138" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Aal-aY-rjb">
@@ -753,7 +772,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageExpertSummaryCell" id="qja-Hp-Wqt">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageExpertSummaryCell" id="qja-Hp-Wqt" customClass="TopicExpertSummaryCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="276" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="268-t1-uw9">
@@ -762,7 +781,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageExternalLinksCell" id="jRl-O2-P2b">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageExternalLinksCell" id="jRl-O2-P2b" customClass="TopicExternalLinksCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="147.5" y="276" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qot-gS-zOX">
@@ -771,7 +790,7 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageQwkRecomnedationsCell" id="P49-RX-KH3">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topicPageQwkRecomnedationsCell" id="P49-RX-KH3" customClass="TopicQwkRecomendtionsCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
                                         <rect key="frame" x="295" y="276" width="119" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2JH-nE-AAb">
@@ -805,14 +824,32 @@
             </objects>
             <point key="canvasLocation" x="8221.7391304347839" y="3051.5625"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="978-K5-e3F">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lEW-tt-NiA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="message" catalog="system" id="v4P-XO-Xcu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FZa-Ma-hRv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wSy-Ul-WhB" kind="relationship" relationship="rootViewController" id="wnI-VJ-xrr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzr-fA-BZm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5328.985507246377" y="4150.4464285714284"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5RF-JW-ctB"/>
+        <segue reference="f4N-Jh-ZV8"/>
         <segue reference="LPU-CT-iJj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="animals" width="400" height="300"/>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house" catalog="system" width="128" height="106"/>
