@@ -12,7 +12,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
 
     fileprivate let myLabel: UILabel = {
         let _label = UILabel()
-        _label.text = "qwk description"
+        _label.text = "video"
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()
@@ -20,8 +20,11 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(myLabel)
-        contentView.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        print("topic header called")
+        
+        
+        contentView.layer.cornerRadius = 10
+        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
+        contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
             myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
