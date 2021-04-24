@@ -52,7 +52,6 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         
         switch indexPath[1]{
         case 0:
-            print("in the zero case")
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicHeaderCollectionViewCell.identifier , for: indexPath) as! TopicHeaderCollectionViewCell
             return cell
         case 1:

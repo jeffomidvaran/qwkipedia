@@ -10,27 +10,26 @@ import UIKit
 class TopicImageCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageImageCell"
 
-    fileprivate let myLabel: UILabel = {
-        let _label = UILabel()
-        _label.text = "Image"
-        _label.translatesAutoresizingMaskIntoConstraints = false
-        return _label
+    fileprivate let image: UIImageView = {
+        let _image = UIImageView()
+        _image.image = #imageLiteral(resourceName: "puppy")
+        _image.translatesAutoresizingMaskIntoConstraints = false
+        return _image
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(myLabel)
-        
+        contentView.addSubview(image)
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-        
+            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
         
     }

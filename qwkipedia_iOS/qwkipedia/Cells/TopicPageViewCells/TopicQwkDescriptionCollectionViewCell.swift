@@ -7,20 +7,22 @@
 
 import UIKit
 
+
 class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
 
     public static let identifier = "topicPageQwkDescriptionCell"
 
-    fileprivate let myLabel: UILabel = {
+    fileprivate let qwkDescriptionLabel: UILabel = {
         let _label = UILabel()
-        _label.text = "qwk description"
+        _label.text = DummyData.qwkDescription
+        _label.numberOfLines = 0
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(myLabel)
+        contentView.addSubview(qwkDescriptionLabel)
         
         
         contentView.layer.cornerRadius = 10
@@ -28,10 +30,10 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-        
+            qwkDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            qwkDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            qwkDescriptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            qwkDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
         ])
         
     }

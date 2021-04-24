@@ -63,7 +63,3 @@ class FavoritesCollectionViewController: UICollectionViewController, UISearchBar
 
 }
 
-struct TempItem {
-    var name: String
-    var image: UIImage?
-}

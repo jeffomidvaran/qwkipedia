@@ -12,7 +12,8 @@ class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
 
     fileprivate let myLabel: UILabel = {
         let _label = UILabel()
-        _label.text = "expert summary"
+        _label.numberOfLines = 0
+        _label.text = DummyData.expertSummary
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()
@@ -27,10 +28,11 @@ class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-        
+            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            myLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            myLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+
         ])
         
     }
