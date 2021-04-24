@@ -14,7 +14,7 @@ class TopicHeaderCollectionViewCell: UICollectionViewCell {
     
     fileprivate let myLabel: UILabel = {
         let _label = UILabel()
-        _label.text = "Puppies"
+        _label.text = DummyData.title
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()

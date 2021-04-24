@@ -17,7 +17,7 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
     let allData = [
         TempData(name: "Animals",image: #imageLiteral(resourceName: "animals")),
         TempData(name: "Apples", image: #imageLiteral(resourceName: "apples")),
-        TempData(name: "Puppies", image: #imageLiteral(resourceName: "puppy") ),
+        TempData(name: "Puppy", image: #imageLiteral(resourceName: "puppy") ),
         TempData(name: "Cats", image: #imageLiteral(resourceName: "cats")),
         TempData(name: "Guitars",image: #imageLiteral(resourceName: "guitar") ),
         TempData(name: "Basketball", image: #imageLiteral(resourceName: "basketball")),
