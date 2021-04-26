@@ -106,7 +106,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 6:
             height = 600.0
         case 7:
-            height = 200.0
+            height = 150.0
         case 8:
             height = 100.0
         default:

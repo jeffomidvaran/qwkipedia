@@ -28,6 +28,7 @@
 		7C653983262E41B800014A51 /* QwkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653982262E41B800014A51 /* QwkColors.swift */; };
 		7C65398B262E63B000014A51 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65398A262E63B000014A51 /* UIImageExtensions.swift */; };
 		7C689410262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */; };
+		7CA9F20B2636990000C28A62 /* ExternalLinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9F20A2636990000C28A62 /* ExternalLinkCollectionViewCell.swift */; };
 		7CB2C5402633757A003A2F24 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2C53F2633757A003A2F24 /* DummyData.swift */; };
 		7CB2C54326338F12003A2F24 /* puppySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2C54226338F12003A2F24 /* puppySound.wav */; };
 		7CE25B59263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */; };
@@ -66,6 +67,7 @@
 		7C653982262E41B800014A51 /* QwkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwkColors.swift; sourceTree = "<group>"; };
 		7C65398A262E63B000014A51 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CA9F20A2636990000C28A62 /* ExternalLinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CB2C53F2633757A003A2F24 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		7CB2C54226338F12003A2F24 /* puppySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = puppySound.wav; sourceTree = "<group>"; };
 		7CB2C55D2633AB85003A2F24 /* puppy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = puppy.mp4; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		7CE25B562632421F00ADFEDD /* TopicPageViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				7CA9F20A2636990000C28A62 /* ExternalLinkCollectionViewCell.swift */,
 				7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */,
 				7CE25B5B263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift */,
 				7CE25B5E2632450000ADFEDD /* TopicVideoCollectionViewCell.swift */,
@@ -330,6 +333,7 @@
 				7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */,
 				7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */,
 				7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */,
+				7CA9F20B2636990000C28A62 /* ExternalLinkCollectionViewCell.swift in Sources */,
 				7CE25B652632451C00ADFEDD /* TopicAudioCollectionViewCell.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetInterestsViewController.swift in Sources */,
 				7CE25B712632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift in Sources */,

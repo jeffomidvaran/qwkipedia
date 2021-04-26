@@ -45,8 +45,8 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = searchResultsTableView.indexPathForSelectedRow
-        let topicViewController = segue.destination as! TopicPageViewController
+//        let indexPath = searchResultsTableView.indexPathForSelectedRow
+//        let topicViewController = segue.destination as! TopicPageViewController
 //        topicViewController.text = filteredSearchResults[indexPath!.row].name
     }
 

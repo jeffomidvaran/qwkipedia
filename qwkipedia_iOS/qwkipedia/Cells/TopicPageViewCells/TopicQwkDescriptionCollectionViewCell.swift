@@ -12,10 +12,9 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
 
     public static let identifier = "topicPageQwkDescriptionCell"
 
-    fileprivate let qwkDescriptionLabel: UILabel = {
-        let _label = UILabel()
+    fileprivate let qwkDescriptionLabel: UITextView = {
+        let _label = UITextView()
         _label.text = DummyData.qwkDescription
-        _label.numberOfLines = 0
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()

@@ -10,9 +10,8 @@ import UIKit
 class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageExpertSummaryCell"
 
-    fileprivate let myLabel: UILabel = {
-        let _label = UILabel()
-        _label.numberOfLines = 0
+    fileprivate let myLabel: UITextView = {
+        let _label = UITextView()
         _label.text = DummyData.expertSummary
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label

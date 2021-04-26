@@ -10,32 +10,62 @@ import UIKit
 class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageExternalLinksCell"
 
-    fileprivate let myLabel: UILabel = {
-        let _label = UILabel()
-        _label.text = "External Links"
-        _label.translatesAutoresizingMaskIntoConstraints = false
-        return _label
-    }()
+    fileprivate let collectionView: UICollectionView  = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(ExternalLinkCollectionViewCell.self, forCellWithReuseIdentifier: ExternalLinkCollectionViewCell.identifier)
+        return cv
+    }() 
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(myLabel)
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
         
-        NSLayoutConstraint.activate([
-            myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-        
+
+        contentView.addSubview(collectionView)
+        NSLayoutConstraint.activate( [
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
-        
     }
+    
+    
+//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+//        UIApplication.shared.open(URL)
+//        return false
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")
     }
 }
+
+extension TopicExternalLinksCollectionViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return DummyData.urls.count >= 3 ? 3 : DummyData.urls.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExternalLinkCollectionViewCell.identifier , for: indexPath) as! ExternalLinkCollectionViewCell
+        print(indexPath)
+        if(indexPath[1] < 3){
+            cell.setURL(url: DummyData.urls[indexPath[1]][1], surname: DummyData.urls[indexPath[1]][0])
+        }
+        
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: contentView.frame.width, height: 40)
+    }
+}
+    
