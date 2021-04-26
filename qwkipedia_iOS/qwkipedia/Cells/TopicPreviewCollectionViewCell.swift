@@ -8,7 +8,7 @@
 import UIKit
 
 class TopicPreviewCollectionViewCell: UICollectionViewCell {
-    public static let identifier = "topicPageQwkRecomnedationsCell"
+    public static let identifier = "homePageTopicPreviewCell"
 
     @IBOutlet weak var topicNameLabel: UILabel!
     @IBOutlet weak var qwkDescriptionLabel: UILabel!

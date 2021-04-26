@@ -348,12 +348,9 @@
 				7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */,
 				7CA9F20B2636990000C28A62 /* ExternalLinkCollectionViewCell.swift in Sources */,
 				7CE25B652632451C00ADFEDD /* TopicAudioCollectionViewCell.swift in Sources */,
-<<<<<<< HEAD
 				7CEAEA8626374D7F0029138E /* RecomendationCollectionViewCell.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetInterestsViewController.swift in Sources */,
-=======
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
->>>>>>> 9304ea9788a7331b4ca98424c8382cdb566dc919
 				7CE25B712632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift in Sources */,
 				1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */,
 				7CE25B5C263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift in Sources */,
@@ -368,11 +365,8 @@
 				7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */,
 				7C65397C262E181800014A51 /* TopicPreviewCollectionViewCell.swift in Sources */,
 				7C653983262E41B800014A51 /* QwkColors.swift in Sources */,
-<<<<<<< HEAD
 				7CCCEE5526376B82002034EF /* UITextViewExtensions.swift in Sources */,
-=======
 				1CC46E3C26373C5F00945161 /* UITextViewExtensions.swift in Sources */,
->>>>>>> 9304ea9788a7331b4ca98424c8382cdb566dc919
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
