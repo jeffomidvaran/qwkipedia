@@ -43,6 +43,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //Password and email populated for quick testing
+        email.text = "1@3.com"
+        password.text = "1234567!a"
+        
         errorLabel.alpha = 0 //Hiding the error label
         animatedText.text = ""
         var charIndex = 0.0
