@@ -29,6 +29,11 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //email & password fields populated for quick testing
+        emailTextfield.text = "1@4.com"
+        passwordTextfield.text = "1234a!"
+        NameTextfield.text = "Marina"
+        
         errorLabel.alpha = 0 //Hiding the error label
         
         
@@ -46,7 +51,7 @@ class RegisterViewController: UIViewController {
         
         if Utilities.isPasswordValid(cleanedPassword) == false {
             // Password isn't secure enough
-            return "Please make sure your password is at least 8 characters, contains a special character and a number."
+            return "Please make sure your password is at least 6 characters, contains a special character and a number."
         }
         
         return nil
@@ -82,8 +87,7 @@ class RegisterViewController: UIViewController {
                     //user was created successfully
                     
                     
-                    let db = Firestore.firestore()
-                    
+                    let db = Firestore.firestore()                    
                     db.collection("users").addDocument(data: ["name":name,"uid": authResult!.user.uid ]) { (error) in
                         
                         if error != nil {
