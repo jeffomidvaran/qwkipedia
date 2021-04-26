@@ -7,23 +7,22 @@
 
 import UIKit
 
+
+
 class ExternalLinkCollectionViewCell: UICollectionViewCell {
     public static let identifier = "ExternalLinkCell"
-
-    
     
     fileprivate let textView: UITextView = {
         let tv = UITextView()
         tv.text = "External Links"
+        tv.textAlignment = .center
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(textView)
-        contentView.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
@@ -39,14 +38,16 @@ class ExternalLinkCollectionViewCell: UICollectionViewCell {
     }
     
 
+    
     func setURL(url urlString: String, surname: String) {
-       let attributedString = NSMutableAttributedString(string: surname)
-       let url = URL(string: urlString)!
-       // Set the 'click here' substring to be the link
-       attributedString.setAttributes([.link: url], range: NSMakeRange(0, surname.count))
-       self.textView.attributedText = attributedString
-       self.textView.isUserInteractionEnabled = true
-       self.textView.isEditable = false
+        let attributedString = NSMutableAttributedString(string: surname)
+        let url = URL(string: urlString)!
+        // Set the 'click here' substring to be the link
+        attributedString.setAttributes([.link: url], range: NSMakeRange(0, surname.count))
+        self.textView.attributedText = attributedString
+        self.textView.isUserInteractionEnabled = true
+        self.textView.isEditable = false
+        self.textView.centerText()
     }
     
     required init?(coder: NSCoder) {

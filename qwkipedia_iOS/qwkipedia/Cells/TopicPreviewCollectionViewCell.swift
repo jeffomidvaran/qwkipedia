@@ -8,7 +8,8 @@
 import UIKit
 
 class TopicPreviewCollectionViewCell: UICollectionViewCell {
-    
+    public static let identifier = "topicPageQwkRecomnedationsCell"
+
     @IBOutlet weak var topicNameLabel: UILabel!
     @IBOutlet weak var qwkDescriptionLabel: UILabel!
     @IBOutlet weak var previewImageView: UIImageView!

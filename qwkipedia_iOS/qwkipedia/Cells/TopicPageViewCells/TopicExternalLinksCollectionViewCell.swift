@@ -23,6 +23,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = QwkColors.backgroundColor
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
@@ -38,12 +39,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    
-//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-//        UIApplication.shared.open(URL)
-//        return false
-//    }
-    
+     
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")
     }
@@ -56,7 +52,6 @@ extension TopicExternalLinksCollectionViewCell: UICollectionViewDelegateFlowLayo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExternalLinkCollectionViewCell.identifier , for: indexPath) as! ExternalLinkCollectionViewCell
-        print(indexPath)
         if(indexPath[1] < 3){
             cell.setURL(url: DummyData.urls[indexPath[1]][1], surname: DummyData.urls[indexPath[1]][0])
         }

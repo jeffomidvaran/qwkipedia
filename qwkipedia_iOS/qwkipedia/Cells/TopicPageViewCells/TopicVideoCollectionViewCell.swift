@@ -23,7 +23,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         let player: YTPlayerView = YTPlayerView()
         contentView.addSubview(player)
         player.translatesAutoresizingMaskIntoConstraints = false
-        player.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+//        player.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         
         NSLayoutConstraint.activate([
             player.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),

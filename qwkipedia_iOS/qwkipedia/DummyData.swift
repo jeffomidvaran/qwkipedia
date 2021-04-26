@@ -29,9 +29,15 @@ struct DummyData {
     ]
     
     static let recomendations: [TempItem] = [
-        TempItem(name: "puppy", image: #imageLiteral(resourceName: "Image")),
-        TempItem(name: "Intellijel Rubicon", image: #imageLiteral(resourceName: "synth.jpg")),
-        TempItem(name: "Lakers", image: #imageLiteral(resourceName: "lakers")),
+        TempItem(name: "Puppy", image: #imageLiteral(resourceName: "Image"), description: ""),
+        TempItem(name: "Intellijel Rubicon", image: #imageLiteral(resourceName: "synth.jpg"), description: ""),
+        TempItem(name: "Lakers", image: #imageLiteral(resourceName: "lakers"), description: ""),
+        TempItem(name: "Cocker Spaniel", image: #imageLiteral(resourceName: "Image"), description: "")
+    ]
+
+    static let topicRecomendations: [TempItem] = [
+        TempItem(name: "Dalmatian", image: #imageLiteral(resourceName: "dalmation"), description: "Dog with black and white spots"),
+        TempItem(name: "Cocker Spaniel", image: #imageLiteral(resourceName: "Image"), description: "Dog with long ears"),
     ]
 }
 
@@ -39,4 +45,5 @@ struct DummyData {
 struct TempItem {
     var name: String
     var image: UIImage?
+    var description: String
 }
