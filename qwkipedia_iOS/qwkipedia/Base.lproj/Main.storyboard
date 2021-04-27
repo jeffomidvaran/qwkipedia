@@ -149,24 +149,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vo1-sL-gSq">
-                                <rect key="frame" x="71" y="119" width="264" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vo1-sL-gSq">
+                                <rect key="frame" x="57" y="283" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="N23-p5-3DB"/>
+                                    <constraint firstAttribute="width" constant="300" id="XQk-aA-Fgz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VI-8z-7qt">
-                                <rect key="frame" x="71" y="182" width="264" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VI-8z-7qt">
+                                <rect key="frame" x="57" y="398.5" width="300" height="45"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="83k-EU-8d7"/>
+                                    <constraint firstAttribute="height" constant="45" id="PW8-Xq-yKd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Reset Password">
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetPasswordPressed:" destination="jja-sc-3Lo" eventType="touchUpInside" id="W3q-9T-In2"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email to reset your password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbW-4F-Epa">
+                                <rect key="frame" x="54" y="199" width="306" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WjX-1K-dIm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vo1-sL-gSq" firstAttribute="top" secondItem="wbW-4F-Epa" secondAttribute="bottom" constant="63" id="1Xt-nP-zxY"/>
+                            <constraint firstItem="Vo1-sL-gSq" firstAttribute="centerX" secondItem="9pn-OH-zLK" secondAttribute="centerX" id="7oe-Sr-JDp"/>
+                            <constraint firstItem="4VI-8z-7qt" firstAttribute="top" secondItem="Vo1-sL-gSq" secondAttribute="bottom" constant="81.5" id="Kvf-VM-O7b"/>
+                            <constraint firstItem="4VI-8z-7qt" firstAttribute="centerX" secondItem="9pn-OH-zLK" secondAttribute="centerX" id="Mj8-6J-0Dd"/>
+                            <constraint firstItem="4VI-8z-7qt" firstAttribute="centerY" secondItem="9pn-OH-zLK" secondAttribute="centerY" id="VY9-im-3EF"/>
+                            <constraint firstItem="wbW-4F-Epa" firstAttribute="centerX" secondItem="9pn-OH-zLK" secondAttribute="centerX" id="g1L-J4-Zrn"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k5d-1V-wxO"/>
                     <connections>
@@ -745,7 +768,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="f4N-Jh-ZV8"/>
-        <segue reference="xll-Py-OEq"/>
+        <segue reference="PUM-2r-ym8"/>
         <segue reference="LPU-CT-iJj"/>
     </inferredMetricsTieBreakers>
     <resources>
