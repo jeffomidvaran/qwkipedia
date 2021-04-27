@@ -31,9 +31,9 @@ extension UITextView:UITextViewDelegate {
     }
     public func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Tap here to enter a short bio..."
+            textView.text = "Tap to add a short bio..."
             textView.textColor = UIColor.lightGray
-            textView.font = UIFont.boldSystemFont(ofSize: 16)
+            textView.font = UIFont.boldSystemFont(ofSize: 17)
         }
     }
 }

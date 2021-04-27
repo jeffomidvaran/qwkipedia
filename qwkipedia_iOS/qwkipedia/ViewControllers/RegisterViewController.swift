@@ -85,8 +85,6 @@ class RegisterViewController: UIViewController {
                     self.showError("Error creating user")
                 } else {
                     //user was created successfully
-                    
-                    
                     let db = Firestore.firestore()                    
                     db.collection("users").addDocument(data: ["name":name,"uid": authResult!.user.uid ]) { (error) in
                         
