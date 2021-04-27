@@ -45,7 +45,7 @@ class SetProfileViewController: UIViewController {
     
     let profileImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "profile")
+        iv.image = #imageLiteral(resourceName: "profile-pic")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.layer.borderWidth = 3
