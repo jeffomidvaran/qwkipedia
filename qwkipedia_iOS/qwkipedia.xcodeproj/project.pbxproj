@@ -14,7 +14,6 @@
 		1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA3262CD5170067B444 /* Constants.swift */; };
 		1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EBB262CD7D50067B444 /* SetProfileViewController.swift */; };
 		1C6EE592262E7FE20067F869 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6EE591262E7FE20067F869 /* Utilities.swift */; };
-		1CC46E3C26373C5F00945161 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC46E3B26373C5F00945161 /* UITextViewExtensions.swift */; };
 		7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34BE261D913F00C9F893 /* AppDelegate.swift */; };
 		7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */; };
 		7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */; };
@@ -55,7 +54,6 @@
 		1C6C4EA3262CD5170067B444 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C6C4EBB262CD7D50067B444 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		1C6EE591262E7FE20067F869 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		1CC46E3B26373C5F00945161 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1C34BE261D913F00C9F893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,10 +124,8 @@
 				7C65398A262E63B000014A51 /* UIImageExtensions.swift */,
 				7C653982262E41B800014A51 /* QwkColors.swift */,
 				1C6C4EA3262CD5170067B444 /* Constants.swift */,
-				1CC46E3B26373C5F00945161 /* UITextViewExtensions.swift */,
 				1C6EE591262E7FE20067F869 /* Utilities.swift */,
 				1C51821926364AA900137C0B /* UIViewExtensions.swift */,
-				1CC46E3B26373C5F00945161 /* UITextViewExtensions.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -366,7 +362,6 @@
 				7C65397C262E181800014A51 /* TopicPreviewCollectionViewCell.swift in Sources */,
 				7C653983262E41B800014A51 /* QwkColors.swift in Sources */,
 				7CCCEE5526376B82002034EF /* UITextViewExtensions.swift in Sources */,
-				1CC46E3C26373C5F00945161 /* UITextViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
