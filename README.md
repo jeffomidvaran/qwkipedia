@@ -80,6 +80,9 @@ https://uci.zoom.us/j/95989354121
   * comments and iteractions with other users
   * infomation added to a qwki page
 2. Sponsored Pages
+
+## Ranking System
+It will be important to incentivize people to contribute content. A high ranking for contibuting several highly voted qwktributions should lead to a job or to making a profit for the contributor. 
  
 ## Notes
 The domain name www.qwkipedia.com has been reserved. <br/>
