@@ -11,10 +11,11 @@ class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageExpertSummaryCell"
 
     fileprivate let expertSummaryText: UITextView = {
-        let _label = UITextView()
-        _label.text = DummyData.expertSummary
-        _label.translatesAutoresizingMaskIntoConstraints = false
-        return _label
+        let tv = UITextView()
+        tv.text = DummyData.expertSummary
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.isEditable = false
+        return tv
     }()
     
     fileprivate let titleLabel: UILabel = {

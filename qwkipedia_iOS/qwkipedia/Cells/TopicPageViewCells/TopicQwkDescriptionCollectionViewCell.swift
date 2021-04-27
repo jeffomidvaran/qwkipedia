@@ -20,10 +20,11 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
     }()
 
     fileprivate let qwkDescriptionLabel: UITextView = {
-        let tw = UITextView()
-        tw.text = DummyData.qwkDescription
-        tw.translatesAutoresizingMaskIntoConstraints = false
-        return tw
+        let tv = UITextView()
+        tv.text = DummyData.qwkDescription
+        tv.isEditable = false
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
     }()
     
     override init(frame: CGRect) {

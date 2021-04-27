@@ -21,7 +21,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
 
     fileprivate let titleLabel: UILabel = {
         let l = UILabel()
-        l.text = "Top Audio"
+        l.text = "Top External Links"
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()

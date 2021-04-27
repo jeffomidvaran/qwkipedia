@@ -20,6 +20,7 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
     fileprivate let textView: UITextView = {
         let tv = UITextView()
         tv.text = "Empty"
+        tv.isEditable = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()

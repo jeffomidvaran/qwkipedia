@@ -14,7 +14,8 @@ class ExternalLinkCollectionViewCell: UICollectionViewCell {
     
     fileprivate let textView: UITextView = {
         let tv = UITextView()
-        tv.text = "External Links"
+        tv.text = "No Link Set"
+        tv.isEditable = false
         tv.textAlignment = .center
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
