@@ -10,16 +10,25 @@ import UIKit
 class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageExpertSummaryCell"
 
-    fileprivate let myLabel: UITextView = {
+    fileprivate let expertSummaryText: UITextView = {
         let _label = UITextView()
         _label.text = DummyData.expertSummary
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()
     
+    fileprivate let titleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Expert Summary"
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(myLabel)
+        contentView.addSubview(expertSummaryText)
+        contentView.addSubview(titleLabel)
         
         
         contentView.layer.cornerRadius = 10
@@ -27,10 +36,15 @@ class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            myLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            myLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: expertSummaryText.topAnchor),
+
+            expertSummaryText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            expertSummaryText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            // expertSummaryText.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            expertSummaryText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
 
         ])
         

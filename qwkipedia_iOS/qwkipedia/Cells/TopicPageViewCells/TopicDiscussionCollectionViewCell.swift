@@ -12,7 +12,7 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
 
     fileprivate let myLabel: UILabel = {
         let _label = UILabel()
-        _label.text = "discussion"
+        _label.text = "Discussion"
         _label.translatesAutoresizingMaskIntoConstraints = false
         return _label
     }()

@@ -18,6 +18,13 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         return cv
     }() 
 
+
+    fileprivate let titleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Top Audio"
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,8 +38,16 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         
 
         contentView.addSubview(collectionView)
+        contentView.addSubview(titleLabel)
+
+
         NSLayoutConstraint.activate( [
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
+
+            // collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
@@ -60,7 +75,7 @@ extension TopicExternalLinksCollectionViewCell: UICollectionViewDelegateFlowLayo
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: contentView.frame.width, height: 40)
+        return CGSize(width: contentView.frame.width, height: 30)
     }
 }
     

@@ -21,6 +21,4 @@ class TopicPreviewCollectionViewCell: UICollectionViewCell {
         self.layer.borderColor = QwkColors.outlineColor.cgColor
         self.layer.borderWidth = 0.5
     }
-    
-    
 }

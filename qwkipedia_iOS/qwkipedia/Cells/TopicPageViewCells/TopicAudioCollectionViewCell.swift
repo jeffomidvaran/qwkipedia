@@ -20,6 +20,12 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         return _button
     }()
 
+    fileprivate let titleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Top Audio"
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
 
 
     override init(frame: CGRect) {
@@ -31,16 +37,23 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         playButton.addTarget(self, action: #selector(touchUpInsideAction(_:)), for: .touchUpInside)
 
         contentView.addSubview(playButton)
+        contentView.addSubview(titleLabel)
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            playButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            playButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: playButton.topAnchor),
+
+            // playButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            // playButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             playButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            playButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
         
     }

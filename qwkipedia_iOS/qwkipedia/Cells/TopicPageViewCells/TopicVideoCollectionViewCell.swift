@@ -13,6 +13,14 @@ import youtube_ios_player_helper
 class TopicVideoCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageVideoCell"
 
+
+    fileprivate let titleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Top Video"
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,16 +28,22 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
         
+        
         let player: YTPlayerView = YTPlayerView()
-        contentView.addSubview(player)
         player.translatesAutoresizingMaskIntoConstraints = false
-//        player.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        
+        contentView.addSubview(player)
+        contentView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            player.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            player.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: player.topAnchor, constant: -8),
+
+            player.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
         ])
         player.load(withVideoId: "WDlu1OhvYBM")
     }

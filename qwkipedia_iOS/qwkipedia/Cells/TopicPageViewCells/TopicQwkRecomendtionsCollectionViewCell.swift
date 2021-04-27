@@ -18,12 +18,22 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         return cv
     }()
     
+
+    fileprivate let titleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Qwk Recommendations"
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
+    }()
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = QwkColors.backgroundColor
         contentView.addSubview(collectionView)
+        contentView.addSubview(titleLabel)
     
         
         contentView.layer.cornerRadius = 10
@@ -31,7 +41,12 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
+
+            // collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
@@ -56,14 +71,11 @@ extension TopicQwkRecomendtionsCollectionViewCell: UICollectionViewDelegate, UIC
         cell.setData(title: DummyData.topicRecomendations[indexPath[1]].name,
                      shortDescription: DummyData.topicRecomendations[indexPath[1]].description,
                      imageData: DummyData.topicRecomendations[indexPath[1]].image ?? #imageLiteral(resourceName: "logo"))
-        cell.layer.cornerRadius = 10
-        cell.layer.borderColor = QwkColors.outlineColor.cgColor
-        cell.layer.borderWidth = 0.5
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: contentView.frame.width, height: 50)
+        return CGSize(width: contentView.frame.width, height: 80)
     }
     
     

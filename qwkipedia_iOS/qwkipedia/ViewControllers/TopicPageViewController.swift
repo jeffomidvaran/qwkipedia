@@ -98,7 +98,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 2:
             height = 400.0
         case 3:
-            height = 400.0
+            height = 200.0
         case 4:
             height = 100.0
         case 5:
@@ -106,9 +106,9 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 6:
             height = 600.0
         case 7:
-            height = 150.0
+            height = 142.0
         case 8:
-            height = 100.0
+            height = 203.0
         default:
             fatalError()
         }
