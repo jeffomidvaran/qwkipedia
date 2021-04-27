@@ -122,6 +122,7 @@
 		1C6EE590262E7FB60067F869 /* GlobalModels */ = {
 			isa = PBXGroup;
 			children = (
+				7CAD57A82638C62E00427ED0 /* UITextViewExtensions.swift */,
 				7C65398A262E63B000014A51 /* UIImageExtensions.swift */,
 				7C653982262E41B800014A51 /* QwkColors.swift */,
 				1C6C4EA3262CD5170067B444 /* Constants.swift */,
@@ -151,7 +152,6 @@
 		7C1C34B2261D913F00C9F893 = {
 			isa = PBXGroup;
 			children = (
-				7CAD57A82638C62E00427ED0 /* UITextViewExtensions.swift */,
 				7C1C34BD261D913F00C9F893 /* qwkipedia */,
 				7C1C34BC261D913F00C9F893 /* Products */,
 				6B49817A744B645A23D8B78E /* Pods */,
