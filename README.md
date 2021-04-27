@@ -31,6 +31,9 @@ https://docs.google.com/document/d/1lPVeR53UArHlQgOBNqs7b38OIMvj16N-IbjjoVMCp7E/
 ### Slides For Class Presentation 1
 https://docs.google.com/presentation/d/1oafXez6u-Zjw5Sa51GYDInLvimq5KTy6cpX7Q22lw14/edit#slide=id.p
 
+### Selecting Video Software
+https://docs.google.com/document/d/1h5Ae6TgS_PFY9StSzYOc_zk-aGXmJ5rx41kzPyyqtNM/edit?ts=6088a1a6 
+
 ## Link For The Class Meetings
 ### Spread Sheet
 https://docs.google.com/spreadsheets/d/1q9Mlgjoe_z72NS4QfSyyczqWh6lJ5yLKohvbTezIIoQ/edit#gid=0
