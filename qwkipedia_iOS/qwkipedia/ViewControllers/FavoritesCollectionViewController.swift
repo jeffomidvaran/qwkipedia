@@ -12,11 +12,7 @@ class FavoritesCollectionViewController: UICollectionViewController, UISearchBar
 
     @IBOutlet var searchBar: UISearchBar!
     
-    let allData: [TempItem] = [
-        TempItem(name: "Puppy", image: #imageLiteral(resourceName: "Image"), description: ""),
-        TempItem(name: "Intellijel Rubicon", image: #imageLiteral(resourceName: "synth.jpg"), description: ""),
-        TempItem(name: "Lakers", image: #imageLiteral(resourceName: "lakers"), description: ""),
-    ]
+    let allData: [TempItem] = DummyData.previewData
     
     var filteredSearchResults = [TempItem]()
     

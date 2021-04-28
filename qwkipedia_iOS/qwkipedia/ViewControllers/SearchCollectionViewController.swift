@@ -14,16 +14,9 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
     
-    let allData = [
-        TempData(name: "Animals",image: #imageLiteral(resourceName: "animals")),
-        TempData(name: "Apples", image: #imageLiteral(resourceName: "apples")),
-        TempData(name: "Puppy", image: #imageLiteral(resourceName: "puppy") ),
-        TempData(name: "Cats", image: #imageLiteral(resourceName: "cats")),
-        TempData(name: "Guitars",image: #imageLiteral(resourceName: "guitar") ),
-        TempData(name: "Basketball", image: #imageLiteral(resourceName: "basketball")),
-        TempData(name: "Irvine, California", image: #imageLiteral(resourceName: "irvine")),
-    ]
-    var filteredSearchResults = [TempData]()
+    let allData = DummyData.previewData
+
+    var filteredSearchResults = [TempItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +69,7 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
 }
 
 
-struct TempData {
-    var name: String
-    var image: UIImage?
-}
+//struct TempData {
+//    var name: String
+//    var image: UIImage?
+//}
