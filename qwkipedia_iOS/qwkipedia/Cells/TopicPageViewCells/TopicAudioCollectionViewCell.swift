@@ -29,7 +29,7 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         return _button
     }()
 
-    fileprivate let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
         playButton.addTarget(self, action: #selector(touchUpInsideAction(_:)), for: .touchUpInside)
-        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+        
 
         
         contentView.layer.cornerRadius = 10
@@ -81,9 +81,7 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @objc func moreButtonPressed(sender: UIButton!) {
-        print("audio more pressed")
-    }
+
 
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")

@@ -9,7 +9,8 @@ import UIKit
 
 class TopicPageViewController: UIViewController {
      
-    
+    var testing = "message from vc"
+
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -40,6 +41,10 @@ class TopicPageViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
         ])
     }
+    
+    
+    
+    
 }
 
 
@@ -56,27 +61,36 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
+            cell.moreButton.addTarget(self, action: #selector(qwkDescriptionMoreButtonPressed), for: .touchUpInside)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicVideoCollectionViewCell.identifier  , for: indexPath) as! TopicVideoCollectionViewCell
+            cell.moreButton.addTarget(self, action: #selector(moreVideoButtonPressed), for: .touchUpInside)
+
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
+            cell.moreButton.addTarget(self, action: #selector(moreImageButtonPressed), for: .touchUpInside)
+
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicAudioCollectionViewCell.identifier  , for: indexPath) as! TopicAudioCollectionViewCell
+            cell.moreButton.addTarget(self, action: #selector(moreAudioButtonPressed), for: .touchUpInside)
             return cell
         case 5:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
+            cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
             return cell
         case 6:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier  , for: indexPath) as! TopicExpertSummaryCollectionViewCell
             return cell
         case 7:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
+            cell.moreButton.addTarget(self, action: #selector(moreExternalLinksButtonPressed), for: .touchUpInside)
             return cell
         case 8:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier , for: indexPath) as! TopicQwkRecomendtionsCollectionViewCell
+            cell.moreButton.addTarget(self, action: #selector(moreQwkRecomendationsButtonPressed), for: .touchUpInside)
             return cell
         default:
             fatalError()
@@ -106,7 +120,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 6:
             height = 600.0
         case 7:
-            height = 170.0
+            height = 180.0
         case 8:
             height = 240.0
         default:
@@ -114,5 +128,47 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         }
         return CGSize(width: width, height: height)
     }
+    
+    @objc func qwkDescriptionMoreButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "showPageSegue", sender: self)
+    }
+    @objc func moreVideoButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "showPageSegue", sender: self)
+    }
+    @objc func moreImageButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "showPageSegue", sender: self)
+    }
+    @objc func moreAudioButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "showPageSegue", sender: self)
+    }
+    @objc func moreExternalLinksButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "showPageSegue", sender: self)
+    }
+    @objc func moreQwkRecomendationsButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "showPageSegue", sender: self)
+    }
+
+    @objc func chatButtonPressed(sender: UIButton!) {
+        performSegue(withIdentifier: "discussionPageSegue", sender: self)
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPageSegue" {
+            let controller = segue.destination as! MorePageViewController
+            controller.value = "from topic vc"
+        } else if segue.identifier == "discussionPageSegue" {
+            let controller = segue.destination as! DiscussionViewController
+            controller.value = "chat from topic vc"
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
 
 }

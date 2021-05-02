@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H0d-jE-Vgm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iVz-c7-fqT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -745,10 +745,45 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="rID-jr-ZD1"/>
+                    <connections>
+                        <segue destination="U7G-Ld-JE5" kind="show" identifier="showPageSegue" id="9qP-c3-WFy"/>
+                        <segue destination="TGP-l8-vbX" kind="show" identifier="discussionPageSegue" id="Vfo-73-KId"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fo6-Z1-alf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8221.7391304347839" y="3051.5625"/>
+        </scene>
+        <!--Discussion View Controller-->
+        <scene sceneID="ciG-1v-I8G">
+            <objects>
+                <viewController id="TGP-l8-vbX" customClass="DiscussionViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZfJ-jh-vrq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pD7-LD-QJH">
+                                <rect key="frame" x="186" y="410.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a6s-EY-52W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pD7-LD-QJH" firstAttribute="centerY" secondItem="ZfJ-jh-vrq" secondAttribute="centerY" id="mCk-ai-vBR"/>
+                            <constraint firstItem="pD7-LD-QJH" firstAttribute="centerX" secondItem="ZfJ-jh-vrq" secondAttribute="centerX" id="sxj-uI-eys"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tCd-P9-JGR"/>
+                    <connections>
+                        <outlet property="label" destination="pD7-LD-QJH" id="E1u-tx-mw0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9z-Wj-qVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9354" y="3417"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="978-K5-e3F">
@@ -768,6 +803,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzr-fA-BZm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5328.985507246377" y="4150.4464285714284"/>
+        </scene>
+        <!--More Page View Controller-->
+        <scene sceneID="QBG-6x-DZO">
+            <objects>
+                <viewController id="U7G-Ld-JE5" customClass="MorePageViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wgh-s4-Vv6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZv-2N-9bM">
+                                <rect key="frame" x="166" y="410.5" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h4J-aV-Vs8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jZv-2N-9bM" firstAttribute="centerX" secondItem="Wgh-s4-Vv6" secondAttribute="centerX" id="00G-On-igN"/>
+                            <constraint firstItem="jZv-2N-9bM" firstAttribute="centerY" secondItem="Wgh-s4-Vv6" secondAttribute="centerY" id="S5w-or-DQq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GaN-Z6-zn8"/>
+                    <connections>
+                        <outlet property="label" destination="jZv-2N-9bM" id="2vI-eD-xzP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l3d-fC-mMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9354" y="2605"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

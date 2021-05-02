@@ -26,7 +26,7 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         return l
     }()
 
-    fileprivate let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,7 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(collectionView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+        
 
     
         
@@ -68,9 +68,7 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         
     }
     
-    @objc func moreButtonPressed(sender: UIButton!) {
-        print("qwk recommendations more pressed")
-    }
+    
 
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")

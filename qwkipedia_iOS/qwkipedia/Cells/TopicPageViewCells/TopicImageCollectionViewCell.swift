@@ -23,7 +23,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         return l
     }()
 
-    fileprivate let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(image)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+        
         
         
         contentView.layer.cornerRadius = 10
@@ -63,9 +63,6 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         
     }
 
-    @objc func moreButtonPressed(sender: UIButton!) {
-        print("video more pressed")
-    }
     
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")

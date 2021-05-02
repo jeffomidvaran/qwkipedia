@@ -26,7 +26,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         return l
     }()
 
-    fileprivate let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(collectionView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+        
 
 
 
@@ -70,10 +70,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         ])
     }
 
-    @objc func moreButtonPressed(sender: UIButton!) {
-        print("audio more pressed")
-    }
-    
+
      
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")

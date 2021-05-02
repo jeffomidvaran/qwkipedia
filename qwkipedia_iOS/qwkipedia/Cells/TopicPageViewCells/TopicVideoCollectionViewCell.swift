@@ -21,7 +21,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         return l
     }()
 
-    fileprivate let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +43,6 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(player)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -66,7 +65,5 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         fatalError("Init coder not implemented")
     }
     
-    @objc func moreButtonPressed(sender: UIButton!) {
-        print("video more pressed")
-    }
+    
 }

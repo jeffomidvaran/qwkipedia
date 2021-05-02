@@ -27,7 +27,7 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         return tv
     }()
 
-    fileprivate let moreButton: UIButton = {
+    let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +40,7 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(qwkDescriptionLabel)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+//        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
 
         
         contentView.layer.cornerRadius = 10
@@ -65,7 +65,10 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         fatalError("Init coder not implemented")
     }
 
-    @objc func moreButtonPressed(sender: UIButton!) {
-        print("qwk descrip more pressed")
-    }
+//    @objc func moreButtonPressed(sender: UIButton!) {
+//        print("qwk descrip more pressed")
+//
+//    }
+    
+    
 }
