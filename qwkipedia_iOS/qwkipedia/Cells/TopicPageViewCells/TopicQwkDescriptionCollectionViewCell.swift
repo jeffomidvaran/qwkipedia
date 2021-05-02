@@ -26,11 +26,22 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
+
+    fileprivate let moreButton: UIButton = {
+        let b = UIButton()
+        b.setTitle("More", for: .normal)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(QwkColors.buttonColor, for: .normal)
+        return b
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(qwkDescriptionLabel)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(moreButton)
+        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
@@ -43,7 +54,9 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
             titleLabel.bottomAnchor.constraint(equalTo: qwkDescriptionLabel.topAnchor),
             qwkDescriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             qwkDescriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            qwkDescriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            qwkDescriptionLabel.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 0),
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
         ])
         
     }
@@ -52,4 +65,7 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         fatalError("Init coder not implemented")
     }
 
+    @objc func moreButtonPressed(sender: UIButton!) {
+        print("qwk descrip more pressed")
+    }
 }

@@ -93,22 +93,22 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         switch indexPath[1]{
         case 0:
             height = 30.0
-        case 1:
+        case 1: // qwk description
             height = 200.0
-        case 2:
+        case 2: // video
             height = 400.0
-        case 3:
-            height = 200.0
-        case 4:
+        case 3: // image
+            height = 230.0
+        case 4: // audio
             height = 100.0
         case 5:
             height = 400.0
         case 6:
             height = 600.0
         case 7:
-            height = 142.0
+            height = 170.0
         case 8:
-            height = 203.0
+            height = 240.0
         default:
             fatalError()
         }

@@ -17,9 +17,20 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
         return _label
     }()
     
+    fileprivate let moreButton: UIButton = {
+        let b = UIButton()
+        b.setTitle("Chat", for: .normal)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(QwkColors.buttonColor, for: .normal)
+        return b
+    }()
+
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(myLabel)
+        contentView.addSubview(moreButton)
+        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
@@ -29,10 +40,16 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
             myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-        
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
         ])
         
     }
+
+    @objc func moreButtonPressed(sender: UIButton!) {
+        print("discuss chat pressed")
+    }
+
     
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")

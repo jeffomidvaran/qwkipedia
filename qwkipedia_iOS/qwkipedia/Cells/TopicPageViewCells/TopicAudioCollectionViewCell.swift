@@ -12,13 +12,7 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageAudioCell"
     var player: AVAudioPlayer?
 
-    fileprivate let playButton: UIButton = {
-        let _button = UIButton()
-        _button.setTitle("Play/Stop", for: .normal)
-        _button.setTitleColor(UIColor.blue, for: .normal)
-        _button.translatesAutoresizingMaskIntoConstraints = false
-        return _button
-    }()
+
 
     fileprivate let titleLabel: UILabel = {
         let l = UILabel()
@@ -26,18 +20,32 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
+    
+    fileprivate let playButton: UIButton = {
+        let _button = UIButton()
+        _button.setTitle("Play/Stop", for: .normal)
+        _button.setTitleColor(QwkColors.buttonColor, for: .normal)
+        _button.translatesAutoresizingMaskIntoConstraints = false
+        return _button
+    }()
 
+    fileprivate let moreButton: UIButton = {
+        let b = UIButton()
+        b.setTitle("More", for: .normal)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(QwkColors.buttonColor, for: .normal)
+        return b
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        playButton.setTitle("Play/Stop", for: .normal)
-        playButton.setTitleColor(UIColor.blue, for: .normal)
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.addTarget(self, action: #selector(touchUpInsideAction(_:)), for: .touchUpInside)
-
         contentView.addSubview(playButton)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(moreButton)
+        playButton.addTarget(self, action: #selector(touchUpInsideAction(_:)), for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
@@ -54,8 +62,10 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
             playButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             playButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
         ])
-        
     }
 
 
@@ -71,10 +81,11 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
-    
+    @objc func moreButtonPressed(sender: UIButton!) {
+        print("audio more pressed")
+    }
+
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")
     }
-    
 }

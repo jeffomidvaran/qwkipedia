@@ -20,6 +20,14 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
+
+    fileprivate let moreButton: UIButton = {
+        let b = UIButton()
+        b.setTitle("More", for: .normal)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(QwkColors.buttonColor, for: .normal)
+        return b
+    }()
     
     
     override init(frame: CGRect) {
@@ -28,22 +36,28 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
         
-        
+    
         let player: YTPlayerView = YTPlayerView()
         player.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(player)
         contentView.addSubview(titleLabel)
-        
+        contentView.addSubview(moreButton)
+        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: player.topAnchor, constant: -8),
 
-            player.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            player.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 8),
+
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+
         ])
         player.load(withVideoId: "WDlu1OhvYBM")
     }
@@ -52,4 +66,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         fatalError("Init coder not implemented")
     }
     
+    @objc func moreButtonPressed(sender: UIButton!) {
+        print("video more pressed")
+    }
 }

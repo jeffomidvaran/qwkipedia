@@ -25,6 +25,16 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
+
+    fileprivate let moreButton: UIButton = {
+        let b = UIButton()
+        b.setTitle("More", for: .normal)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitleColor(QwkColors.buttonColor, for: .normal)
+        return b
+    }()
+
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,6 +49,9 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
 
         contentView.addSubview(collectionView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(moreButton)
+        moreButton.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+
 
 
         NSLayoutConstraint.activate( [
@@ -47,11 +60,18 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell {
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
 
-            // collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 0),
+
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
+
         ])
+    }
+
+    @objc func moreButtonPressed(sender: UIButton!) {
+        print("audio more pressed")
     }
     
      
