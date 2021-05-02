@@ -64,11 +64,4 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")
     }
-
-//    @objc func moreButtonPressed(sender: UIButton!) {
-//        print("qwk descrip more pressed")
-//
-//    }
-    
-    
 }

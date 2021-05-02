@@ -9,8 +9,12 @@ import UIKit
 
 class MorePageViewController: UIViewController {
  
+    @IBOutlet weak var addACellButton: UIBarButtonItem!
+    
     var cellType: TopicCellType = .qwkDescription
     var value = "empty"
+    
+    
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -37,6 +41,26 @@ class MorePageViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
         ])
     }
+    
+    @IBAction func addANewCellButtonAction(_ sender: Any) {
+        print("add button pressed")
+//        switch cellType{
+//        case .qwkDescription:
+//
+//        case .video:
+//
+//        case .image:
+//
+//        case .audio:
+//
+//        case .externalLink:
+//
+//        case .qwkRecommedation:
+//
+//        default:
+//            fatalError()
+//        }
+    }
 }
 
 extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -49,7 +73,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         switch cellType{
         case .qwkDescription:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! MoreQwkDescriptionCollectionViewCell
-            cell.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+            cell.isAuthor = false
             return cell
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreVideoCollectionViewCell.identifier , for: indexPath) as! MoreVideoCollectionViewCell
@@ -77,7 +101,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
         switch cellType{
         case .qwkDescription:
-            height = 200.0
+            height = 300.0
         case .video:
             height = 400.0
         case .image:
