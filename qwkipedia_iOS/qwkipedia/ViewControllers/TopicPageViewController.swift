@@ -9,7 +9,7 @@ import UIKit
 
 class TopicPageViewController: UIViewController {
      
-    var testing = "message from vc"
+    var cellSendType: TopicCellType = .qwkDescription
 
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -130,45 +130,43 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     @objc func qwkDescriptionMoreButtonPressed(sender: UIButton!) {
+        cellSendType = .qwkDescription
         performSegue(withIdentifier: "showPageSegue", sender: self)
     }
     @objc func moreVideoButtonPressed(sender: UIButton!) {
+        cellSendType = .video
         performSegue(withIdentifier: "showPageSegue", sender: self)
     }
     @objc func moreImageButtonPressed(sender: UIButton!) {
+        cellSendType = .image
         performSegue(withIdentifier: "showPageSegue", sender: self)
     }
     @objc func moreAudioButtonPressed(sender: UIButton!) {
+        cellSendType = .audio
         performSegue(withIdentifier: "showPageSegue", sender: self)
     }
     @objc func moreExternalLinksButtonPressed(sender: UIButton!) {
+        cellSendType = .externalLink
         performSegue(withIdentifier: "showPageSegue", sender: self)
     }
     @objc func moreQwkRecomendationsButtonPressed(sender: UIButton!) {
+        cellSendType = .qwkRecommedation
         performSegue(withIdentifier: "showPageSegue", sender: self)
     }
 
     @objc func chatButtonPressed(sender: UIButton!) {
+        cellSendType = .discussion
         performSegue(withIdentifier: "discussionPageSegue", sender: self)
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPageSegue" {
             let controller = segue.destination as! MorePageViewController
             controller.value = "from topic vc"
+            controller.cellType = cellSendType
         } else if segue.identifier == "discussionPageSegue" {
             let controller = segue.destination as! DiscussionViewController
             controller.value = "chat from topic vc"
         }
-        
-        
-        
-        
     }
-    
-    
-    
-
 }
