@@ -25,7 +25,13 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 }
                 else {
-                    self.performSegue(withIdentifier: SegueNameConstants.loginToHomeSegue, sender: self)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
+                        
+                        // This is to get the SceneDelegate object from your view controller
+                        // then call the change root view controller function to change to main tab bar
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+                    //self.performSegue(withIdentifier: SegueNameConstants.loginToHomeSegue, sender: self)
                 }
             }
         }
@@ -49,6 +55,7 @@ class LoginViewController: UIViewController {
         
         errorLabel.alpha = 0 //Hiding the error label
         animatedText.text = ""
+        animatedText.isUserInteractionEnabled = false
         var charIndex = 0.0
         let titleText = "Sign in to continue"
         for letter in titleText {
