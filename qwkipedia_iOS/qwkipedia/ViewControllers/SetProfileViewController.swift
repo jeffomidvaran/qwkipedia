@@ -115,7 +115,7 @@ class SetProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = QwkColors.backgroundColor
         
         view.addSubview(containerView)
         containerView.anchor(top: view.topAnchor, left: view.leftAnchor,
@@ -131,7 +131,6 @@ class SetProfileViewController: UIViewController {
             // This is to get the SceneDelegate object from your view controller
             // then call the change root view controller function to change to main tab bar
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
-        //self.performSegue(withIdentifier: SegueNameConstants.loginToHomeSegue, sender: self)
         
     }
     
@@ -160,8 +159,7 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
         
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    
+        
 }
 
 
