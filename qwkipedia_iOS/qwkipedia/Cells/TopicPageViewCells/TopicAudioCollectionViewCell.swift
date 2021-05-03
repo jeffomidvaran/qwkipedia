@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 
+
 class TopicAudioCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageAudioCell"
     var player: AVAudioPlayer?
@@ -29,6 +30,8 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         return _button
     }()
 
+    
+    
     let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
@@ -36,16 +39,17 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
     }()
+    
 
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         contentView.addSubview(playButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        playButton.addTarget(self, action: #selector(touchUpInsideAction(_:)), for: .touchUpInside)
-        
-
+        playButton.addTarget(self, action: #selector(playAudio(_:)), for: .touchUpInside)
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
@@ -57,11 +61,9 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: playButton.topAnchor),
 
-            // playButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            // playButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            playButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             playButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            playButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
             moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
@@ -69,8 +71,7 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
     }
 
 
-    @objc func touchUpInsideAction(_ sender: UIButton) {
-        print("audio button was pressed")
+    @objc func playAudio(_ sender: UIButton) {
         let path = Bundle.main.path(forResource: "puppySound", ofType: "wav")!
         let url  = URL(fileURLWithPath: path)
         do {

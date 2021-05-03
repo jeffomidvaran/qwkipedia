@@ -6,10 +6,17 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
+import AVFoundation
+
 
 class MoreMediaCollectionViewCell: UICollectionViewCell {
 
     public static let identifier = "MoreMediaCollectionViewCellId"
+    var player: AVAudioPlayer?
+    var surname: String = ""
+    var urlString: String = ""
+
     
     var cellType: TopicCellType = .qwkDescription {
         didSet {
@@ -23,7 +30,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
                 
                 NSLayoutConstraint.activate([
                     qwkDescriptionTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-                    qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
+                    qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
                     qwkDescriptionTextView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
                     qwkDescriptionTextView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
                     qwkDescriptionTextView.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
@@ -32,17 +39,72 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
 
             case .video:
                 print("video type called")
+                let player: YTPlayerView = YTPlayerView()
+                player.load(withVideoId: "WDlu1OhvYBM")
+                player.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(player)
                 
-                
-                
-    //
-    //        case .image:
-    //
-    //        case .audio:
-    //
-    //        case .externalLink:
-    //
-    //        case .qwkRecommedation:
+                NSLayoutConstraint.activate([
+                    player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    player.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    player.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
+                    player.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
+                    player.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
+                ])
+            case .image:
+                let imageView = UIImageView()
+                imageView.image = #imageLiteral(resourceName: "puppy")
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                imageView.contentMode = .scaleAspectFit
+                contentView.addSubview(imageView)
+                NSLayoutConstraint.activate([
+                    imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    imageView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    imageView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
+                    imageView.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
+                    imageView.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
+                ])
+            case .audio:
+                let playButton = UIButton()
+                playButton.setTitle("Play/Stop", for: .normal)
+                playButton.setTitleColor(QwkColors.buttonColor, for: .normal)
+                playButton.addTarget(self, action: #selector(playAudio(_:)), for: .touchUpInside)
+                playButton.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(playButton)
+                NSLayoutConstraint.activate([
+                    playButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    playButton.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    playButton.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
+                    playButton.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
+                    playButton.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
+                ])
+    
+            case .externalLink:
+                let tv = UITextView()
+                tv.text = "No Link Set"
+                tv.isEditable = false
+                tv.textAlignment = .center
+                tv.translatesAutoresizingMaskIntoConstraints = false
+                let attributedString = NSMutableAttributedString(string: surname)
+                let url = URL(string: urlString)!
+                attributedString.setAttributes([.link: url], range: NSMakeRange(0, surname.count))
+                tv.attributedText = attributedString
+                tv.isUserInteractionEnabled = true
+                tv.isEditable = false
+                tv.centerText()
+                contentView.addSubview(tv)
+                NSLayoutConstraint.activate([
+                    tv.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    tv.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    tv.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    tv.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
+                    tv.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
+                    tv.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
+                ])
+
 
             default:
                 fatalError()
@@ -98,14 +160,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
         return b
     }()
 
-//    fileprivate let qwkDescriptionTextView: UITextView = {
-//        let tv = UITextView()
-//        tv.text = DummyData.qwkDescription
-//        tv.isEditable = false
-//        tv.translatesAutoresizingMaskIntoConstraints = false
-//        return tv
-//    }()
-
     fileprivate let voterButtons: VoterView = {
         let vv = VoterView()
         vv.initilizeCounter()
@@ -126,15 +180,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
         NSLayoutConstraint.activate([
             authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
@@ -146,9 +191,19 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
             suggestButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             voterButtons.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             voterButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            
-            
         ])
+    }
+    
+    @objc func playAudio(_ sender: UIButton) {
+        print("audio button was pressed")
+        let path = Bundle.main.path(forResource: "puppySound", ofType: "wav")!
+        let url  = URL(fileURLWithPath: path)
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch {
+            print("cannot play sound")
+        }
     }
     
     required init?(coder: NSCoder) {

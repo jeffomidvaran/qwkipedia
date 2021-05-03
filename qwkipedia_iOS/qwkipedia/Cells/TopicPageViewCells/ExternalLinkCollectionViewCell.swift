@@ -12,7 +12,7 @@ import UIKit
 class ExternalLinkCollectionViewCell: UICollectionViewCell {
     public static let identifier = "ExternalLinkCell"
     
-    fileprivate let textView: UITextView = {
+    fileprivate let urlTextView: UITextView = {
         let tv = UITextView()
         tv.text = "No Link Set"
         tv.isEditable = false
@@ -23,13 +23,13 @@ class ExternalLinkCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(textView)
+        contentView.addSubview(urlTextView)
         
         NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            urlTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            urlTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            urlTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            urlTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
     }
     
@@ -45,10 +45,10 @@ class ExternalLinkCollectionViewCell: UICollectionViewCell {
         let url = URL(string: urlString)!
         // Set the 'click here' substring to be the link
         attributedString.setAttributes([.link: url], range: NSMakeRange(0, surname.count))
-        self.textView.attributedText = attributedString
-        self.textView.isUserInteractionEnabled = true
-        self.textView.isEditable = false
-        self.textView.centerText()
+        self.urlTextView.attributedText = attributedString
+        self.urlTextView.isUserInteractionEnabled = true
+        self.urlTextView.isEditable = false
+        self.urlTextView.centerText()
     }
     
     required init?(coder: NSCoder) {

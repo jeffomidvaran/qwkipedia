@@ -20,11 +20,6 @@ class MorePageViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(MoreMediaCollectionViewCell.self, forCellWithReuseIdentifier: MoreMediaCollectionViewCell.identifier)
-        cv.register(MoreVideoCollectionViewCell.self, forCellWithReuseIdentifier: MoreVideoCollectionViewCell.identifier)
-        cv.register(MoreImageCollectionViewCell.self, forCellWithReuseIdentifier: MoreImageCollectionViewCell.identifier)
-        cv.register(MoreAudioCollectionViewCell.self, forCellWithReuseIdentifier: MoreAudioCollectionViewCell.identifier)
-        cv.register(MoreExternalLinkCollectionViewCell.self, forCellWithReuseIdentifier: MoreExternalLinkCollectionViewCell.identifier)
-        cv.register(MoreQwkRecommendationsCollectionViewCell.self, forCellWithReuseIdentifier: MoreQwkRecommendationsCollectionViewCell.identifier)
         return cv
     }()
     
@@ -93,8 +88,10 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             return cell
         case .externalLink:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
-            cell.cellType = .externalLink
+            cell.surname = DummyData.urls[0][0]
+            cell.urlString = DummyData.urls[0][1]
             cell.isAuthor = false
+            cell.cellType = .externalLink
             return cell
         case .qwkRecommedation:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
@@ -120,7 +117,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .audio:
             height = 100.0
         case .externalLink:
-            height = 180.0
+            height = 130.0
         case .qwkRecommedation:
             height = 240.0
         default:

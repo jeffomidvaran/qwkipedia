@@ -20,10 +20,9 @@ struct DummyData {
     
     static let urls = [
         ["puppy url 1", "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/"],
-        ["puppy url 2", "https://en.wikipedia.org/wiki/Puppy"],
-        ["puppy url 3", "https://www.thesprucepets.com/puppies-4162145"],
+        ["puppy url 2", "https://www.thesprucepets.com/puppies-4162145"],
+        ["puppy url 3", "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/"],
         ["puppy url 4", "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/"],
-        ["puppy url 5", "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/"],
     ]
     
     static let recomendations: [TempItem] = [
