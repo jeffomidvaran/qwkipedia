@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H0d-jE-Vgm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wtl-0J-e9P">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginNavigationController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,16 +90,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgH-fY-Aph" userLabel="Welcome View">
                                 <rect key="frame" x="89.5" y="196" width="235" height="155"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome back," textAlignment="natural" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wit-3V-vGp">
-                                        <rect key="frame" x="52" y="88" width="132" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.36331577890927025" green="0.36331577890927025" blue="0.36331577890927025" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sign in to continue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELj-KV-LYz">
-                                        <rect key="frame" x="36" y="113" width="176" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sign in to continue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ELj-KV-LYz">
+                                        <rect key="frame" x="43" y="126" width="149" height="22"/>
                                         <color key="textColor" red="0.36331577890927025" green="0.36331577890927025" blue="0.36331577890927025" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -108,10 +100,20 @@
                                         <rect key="frame" x="48" y="0.0" width="129" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-1A-yLJ">
+                                        <rect key="frame" x="54" y="101.5" width="127.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="235" id="3NR-D2-er8"/>
+                                    <constraint firstItem="ELj-KV-LYz" firstAttribute="centerX" secondItem="zgH-fY-Aph" secondAttribute="centerX" id="NKz-1u-cXL"/>
+                                    <constraint firstAttribute="bottom" secondItem="ELj-KV-LYz" secondAttribute="bottom" constant="7" id="PvO-uO-VCB"/>
+                                    <constraint firstItem="ELj-KV-LYz" firstAttribute="top" secondItem="Lvg-1A-yLJ" secondAttribute="bottom" constant="3" id="olo-GE-iPN"/>
+                                    <constraint firstItem="Lvg-1A-yLJ" firstAttribute="centerX" secondItem="zgH-fY-Aph" secondAttribute="centerX" id="vey-YT-AJ5"/>
                                     <constraint firstAttribute="height" constant="155" id="ztY-DW-SCf"/>
                                 </constraints>
                             </view>
@@ -324,7 +326,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <segue destination="iVz-c7-fqT" kind="show" id="xll-Py-OEq"/>
+                                    <action selector="SkipPressed:" destination="2Rv-m8-KtW" eventType="touchUpInside" id="fPJ-X8-jDv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -344,7 +346,7 @@
         <!--Navigation Controller-->
         <scene sceneID="I69-zd-t9f">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wtl-0J-e9P" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Wtl-0J-e9P" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="R3p-3j-shH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="11Q-QR-8o5">
