@@ -19,12 +19,12 @@ class MorePageViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(MoreQwkDescriptionCollectionViewCell.self, forCellWithReuseIdentifier: MoreQwkDescriptionCollectionViewCell.identifier)
+        cv.register(MoreMediaCollectionViewCell.self, forCellWithReuseIdentifier: MoreMediaCollectionViewCell.identifier)
         cv.register(MoreVideoCollectionViewCell.self, forCellWithReuseIdentifier: MoreVideoCollectionViewCell.identifier)
         cv.register(MoreImageCollectionViewCell.self, forCellWithReuseIdentifier: MoreImageCollectionViewCell.identifier)
         cv.register(MoreAudioCollectionViewCell.self, forCellWithReuseIdentifier: MoreAudioCollectionViewCell.identifier)
         cv.register(MoreExternalLinkCollectionViewCell.self, forCellWithReuseIdentifier: MoreExternalLinkCollectionViewCell.identifier)
-        cv.register(MoreQwkDescriptionCollectionViewCell.self, forCellWithReuseIdentifier: MoreQwkRecommendationsCollectionViewCell.identifier)
+        cv.register(MoreQwkRecommendationsCollectionViewCell.self, forCellWithReuseIdentifier: MoreQwkRecommendationsCollectionViewCell.identifier)
         return cv
     }()
     
@@ -72,23 +72,34 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
         switch cellType{
         case .qwkDescription:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! MoreQwkDescriptionCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
+            cell.cellType = .qwkDescription
             cell.isAuthor = false
             return cell
         case .video:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreVideoCollectionViewCell.identifier , for: indexPath) as! MoreVideoCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
+            cell.cellType = .video
+            cell.isAuthor = false
             return cell
         case .image:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreImageCollectionViewCell.identifier  , for: indexPath) as! MoreImageCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
+            cell.cellType = .image
+            cell.isAuthor = false
             return cell
         case .audio:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreAudioCollectionViewCell.identifier  , for: indexPath) as! MoreAudioCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
+            cell.cellType = .audio
+            cell.isAuthor = false
             return cell
         case .externalLink:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreExternalLinkCollectionViewCell.identifier  , for: indexPath) as! MoreExternalLinkCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
+            cell.cellType = .externalLink
+            cell.isAuthor = false
             return cell
         case .qwkRecommedation:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreQwkRecommendationsCollectionViewCell.identifier  , for: indexPath) as! MoreQwkRecommendationsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
+            cell.cellType = .qwkRecommedation
+            cell.isAuthor = false
             return cell
         default:
             fatalError()

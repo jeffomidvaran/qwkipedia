@@ -7,9 +7,54 @@
 
 import UIKit
 
-class MoreQwkDescriptionCollectionViewCell: UICollectionViewCell {
+class MoreMediaCollectionViewCell: UICollectionViewCell {
 
-    public static let identifier = "MoreQwkDescriptionViewCellId"
+    public static let identifier = "MoreMediaCollectionViewCellId"
+    
+    var cellType: TopicCellType = .qwkDescription {
+        didSet {
+            switch cellType{
+            case .qwkDescription:
+                let qwkDescriptionTextView = UITextView()
+                qwkDescriptionTextView.text = DummyData.qwkDescription
+                qwkDescriptionTextView.isEditable = false
+                qwkDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(qwkDescriptionTextView)
+                
+                NSLayoutConstraint.activate([
+                    qwkDescriptionTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
+                    qwkDescriptionTextView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    qwkDescriptionTextView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
+                    qwkDescriptionTextView.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
+                    qwkDescriptionTextView.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
+                ])
+
+            case .video:
+                print("video type called")
+                
+                
+                
+    //
+    //        case .image:
+    //
+    //        case .audio:
+    //
+    //        case .externalLink:
+    //
+    //        case .qwkRecommedation:
+
+            default:
+                fatalError()
+            }
+        }
+    }
+   
+    var numberOfVotes = 0 {
+        didSet {
+            voterButtons.voteCount = numberOfVotes
+        }
+    }
     var isAuthor = false {
         didSet {
             if(isAuthor) {
@@ -53,36 +98,20 @@ class MoreQwkDescriptionCollectionViewCell: UICollectionViewCell {
         return b
     }()
 
-    fileprivate let qwkDescriptionTextView: UITextView = {
-        let tv = UITextView()
-        tv.text = DummyData.qwkDescription
-        tv.isEditable = false
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
-    }()
+//    fileprivate let qwkDescriptionTextView: UITextView = {
+//        let tv = UITextView()
+//        tv.text = DummyData.qwkDescription
+//        tv.isEditable = false
+//        tv.translatesAutoresizingMaskIntoConstraints = false
+//        return tv
+//    }()
 
-    
-    let upVote: UIButton = {
-        let b = UIButton()
-        b.setTitle("⬆︎", for: .normal)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitleColor(QwkColors.buttonColor, for: .normal)
-        return b
-    }()
-
-    fileprivate let voteCountLabel: UILabel = {
-        let l = UILabel()
-        l.text = "John Doe"
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
-    }()
-
-    let downVote: UIButton = {
-        let b = UIButton()
-        b.setTitle("︎⬇︎", for: .normal)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitleColor(QwkColors.buttonColor, for: .normal)
-        return b
+    fileprivate let voterButtons: VoterView = {
+        let vv = VoterView()
+        vv.initilizeCounter()
+        vv.translatesAutoresizingMaskIntoConstraints = false
+        vv.voterColor = QwkColors.buttonColor
+        return vv
     }()
 
     override init(frame: CGRect) {
@@ -91,12 +120,20 @@ class MoreQwkDescriptionCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(reportButton)
         contentView.addSubview(editButton)
         contentView.addSubview(suggestButton)
-        contentView.addSubview(qwkDescriptionTextView)
-
+        contentView.addSubview(voterButtons)
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         NSLayoutConstraint.activate([
             authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -107,13 +144,10 @@ class MoreQwkDescriptionCollectionViewCell: UICollectionViewCell {
             reportButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             suggestButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             suggestButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            voterButtons.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            voterButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             
-            qwkDescriptionTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-            qwkDescriptionTextView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
-            qwkDescriptionTextView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
-            qwkDescriptionTextView.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
-            qwkDescriptionTextView.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
+            
         ])
     }
     
