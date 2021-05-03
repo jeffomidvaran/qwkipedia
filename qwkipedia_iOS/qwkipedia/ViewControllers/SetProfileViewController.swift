@@ -123,6 +123,18 @@ class SetProfileViewController: UIViewController {
         aboutTextField.textViewDidEndEditing(aboutTextField)
     }
     
+    
+    @IBAction func SkipPressed(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
+            
+            // This is to get the SceneDelegate object from your view controller
+            // then call the change root view controller function to change to main tab bar
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+        //self.performSegue(withIdentifier: SegueNameConstants.loginToHomeSegue, sender: self)
+        
+    }
+    
     //MARK: -Selectors
     @objc func presentPicker(){
         let picker = UIImagePickerController()
@@ -148,6 +160,7 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
         
         picker.dismiss(animated: true, completion: nil)
     }
+    
     
 }
 
