@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Fire from "./Fire";
+import Header from "./Header";
+import Home from "./Home";
+import Reset from "./Reset";
+import { Link } from 'react-router';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -44,9 +48,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <div class="header"></div>
-      <div className="bg"></div>
-      <div className="header_text">QWIKIPEDIA</div>
+      <Header />
       <div className="big-box">
         <div class="welcome-box">
           <h3 class="welcome-text">Welcome!</h3>
@@ -76,7 +78,9 @@ const Login = () => {
             />
           </div>
           <br></br>
-          
+          {/* <Link to={Home} class="forgot-text"> Forgot Password? </Link> <br></br> */}
+          <a class="forgot-text" type="bold" href="React.js"> Forgot Password? </a><br></br>
+
           <button type="submit" className="btn btn-primary">
             SignIn
           </button>

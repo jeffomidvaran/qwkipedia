@@ -5,6 +5,8 @@ import Fire from "./Fire";
 import Home from "./Home";
 import Login from "./Login";
 import "./styles.css";
+import Reset from "./Reset";
+
 // import App from "./App";
 
 class App extends Component {
