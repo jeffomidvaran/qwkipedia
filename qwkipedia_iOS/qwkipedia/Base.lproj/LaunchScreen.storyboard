@@ -16,19 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birdLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="slq-GH-EET">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ewX-M0-4oe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birdLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="Mp4-Cz-PGh">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="GPq-IT-tbp"/>
-                                    <constraint firstAttribute="width" constant="300" id="KkQ-dt-7ta"/>
+                                    <constraint firstAttribute="width" constant="300" id="8TU-AJ-v7x"/>
+                                    <constraint firstAttribute="height" constant="300" id="esw-dR-aSk"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.47646296020000001" green="0.73576778170000001" blue="0.91808360820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="slq-GH-EET" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CFC-9g-33j"/>
-                            <constraint firstItem="slq-GH-EET" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="y0k-d6-iMb"/>
+                            <constraint firstItem="ewX-M0-4oe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6oj-Xb-aJ1"/>
+                            <constraint firstItem="ewX-M0-4oe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9UZ-3g-yGy"/>
+                            <constraint firstItem="ewX-M0-4oe" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="C4U-lG-ERR"/>
+                            <constraint firstItem="Mp4-Cz-PGh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JM8-0C-D9K"/>
+                            <constraint firstAttribute="bottom" secondItem="ewX-M0-4oe" secondAttribute="bottom" id="Ne7-1D-huW"/>
+                            <constraint firstItem="Mp4-Cz-PGh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ZfE-iE-9ON"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +44,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="2056" height="2056"/>
         <image name="birdLogo2" width="1028" height="960"/>
     </resources>
 </document>
