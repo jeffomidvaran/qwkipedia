@@ -50,6 +50,8 @@
 		7CE25B6E2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B6D2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift */; };
 		7CE25B712632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B702632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift */; };
 		7CEAEA8626374D7F0029138E /* RecomendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEAEA8526374D7F0029138E /* RecomendationCollectionViewCell.swift */; };
+		7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E5264876B6007F767F /* EditDataViewController.swift */; };
+		7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */; };
 		9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +103,8 @@
 		7CE25B6D2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicExternalLinksCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CE25B702632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicQwkRecomendtionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CEAEA8526374D7F0029138E /* RecomendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CECD4E5264876B6007F767F /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
+		7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
 		92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		1C6C4E85262CCCA00067B444 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CECD4E5264876B6007F767F /* EditDataViewController.swift */,
 				7C4E4624263F2FE400DA51E4 /* DiscussionViewController.swift */,
 				7C4E4621263F23C000DA51E4 /* MorePageViewController.swift */,
 				7C48663D2631548D00DC9AC4 /* TopicPageViewController.swift */,
@@ -235,6 +240,7 @@
 		7CAE80CF262FEE4700CB1979 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */,
 				7C4E462A263F534D00DA51E4 /* MorePageViewCells */,
 				7CE25B562632421F00ADFEDD /* TopicPageViewCells */,
 				7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */,
@@ -395,6 +401,8 @@
 				7CC78E9E2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift in Sources */,
 				7CE25B652632451C00ADFEDD /* TopicAudioCollectionViewCell.swift in Sources */,
 				7CEAEA8626374D7F0029138E /* RecomendationCollectionViewCell.swift in Sources */,
+				7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */,
+				7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
 				7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,

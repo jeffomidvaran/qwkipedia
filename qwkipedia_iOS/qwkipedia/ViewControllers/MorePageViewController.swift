@@ -9,7 +9,7 @@ import UIKit
 
 class MorePageViewController: UIViewController {
  
-    @IBOutlet weak var addACellButton: UIBarButtonItem!
+    
     
     var cellType: TopicCellType = .qwkDescription
     var value = "empty"
@@ -37,25 +37,7 @@ class MorePageViewController: UIViewController {
         ])
     }
     
-    @IBAction func addANewCellButtonAction(_ sender: Any) {
-        print("add button pressed")
-//        switch cellType{
-//        case .qwkDescription:
-//
-//        case .video:
-//
-//        case .image:
-//
-//        case .audio:
-//
-//        case .externalLink:
-//
-//        case .qwkRecommedation:
-//
-//        default:
-//            fatalError()
-//        }
-    }
+
 }
 
 extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
