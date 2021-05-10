@@ -49,7 +49,7 @@ lazy var profileView: UIView = {
 
 let profileImageView: UIImageView = {
     let iv = UIImageView()
-    iv.image = #imageLiteral(resourceName: "profile-pic")
+    iv.image = #imageLiteral(resourceName: "janeDoe")
     iv.contentMode = .scaleAspectFill
     iv.clipsToBounds = true
     iv.layer.borderWidth = 3

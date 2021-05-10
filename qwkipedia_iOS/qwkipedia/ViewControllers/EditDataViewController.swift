@@ -7,10 +7,10 @@
 
 import UIKit
 
-class EditDataViewController: UIViewController {
+class EditDataViewController: UIViewController{
 
     
-    var viewType: TopicCellType = .qwkDescription
+    var viewType: TopicCellType = .video
     /*
         uitextfield
         uiLabel
@@ -18,16 +18,25 @@ class EditDataViewController: UIViewController {
         collectionView with suggestions
      */
     
+    let textView: UITextView = {
+        let v = UITextView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
+        v.text = "This is a qwk description of why puppies are cool!!!"
+        return v
+    }()
     
     let urlEntryField: UITextField = {
-        var tf = UITextField()
+        let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-        tf.placeholder = "Enter URL to Video"
+        tf.placeholder = "Enter YouTube Link"
+        tf.returnKeyType = .done
+        tf.autocorrectionType = .no
         return tf
     }()
     
-    let label: UILabel = {
+    let titleLabel: UILabel = {
         var l = UILabel()
         l.text = "Edit Qwk Description"
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +63,6 @@ class EditDataViewController: UIViewController {
     let spacer: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        
         return v
     }()
   
@@ -73,10 +81,15 @@ class EditDataViewController: UIViewController {
         super.viewDidLoad()
         suggestionsCollectionView.dataSource = self
         suggestionsCollectionView.delegate = self
+        urlEntryField.delegate = self
+        
+        deletePostButton.addTarget(self, action: #selector(deletePostPressed), for: .touchUpInside)
+
         
         super.view.addSubview(urlEntryField)
+        super.view.addSubview(textView)
         super.view.addSubview(deletePostButton)
-        super.view.addSubview(label)
+        super.view.addSubview(titleLabel)
         super.view.addSubview(spacer)
         super.view.addSubview(suggestionsLabel)
         super.view.addSubview(suggestionsCollectionView)
@@ -84,12 +97,13 @@ class EditDataViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
 
             urlEntryField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            urlEntryField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
+            urlEntryField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            urlEntryField.heightAnchor.constraint(equalToConstant: 50),
             urlEntryField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
 
             deletePostButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
@@ -110,7 +124,73 @@ class EditDataViewController: UIViewController {
             suggestionsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
         ])
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        switch viewType {
+        case .qwkDescription:
+            titleLabel.text = "Edit Qwk Description"
+            urlEntryField.placeholder = "Enter 1000 Word Description"
+        case .video:
+            titleLabel.text = "Add Video"
+            urlEntryField.placeholder = "Enter YouTubeLink"
+        case .audio:
+            titleLabel.text = "Add Audio"
+            urlEntryField.placeholder = "Upload Audiofile"
+        case .externalLink:
+            titleLabel.text = "Add An External Link"
+            urlEntryField.placeholder = "Enter Link"
+        case .image:
+            titleLabel.text = "Add Image"
+            urlEntryField.placeholder = "Upload Image"
+        default:
+            fatalError()
+        }
+    }
+    
+    func verifyUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
+    }
+    
+    
+
+    @objc func deletePostPressed(sender: UIButton!) {
+        print("delete post preessed")
+    }
+    
+    
 }
+
+
+
+
+extension EditDataViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        urlEntryField.resignFirstResponder()
+        
+        if let urlEntry = urlEntryField.text {
+            let youTubePrefix = "https://www.youtube.com/watch?v="
+            if(verifyUrl(urlString: urlEntry) && urlEntry.starts(with: youTubePrefix)) {
+                let videoCode = String(urlEntry.dropFirst(youTubePrefix.count))
+                print(videoCode)
+            } else {
+                print("invalid link")
+            }
+        }
+        return true
+    }
+}
+
+
+
+
+
 
 
 extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -145,3 +225,10 @@ extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollecti
 //        }
     }
 }
+
+
+
+//        var test = "https://www.youtube.com/watch?v=4Ll6T1aqfqo"
+
+
+
