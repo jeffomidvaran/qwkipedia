@@ -19,40 +19,42 @@ class EditDataViewController: UIViewController {
      */
     
     
-    var textEntryField: UITextField = {
+    let urlEntryField: UITextField = {
         var tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        tf.placeholder = "Enter URL to Video"
         return tf
     }()
     
-    var label: UILabel = {
+    let label: UILabel = {
         var l = UILabel()
         l.text = "Edit Qwk Description"
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+//        l.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return l
     }()
      
-    var suggestionsLabel: UILabel = {
+    let suggestionsLabel: UILabel = {
         var l = UILabel()
         l.text = "Suggestions"
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+//        l.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return l
     }()
    
-    var deletePostButton: UIButton = {
+    let deletePostButton: UIButton = {
         var b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        b.setTitle("Delete Post", for: .normal)
+        b.setTitleColor(QwkColors.deletebuttonColor, for: .normal)
         return b
     }()
     
-    var spacer: UIView = {
+    let spacer: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
         return v
     }()
   
@@ -62,6 +64,7 @@ class EditDataViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(SuggestionCellCollectionViewCell.self, forCellWithReuseIdentifier: SuggestionCellCollectionViewCell.identifier)
+        cv.backgroundColor = QwkColors.backgroundColor
         return cv
     }()
     
@@ -71,7 +74,7 @@ class EditDataViewController: UIViewController {
         suggestionsCollectionView.dataSource = self
         suggestionsCollectionView.delegate = self
         
-        super.view.addSubview(textEntryField)
+        super.view.addSubview(urlEntryField)
         super.view.addSubview(deletePostButton)
         super.view.addSubview(label)
         super.view.addSubview(spacer)
@@ -85,16 +88,16 @@ class EditDataViewController: UIViewController {
             label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
 
-            textEntryField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            textEntryField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
-            textEntryField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            urlEntryField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            urlEntryField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
+            urlEntryField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
 
             deletePostButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            deletePostButton.topAnchor.constraint(equalTo: textEntryField.bottomAnchor, constant: 8),
+            deletePostButton.topAnchor.constraint(equalTo: urlEntryField.bottomAnchor, constant: 8),
             
             spacer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             spacer.trailingAnchor.constraint(equalTo: deletePostButton.leadingAnchor, constant: -8),
-            spacer.topAnchor.constraint(equalTo: textEntryField.bottomAnchor, constant: 8),
+            spacer.topAnchor.constraint(equalTo: urlEntryField.bottomAnchor, constant: 8),
             spacer.heightAnchor.constraint(equalTo: deletePostButton.heightAnchor),
             
             
@@ -117,14 +120,15 @@ extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCellCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCellCollectionViewCell.identifier, for: indexPath) as! SuggestionCellCollectionViewCell
+//        cell.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16.0
-        let height: CGFloat =  10.0
+        let height: CGFloat =  100.0
         return CGSize(width: width, height: height)
     }
     
