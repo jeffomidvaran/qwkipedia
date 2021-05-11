@@ -6,26 +6,48 @@ import { v4 as uuidv4 } from "uuid";
 
 const QwkContainer = () => {
 
-  const [todos, setTodos] = useState([
-    {
-      id: uuidv4(),
-      title: "Puppy1",
-      content: "I am a puppy",
-      vote: 100,
-    },
-    {
-      id: uuidv4(),
-      title: "Puppy2",
-      content: "I am another puppy",
-      vote: 81,
-    },
-    {
-      id: uuidv4(),
-      title: "Cat",
-      content: "I am not a puppy",
-      vote: -10,
-    }
-  ])
+  const [todos, setTodos] = useState(
+    getInitialTodos() 
+  //     || [    
+  //     {
+  //       id: uuidv4(),
+  //       title: "Puppy1",
+  //       content: "I am a puppy",
+  //       vote: 100,
+  //     },
+  //     {
+  //       id: uuidv4(),
+  //       title: "Puppy2",
+  //       content: "I am another puppy",
+  //       vote: 81,
+  //     },
+  //     {
+  //       id: uuidv4(),
+  //       title: "Cat",
+  //       content: "I am not a puppy",
+  //       vote: -10,
+  //     }]
+  //   [
+  //   {
+  //     id: uuidv4(),
+  //     title: "Puppy1",
+  //     content: "I am a puppy",
+  //     vote: 100,
+  //   },
+  //   {
+  //     id: uuidv4(),
+  //     title: "Puppy2",
+  //     content: "I am another puppy",
+  //     vote: 81,
+  //   },
+  //   {
+  //     id: uuidv4(),
+  //     title: "Cat",
+  //     content: "I am not a puppy",
+  //     vote: -10,
+  //   }
+  // ]
+  )
 
   const handleChange = id => {
     setTodos(prevState =>
@@ -58,17 +80,47 @@ const QwkContainer = () => {
     setTodos([...todos, newQwk])
   }
 
+  const upVote = id => {
+    // vote = vote + 1
+    setTodos(prevState =>
+      prevState.map(todo => {
+        if (todo.id === id) {
+          todo.vote = todo.vote+0.5 //TODO why it is adding twice here
+          return {
+            ...todo,
+          }
+        }
+        return todo
+      })
+    )
+  }
+
+  const downVote = id => {
+    setTodos(prevState =>
+      prevState.map(todo => {
+        if (todo.id === id) {
+          todo.vote = todo.vote-0.5
+          return {
+            ...todo,
+          }
+        }
+        return todo
+      })
+    )
+  }
+
   useEffect(() => {
-    console.log("test run")
-
-    //gettting stored items
+    // storing todos items
+    const temp = JSON.stringify(todos)
+    localStorage.setItem("todos", temp)
+  }, [todos])
+  
+  function getInitialTodos() {
+    //getting stored items
     const temp = localStorage.getItem("todos")
-    const loadedTodoes = JSON.parse(temp)
-
-    if (loadedTodoes) {
-      setTodos(loadedTodoes)
-    }
-  }, [setTodos])
+    const savedTodos = JSON.parse(temp)
+    return savedTodos || []
+  }
 
   return (
       <div>
@@ -78,6 +130,8 @@ const QwkContainer = () => {
       <QwkList 
           todos={todos} 
           deleteQwkProps={delQwk} 
+          upVote={upVote}
+          downVote={downVote}
       />
       </div>
   )

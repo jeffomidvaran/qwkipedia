@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react"
+import { BiUpvote, BiDownvote } from "react-icons/bi";
 import "./Qwkcontainer.css";
 
 const QwkItem = props => {
+
+  useEffect(() => {
+    return () => {
+        console.log("Cleaning up...")
+    }
+  }, [])
+
   return (
     <div className="content-block" ><h5>{props.todo.title}</h5>
         <div className="inner">{props.todo.content}</div>
-        <button className="btn btn-danger btn-delete" onClick={() => props.deleteQwkProps(props.todo.id)}>Delete</button>
+        <button className="btn btn-danger btn-delete" onClick={() => props.deleteQwkProps(props.todo.id)}>Delete</button><br></br>
+        <div><button className="btn-vote btn-downVote" onClick={() => props.downVote(props.todo.id)}><BiDownvote/></button>
         <div className="vote">{props.todo.vote}</div>
+        <button className="btn-vote btn-upVote" onClick={() => props.upVote(props.todo.id)}><BiUpvote/></button>
+        </div>
     </div>
   );
 }

@@ -11,6 +11,8 @@ const QwkList = props => {
           key={todo.id} 
           todo={todo} 
           deleteQwkProps={props.deleteQwkProps}
+          upVote={props.upVote}
+          downVote={props.downVote}
       />
 
       ))}

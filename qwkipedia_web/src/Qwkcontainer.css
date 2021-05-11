@@ -8,14 +8,17 @@
 }
 
 .vote {
-    margin-left: 99%;
-    margin-top: 1%;
+    /* display: inline-block; */
+    /* margin-left: 99%; */
+    margin-top: 0%;
     font-size: 10px;
     color: grey;
+
+    float: right;
 }
 
 .btn-delete {
-    /* display: inline-flex; */
+    /* display: inline-block; */
     font-size: 80%;
     width: 5%;
     height: 30%;
@@ -23,7 +26,35 @@
     float: right;
 }
 
-.inner
-{
+.inner {
     display: inline-block;
+}
+
+.btn-vote {
+    margin-top: 0%;
+    display: inline-block;
+    font-size: 40%;
+    width: 2.5%;
+    height: 1%;
+    text-align: center;
+    /* float: right; */
+}
+
+.btn-upVote {
+    /* display: inline-flex; */
+    margin-left: 5px;
+    margin-right: 5px;
+    /* margin-left: 80%; */
+    /* margin-top: 3%; */
+    /* margin-left: 88%; */
+    float: right;
+}
+.btn-downVote {
+    /* display: inline-flex; */
+    margin-left: 5px;
+    margin-right: 5px;
+    /* margin-left: 80%; */
+    /* margin-top: 3%; */
+    /* margin-left: 95%; */
+    float: right;
 }
