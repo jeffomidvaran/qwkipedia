@@ -14,12 +14,12 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageVideoCell"
 
 
-    fileprivate let titleLabel: UILabel = {
-        let l = UILabel()
-        l.text = "Top Video"
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
-    }()
+//    fileprivate let titleLabel: UILabel = {
+//        let l = UILabel()
+//        l.text = "Top Video"
+//        l.translatesAutoresizingMaskIntoConstraints = false
+//        return l
+//    }()
 
     let moreButton: UIButton = {
         let b = UIButton()
@@ -30,34 +30,33 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
     }()
     
     
+    let player: YTPlayerView = {
+        let p = YTPlayerView()
+        p.translatesAutoresizingMaskIntoConstraints = false
+        p.load(withVideoId: "JJunp9xo4uA")
+        return p
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        contentView.addSubview(player)
+        contentView.addSubview(moreButton)
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
-        
-    
-        let player: YTPlayerView = YTPlayerView()
-        player.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(player)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(moreButton)
 
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: player.topAnchor, constant: -8),
+            player.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 0),
+            player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
 
-            player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            player.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 8),
-
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
-        player.load(withVideoId: "WDlu1OhvYBM")
+        
     }
     
     required init?(coder: NSCoder) {

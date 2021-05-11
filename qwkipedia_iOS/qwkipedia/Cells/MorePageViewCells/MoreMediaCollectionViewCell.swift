@@ -167,22 +167,41 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
         vv.voterColor = QwkColors.buttonColor
         return vv
     }()
+    
+    fileprivate let profilePic: UIImageView = {
+        let v = UIImageView()
+        v.image = #imageLiteral(resourceName: "janeDoe")
+        v.contentMode = .scaleToFill
+        v.layer.masksToBounds = false
+        v.layer.cornerRadius = 25/2
+        v.clipsToBounds = true
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.addSubview(profilePic)
         contentView.addSubview(authorLabel)
         contentView.addSubview(reportButton)
         contentView.addSubview(editButton)
         contentView.addSubview(suggestButton)
         contentView.addSubview(voterButtons)
         
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
-        contentView.layer.borderWidth = 0.5
+        
+//        contentView.layer.cornerRadius = 10
+//        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
+//        contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            profilePic.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            profilePic.centerYAnchor.constraint(equalTo: authorLabel.centerYAnchor),
+            profilePic.heightAnchor.constraint(equalToConstant: 25),
+            profilePic.widthAnchor.constraint(equalToConstant: 25),
+            
+            authorLabel.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 8),
             authorLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            
             editButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             editButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             reportButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),

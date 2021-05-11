@@ -40,20 +40,20 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         return b
     }()
     
-
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         contentView.addSubview(playButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
-        playButton.addTarget(self, action: #selector(playAudio(_:)), for: .touchUpInside)
         
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = QwkColors.outlineColor.cgColor
         contentView.layer.borderWidth = 0.5
+        
+        playButton.addTarget(self, action: #selector(playAudio(_:)), for: .touchUpInside)
+        
+        
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -65,8 +65,8 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
             playButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             playButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
 
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
     }
 

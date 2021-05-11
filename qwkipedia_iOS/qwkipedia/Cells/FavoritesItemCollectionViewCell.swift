@@ -11,6 +11,7 @@ class FavoritesItemCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var topicNameLabel: UILabel!
+    @IBOutlet weak var favoriteBookmarkButtonObject: UIButton!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -20,5 +21,8 @@ class FavoritesItemCollectionViewCell: UICollectionViewCell {
     }
     
     
+    @IBAction func favoriteBookmarkButtonAction(_ sender: Any) {
+        print("favorite pressed")
+    }
     
 }
