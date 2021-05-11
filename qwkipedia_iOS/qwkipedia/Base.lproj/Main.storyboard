@@ -616,7 +616,7 @@
                     <navigationItem key="navigationItem" id="V0O-EC-ZNe">
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="gear" catalog="system" id="0E0-ta-QPh">
                             <connections>
-                                <segue destination="cf7-VB-rGW" kind="presentation" id="9t0-Pl-8AJ"/>
+                                <segue destination="cf7-VB-rGW" kind="show" id="9t0-Pl-8AJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -630,7 +630,7 @@
             <objects>
                 <tableViewController title="Settings" id="cf7-VB-rGW" customClass="SettingsTableViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Fud-xZ-Ned">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -764,7 +764,7 @@
                             <outlet property="delegate" destination="cf7-VB-rGW" id="eew-h7-9zL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Fjw-QO-tSg"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Fjw-QO-tSg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t9M-e6-XxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
