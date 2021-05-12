@@ -66,9 +66,9 @@
 		1C6C4EA3262CD5170067B444 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C6C4EBB262CD7D50067B444 /* SetProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileViewController.swift; sourceTree = "<group>"; };
 		1C6EE591262E7FE20067F869 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		1C7D74A1264B6FD600E16168 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = "../../../keepin a workingCopy_qwkipedia_iOS copy/qwkipedia/CustomViews/MessageCell.xib"; sourceTree = "<group>"; };
-		1C7D74A3264B6FE100E16168 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = "../../../keepin a workingCopy_qwkipedia_iOS copy/qwkipedia/CustomViews/MessageCell.swift"; sourceTree = "<group>"; };
-		1C7D74A5264B705700E16168 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "../../../keepin a workingCopy_qwkipedia_iOS copy/qwkipedia/GlobalModels/Message.swift"; sourceTree = "<group>"; };
+		1C7D74A1264B6FD600E16168 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		1C7D74A3264B6FE100E16168 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		1C7D74A5264B705700E16168 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1C7D74A7264B794A00E16168 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C8FA066263FAF4700259484 /* PublicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewController.swift; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
