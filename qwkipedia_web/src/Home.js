@@ -1,4 +1,6 @@
 import React from "react";
+// import { BrowserRouter as Router } from "react-router-dom"
+
 import HeaderLogin from "./HeaderLogin";
 import QwkContainer from "./Qwkcontainer";
 import "./styles.css";
@@ -19,8 +21,7 @@ const Home = () => {
     <h1>&emsp;&ensp;&nbsp;Home Page</h1>
 
     <div className="big-box1">
-      <QwkContainer />
-
+        <QwkContainer />
     </div>
     </div>
   );

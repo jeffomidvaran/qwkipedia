@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import "./Qwkcontainer.css";
 import QwkList from "./QwkList";
 import InputQwk from "./InputQwk";
+import Profile from "./Profile";
+import AddQwkTopic from "./AddQwkTopic";
+import Navbar from "./Navbar";
 import { v4 as uuidv4 } from "uuid";
 
 const QwkContainer = () => {
@@ -123,6 +128,10 @@ const QwkContainer = () => {
   }
 
   return (
+    <>
+    <Navbar />
+    <Switch>
+    <Route exact path="/">
       <div>
       <InputQwk 
           addQwk={addQwk}
@@ -134,6 +143,15 @@ const QwkContainer = () => {
           downVote={downVote}
       />
       </div>
+    </Route>
+    <Route path="/profile">
+      <Profile />
+    </Route>
+    <Route path="/addQwkTopic">
+      <AddQwkTopic />
+    </Route>
+    </Switch>
+  </>
   )
 }
 // class QwkContainer extends React.Component {

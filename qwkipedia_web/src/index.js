@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router } from "react-router-dom"
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import Fire from "./Fire";
@@ -40,7 +41,9 @@ class App extends Component {
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router> 
   </StrictMode>,
   rootElement
 );
