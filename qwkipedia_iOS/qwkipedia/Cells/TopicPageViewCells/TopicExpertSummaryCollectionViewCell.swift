@@ -32,9 +32,9 @@ class TopicExpertSummaryCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
         
         
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
-        contentView.layer.borderWidth = 0.5
+//        contentView.layer.cornerRadius = 10
+//        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
+//        contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

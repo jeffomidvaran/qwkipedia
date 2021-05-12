@@ -12,7 +12,7 @@ import youtube_ios_player_helper
 class EditDataViewController: UIViewController{
 
     
-    var viewType: TopicCellType = .qwkDescription
+    var viewType: TopicCellType = .video
     var viewHasContent = false {
         didSet {
             deletePostButton.isHidden = !viewHasContent

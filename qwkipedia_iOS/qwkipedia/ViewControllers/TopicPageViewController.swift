@@ -113,7 +113,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
 //        case 0:
 //            height = 30.0
         case 0: // qwk description
-            height = 175.0
+            height = 190.0
         case 1: // video
             height = 250.0
         case 2: // image

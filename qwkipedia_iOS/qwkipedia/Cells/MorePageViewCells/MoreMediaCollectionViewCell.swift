@@ -188,10 +188,12 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(suggestButton)
         contentView.addSubview(voterButtons)
         
+        editButton.addTarget(self, action: #selector(editButtonPressed(_:)), for: .touchUpInside)
+
         
-//        contentView.layer.cornerRadius = 10
-//        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
-//        contentView.layer.borderWidth = 0.5
+        
+        
+
         
         NSLayoutConstraint.activate([
             profilePic.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -212,6 +214,12 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
             voterButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
         ])
     }
+    
+    @objc func editButtonPressed(_ sender: UIButton) {
+        print("edit button pressed")
+    }
+
+    
     
     @objc func playAudio(_ sender: UIButton) {
         print("audio button was pressed")
