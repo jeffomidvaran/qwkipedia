@@ -19,13 +19,6 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
     }()
     
 
-    fileprivate let titleLabel: UILabel = {
-        let l = UILabel()
-        l.text = "Qwk Recommendations"
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
-    }()
-
     let moreButton: UIButton = {
         let b = UIButton()
         b.setTitle("More", for: .normal)
@@ -41,34 +34,22 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         collectionView.dataSource = self
         collectionView.backgroundColor = QwkColors.backgroundColor
         contentView.addSubview(collectionView)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
         
-
-    
-        
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
-        contentView.layer.borderWidth = 0.5
-        
+//        contentView.layer.cornerRadius = 10
+//        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
+//        contentView.layer.borderWidth = 0.5
+     
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
-
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 8),
 
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
-
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
-        
     }
-    
-    
 
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")

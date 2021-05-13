@@ -10,6 +10,7 @@ import UIKit
 private let reuseIdentifier = "FavoritesTopicPreviewCell"
 class FavoritesCollectionViewController: UICollectionViewController, UISearchBarDelegate {
 
+
     @IBOutlet var searchBar: UISearchBar!
     
     let allData: [TempItem] = DummyData.previewData
@@ -55,6 +56,8 @@ class FavoritesCollectionViewController: UICollectionViewController, UISearchBar
         filteredSearchResults = allData
         collectionView.reloadData()
     }
+    
+    
 
 
 }

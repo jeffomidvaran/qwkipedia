@@ -32,9 +32,9 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(chatButton)
         
         
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
-        contentView.layer.borderWidth = 0.5
+//        contentView.layer.cornerRadius = 10
+//        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
+//        contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
             myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

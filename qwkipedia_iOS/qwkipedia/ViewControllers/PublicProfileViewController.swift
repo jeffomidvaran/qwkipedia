@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class PublicProfileViewController: UIViewController {
-    
+    var handle: AuthStateDidChangeListenerHandle?
+    let db = Firestore.firestore()
+    var name = ""
 lazy var profileView: UIView = {
     
     let view = UIView()
@@ -134,5 +137,49 @@ override func viewDidLoad() {
                          right: view.rightAnchor, height: 500)
     aboutTextField.textViewDidEndEditing(aboutTextField)
 }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+        
+        //Getting current user data
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
+                    if let e = error {
+                        print("Couldn't retrieve name, \(e)")
+                    } else {
+                        if let snapShotDocs = querySnapshot?.documents {
+                            for doc in snapShotDocs {
+                                let data = doc.data()
+                                if user.uid == data[Constants.FStore.userid] as? String {
+                                    self.name = data[Constants.FStore.username] as! String
+                                    self.nameLabel.text = self.name    //show the correct entered name for the user
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func logOutPressed(_ sender: UIButton) {
+        
+        do {
+            try Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginViewController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
+                
+                // get the SceneDelegate object from your view controller
+                // then call the change root view controller function to change to main tab bar to login again
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginViewController)
+            
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    
 
 }

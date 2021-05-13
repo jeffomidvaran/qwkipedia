@@ -86,7 +86,7 @@ class RegisterViewController: UIViewController {
                 } else {
                     //user was created successfully
                     let db = Firestore.firestore()                    
-                    db.collection("users").addDocument(data: ["name":name,"uid": authResult!.user.uid ]) { (error) in
+                    db.collection("users").addDocument(data: ["name":name,"uid": authResult!.user.uid, "email":email ]) { (error) in
                         
                         if error != nil {
                             // Show error message
@@ -94,7 +94,7 @@ class RegisterViewController: UIViewController {
                         }
                 }
                     //transition to Home page
-                    self.performSegue(withIdentifier: SegueNameConstants.createtoInterstSegue, sender: self)
+                    self.performSegue(withIdentifier: Constants.SegueNameConstants.createtoInterstSegue, sender: self)
             }
         }
     }

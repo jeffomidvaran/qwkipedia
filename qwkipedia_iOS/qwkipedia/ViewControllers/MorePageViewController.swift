@@ -91,7 +91,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
         switch cellType{
         case .qwkDescription:
-            height = 300.0
+            height = 250.0
         case .video:
             height = 400.0
         case .image:

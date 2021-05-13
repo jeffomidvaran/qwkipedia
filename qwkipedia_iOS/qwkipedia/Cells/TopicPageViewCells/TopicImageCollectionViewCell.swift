@@ -13,14 +13,9 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
     fileprivate let image: UIImageView = {
         let _image = UIImageView()
         _image.image = #imageLiteral(resourceName: "puppy")
+        _image.contentMode = .scaleAspectFit
         _image.translatesAutoresizingMaskIntoConstraints = false
         return _image
-    }()
-    fileprivate let titleLabel: UILabel = {
-        let l = UILabel()
-        l.text = "Top Image"
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
     }()
 
     let moreButton: UIButton = {
@@ -35,32 +30,19 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(image)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
         
-        
-        
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
-        contentView.layer.borderWidth = 0.5
+//        contentView.layer.cornerRadius = 10
+//        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
+//        contentView.layer.borderWidth = 0.5
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            // titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: image.topAnchor),
+            image.topAnchor.constraint(equalTo: contentView.topAnchor),
             image.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
-
-
-            // image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            // image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            // image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            image.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 8),
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
         ])
-
-        
     }
 
     

@@ -6,11 +6,20 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
+
 
 class EditDataViewController: UIViewController{
 
     
     var viewType: TopicCellType = .video
+    var viewHasContent = false {
+        didSet {
+            deletePostButton.isHidden = !viewHasContent
+            suggestionsCollectionView.isHidden = !viewHasContent
+            suggestionsLabel.isHidden = !viewHasContent
+        }
+    }
     /*
         uitextfield
         uiLabel
@@ -29,26 +38,23 @@ class EditDataViewController: UIViewController{
     let urlEntryField: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-        tf.placeholder = "Enter YouTube Link"
+        tf.clearsOnInsertion = true
         tf.returnKeyType = .done
         tf.autocorrectionType = .no
         return tf
     }()
     
-    let titleLabel: UILabel = {
-        var l = UILabel()
-        l.text = "Edit Qwk Description"
-        l.translatesAutoresizingMaskIntoConstraints = false
-//        l.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-        return l
+    let videoPlayer: YTPlayerView = {
+        let vp = YTPlayerView()
+        vp.translatesAutoresizingMaskIntoConstraints = false
+        vp.load(withVideoId: "WDlu1OhvYBM")
+        return vp
     }()
      
     let suggestionsLabel: UILabel = {
         var l = UILabel()
         l.text = "Suggestions"
         l.translatesAutoresizingMaskIntoConstraints = false
-//        l.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         return l
     }()
    
@@ -76,6 +82,7 @@ class EditDataViewController: UIViewController{
         return cv
     }()
     
+    var videoHeightConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,32 +96,45 @@ class EditDataViewController: UIViewController{
         super.view.addSubview(urlEntryField)
         super.view.addSubview(textView)
         super.view.addSubview(deletePostButton)
-        super.view.addSubview(titleLabel)
+//        super.view.addSubview(titleLabel)
         super.view.addSubview(spacer)
         super.view.addSubview(suggestionsLabel)
         super.view.addSubview(suggestionsCollectionView)
+        super.view.addSubview(videoPlayer)
         
         
+        
+        videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
+                                                   attribute: .height,
+                                                   relatedBy: .equal,
+                                                   toItem: videoPlayer,
+                                                   attribute: .height,
+                                                   multiplier: 0,
+                                                   constant: 0.0)
+        
+        videoHeightConstraint.isActive = true
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
 
             urlEntryField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            urlEntryField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            urlEntryField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             urlEntryField.heightAnchor.constraint(equalToConstant: 50),
             urlEntryField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            
+            
+            videoPlayer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            videoPlayer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            videoPlayer.topAnchor.constraint(equalTo: urlEntryField.bottomAnchor, constant: 8),
 
             deletePostButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            deletePostButton.topAnchor.constraint(equalTo: urlEntryField.bottomAnchor, constant: 8),
+            deletePostButton.topAnchor.constraint(equalTo: videoPlayer.bottomAnchor, constant: 8),
             
             spacer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             spacer.trailingAnchor.constraint(equalTo: deletePostButton.leadingAnchor, constant: -8),
-            spacer.topAnchor.constraint(equalTo: urlEntryField.bottomAnchor, constant: 8),
+            spacer.topAnchor.constraint(equalTo: videoPlayer.bottomAnchor, constant: 8),
             spacer.heightAnchor.constraint(equalTo: deletePostButton.heightAnchor),
             
-            
+    
             suggestionsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             suggestionsLabel.topAnchor.constraint(equalTo: spacer.bottomAnchor, constant: 8),
             
@@ -123,6 +143,13 @@ class EditDataViewController: UIViewController{
             suggestionsCollectionView.topAnchor.constraint(equalTo: suggestionsLabel.bottomAnchor, constant: 8),
             suggestionsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
         ])
+        
+        if(viewHasContent == false) {
+            deletePostButton.isHidden = true
+            suggestionsLabel.isHidden = true
+            suggestionsCollectionView.isHidden = true
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -130,19 +157,14 @@ class EditDataViewController: UIViewController{
         
         switch viewType {
         case .qwkDescription:
-            titleLabel.text = "Edit Qwk Description"
             urlEntryField.placeholder = "Enter 1000 Word Description"
         case .video:
-            titleLabel.text = "Add Video"
-            urlEntryField.placeholder = "Enter YouTubeLink"
+            urlEntryField.placeholder = "Enter New YouTube Link"
         case .audio:
-            titleLabel.text = "Add Audio"
             urlEntryField.placeholder = "Upload Audiofile"
         case .externalLink:
-            titleLabel.text = "Add An External Link"
             urlEntryField.placeholder = "Enter Link"
         case .image:
-            titleLabel.text = "Add Image"
             urlEntryField.placeholder = "Upload Image"
         default:
             fatalError()
@@ -161,7 +183,17 @@ class EditDataViewController: UIViewController{
     
 
     @objc func deletePostPressed(sender: UIButton!) {
-        print("delete post preessed")
+        viewHasContent = false
+        suggestionsCollectionView.reloadData()
+        videoHeightConstraint.isActive = false
+        videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
+                                                   attribute: .height,
+                                                   relatedBy: .equal,
+                                                   toItem: videoPlayer,
+                                                   attribute: .height,
+                                                   multiplier: 0,
+                                                   constant: 0.0)
+        videoHeightConstraint.isActive = true
     }
     
     
@@ -173,14 +205,24 @@ class EditDataViewController: UIViewController{
 extension EditDataViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         urlEntryField.resignFirstResponder()
-        
         if let urlEntry = urlEntryField.text {
             let youTubePrefix = "https://www.youtube.com/watch?v="
             if(verifyUrl(urlString: urlEntry) && urlEntry.starts(with: youTubePrefix)) {
-                let videoCode = String(urlEntry.dropFirst(youTubePrefix.count))
-                print(videoCode)
+                let videoId = String(urlEntry.dropFirst(youTubePrefix.count))
+                videoPlayer.load(withVideoId: videoId)
+                videoHeightConstraint.isActive = false
+                videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
+                                                           attribute: .height,
+                                                           relatedBy: .equal,
+                                                           toItem: videoPlayer,
+                                                           attribute: .width,
+                                                           multiplier: 9.0/16.0,
+                                                           constant: 0.0)
+                videoHeightConstraint.isActive = true
+                urlEntryField.text?.removeAll()
+                viewHasContent = true
             } else {
-                print("invalid link")
+                urlEntryField.text?.removeAll()
             }
         }
         return true
@@ -201,7 +243,6 @@ extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestionCellCollectionViewCell.identifier, for: indexPath) as! SuggestionCellCollectionViewCell
-//        cell.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         return cell
         
     }
@@ -228,7 +269,9 @@ extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
 
 
-//        var test = "https://www.youtube.com/watch?v=4Ll6T1aqfqo"
+/*
+    https://www.youtube.com/watch?v=JJunp9xo4uA
+*/
 
 
 
