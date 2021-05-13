@@ -4,8 +4,11 @@ import Header from "./Header";
 import Home from "./Home";
 import Reset from "./Reset";
 import { Link } from 'react-router';
+import { useRef } from 'react';
+
 
 const Login = () => {
+
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
@@ -14,11 +17,16 @@ const Login = () => {
 
   function handleEmailChange(event) {
     setEmail(event.target.value);
+    // EM.current = event.target.value;
   }
 
   function handlePasswordChange(event) {
     setPassword(event.target.value);
   }
+
+  // const getEmail = ()=> {
+  //   console.log({email});
+  // }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -33,6 +41,8 @@ const Login = () => {
   }
 
   function Register(event) {
+    console.log(getEmail())
+
     event.preventDefault();
 
     Fire.auth()
@@ -95,4 +105,5 @@ const Login = () => {
   );
 };
 
+// export {EM};
 export default Login;
