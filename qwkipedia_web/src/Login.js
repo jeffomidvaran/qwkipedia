@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 import { useRef } from 'react';
 
 
+// const Login = ({sendDataToParent }) => {
 const Login = () => {
 
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ const Login = () => {
   function handleEmailChange(event) {
     setEmail(event.target.value);
     // EM.current = event.target.value;
+    // sendDataToParent(event.target.value);
   }
 
   function handlePasswordChange(event) {

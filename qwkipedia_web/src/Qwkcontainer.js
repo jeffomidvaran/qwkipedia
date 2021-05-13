@@ -85,7 +85,7 @@ const QwkContainer = () => {
       vote: 0,
     }
     setTodos([...todos, newQwk])
-    // console.log(EM)
+    // console.log(props.em)
   }
 
   // const upVote = id => {
