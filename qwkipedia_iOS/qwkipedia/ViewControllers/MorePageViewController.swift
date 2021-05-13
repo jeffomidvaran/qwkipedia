@@ -9,11 +9,8 @@ import UIKit
 
 class MorePageViewController: UIViewController {
  
-    
-    
     var cellType: TopicCellType = .qwkDescription
     var value = "empty"
-    
     
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,12 +27,28 @@ class MorePageViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = QwkColors.backgroundColor
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
         ])
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare in more called")
+        if(segue.identifier == "moreToEditSeque") {
+            let vc = segue.destination as! EditDataViewController
+            vc.viewType = cellType
+            vc.videoURL = "https://www.youtube.com/watch?v=JJunp9xo4uA"
+        }
+    }
+    
+    
+    @IBAction func newQwkEntryButtonAction(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "moreToNewQwkEEntrySegue", sender: self)
+    }
+    
     
 
 }
@@ -52,21 +65,36 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkDescription
             cell.isAuthor = false
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                
+            }
             return cell
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
             cell.isAuthor = false
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                
+            }
             return cell
         case .image:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .image
             cell.isAuthor = false
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+            }
             return cell
         case .audio:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .audio
             cell.isAuthor = false
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                
+            }
             return cell
         case .externalLink:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
@@ -74,6 +102,10 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.urlString = DummyData.urls[0][1]
             cell.isAuthor = false
             cell.cellType = .externalLink
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                
+            }
             return cell
         case .qwkRecommedation:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
@@ -93,7 +125,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .qwkDescription:
             height = 250.0
         case .video:
-            height = 400.0
+            height = 300.0
         case .image:
             height = 230.0
         case .audio:

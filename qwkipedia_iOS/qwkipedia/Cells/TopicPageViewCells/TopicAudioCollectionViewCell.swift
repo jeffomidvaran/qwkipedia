@@ -13,14 +13,6 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageAudioCell"
     var player: AVAudioPlayer?
 
-
-
-    fileprivate let titleLabel: UILabel = {
-        let l = UILabel()
-        l.text = "Top Audio"
-        l.translatesAutoresizingMaskIntoConstraints = false
-        return l
-    }()
     
     fileprivate let playButton: UIButton = {
         let _button = UIButton()
@@ -34,7 +26,8 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
     
     let moreButton: UIButton = {
         let b = UIButton()
-        b.setTitle("More", for: .normal)
+        let rightArrow = UIImage(systemName: "arrow.right")
+        b.setImage(rightArrow, for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
@@ -44,7 +37,6 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
 
         contentView.addSubview(playButton)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(moreButton)
         
 //        contentView.layer.cornerRadius = 10
@@ -56,10 +48,7 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: playButton.topAnchor),
+            
 
             playButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             playButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
@@ -82,8 +71,6 @@ class TopicAudioCollectionViewCell: UICollectionViewCell {
         }
     }
     
-
-
     required init?(coder: NSCoder) {
         fatalError("Init coder not implemented")
     }

@@ -22,6 +22,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
         didSet {
             switch cellType{
             case .qwkDescription:
+                print("qwktype called ")
                 let qwkDescriptionTextView = UITextView()
                 qwkDescriptionTextView.text = DummyData.qwkDescription
                 qwkDescriptionTextView.isEditable = false
@@ -47,6 +48,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
                 NSLayoutConstraint.activate([
                     player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
                     player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
                     player.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
                     player.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
                     player.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
@@ -181,6 +183,10 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+
+        print("the init was called")
+
+
         contentView.addSubview(profilePic)
         contentView.addSubview(authorLabel)
         contentView.addSubview(reportButton)
@@ -217,7 +223,10 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
     
     @objc func editButtonPressed(_ sender: UIButton) {
         print("edit button pressed")
+        editButtonTapAction?()
     }
+
+    var editButtonTapAction : (()->())?
 
     
     

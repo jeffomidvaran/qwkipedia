@@ -44,10 +44,10 @@ class TopicPageViewController: UIViewController {
         mainTopicPageHeader.title = "Puppy"
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
         ])
     }
 }
@@ -55,15 +55,12 @@ class TopicPageViewController: UIViewController {
 
 extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPath[1]{
-//        case 0:
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicHeaderCollectionViewCell.identifier , for: indexPath) as! TopicHeaderCollectionViewCell
-//            return cell
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(qwkDescriptionMoreButtonPressed), for: .touchUpInside)
@@ -78,25 +75,25 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             cell.moreButton.addTarget(self, action: #selector(moreImageButtonPressed), for: .touchUpInside)
 
             return cell
+//        case 3:
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicAudioCollectionViewCell.identifier  , for: indexPath) as! TopicAudioCollectionViewCell
+//            cell.moreButton.addTarget(self, action: #selector(moreAudioButtonPressed), for: .touchUpInside)
+//            return cell
         case 3:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicAudioCollectionViewCell.identifier  , for: indexPath) as! TopicAudioCollectionViewCell
-            cell.moreButton.addTarget(self, action: #selector(moreAudioButtonPressed), for: .touchUpInside)
-            return cell
-        case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
             return cell
-        case 5:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier  , for: indexPath) as! TopicExpertSummaryCollectionViewCell
-            return cell
-        case 6:
+//        case 5:
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier  , for: indexPath) as! TopicExpertSummaryCollectionViewCell
+//            return cell
+        case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreExternalLinksButtonPressed), for: .touchUpInside)
             return cell
-        case 7:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier , for: indexPath) as! TopicQwkRecomendtionsCollectionViewCell
-            cell.moreButton.addTarget(self, action: #selector(moreQwkRecomendationsButtonPressed), for: .touchUpInside)
-            return cell
+//        case 7:
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier , for: indexPath) as! TopicQwkRecomendtionsCollectionViewCell
+//            cell.moreButton.addTarget(self, action: #selector(moreQwkRecomendationsButtonPressed), for: .touchUpInside)
+//            return cell
         default:
             fatalError()
 
@@ -106,28 +103,26 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         
-        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width
-        var height: CGFloat =  0.0
+        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
+        var height: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
         
         switch indexPath[1]{
-//        case 0:
-//            height = 30.0
-        case 0: // qwk description
-            height = 190.0
-        case 1: // video
-            height = 250.0
-        case 2: // image
-            height = 200.0
-        case 3: // audio
-            height = 100.0
-        case 4: // discussion
-            height = 100.0
-        case 5: // expert summary
-            height = 600.0
+        case 0...5: // qwk description
+            height = 200
+//        case 1: // video
+//            height = 200.0
+//        case 2: // image
+//            height = 200.0
+//        case 3: // audio
+//            height = 200.0
+//        case 4: // discussion
+//            height = 200.0
+//        case 5: // expert summary
+//            height = 600.0
         case 6: // external Links
-            height = 145.0
-        case 7: // qwk recommedations
-            height = 205.0
+            height = 200.0
+//        case 7: // qwk recommedations
+//            height = 200.0
         default:
             fatalError()
         }

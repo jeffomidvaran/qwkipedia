@@ -11,11 +11,13 @@ import UIKit
 
 class HomePageCollectionViewController: UICollectionViewController {
 
-    let dataSource = ["one", "two", "three", "four", "five"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: view.frame.width - 16, height: 144.5)
+        
     }
     
 

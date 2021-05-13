@@ -19,7 +19,8 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
     
     let chatButton: UIButton = {
         let b = UIButton()
-        b.setTitle("Chat", for: .normal)
+        let rightArrow = UIImage(systemName: "arrow.right")
+        b.setImage(rightArrow, for: .normal)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
