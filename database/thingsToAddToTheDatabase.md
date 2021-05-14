@@ -38,7 +38,7 @@
 4. number of votes 
 5. array of votes (user ids, positive or negative vote)
 
-#### Discussion
+#### Discussion (SubCollection)
 1. user id
 2. date 
 3. message
