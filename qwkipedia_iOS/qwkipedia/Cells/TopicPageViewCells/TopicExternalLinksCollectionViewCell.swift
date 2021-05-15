@@ -115,6 +115,8 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        let sizeOfConstantAroundGlobe: CGFloat = 12.0
+
         if(DummyData.urls.count > 0){
             urlStackView.addArrangedSubview(urlView1)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(url1Clicked(_:)))
@@ -123,13 +125,14 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
             urlView1.addSubview(label1)
             urlView1.addSubview(urlImage1)
     
+            
             NSLayoutConstraint.activate([
-                urlImage1.leadingAnchor.constraint(equalTo: urlView1.leadingAnchor, constant: 8),
-                urlImage1.topAnchor.constraint(equalTo: urlView1.topAnchor, constant: 8),
-                urlImage1.bottomAnchor.constraint(equalTo: urlView1.bottomAnchor, constant: -8),
+                urlImage1.leadingAnchor.constraint(equalTo: urlView1.leadingAnchor, constant: sizeOfConstantAroundGlobe),
+                urlImage1.topAnchor.constraint(equalTo: urlView1.topAnchor, constant: sizeOfConstantAroundGlobe),
+                urlImage1.bottomAnchor.constraint(equalTo: urlView1.bottomAnchor, constant: -sizeOfConstantAroundGlobe),
                 urlImage1.heightAnchor.constraint(equalTo: urlImage1.widthAnchor),
                 
-                label1.leadingAnchor.constraint(equalTo: urlImage1.trailingAnchor, constant: 8),
+                label1.leadingAnchor.constraint(equalTo: urlImage1.trailingAnchor, constant: sizeOfConstantAroundGlobe),
                 label1.centerYAnchor.constraint(equalTo: urlView1.centerYAnchor),
             ])
         }
@@ -142,12 +145,12 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
             urlView2.addSubview(urlImage2)
 
             NSLayoutConstraint.activate([
-                urlImage2.leadingAnchor.constraint(equalTo: urlView2.leadingAnchor, constant: 8),
-                urlImage2.topAnchor.constraint(equalTo:     urlView2.topAnchor, constant: 8),
-                urlImage2.bottomAnchor.constraint(equalTo:  urlView2.bottomAnchor, constant: -8),
+                urlImage2.leadingAnchor.constraint(equalTo: urlView2.leadingAnchor, constant: sizeOfConstantAroundGlobe),
+                urlImage2.topAnchor.constraint(equalTo:     urlView2.topAnchor, constant: sizeOfConstantAroundGlobe),
+                urlImage2.bottomAnchor.constraint(equalTo:  urlView2.bottomAnchor, constant: -sizeOfConstantAroundGlobe),
                 urlImage2.heightAnchor.constraint(equalTo:  urlImage2.widthAnchor),
                 
-                label2.leadingAnchor.constraint(equalTo: urlImage2.trailingAnchor, constant: 8),
+                label2.leadingAnchor.constraint(equalTo: urlImage2.trailingAnchor, constant: sizeOfConstantAroundGlobe),
                 label2.centerYAnchor.constraint(equalTo: urlView2.centerYAnchor),
             ])
         }
@@ -160,12 +163,12 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
             urlView3.addSubview(urlImage3)
 
             NSLayoutConstraint.activate([
-                urlImage3.leadingAnchor.constraint(equalTo: urlView3.leadingAnchor, constant: 8),
-                urlImage3.topAnchor.constraint(equalTo:     urlView3.topAnchor, constant: 8),
-                urlImage3.bottomAnchor.constraint(equalTo:  urlView3.bottomAnchor, constant: -8),
+                urlImage3.leadingAnchor.constraint(equalTo: urlView3.leadingAnchor, constant: sizeOfConstantAroundGlobe),
+                urlImage3.topAnchor.constraint(equalTo:     urlView3.topAnchor, constant: sizeOfConstantAroundGlobe),
+                urlImage3.bottomAnchor.constraint(equalTo:  urlView3.bottomAnchor, constant: -sizeOfConstantAroundGlobe),
                 urlImage3.heightAnchor.constraint(equalTo: urlImage3.widthAnchor),
                 
-                label3.leadingAnchor.constraint(equalTo: urlImage3.trailingAnchor, constant: 8),
+                label3.leadingAnchor.constraint(equalTo: urlImage3.trailingAnchor, constant: sizeOfConstantAroundGlobe),
                 label3.centerYAnchor.constraint(equalTo: urlView3.centerYAnchor),
             ])
         }
