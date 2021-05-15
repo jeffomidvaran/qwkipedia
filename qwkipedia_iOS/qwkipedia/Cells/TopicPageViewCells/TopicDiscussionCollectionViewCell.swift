@@ -11,16 +11,18 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
     public static let identifier = "topicPageDiscussionCell"
 
     fileprivate let myLabel: UILabel = {
-        let _label = UILabel()
-        _label.text = "Discussion"
-        _label.translatesAutoresizingMaskIntoConstraints = false
-        return _label
+        let l = UILabel()
+        l.text = "Discussion"
+//        l.textColor = QwkColors.highlightColorGreen
+        l.translatesAutoresizingMaskIntoConstraints = false
+        return l
     }()
     
     let chatButton: UIButton = {
         let b = UIButton()
         let rightArrow = UIImage(systemName: "arrow.right")
         b.setImage(rightArrow, for: .normal)
+        b.tintColor = QwkColors.buttonColor
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b

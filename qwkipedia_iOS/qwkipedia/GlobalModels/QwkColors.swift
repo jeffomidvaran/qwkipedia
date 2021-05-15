@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct QwkColors {
-    static let buttonColor: UIColor = #colorLiteral(red: 0.005711098202, green: 0.5841870904, blue: 0.9988865256, alpha: 1)
+    static let buttonColor: UIColor = #colorLiteral(red: 0.564045608, green: 0.06637449563, blue: 0.9946104884, alpha: 1)
     static let deletebuttonColor: UIColor = .red
     static let outlineColor: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     static let backgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

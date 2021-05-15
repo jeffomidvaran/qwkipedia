@@ -88,18 +88,22 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             cell.numberOfCells = numberOfCells
             
         // TODO: potential memory issue
-            cell.urlViewButtonTapAction = {
+            cell.urlViewButtonTapAction = { (url:String) in
+                print(url)
                 self.performSegue(withIdentifier: "externalLinkWebViewSegue", sender: self)
             }
             
             if(numberOfCells > 0) {
                 cell.urlView1.url = DummyData.urls[0][1]
+                cell.label1.text = DummyData.urls[0][0]
             }
             if(numberOfCells > 1) {
-                cell.urlView1.url = DummyData.urls[1][1]
+                cell.urlView2.url = DummyData.urls[1][1]
+                cell.label2.text = DummyData.urls[1][0]
             }
             if(numberOfCells > 2) {
-                cell.urlView1.url = DummyData.urls[2][1]
+                cell.urlView3.url = DummyData.urls[2][1]
+                cell.label3.text = DummyData.urls[2][0]
             }
             return cell
         default:
@@ -107,8 +111,9 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
 
         }
         
-        
     }
+    
+   
     
     
   
@@ -159,11 +164,12 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         performSegue(withIdentifier: "discussionPageSegue", sender: self)
     }
     
-    
     func recieveDataFromTableViewAndSegue(urlString: String){
         print("recieved by VC \(urlString)")
         performSegue(withIdentifier: "externalLinkWebViewSegue", sender: self)
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPageSegue" {
@@ -174,9 +180,12 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             let controller = segue.destination as! DiscussionViewController
             controller.value = "chat from topic vc"
         } else if segue.identifier == "externalLinkWebViewSegue" {
-            print("transition to web")
+            let vc = segue.destination as! ExternalLinkWebViewController
+            
+            
         }
-        
-        
     }
+    
+    
+    
 }

@@ -18,6 +18,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         let b = UIButton()
         let rightArrow = UIImage(systemName: "arrow.right")
         b.setImage(rightArrow, for: .normal)
+        b.tintColor = QwkColors.buttonColor
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
