@@ -2,13 +2,14 @@
 
 ## User
 1. name 
-2. email
-3. intrests tags 
-4. bio
-5. user ID
-6. Favorted Pages
-7. topics items that have been voted for (vote one time)
-8. qwk-tributions (video, images, qwkdescriptions, external links) (references to topic items)
+2. profile picture
+3. email
+4. intrests tags 
+5. bio
+6. user ID
+7. Favorted Pages
+8. topics items that have been voted for (vote one time)
+9. qwk-tributions (video, images, qwkdescriptions, external links) (references to topic items)
  
 
 ## Topics (Collection)
