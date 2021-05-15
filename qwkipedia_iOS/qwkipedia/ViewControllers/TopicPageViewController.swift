@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TopicPageViewController: UIViewController {
+class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
     var cellSendType: TopicCellType = .qwkDescription
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
@@ -16,7 +16,6 @@ class TopicPageViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-//        cv.register(TopicHeaderCollectionViewCell.self, forCellWithReuseIdentifier: TopicHeaderCollectionViewCell.identifier)
         cv.register(TopicQwkDescriptionCollectionViewCell.self, forCellWithReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier)
         cv.register(TopicVideoCollectionViewCell.self, forCellWithReuseIdentifier: TopicVideoCollectionViewCell.identifier)
         cv.register(TopicImageCollectionViewCell.self, forCellWithReuseIdentifier: TopicImageCollectionViewCell.identifier)
@@ -24,6 +23,9 @@ class TopicPageViewController: UIViewController {
         cv.register(TopicDiscussionCollectionViewCell.self, forCellWithReuseIdentifier: TopicDiscussionCollectionViewCell.identifier)
         cv.register(TopicExpertSummaryCollectionViewCell.self, forCellWithReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier)
         cv.register(TopicExternalLinksCollectionViewCell.self, forCellWithReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier)
+        
+        
+        
         cv.register(TopicQwkRecomendtionsCollectionViewCell.self, forCellWithReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier)
         return cv
     }()
@@ -43,6 +45,7 @@ class TopicPageViewController: UIViewController {
         collectionView.backgroundColor = QwkColors.backgroundColor
         mainTopicPageHeader.title = "Puppy"
         
+        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
@@ -50,6 +53,7 @@ class TopicPageViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
         ])
     }
+    
 }
 
 
@@ -68,61 +72,57 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicVideoCollectionViewCell.identifier  , for: indexPath) as! TopicVideoCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreVideoButtonPressed), for: .touchUpInside)
-
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreImageButtonPressed), for: .touchUpInside)
-
             return cell
-//        case 3:
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicAudioCollectionViewCell.identifier  , for: indexPath) as! TopicAudioCollectionViewCell
-//            cell.moreButton.addTarget(self, action: #selector(moreAudioButtonPressed), for: .touchUpInside)
-//            return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
             return cell
-//        case 5:
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier  , for: indexPath) as! TopicExpertSummaryCollectionViewCell
-//            return cell
         case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreExternalLinksButtonPressed), for: .touchUpInside)
+            let numberOfCells = DummyData.urls.count > 3 ? 3 : DummyData.urls.count
+            cell.numberOfCells = numberOfCells
+            
+        // TODO: potential memory issue
+            cell.urlViewButtonTapAction = {
+                self.performSegue(withIdentifier: "externalLinkWebViewSegue", sender: self)
+            }
+            
+            if(numberOfCells > 0) {
+                cell.urlView1.url = DummyData.urls[0][1]
+            }
+            if(numberOfCells > 1) {
+                cell.urlView1.url = DummyData.urls[1][1]
+            }
+            if(numberOfCells > 2) {
+                cell.urlView1.url = DummyData.urls[2][1]
+            }
             return cell
-//        case 7:
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier , for: indexPath) as! TopicQwkRecomendtionsCollectionViewCell
-//            cell.moreButton.addTarget(self, action: #selector(moreQwkRecomendationsButtonPressed), for: .touchUpInside)
-//            return cell
         default:
             fatalError()
 
         }
+        
+        
     }
+    
+    
+  
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         
         let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
-        var height: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
-        
+        var height: CGFloat = 200.0
         switch indexPath[1]{
-        case 0...5: // qwk description
+        case 0...3:
             height = 200
-//        case 1: // video
-//            height = 200.0
-//        case 2: // image
-//            height = 200.0
-//        case 3: // audio
-//            height = 200.0
-//        case 4: // discussion
-//            height = 200.0
-//        case 5: // expert summary
-//            height = 600.0
-        case 6: // external Links
-            height = 200.0
-//        case 7: // qwk recommedations
-//            height = 200.0
+        case 4:
+            height = 133
         default:
             fatalError()
         }
@@ -159,6 +159,12 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         performSegue(withIdentifier: "discussionPageSegue", sender: self)
     }
     
+    
+    func recieveDataFromTableViewAndSegue(urlString: String){
+        print("recieved by VC \(urlString)")
+        performSegue(withIdentifier: "externalLinkWebViewSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPageSegue" {
             let controller = segue.destination as! MorePageViewController
@@ -167,6 +173,10 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         } else if segue.identifier == "discussionPageSegue" {
             let controller = segue.destination as! DiscussionViewController
             controller.value = "chat from topic vc"
+        } else if segue.identifier == "externalLinkWebViewSegue" {
+            print("transition to web")
         }
+        
+        
     }
 }

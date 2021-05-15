@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         //For handling the nav and Tabbar controllers
 //        let storyboard = UIStoryboard(name: "Main",bundle: nil)
-//
+
 //        //if user is logged in before
 //        if let loggedUsername = UserDefaults.standard.string(forKey: "username") {
 //            // instantiate the main tab bar controller and set it as root view controller

@@ -36,7 +36,6 @@ class MorePageViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("prepare in more called")
         if(segue.identifier == "moreToEditSeque") {
             let vc = segue.destination as! EditDataViewController
             vc.viewType = cellType
@@ -67,7 +66,6 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.isAuthor = false
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
-                
             }
             return cell
         case .video:

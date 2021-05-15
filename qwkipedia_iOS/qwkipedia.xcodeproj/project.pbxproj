@@ -37,11 +37,13 @@
 		7C653983262E41B800014A51 /* QwkColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653982262E41B800014A51 /* QwkColors.swift */; };
 		7C65398B262E63B000014A51 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65398A262E63B000014A51 /* UIImageExtensions.swift */; };
 		7C689410262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */; };
-		7CA9F20B2636990000C28A62 /* ExternalLinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA9F20A2636990000C28A62 /* ExternalLinkCollectionViewCell.swift */; };
+		7C8A676E264F24E700C6F681 /* UrlStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A676D264F24E700C6F681 /* UrlStackViewCell.swift */; };
 		7CAD57A92638C62E00427ED0 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD57A82638C62E00427ED0 /* UITextViewExtensions.swift */; };
 		7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAEF1B52648658800FFD2FC /* GradientBackgroundUIView.swift */; };
 		7CB2C5402633757A003A2F24 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2C53F2633757A003A2F24 /* DummyData.swift */; };
 		7CB2C54326338F12003A2F24 /* puppySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2C54226338F12003A2F24 /* puppySound.wav */; };
+		7CB4037A264E1760004655E0 /* TopicExternalLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB40379264E1760004655E0 /* TopicExternalLinkTableViewCell.swift */; };
+		7CB4037E264F0FB6004655E0 /* ExternalLinkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4037D264F0FB6004655E0 /* ExternalLinkWebViewController.swift */; };
 		7CC78E9E2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC78E9D2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift */; };
 		7CE25B59263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */; };
 		7CE25B5C263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B5B263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift */; };
@@ -92,12 +94,14 @@
 		7C653982262E41B800014A51 /* QwkColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwkColors.swift; sourceTree = "<group>"; };
 		7C65398A262E63B000014A51 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		7C68940F262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		7CA9F20A2636990000C28A62 /* ExternalLinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C8A676D264F24E700C6F681 /* UrlStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UrlStackViewCell.swift; path = qwkipedia/Cells/UrlStackViewCell.swift; sourceTree = "<group>"; };
 		7CAD57A82638C62E00427ED0 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		7CAEF1B52648658800FFD2FC /* GradientBackgroundUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgroundUIView.swift; sourceTree = "<group>"; };
 		7CB2C53F2633757A003A2F24 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		7CB2C54226338F12003A2F24 /* puppySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = puppySound.wav; sourceTree = "<group>"; };
 		7CB2C55D2633AB85003A2F24 /* puppy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = puppy.mp4; sourceTree = "<group>"; };
+		7CB40379264E1760004655E0 /* TopicExternalLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicExternalLinkTableViewCell.swift; sourceTree = "<group>"; };
+		7CB4037D264F0FB6004655E0 /* ExternalLinkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkWebViewController.swift; sourceTree = "<group>"; };
 		7CC78E9D2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CCCEE5426376B82002034EF /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		1C6C4E85262CCCA00067B444 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7CB4037D264F0FB6004655E0 /* ExternalLinkWebViewController.swift */,
 				7CECD4EB2649C88D007F767F /* SettingsTableViewController.swift */,
 				7CECD4E5264876B6007F767F /* EditDataViewController.swift */,
 				7C4E4624263F2FE400DA51E4 /* DiscussionViewController.swift */,
@@ -185,6 +190,7 @@
 		7C1C34B2261D913F00C9F893 = {
 			isa = PBXGroup;
 			children = (
+				7C8A676D264F24E700C6F681 /* UrlStackViewCell.swift */,
 				7C1C34BD261D913F00C9F893 /* qwkipedia */,
 				7C1C34BC261D913F00C9F893 /* Products */,
 				6B49817A744B645A23D8B78E /* Pods */,
@@ -265,8 +271,9 @@
 		7CE25B562632421F00ADFEDD /* TopicPageViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				7CE25B6D2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift */,
+				7CB40379264E1760004655E0 /* TopicExternalLinkTableViewCell.swift */,
 				7CEAEA8526374D7F0029138E /* RecomendationCollectionViewCell.swift */,
-				7CA9F20A2636990000C28A62 /* ExternalLinkCollectionViewCell.swift */,
 				7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */,
 				7CE25B5B263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift */,
 				7CE25B5E2632450000ADFEDD /* TopicVideoCollectionViewCell.swift */,
@@ -274,7 +281,6 @@
 				7CE25B642632451C00ADFEDD /* TopicAudioCollectionViewCell.swift */,
 				7CE25B672632452700ADFEDD /* TopicDiscussionCollectionViewCell.swift */,
 				7CE25B6A2632453D00ADFEDD /* TopicExpertSummaryCollectionViewCell.swift */,
-				7CE25B6D2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift */,
 				7CE25B702632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift */,
 			);
 			path = TopicPageViewCells;
@@ -397,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB4037E264F0FB6004655E0 /* ExternalLinkWebViewController.swift in Sources */,
 				7CE25B682632452700ADFEDD /* TopicDiscussionCollectionViewCell.swift in Sources */,
 				7C65398B262E63B000014A51 /* UIImageExtensions.swift in Sources */,
 				7CE25B6E2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift in Sources */,
@@ -404,6 +411,7 @@
 				7CE25B622632450C00ADFEDD /* TopicImageCollectionViewCell.swift in Sources */,
 				7C689410262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift in Sources */,
 				7CE25B5F2632450000ADFEDD /* TopicVideoCollectionViewCell.swift in Sources */,
+				7C8A676E264F24E700C6F681 /* UrlStackViewCell.swift in Sources */,
 				7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */,
 				7CE25B59263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift in Sources */,
 				1C51821D2636662F00137C0B /* ForgotPasswordViewController.swift in Sources */,
@@ -411,7 +419,6 @@
 				7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */,
 				1C7D74A6264B705700E16168 /* Message.swift in Sources */,
 				7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */,
-				7CA9F20B2636990000C28A62 /* ExternalLinkCollectionViewCell.swift in Sources */,
 				7CC78E9E2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift in Sources */,
 				7CE25B652632451C00ADFEDD /* TopicAudioCollectionViewCell.swift in Sources */,
 				7CEAEA8626374D7F0029138E /* RecomendationCollectionViewCell.swift in Sources */,
@@ -433,6 +440,7 @@
 				7C4E4628263F35C900DA51E4 /* ChooserEnums.swift in Sources */,
 				1C7D74A4264B6FE100E16168 /* MessageCell.swift in Sources */,
 				7CECD4EC2649C88D007F767F /* SettingsTableViewController.swift in Sources */,
+				7CB4037A264E1760004655E0 /* TopicExternalLinkTableViewCell.swift in Sources */,
 				7C4E4625263F2FE400DA51E4 /* DiscussionViewController.swift in Sources */,
 				7CB2C5402633757A003A2F24 /* DummyData.swift in Sources */,
 				7C48663B263149B200DC9AC4 /* SearchResultsTableViewCell.swift in Sources */,
@@ -587,7 +595,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-7";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-8";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PTR25572E;
 				INFOPLIST_FILE = qwkipedia/Info.plist;
@@ -607,7 +615,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-7";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-8";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8PTR25572E;
 				INFOPLIST_FILE = qwkipedia/Info.plist;

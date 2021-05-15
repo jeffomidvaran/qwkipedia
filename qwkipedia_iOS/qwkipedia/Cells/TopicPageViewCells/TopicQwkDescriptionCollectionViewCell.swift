@@ -34,10 +34,12 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(qwkDescriptionTextView)
         contentView.addSubview(moreButton)
         
+        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
 //        contentView.layer.cornerRadius = 10
 //        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
 //        contentView.layer.borderWidth = 0.5
-        contentView.layer.masksToBounds = true
+//        contentView.layer.masksToBounds = true
         
         
         NSLayoutConstraint.activate([

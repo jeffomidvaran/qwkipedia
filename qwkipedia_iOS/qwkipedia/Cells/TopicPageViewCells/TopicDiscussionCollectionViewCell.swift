@@ -33,18 +33,21 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(chatButton)
         
         
+        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
+
 //        contentView.layer.cornerRadius = 10
 //        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
 //        contentView.layer.borderWidth = 0.5
+//        contentView.layer.masksToBounds = true
         
         NSLayoutConstraint.activate([
-            myLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            myLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
             chatButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
             chatButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
         ])
-        
     }
     
     required init?(coder: NSCoder) {
