@@ -10,7 +10,7 @@ const Header = () => {
       <div className="header"></div>
       <div className="bg"></div>
 
-      <div className="header_text">QWIKIPEDIA</div>
+      <div className="header_text">QWKIPEDIA</div>
 
     </header>
   )

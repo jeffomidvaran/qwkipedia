@@ -43,7 +43,7 @@ const Login = () => {
   }
 
   function Register(event) {
-    console.log(getEmail())
+    // console.log(getEmail())
 
     event.preventDefault();
 
