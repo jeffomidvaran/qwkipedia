@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom"
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import Fire from "./Fire";
-import Home from "./Home";
+import Main from "./Main";
 import Login from "./Login";
 import "./styles.css";
 import Reset from "./Reset";
@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>{this.state.user ? <Home /> : <Login />}</div>;
+    return <div>{this.state.user ? <Main /> : <Login />}</div>;
   }
 }
 

@@ -10,8 +10,9 @@ const HeaderLogin = () => {
 
   return (
     
-    <header>
-      <div className="header"></div>
+    // <header>
+    <div >
+      <div className="header1"></div>
       <div className="bg"></div>
 
       <div className="header_text">QWKIPEDIA &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
@@ -19,7 +20,8 @@ const HeaderLogin = () => {
           Logout
         </button>
       </div>
-    </header>
+    </div>
+    // </header>
   )
 }
 export default HeaderLogin
