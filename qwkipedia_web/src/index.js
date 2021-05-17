@@ -16,6 +16,8 @@ class App extends Component {
 
     this.state = {
       user: {},
+      // email:{},
+      // id:{},
     };
   }
 
@@ -23,8 +25,13 @@ class App extends Component {
     Fire.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
+        // console.log("user is:", user.email, user.uid);
+        // console.log({user});
+        // this.showUserInfo();
       } else {
         this.setState({ user: null });
+        console.log("user is null: ", user);
+
       }
     });
   }
@@ -33,8 +40,12 @@ class App extends Component {
     this.authListener();
   }
 
+  showUserInfo(user) {
+    console.log(user.email, user.uid);
+  }
+
   render() {
-    return <div>{this.state.user ? <Main /> : <Login />}</div>;
+    return <div>{this.state.user ? <Main user = {this.state.user} showUserInfo={this.showUserInfo}/> : <Login />}</div>;
   }
 }
 
