@@ -362,7 +362,7 @@
             </objects>
             <point key="canvasLocation" x="-2738" y="3277"/>
         </scene>
-        <!--Qwkipedia-->
+        <!--Qwk-->
         <scene sceneID="1w7-zp-xez">
             <objects>
                 <collectionViewController id="ni6-tP-Gk3" customClass="HomePageCollectionViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -431,7 +431,7 @@
                             <outlet property="delegate" destination="ni6-tP-Gk3" id="HI4-4j-IWp"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Qwkipedia" largeTitleDisplayMode="always" id="DTD-3w-lSk"/>
+                    <navigationItem key="navigationItem" title="Qwk" largeTitleDisplayMode="always" id="DTD-3w-lSk"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRd-lf-L81" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -833,18 +833,24 @@
             </objects>
             <point key="canvasLocation" x="5328.985507246377" y="4810.7142857142853"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
         <scene sceneID="dgO-62-1Ew">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QO8-sv-4sl" sceneMemberID="viewController">
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="QO8-sv-4sl" customClass="HomePageNavigationController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="d6r-do-Qtf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bPO-0N-mt9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Timmana" family="Timmana" pointSize="26"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="customNavigationBar" destination="bPO-0N-mt9" id="daC-NN-0S5"/>
                         <segue destination="ni6-tP-Gk3" kind="relationship" relationship="rootViewController" id="FKi-Bx-LNd"/>
                     </connections>
                 </navigationController>
@@ -1086,7 +1092,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bcI-Pz-EXp"/>
+        <segue reference="f4N-Jh-ZV8"/>
         <segue reference="LPU-CT-iJj"/>
     </inferredMetricsTieBreakers>
     <resources>

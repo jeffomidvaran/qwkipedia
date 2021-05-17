@@ -7,11 +7,21 @@
 
 import UIKit
 
-
-
 class HomePageCollectionViewController: UICollectionViewController {
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let logo = #imageLiteral(resourceName: "searchGlassNoBackground")
+//        let imageView = UIImageView(image: logo)
+//        self.navigationItem.titleView = imageView
+        
+        
+        
+
+        
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: view.frame.width - 16, height: 144.5)
     }
@@ -36,7 +46,3 @@ class HomePageCollectionViewController: UICollectionViewController {
 
 
 
-/*
- TODO
-    resize and crop image
- */
