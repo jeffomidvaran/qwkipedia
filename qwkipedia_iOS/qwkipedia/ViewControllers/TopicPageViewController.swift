@@ -13,6 +13,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
     var urlStringToSend = ""
 
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,9 +26,6 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         cv.register(TopicDiscussionCollectionViewCell.self, forCellWithReuseIdentifier: TopicDiscussionCollectionViewCell.identifier)
         cv.register(TopicExpertSummaryCollectionViewCell.self, forCellWithReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier)
         cv.register(TopicExternalLinksCollectionViewCell.self, forCellWithReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier)
-        
-        
-        
         cv.register(TopicQwkRecomendtionsCollectionViewCell.self, forCellWithReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier)
         return cv
     }()
@@ -46,6 +44,8 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         view.addSubview(collectionView)
         collectionView.backgroundColor = QwkColors.backgroundColor
         mainTopicPageHeader.title = "Puppy"
+        favoriteButton.tintColor = QwkColors.buttonColor
+        
         
         
         NSLayoutConstraint.activate([
@@ -54,6 +54,28 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
         ])
+    }
+    
+    
+   
+    
+//    @objc func imageTapped(imageView: UIImageView) {
+//        let newImageView = UIImageView(image: imageView.image)
+//        newImageView.frame = UIScreen.main.bounds
+//        newImageView.backgroundColor = .black
+//        newImageView.contentMode = .scaleAspectFit
+//        newImageView.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+//        newImageView.addGestureRecognizer(tap)
+//        self.view.addSubview(newImageView)
+//        self.navigationController?.isNavigationBarHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
+//    }
+//
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
     
 }
@@ -78,6 +100,25 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreImageButtonPressed), for: .touchUpInside)
+            cell.imageButtonTapAction = {
+                print("this is the closure")
+                let newImageView = UIImageView(image: cell.imageView.image)
+                newImageView.frame = UIScreen.main.bounds
+                newImageView.backgroundColor = .black
+                newImageView.contentMode = .scaleAspectFit
+                newImageView.isUserInteractionEnabled = true
+                let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullscreenImage))
+                let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.dismissFullscreenImage))
+                swipe.direction = .down
+
+                newImageView.addGestureRecognizer(tap)
+                newImageView.addGestureRecognizer(swipe)
+                self.view.addSubview(newImageView)
+                self.navigationController?.isNavigationBarHidden = true
+                self.tabBarController?.tabBar.isHidden = true
+            }
+
+            
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
