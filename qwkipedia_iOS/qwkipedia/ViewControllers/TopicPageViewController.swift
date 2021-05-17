@@ -10,6 +10,8 @@ import UIKit
 class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
     var cellSendType: TopicCellType = .qwkDescription
+    var urlStringToSend = ""
+
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     
     fileprivate let collectionView: UICollectionView = {
@@ -89,7 +91,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             
         // TODO: potential memory issue
             cell.urlViewButtonTapAction = { (url:String) in
-                print(url)
+                self.urlStringToSend = url
                 self.performSegue(withIdentifier: "externalLinkWebViewSegue", sender: self)
             }
             
@@ -108,19 +110,11 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             return cell
         default:
             fatalError()
-
         }
-        
     }
     
-   
-    
-    
-  
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        
         let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
         var height: CGFloat = 200.0
         switch indexPath[1]{
@@ -170,7 +164,6 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPageSegue" {
             let controller = segue.destination as! MorePageViewController
@@ -181,8 +174,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             controller.value = "chat from topic vc"
         } else if segue.identifier == "externalLinkWebViewSegue" {
             let vc = segue.destination as! ExternalLinkWebViewController
-            
-            
+            vc.sentUrlString = urlStringToSend
         }
     }
     

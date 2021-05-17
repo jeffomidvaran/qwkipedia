@@ -893,7 +893,7 @@
                         <outlet property="setAsFavoriteButtonObject" destination="Eul-ko-7Ke" id="duU-eI-7gu"/>
                         <segue destination="U7G-Ld-JE5" kind="show" identifier="showPageSegue" id="9qP-c3-WFy"/>
                         <segue destination="TGP-l8-vbX" kind="show" identifier="discussionPageSegue" id="Vfo-73-KId"/>
-                        <segue destination="EQZ-FE-Ghv" kind="showDetail" identifier="externalLinkWebViewSegue" id="FVU-aB-oRT"/>
+                        <segue destination="EQZ-FE-Ghv" kind="show" identifier="externalLinkWebViewSegue" id="FVU-aB-oRT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fo6-Z1-alf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -955,35 +955,75 @@
             <objects>
                 <viewController id="EQZ-FE-Ghv" customClass="ExternalLinkWebViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mr8-LE-u0C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="92o-Kq-zbo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="681"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UH7-OI-2nG">
+                                <rect key="frame" x="0.0" y="769" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="wDw-0V-h8H"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="back" image="chevron.backward" catalog="system" id="2vR-lN-yyn">
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="EQZ-FE-Ghv" id="1Q9-TS-4pH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="6WM-EP-JMg"/>
+                                    <barButtonItem title="forward" image="chevron.forward" catalog="system" id="1xN-hO-U3g">
+                                        <connections>
+                                            <action selector="forwardButtonAction:" destination="EQZ-FE-Ghv" id="BSU-s9-JVf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="IDI-rW-yoe"/>
+                                    <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="wLV-h4-Opg" userLabel="refresh">
+                                        <connections>
+                                            <action selector="refreshbuttonAction:" destination="EQZ-FE-Ghv" id="eP8-iW-sXW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="OGB-FX-USC">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8fS-1Q-aVT"/>
+                                    <constraint firstAttribute="width" constant="20" id="i2E-JR-HRp"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ztD-mp-sfe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="92o-Kq-zbo" firstAttribute="top" secondItem="ztD-mp-sfe" secondAttribute="top" id="4cx-ya-xKn"/>
-                            <constraint firstItem="92o-Kq-zbo" firstAttribute="leading" secondItem="ztD-mp-sfe" secondAttribute="leading" id="Ex5-om-GVp"/>
-                            <constraint firstItem="ztD-mp-sfe" firstAttribute="trailing" secondItem="92o-Kq-zbo" secondAttribute="trailing" id="Sx3-Fm-lgA"/>
-                            <constraint firstItem="ztD-mp-sfe" firstAttribute="bottom" secondItem="92o-Kq-zbo" secondAttribute="bottom" id="mgf-RG-aXg"/>
+                            <constraint firstItem="OGB-FX-USC" firstAttribute="centerX" secondItem="Mr8-LE-u0C" secondAttribute="centerX" id="1OM-Td-C80"/>
+                            <constraint firstItem="92o-Kq-zbo" firstAttribute="top" secondItem="ztD-mp-sfe" secondAttribute="top" id="2Kz-7X-SOT"/>
+                            <constraint firstItem="92o-Kq-zbo" firstAttribute="trailing" secondItem="ztD-mp-sfe" secondAttribute="trailing" id="4E9-VW-iOY"/>
+                            <constraint firstItem="OGB-FX-USC" firstAttribute="centerY" secondItem="Mr8-LE-u0C" secondAttribute="centerY" id="Fcs-U4-JD0"/>
+                            <constraint firstItem="UH7-OI-2nG" firstAttribute="top" secondItem="92o-Kq-zbo" secondAttribute="bottom" id="Qzx-X5-gpa"/>
+                            <constraint firstItem="92o-Kq-zbo" firstAttribute="leading" secondItem="ztD-mp-sfe" secondAttribute="leading" id="S7N-8O-g9x"/>
+                            <constraint firstItem="UH7-OI-2nG" firstAttribute="top" secondItem="92o-Kq-zbo" secondAttribute="bottom" id="bXr-ZI-ubL"/>
+                            <constraint firstItem="UH7-OI-2nG" firstAttribute="trailing" secondItem="ztD-mp-sfe" secondAttribute="trailing" id="n5X-Qx-wUu"/>
+                            <constraint firstItem="UH7-OI-2nG" firstAttribute="leading" secondItem="ztD-mp-sfe" secondAttribute="leading" id="pls-D1-3CJ"/>
+                            <constraint firstItem="UH7-OI-2nG" firstAttribute="bottom" secondItem="ztD-mp-sfe" secondAttribute="bottom" id="wRT-gd-zsS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BqS-en-Ykx"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="OGB-FX-USC" id="35h-PC-DUx"/>
+                        <outlet property="bottomNavBar" destination="UH7-OI-2nG" id="skp-jp-MzI"/>
                         <outlet property="webView" destination="92o-Kq-zbo" id="WJe-KN-T30"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Mm-a5-4Y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9310" y="2352"/>
+            <point key="canvasLocation" x="9308.6956521739139" y="2351.7857142857142"/>
         </scene>
         <!--More-->
         <scene sceneID="QBG-6x-DZO">
@@ -1033,8 +1073,11 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="animals" width="400" height="300"/>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
