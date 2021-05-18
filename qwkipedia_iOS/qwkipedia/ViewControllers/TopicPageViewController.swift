@@ -27,6 +27,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         cv.register(TopicExpertSummaryCollectionViewCell.self, forCellWithReuseIdentifier: TopicExpertSummaryCollectionViewCell.identifier)
         cv.register(TopicExternalLinksCollectionViewCell.self, forCellWithReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier)
         cv.register(TopicQwkRecomendtionsCollectionViewCell.self, forCellWithReuseIdentifier: TopicQwkRecomendtionsCollectionViewCell.identifier)
+        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -42,7 +43,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-        collectionView.backgroundColor = QwkColors.backgroundColor
+//        collectionView.backgroundColor = QwkColors.backgroundColor
         mainTopicPageHeader.title = "Puppy"
         favoriteButton.tintColor = QwkColors.buttonColor
         
@@ -56,22 +57,6 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         ])
     }
     
-    
-   
-    
-//    @objc func imageTapped(imageView: UIImageView) {
-//        let newImageView = UIImageView(image: imageView.image)
-//        newImageView.frame = UIScreen.main.bounds
-//        newImageView.backgroundColor = .black
-//        newImageView.contentMode = .scaleAspectFit
-//        newImageView.isUserInteractionEnabled = true
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-//        newImageView.addGestureRecognizer(tap)
-//        self.view.addSubview(newImageView)
-//        self.navigationController?.isNavigationBarHidden = true
-//        self.tabBarController?.tabBar.isHidden = true
-//    }
-//
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
@@ -92,10 +77,12 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(qwkDescriptionMoreButtonPressed), for: .touchUpInside)
+            cell.backgroundColor = .clear
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicVideoCollectionViewCell.identifier  , for: indexPath) as! TopicVideoCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreVideoButtonPressed), for: .touchUpInside)
+            cell.backgroundColor = .clear
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
@@ -118,17 +105,19 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
                 self.tabBarController?.tabBar.isHidden = true
             }
 
-            
+            cell.backgroundColor = .clear
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
+            cell.backgroundColor = .clear
             return cell
         case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreExternalLinksButtonPressed), for: .touchUpInside)
             let numberOfCells = DummyData.urls.count > 3 ? 3 : DummyData.urls.count
             cell.numberOfCells = numberOfCells
+            cell.backgroundColor = .clear
             
         // TODO: potential memory issue
             cell.urlViewButtonTapAction = { (url:String) in

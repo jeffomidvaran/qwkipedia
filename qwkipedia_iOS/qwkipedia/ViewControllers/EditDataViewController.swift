@@ -79,7 +79,7 @@ class EditDataViewController: UIViewController{
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(SuggestionCellCollectionViewCell.self, forCellWithReuseIdentifier: SuggestionCellCollectionViewCell.identifier)
-        cv.backgroundColor = QwkColors.backgroundColor
+//        cv.backgroundColor = QwkColors.backgroundColor
         return cv
     }()
     

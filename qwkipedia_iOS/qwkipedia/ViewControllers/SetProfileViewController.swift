@@ -118,7 +118,7 @@ class SetProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = QwkColors.backgroundColor
+//        view.backgroundColor = QwkColors.backgroundColor
         
         view.addSubview(containerView)
         containerView.anchor(top: view.topAnchor, left: view.leftAnchor,

@@ -28,7 +28,7 @@ class DiscussionViewController: UIViewController {
         tableView.dataSource = self
         
         messageTextField.placeholder = "Join the discussion..."
-        textView.layer.backgroundColor = QwkColors.backgroundColor.cgColor
+//        textView.layer.backgroundColor = QwkColors.backgroundColor.cgColor
         sendButton.tintColor = QwkColors.buttonColor
         addTopBorder()
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: Constants.Identifiers.messageCellIdentifier)

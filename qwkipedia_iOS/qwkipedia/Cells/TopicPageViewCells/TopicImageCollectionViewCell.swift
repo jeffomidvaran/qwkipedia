@@ -16,6 +16,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         i.contentMode = .scaleAspectFit
         i.translatesAutoresizingMaskIntoConstraints = false
         i.isUserInteractionEnabled = true
+        i.backgroundColor = .clear
         return i
     }()
 

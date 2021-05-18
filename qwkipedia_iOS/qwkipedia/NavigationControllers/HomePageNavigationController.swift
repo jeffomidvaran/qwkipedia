@@ -13,8 +13,11 @@ class HomePageNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
+        
         self.navigationBar.titleTextAttributes = [.foregroundColor: QwkColors.buttonColor,
-                                                  .font: UIFont(name: "Timmana", size: 25.0)!]
+                                                  .font: UIFont(name: "Timmana", size: 24.0)!]
         
     }
 }

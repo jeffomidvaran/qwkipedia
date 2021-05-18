@@ -26,6 +26,8 @@
 		7C23813E26525C7F0073ED55 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23813D26525C7F0073ED55 /* MainTabBarViewController.swift */; };
 		7C48663B263149B200DC9AC4 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48663A263149B200DC9AC4 /* SearchResultsTableViewCell.swift */; };
 		7C48663E2631548D00DC9AC4 /* TopicPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48663D2631548D00DC9AC4 /* TopicPageViewController.swift */; };
+		7C4C183B26531A2A0019BBB7 /* FavoritesPageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C183A26531A2A0019BBB7 /* FavoritesPageNavigationController.swift */; };
+		7C4C183E26531AAD0019BBB7 /* SearchPageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C183D26531AAD0019BBB7 /* SearchPageNavigationController.swift */; };
 		7C4E4622263F23C000DA51E4 /* MorePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E4621263F23C000DA51E4 /* MorePageViewController.swift */; };
 		7C4E4625263F2FE400DA51E4 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E4624263F2FE400DA51E4 /* DiscussionViewController.swift */; };
 		7C4E4628263F35C900DA51E4 /* ChooserEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E4627263F35C900DA51E4 /* ChooserEnums.swift */; };
@@ -89,6 +91,8 @@
 		7C23813D26525C7F0073ED55 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		7C48663A263149B200DC9AC4 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		7C48663D2631548D00DC9AC4 /* TopicPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPageViewController.swift; sourceTree = "<group>"; };
+		7C4C183A26531A2A0019BBB7 /* FavoritesPageNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPageNavigationController.swift; sourceTree = "<group>"; };
+		7C4C183D26531AAD0019BBB7 /* SearchPageNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageNavigationController.swift; sourceTree = "<group>"; };
 		7C4E4621263F23C000DA51E4 /* MorePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorePageViewController.swift; sourceTree = "<group>"; };
 		7C4E4624263F2FE400DA51E4 /* DiscussionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
 		7C4E4627263F35C900DA51E4 /* ChooserEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserEnums.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 		7C7BF0092652F14600285A5F /* NavigationControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C4C183D26531AAD0019BBB7 /* SearchPageNavigationController.swift */,
+				7C4C183A26531A2A0019BBB7 /* FavoritesPageNavigationController.swift */,
 				7C7BF00A2652F14600285A5F /* HomePageNavigationController.swift */,
 			);
 			path = NavigationControllers;
@@ -460,6 +466,7 @@
 				7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */,
 				7CE25B59263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift in Sources */,
 				1C51821D2636662F00137C0B /* ForgotPasswordViewController.swift in Sources */,
+				7C4C183E26531AAD0019BBB7 /* SearchPageNavigationController.swift in Sources */,
 				7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */,
 				7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */,
 				1C7D74A6264B705700E16168 /* Message.swift in Sources */,
@@ -469,6 +476,7 @@
 				7CEAEA8626374D7F0029138E /* RecomendationCollectionViewCell.swift in Sources */,
 				7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */,
 				7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */,
+				7C4C183B26531A2A0019BBB7 /* FavoritesPageNavigationController.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
 				7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,

@@ -17,7 +17,7 @@ class ExternalLinkWebViewController: UIViewController {
     var sentUrlString: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.backgroundColor = QwkColors.backgroundColor
+        webView.backgroundColor = .clear    
         webView.allowsLinkPreview = true
         
         activityIndicator.hidesWhenStopped = true

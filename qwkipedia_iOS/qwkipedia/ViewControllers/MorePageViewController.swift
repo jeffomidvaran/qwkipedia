@@ -25,7 +25,7 @@ class MorePageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-        collectionView.backgroundColor = QwkColors.backgroundColor
+        collectionView.backgroundColor = .clear
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
@@ -63,15 +63,22 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .qwkDescription:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkDescription
-            cell.isAuthor = false
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
             }
+            
+            if(indexPath[1] == 0) {
+                cell.isCurrentUsersPost = true
+            } else {
+                cell.isCurrentUsersPost = false
+            }
+            
+            
             return cell
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
-            cell.isAuthor = false
+//            cell.isCurrentUsersPost = false
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
                 
@@ -80,7 +87,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .image:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .image
-            cell.isAuthor = false
+//            cell.isCurrentUsersPost = false
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
             }
@@ -88,7 +95,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .audio:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .audio
-            cell.isAuthor = false
+//            cell.isCurrentUsersPost = false
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
                 
@@ -98,7 +105,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.surname = DummyData.urls[0][0]
             cell.urlString = DummyData.urls[0][1]
-            cell.isAuthor = false
+            cell.isCurrentUsersPost = false
             cell.cellType = .externalLink
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
@@ -108,7 +115,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .qwkRecommedation:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkRecommedation
-            cell.isAuthor = false
+            cell.isCurrentUsersPost = false
             return cell
         default:
             fatalError()

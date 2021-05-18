@@ -29,6 +29,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
         let p = YTPlayerView()
         p.translatesAutoresizingMaskIntoConstraints = false
         p.load(withVideoId: "JJunp9xo4uA")
+        p.backgroundColor = .clear
         return p
     }()
     
