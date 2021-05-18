@@ -32,7 +32,7 @@ class TopicQwkRecomendtionsCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = QwkColors.backgroundColor
+//        collectionView.backgroundColor = QwkColors.backgroundColor
         contentView.addSubview(collectionView)
         contentView.addSubview(moreButton)
         

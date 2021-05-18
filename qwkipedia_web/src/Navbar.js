@@ -1,5 +1,6 @@
-import React from "react"
-import { NavLink } from "react-router-dom"
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const links = [ 
@@ -18,9 +19,15 @@ const Navbar = () => {
         path: "/addQwkTopic",
         text: "AddQwkTopic",
     },
+    {
+        id: 4,
+        path: "/image",
+        text: "Image",
+    },
     ]
     return (
-        <nav className="navBar">
+      <div className="navBar1">
+        <nav>
           <ul>
             {links.map(link => {
               return (
@@ -33,6 +40,7 @@ const Navbar = () => {
             })}
           </ul>
         </nav>
+      </div>
       )
 }
 export default Navbar

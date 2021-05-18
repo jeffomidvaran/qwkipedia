@@ -130,7 +130,7 @@ let Interests:UITextField = {
 override func viewDidLoad() {
     
     super.viewDidLoad()
-    view.backgroundColor = QwkColors.backgroundColor
+//    view.backgroundColor = QwkColors.backgroundColor
     
     view.addSubview(profileView)
     profileView.anchor(top: view.topAnchor, left: view.leftAnchor,

@@ -18,7 +18,7 @@
   display: flex;
 }
 
-.header {
+.header1 {
   position: absolute;
   pointer-events: none;
   height: 88px;
@@ -31,13 +31,14 @@
   justify-content: center;
   align-items: center;
   color: black;
+  overflow: auto;
 }
 
 .header_text {
   position: absolute;
   height: 90px;
   left: 80px;
-  right: -169px;
+  right: 0px;
   top: 0px;
 
   font-family: Lato;

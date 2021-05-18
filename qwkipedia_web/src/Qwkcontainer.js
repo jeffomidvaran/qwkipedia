@@ -4,12 +4,14 @@ import { Route, Switch } from "react-router-dom";
 import "./Qwkcontainer.css";
 import QwkList from "./QwkList";
 import InputQwk from "./InputQwk";
-import Profile from "./Profile";
-import AddQwkTopic from "./AddQwkTopic";
-import Navbar from "./Navbar";
+// import Profile from "./Profile";
+// import AddQwkTopic from "./AddQwkTopic";
+// import Navbar from "./Navbar";
+// import {EM} from "./Login";
+
 import { v4 as uuidv4 } from "uuid";
 
-const QwkContainer = () => {
+const QwkContainer = (props) => {
 
   const [todos, setTodos] = useState(
     getInitialTodos() 
@@ -83,14 +85,46 @@ const QwkContainer = () => {
       vote: 0,
     }
     setTodos([...todos, newQwk])
+    // console.log(props.em)
   }
 
-  const upVote = id => {
+  // const upVote = id => {
+  //   vote = vote + 1
+  //   setTodos(prevState =>
+  //     prevState.map(todo => {
+  //       if (todo.id === id) {
+  //         todo.vote = todo.vote+0.5 //TODO why it is adding twice here
+  //         // todo.vote: todo.vote + 1
+  //         // todo.setState({vote: todo.vote+1})
+  //         return {
+  //           ...todo,
+  //         }
+  //       }
+  //       return todo
+  //     })
+  //   )
+  // }
+
+  // const downVote = id => {
+  //   setTodos(prevState =>
+  //     prevState.map(todo => {
+  //       if (todo.id === id) {
+  //         todo.vote = todo.vote-0.5
+  //         return {
+  //           ...todo,
+  //         }
+  //       }
+  //       return todo
+  //     })
+  //   )
+  // }
+
+  const upVote = (id,vote) => {
     // vote = vote + 1
     setTodos(prevState =>
       prevState.map(todo => {
         if (todo.id === id) {
-          todo.vote = todo.vote+0.5 //TODO why it is adding twice here
+          todo.vote = vote+1 
           return {
             ...todo,
           }
@@ -100,11 +134,12 @@ const QwkContainer = () => {
     )
   }
 
-  const downVote = id => {
+  const downVote = (id, vote) => {
     setTodos(prevState =>
       prevState.map(todo => {
         if (todo.id === id) {
-          todo.vote = todo.vote-0.5
+          console.log(todo.vote)
+          todo.vote = vote-1
           return {
             ...todo,
           }
@@ -129,9 +164,9 @@ const QwkContainer = () => {
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar />
     <Switch>
-    <Route exact path="/">
+    <Route exact path="/"> */}
       <div>
       <InputQwk 
           addQwk={addQwk}
@@ -143,14 +178,14 @@ const QwkContainer = () => {
           downVote={downVote}
       />
       </div>
-    </Route>
+    {/* </Route>
     <Route path="/profile">
       <Profile />
     </Route>
     <Route path="/addQwkTopic">
       <AddQwkTopic />
     </Route>
-    </Switch>
+    </Switch> */}
   </>
   )
 }

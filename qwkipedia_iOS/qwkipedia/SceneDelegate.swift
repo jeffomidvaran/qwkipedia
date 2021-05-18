@@ -18,21 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         //For handling the nav and Tabbar controllers
-        let storyboard = UIStoryboard(name: "Main",bundle: nil)
-        
-        //if user is logged in before
-        if let loggedUsername = UserDefaults.standard.string(forKey: "username") {
-            // instantiate the main tab bar controller and set it as root view controller
-                    // using the storyboard identifier we set earlier
-                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
-                    window?.rootViewController = mainTabBarController
-                } else {
-                    // if user isn't logged in
-                    // instantiate the navigation controller and set it as root view controller
-                    // using the storyboard identifier we set earlier
-                    let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
-                    window?.rootViewController = loginNavController
-        }
+//        let storyboard = UIStoryboard(name: "Main",bundle: nil)
+
+//        //if user is logged in before
+//        if let loggedUsername = UserDefaults.standard.string(forKey: "username") {
+//            // instantiate the main tab bar controller and set it as root view controller
+//                    // using the storyboard identifier we set earlier
+//                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
+//                    window?.rootViewController = mainTabBarController
+//                } else {
+//                    // if user isn't logged in
+//                    // instantiate the navigation controller and set it as root view controller
+//                    // using the storyboard identifier we set earlier
+//                    let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
+//                    window?.rootViewController = loginNavController
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

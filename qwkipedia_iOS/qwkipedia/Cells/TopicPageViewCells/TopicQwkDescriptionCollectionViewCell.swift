@@ -22,7 +22,9 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
 
     let moreButton: UIButton = {
         let b = UIButton()
-        b.setTitle("More", for: .normal)
+        let rightArrow = UIImage(systemName: "arrow.right")
+        b.setImage(rightArrow, for: .normal)
+        b.tintColor = QwkColors.buttonColor
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
@@ -33,17 +35,21 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(qwkDescriptionTextView)
         contentView.addSubview(moreButton)
         
+        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
 //        contentView.layer.cornerRadius = 10
 //        contentView.layer.borderColor = QwkColors.outlineColor.cgColor
 //        contentView.layer.borderWidth = 0.5
+//        contentView.layer.masksToBounds = true
+        
         
         NSLayoutConstraint.activate([
             qwkDescriptionTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
             qwkDescriptionTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            qwkDescriptionTextView.bottomAnchor.constraint(equalTo: moreButton.topAnchor, constant: 0),
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
+            qwkDescriptionTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
         ])
         
     }

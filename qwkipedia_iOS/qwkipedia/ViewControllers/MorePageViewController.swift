@@ -9,11 +9,9 @@ import UIKit
 
 class MorePageViewController: UIViewController {
  
-    
-    
     var cellType: TopicCellType = .qwkDescription
     var value = "empty"
-    
+    var urlToSend = "https://www.google.com"
     
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,14 +26,33 @@ class MorePageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-        collectionView.backgroundColor = QwkColors.backgroundColor
+        collectionView.backgroundColor = .clear
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
         ])
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "moreToEditSeque") {
+            let vc = segue.destination as! EditDataViewController
+            vc.viewType = cellType
+            vc.videoURL = "https://www.youtube.com/watch?v=JJunp9xo4uA"
+        } else if(segue.identifier == "moreToWebViewSegue") {
+            let vc = segue.destination as! ExternalLinkWebViewController
+            vc.sentUrlString = urlToSend
+        }
+    }
+    
+    @IBAction func newQwkEntryButtonAction(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "moreToNewQwkEEntrySegue", sender: self)
+    }
+    
+    
+
     
 
 }
@@ -51,34 +68,67 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .qwkDescription:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkDescription
-            cell.isAuthor = false
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+            }
+            
+            if(indexPath[1] == 0) {
+                cell.isCurrentUsersPost = true
+            } else {
+                cell.isCurrentUsersPost = false
+            }
             return cell
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
-            cell.isAuthor = false
+//            cell.isCurrentUsersPost = false
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+            }
+            if(indexPath[1] == 0) {
+                cell.isCurrentUsersPost = true
+            } else {
+                cell.isCurrentUsersPost = false
+            }
             return cell
         case .image:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .image
-            cell.isAuthor = false
-            return cell
-        case .audio:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
-            cell.cellType = .audio
-            cell.isAuthor = false
+
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+            }
+            if(indexPath[1] == 0) {
+                cell.isCurrentUsersPost = true
+            } else {
+                cell.isCurrentUsersPost = false
+            }
             return cell
         case .externalLink:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.surname = DummyData.urls[0][0]
             cell.urlString = DummyData.urls[0][1]
-            cell.isAuthor = false
+            cell.isCurrentUsersPost = false
             cell.cellType = .externalLink
+            cell.editButtonTapAction = {
+                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+            }
+            
+            cell.urlViewButtonTapAction = { (url:String) in
+                self.urlToSend = url
+                self.performSegue(withIdentifier: "moreToWebViewSegue", sender: self)
+            }
+            
+            if(indexPath[1] == 0) {
+                cell.isCurrentUsersPost = true
+            } else {
+                cell.isCurrentUsersPost = false
+            }
             return cell
         case .qwkRecommedation:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkRecommedation
-            cell.isAuthor = false
+            cell.isCurrentUsersPost = false
             return cell
         default:
             fatalError()
@@ -91,15 +141,15 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
         switch cellType{
         case .qwkDescription:
-            height = 250.0
+            height = 200.0
         case .video:
-            height = 400.0
+            height = 260.0
         case .image:
             height = 230.0
         case .audio:
             height = 100.0
         case .externalLink:
-            height = 130.0
+            height = 100.0
         case .qwkRecommedation:
             height = 240.0
         default:
@@ -107,4 +157,10 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         }
         return CGSize(width: width, height: height)
     }
+    
+
 }
+
+
+
+// moreToWebViewSegue

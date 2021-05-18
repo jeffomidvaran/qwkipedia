@@ -7,10 +7,10 @@ const Header = () => {
   return (
     
     <header>
-      <div className="header"></div>
+      <div className="header1"></div>
       <div className="bg"></div>
 
-      <div className="header_text">QWIKIPEDIA</div>
+      <div className="header_text">QWKIPEDIA</div>
 
     </header>
   )

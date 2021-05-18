@@ -50,8 +50,9 @@ const handleSubmit = e => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Add Title..." value={inputText.title} onChange={onChange} name="title"/>
-      <input type="text" placeholder="Add Qwikipedia..." value={inputText.content} onChange={onChange} name="content"/>
+      <input className="addTopic" type="text" placeholder="Add Title..." value={inputText.title} onChange={onChange} name="title"/>
+      <input className="addTopic" type="text" placeholder="Add Qwikipedia..." value={inputText.content} onChange={onChange} name="content"/>
+      <input className="searchTopic" type="text" placeholder="Search for..." name="search" />
       <button>Submit</button>
     </form>
   )

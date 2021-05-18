@@ -7,30 +7,35 @@
 
 import UIKit
 
-
-
 class HomePageCollectionViewController: UICollectionViewController {
-
-    let dataSource = ["one", "two", "three", "four", "five"]
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let logo = #imageLiteral(resourceName: "searchGlassNoBackground")
+//        let imageView = UIImageView(image: logo)
+//        self.navigationItem.titleView = imageView
+        
+        
+        
+
+        
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: view.frame.width - 16, height: 144.5)
     }
-    
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return DummyData.previewData.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicPreviewCollectionViewCell.identifier, for: indexPath) as! TopicPreviewCollectionViewCell
         cell.topicNameLabel.text = DummyData.previewData[indexPath[1]].name
         cell.qwkDescriptionLabel.text = DummyData.previewData[indexPath[1]].description
         cell.qwkDescriptionLabel.numberOfLines = 0
         cell.qwkDescriptionLabel.lineBreakMode = .byWordWrapping
-
         cell.previewImageView.image = DummyData.previewData[indexPath[1]].image?.cropsToSquare()
         return cell
     }
@@ -41,7 +46,3 @@ class HomePageCollectionViewController: UICollectionViewController {
 
 
 
-/*
- TODO
-    resize and crop image
- */

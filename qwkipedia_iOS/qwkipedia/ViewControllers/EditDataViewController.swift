@@ -10,9 +10,8 @@ import youtube_ios_player_helper
 
 
 class EditDataViewController: UIViewController{
-
-    
     var viewType: TopicCellType = .video
+    var videoURL: String = ""
     var viewHasContent = false {
         didSet {
             deletePostButton.isHidden = !viewHasContent
@@ -20,6 +19,8 @@ class EditDataViewController: UIViewController{
             suggestionsLabel.isHidden = !viewHasContent
         }
     }
+    
+    
     /*
         uitextfield
         uiLabel
@@ -78,7 +79,7 @@ class EditDataViewController: UIViewController{
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(SuggestionCellCollectionViewCell.self, forCellWithReuseIdentifier: SuggestionCellCollectionViewCell.identifier)
-        cv.backgroundColor = QwkColors.backgroundColor
+//        cv.backgroundColor = QwkColors.backgroundColor
         return cv
     }()
     
@@ -96,32 +97,44 @@ class EditDataViewController: UIViewController{
         super.view.addSubview(urlEntryField)
         super.view.addSubview(textView)
         super.view.addSubview(deletePostButton)
-//        super.view.addSubview(titleLabel)
         super.view.addSubview(spacer)
         super.view.addSubview(suggestionsLabel)
         super.view.addSubview(suggestionsCollectionView)
         super.view.addSubview(videoPlayer)
         
+        if(videoURL != "") {
+            
+            videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
+                                                       attribute: .height,
+                                                       relatedBy: .equal,
+                                                       toItem: videoPlayer,
+                                                       attribute: .width,
+                                                       multiplier: 9.0/16.0,
+                                                       constant: 0.0)
+            videoHeightConstraint.isActive = true
+            videoPlayer.load(withVideoId: videoURL)
+            viewHasContent = true
+        } else {
+            videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
+                                                       attribute: .height,
+                                                       relatedBy: .equal,
+                                                       toItem: videoPlayer,
+                                                       attribute: .height,
+                                                       multiplier: 0,
+                                                       constant: 0.0)
+            videoHeightConstraint.isActive = true
+        }
+        
+
         
         
-        videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
-                                                   attribute: .height,
-                                                   relatedBy: .equal,
-                                                   toItem: videoPlayer,
-                                                   attribute: .height,
-                                                   multiplier: 0,
-                                                   constant: 0.0)
-        
-        videoHeightConstraint.isActive = true
         
         NSLayoutConstraint.activate([
-
             urlEntryField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             urlEntryField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             urlEntryField.heightAnchor.constraint(equalToConstant: 50),
             urlEntryField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            
-            
+
             videoPlayer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             videoPlayer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             videoPlayer.topAnchor.constraint(equalTo: urlEntryField.bottomAnchor, constant: 8),
@@ -134,7 +147,6 @@ class EditDataViewController: UIViewController{
             spacer.topAnchor.constraint(equalTo: videoPlayer.bottomAnchor, constant: 8),
             spacer.heightAnchor.constraint(equalTo: deletePostButton.heightAnchor),
             
-    
             suggestionsLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             suggestionsLabel.topAnchor.constraint(equalTo: spacer.bottomAnchor, constant: 8),
             
@@ -197,10 +209,16 @@ class EditDataViewController: UIViewController{
     }
     
     
+    func setVideoGivenURL(url:String) {
+        let youTubePrefix = "https://www.youtube.com/watch?v="
+        if(verifyUrl(urlString: url) && url.starts(with: youTubePrefix)) {
+            let videoId = String(url.dropFirst(youTubePrefix.count))
+            videoPlayer.load(withVideoId: videoId)
+            urlEntryField.text?.removeAll()
+            viewHasContent = true
+        }
+    }
 }
-
-
-
 
 extension EditDataViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -208,8 +226,8 @@ extension EditDataViewController: UITextFieldDelegate {
         if let urlEntry = urlEntryField.text {
             let youTubePrefix = "https://www.youtube.com/watch?v="
             if(verifyUrl(urlString: urlEntry) && urlEntry.starts(with: youTubePrefix)) {
-                let videoId = String(urlEntry.dropFirst(youTubePrefix.count))
-                videoPlayer.load(withVideoId: videoId)
+                setVideoGivenURL(url: urlEntry)
+
                 videoHeightConstraint.isActive = false
                 videoHeightConstraint = NSLayoutConstraint(item: videoPlayer,
                                                            attribute: .height,
@@ -219,7 +237,6 @@ extension EditDataViewController: UITextFieldDelegate {
                                                            multiplier: 9.0/16.0,
                                                            constant: 0.0)
                 videoHeightConstraint.isActive = true
-                urlEntryField.text?.removeAll()
                 viewHasContent = true
             } else {
                 urlEntryField.text?.removeAll()
@@ -228,11 +245,6 @@ extension EditDataViewController: UITextFieldDelegate {
         return true
     }
 }
-
-
-
-
-
 
 
 extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -251,19 +263,6 @@ extension EditDataViewController: UICollectionViewDelegateFlowLayout, UICollecti
         let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16.0
         let height: CGFloat =  100.0
         return CGSize(width: width, height: height)
-    }
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showPageSegue" {
-//            let controller = segue.destination as! MorePageViewController
-//            controller.value = "from topic vc"
-//            controller.cellType = viewType
-//        } else if segue.identifier == "discussionPageSegue" {
-//            let controller = segue.destination as! DiscussionViewController
-//            controller.value = "chat from topic vc"
-//        }
     }
 }
 

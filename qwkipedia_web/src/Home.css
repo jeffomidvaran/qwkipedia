@@ -1,5 +1,18 @@
+.home1 {
+    /* margin-top: 10px; */
+    /* position: relative;
+    display: block; */
+}
 .big-box1 {
     width: 1500px;
     margin-top: 3%;
     padding: 0% 5%;
+}
+
+.btn-delete {
+    display: none;
+}
+
+.addTopic {
+    display: none;
 }

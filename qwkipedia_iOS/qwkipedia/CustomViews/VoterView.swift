@@ -16,10 +16,10 @@ class VoterView: UIView {
         }
     }
     
-    var voterColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1) {
+    var voterColor = QwkColors.buttonColor {
         didSet {
-            upVote.setTitleColor(voterColor, for: .normal)
-            downVote.setTitleColor(voterColor, for: .normal)
+            upVote.tintColor = voterColor
+            downVote.tintColor = voterColor
             counterLabel.tintColor = voterColor
         }
     }
@@ -29,6 +29,7 @@ class VoterView: UIView {
         b.translatesAutoresizingMaskIntoConstraints = false
         let arrowUp = UIImage(systemName: "arrowtriangle.up")
         b.setImage(arrowUp, for: .normal)
+        
         return b
     }()
     
@@ -95,9 +96,19 @@ class VoterView: UIView {
     
     @objc func incrementVoteCounter() {
         voteCount += 1
+        let arrowUp = UIImage(systemName: "arrowtriangle.up.fill")
+        upVote.setImage(arrowUp, for: .normal)
+        
+        let arrowDown = UIImage(systemName: "arrowtriangle.down")
+        downVote.setImage(arrowDown, for: .normal)
     }
     
     @objc func decrementVoteCounter() {
         voteCount -= 1
+        let arrowUp = UIImage(systemName: "arrowtriangle.up")
+        upVote.setImage(arrowUp, for: .normal)
+        
+        let arrowDown = UIImage(systemName: "arrowtriangle.down.fill")
+        downVote.setImage(arrowDown, for: .normal)
     }
 }
