@@ -13,6 +13,7 @@ class ExternalLinkWebViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var bottomNavBar: UIToolbar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var backButtonObject: UIBarButtonItem!
     
     var sentUrlString: String?
     override func viewDidLoad() {
@@ -20,11 +21,13 @@ class ExternalLinkWebViewController: UIViewController {
         webView.backgroundColor = .clear    
         webView.allowsLinkPreview = true
         
+        bottomNavBar.tintColor = QwkColors.buttonColor
+        
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .large
-        print("view did load")
+        
         webView.navigationDelegate = self
-        let url = URL(string: sentUrlString ?? "https://kentakodashima.medium.com/ios-wkwebview-tutorial-b7f8cf1bffe0")!
+        let url = URL(string: sentUrlString ?? "https://www.google.com")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }

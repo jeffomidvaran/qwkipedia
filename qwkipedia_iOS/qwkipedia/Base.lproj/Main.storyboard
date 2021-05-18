@@ -1041,6 +1041,7 @@
                     <navigationItem key="navigationItem" id="BqS-en-Ykx"/>
                     <connections>
                         <outlet property="activityIndicator" destination="OGB-FX-USC" id="35h-PC-DUx"/>
+                        <outlet property="backButtonObject" destination="2vR-lN-yyn" id="tNM-tk-58W"/>
                         <outlet property="bottomNavBar" destination="UH7-OI-2nG" id="skp-jp-MzI"/>
                         <outlet property="webView" destination="92o-Kq-zbo" id="WJe-KN-T30"/>
                     </connections>
