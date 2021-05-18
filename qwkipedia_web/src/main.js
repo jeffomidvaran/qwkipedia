@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import AddQwkTopic from "./AddQwkTopic";
 import Navbar from "./Navbar";
 import "./Qwkcontainer.css";
+import Image from "./Image";
 import QwkList from "./QwkList";
 import InputQwk from "./InputQwk";
 import QwkContainer from "./Qwkcontainer";
@@ -54,10 +55,16 @@ const Main = (props) => {
           </div>
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile 
+            email={props.user.email}
+            uid={props.user.uid}
+          />
         </Route>
         <Route path="/addQwkTopic">
           <AddQwkTopic />
+        </Route>
+        <Route path="/image">
+          <Image />
         </Route>
         </Switch>
       </>
