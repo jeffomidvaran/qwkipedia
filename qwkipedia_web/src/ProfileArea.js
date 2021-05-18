@@ -11,6 +11,7 @@ const ProfileArea = (props) => {
 
       <ul>
         <li>Email address: {props.emailAddress}</li>
+        <li>Uid: {props.uid}</li>
       </ul>
     </div>
   )

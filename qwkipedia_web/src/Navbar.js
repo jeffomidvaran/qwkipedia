@@ -19,6 +19,11 @@ const Navbar = () => {
         path: "/addQwkTopic",
         text: "AddQwkTopic",
     },
+    {
+        id: 4,
+        path: "/image",
+        text: "Image",
+    },
     ]
     return (
       <div className="navBar1">

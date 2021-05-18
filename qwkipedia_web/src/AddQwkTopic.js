@@ -4,7 +4,7 @@ import React from "react";
 // import HeaderLogin from "./HeaderLogin";
 import QwkContainer from "./Qwkcontainer";
 import "./styles.css";
-import "./Home.css";
+import "./AddQwkTopic.css";
 const AddQwkTopic = () => {
     // function Logout() {
   //   Fire.auth().signOut();

@@ -6,7 +6,7 @@ import ProfileArea from "./ProfileArea";
 // import HeaderLogin from "./HeaderLogin";
 import "./styles.css";
 import "./Home.css";
-const Profile = () => {
+const Profile = (props) => {
 
   return (
     <div className="home1">
@@ -14,7 +14,8 @@ const Profile = () => {
     {/* <h1>&emsp;&ensp;&nbsp;Profile</h1> */}
     <ProfileArea 
       username="peter"
-      emailAddress="peter@uci.edu"
+      emailAddress={props.email}
+      uid={props.uid}
     />
 
     </div>
