@@ -96,9 +96,19 @@ class VoterView: UIView {
     
     @objc func incrementVoteCounter() {
         voteCount += 1
+        let arrowUp = UIImage(systemName: "arrowtriangle.up.fill")
+        upVote.setImage(arrowUp, for: .normal)
+        
+        let arrowDown = UIImage(systemName: "arrowtriangle.down")
+        downVote.setImage(arrowDown, for: .normal)
     }
     
     @objc func decrementVoteCounter() {
         voteCount -= 1
+        let arrowUp = UIImage(systemName: "arrowtriangle.up")
+        upVote.setImage(arrowUp, for: .normal)
+        
+        let arrowDown = UIImage(systemName: "arrowtriangle.down.fill")
+        downVote.setImage(arrowDown, for: .normal)
     }
 }
