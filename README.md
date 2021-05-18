@@ -22,6 +22,9 @@ https://www.figma.com/file/8tkYium9KhovWYdGKi9QK2/Qwkipedia-Web-Wireframes?node-
 ### Capstone Project Description
 https://docs.google.com/document/d/1G5IiDRz1GSoRHgI5BDqcwf8txD8_GMf8TQ9u4LHNZTE/edit#
 
+### Executive Summary
+https://docs.google.com/document/d/1ki1fkxcZNdXMxg4B8Q62OzkRbeStTT2kFXasjhb_ZZg/edit
+
 ### Sprint Report 1
 https://docs.google.com/document/d/1IRlAaqaTfWHla5Km-LmWlZBQEmPyTG9OFmdWmQ_2OBk/edit
 
