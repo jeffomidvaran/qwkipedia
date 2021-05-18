@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U7G-Ld-JE5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H0d-jE-Vgm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -1048,7 +1048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Mm-a5-4Y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9238" y="4667"/>
+            <point key="canvasLocation" x="11770" y="3842"/>
         </scene>
         <!--More-->
         <scene sceneID="QBG-6x-DZO">
@@ -1069,6 +1069,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="g23-cD-lyo" kind="show" identifier="moreToEditSeque" id="5H2-gg-8vd"/>
+                        <segue destination="EQZ-FE-Ghv" kind="show" identifier="moreToWebViewSegue" id="Iow-oi-v9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l3d-fC-mMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1093,6 +1094,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="FVU-aB-oRT"/>
         <segue reference="f4N-Jh-ZV8"/>
         <segue reference="LPU-CT-iJj"/>
     </inferredMetricsTieBreakers>

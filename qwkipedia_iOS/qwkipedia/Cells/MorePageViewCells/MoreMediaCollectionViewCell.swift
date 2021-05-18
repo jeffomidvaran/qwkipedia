@@ -10,7 +10,7 @@ import youtube_ios_player_helper
 import AVFoundation
 
 
-class MoreMediaCollectionViewCell: UICollectionViewCell {
+class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
 
     public static let identifier = "MoreMediaCollectionViewCellId"
     var player: AVAudioPlayer?
@@ -37,36 +37,32 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
                     qwkDescriptionTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
                 ])
 
-//            case .video:
-//                print("video type called")
-//                let player: YTPlayerView = YTPlayerView()
-//                player.load(withVideoId: "WDlu1OhvYBM")
-//                player.translatesAutoresizingMaskIntoConstraints = false
-//                contentView.addSubview(player)
-//
-//                NSLayoutConstraint.activate([
-//                    player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-//                    player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-//                    player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
-//                    player.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
-//                    player.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
-//                    player.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
-//                    player.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
-//                ])
-//            case .image:
-//                let imageView = UIImageView()
-//                imageView.image = #imageLiteral(resourceName: "puppy")
-//                imageView.translatesAutoresizingMaskIntoConstraints = false
-//                imageView.contentMode = .scaleAspectFit
-//                contentView.addSubview(imageView)
-//                NSLayoutConstraint.activate([
-//                    imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-//                    imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-//                    imageView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
-//                    imageView.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
-//                    imageView.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
-//                    imageView.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
-//                ])
+            case .video:
+                let player: YTPlayerView = YTPlayerView()
+                player.load(withVideoId: "JJunp9xo4uA")
+                player.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(player)
+
+                NSLayoutConstraint.activate([
+                    player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
+                    player.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
+                    
+                ])
+            case .image:
+                let imageView = UIImageView()
+                imageView.image = #imageLiteral(resourceName: "puppy")
+                imageView.translatesAutoresizingMaskIntoConstraints = false
+                imageView.contentMode = .scaleAspectFit
+                contentView.addSubview(imageView)
+                NSLayoutConstraint.activate([
+                    imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    imageView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    imageView.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
+                    imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+                ])
 //            case .audio:
 //                let playButton = UIButton()
 //                playButton.setTitle("Play/Stop", for: .normal)
@@ -83,35 +79,71 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
 //                    playButton.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
 //                ])
 //
-//            case .externalLink:
-//                let tv = UITextView()
-//                tv.text = "No Link Set"
-//                tv.isEditable = false
-//                tv.textAlignment = .center
-//                tv.translatesAutoresizingMaskIntoConstraints = false
-//                let attributedString = NSMutableAttributedString(string: surname)
-//                let url = URL(string: urlString)!
-//                attributedString.setAttributes([.link: url], range: NSMakeRange(0, surname.count))
-//                tv.attributedText = attributedString
-//                tv.isUserInteractionEnabled = true
-//                tv.isEditable = false
-//                tv.centerText()
-//                contentView.addSubview(tv)
-//                NSLayoutConstraint.activate([
-//                    tv.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-//                    tv.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-//                    tv.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
-//                    tv.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 8),
-//                    tv.topAnchor.constraint(equalTo: reportButton.bottomAnchor, constant: 8),
-//                    tv.bottomAnchor.constraint(equalTo: suggestButton.topAnchor, constant: -8),
-//                ])
-
+            case .externalLink:
+                let urlView: UIView = {
+                    let v = UIView()
+                    v.translatesAutoresizingMaskIntoConstraints = false
+                    return v
+                }()
+                
+                let urlLabel: UILabel = {
+                    let l = UILabel()
+                    l.translatesAutoresizingMaskIntoConstraints = false
+                    l.text = "PetFinder.com"
+                    l.textColor = QwkColors.buttonColor
+                    return l
+                }()
+                
+                let urlImage: UIImageView = {
+                    let iv = UIImageView()
+                    let globeImage = UIImage(systemName: "globe")
+                    iv.image = globeImage
+                    iv.tintColor = QwkColors.buttonColor
+                    iv.translatesAutoresizingMaskIntoConstraints = false
+                    return iv
+                }()
+                
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(url1Clicked(_:)))
+                tapGesture.delegate = self
+                urlView.addGestureRecognizer(tapGesture)
+                
+                
+        
+                let sizeOfConstantAroundGlobe: CGFloat = 12.0
+                contentView.addSubview(urlView)
+                contentView.addSubview(urlLabel)
+                contentView.addSubview(urlImage)
+                
+                NSLayoutConstraint.activate([
+                    urlView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    urlView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    urlView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
+                    urlView.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
+                    urlView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+                    
+                    
+                    urlImage.leadingAnchor.constraint(equalTo: urlView.leadingAnchor, constant: sizeOfConstantAroundGlobe),
+                    urlImage.topAnchor.constraint(equalTo: urlView.topAnchor, constant: sizeOfConstantAroundGlobe),
+                    urlImage.bottomAnchor.constraint(equalTo: urlView.bottomAnchor, constant: -sizeOfConstantAroundGlobe),
+                    urlImage.heightAnchor.constraint(equalTo: urlImage.widthAnchor),
+                    
+                    urlLabel.leadingAnchor.constraint(equalTo: urlImage.trailingAnchor, constant: sizeOfConstantAroundGlobe),
+                    urlLabel.centerYAnchor.constraint(equalTo: urlView.centerYAnchor),
+                ])
 
             default:
                 fatalError()
             }
         }
     }
+    
+    
+    var urlViewButtonTapAction : ((String)->())?
+    @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
+        urlViewButtonTapAction!(urlString)
+    }
+    
+    
    
     var numberOfVotes = 0 {
         didSet {
@@ -188,8 +220,8 @@ class MoreMediaCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(editButton)
         contentView.addSubview(voterButtons)
         
-//        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
+        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+//        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
         
         
         editButton.addTarget(self, action: #selector(editButtonPressed(_:)), for: .touchUpInside)
