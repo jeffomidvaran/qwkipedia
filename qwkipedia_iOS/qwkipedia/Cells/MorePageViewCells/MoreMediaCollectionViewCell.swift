@@ -52,7 +52,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
                 ])
             case .image:
                 let imageView = UIImageView()
-                imageView.image = #imageLiteral(resourceName: "puppy")
+                imageView.image = #imageLiteral(resourceName: "Image")
                 imageView.translatesAutoresizingMaskIntoConstraints = false
                 imageView.contentMode = .scaleAspectFit
                 contentView.addSubview(imageView)
@@ -138,10 +138,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     }
     
     
-    var urlViewButtonTapAction : ((String)->())?
-    @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
-        urlViewButtonTapAction!(urlString)
-    }
     
     
    
@@ -184,6 +180,9 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
     }()
+    
+    
+    
 
     let suggestButton: UIButton = {
         let b = UIButton()
@@ -248,14 +247,18 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         ])
         
     }
+   
     
+    var editButtonTapAction : (()->())?
     @objc func editButtonPressed(_ sender: UIButton) {
         print("edit button pressed")
         editButtonTapAction?()
     }
 
-    var editButtonTapAction : (()->())?
-
+    var urlViewButtonTapAction : ((String)->())?
+    @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
+        urlViewButtonTapAction!(urlString)
+    }
     
     
     @objc func playAudio(_ sender: UIButton) {

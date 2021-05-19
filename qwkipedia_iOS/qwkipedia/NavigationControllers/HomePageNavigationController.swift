@@ -16,7 +16,7 @@ class HomePageNavigationController: UINavigationController {
 
 
         
-        self.navigationBar.titleTextAttributes = [.foregroundColor: QwkColors.buttonColor,
+        self.navigationBar.titleTextAttributes = [.foregroundColor: QwkColors.textColor,
                                                   .font: UIFont(name: "Timmana", size: 24.0)!]
         
     }

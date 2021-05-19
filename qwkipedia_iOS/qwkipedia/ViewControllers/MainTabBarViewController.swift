@@ -11,6 +11,6 @@ class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.tintColor = QwkColors.buttonColor
+        view.tintColor = QwkColors.textColor
     }
 }

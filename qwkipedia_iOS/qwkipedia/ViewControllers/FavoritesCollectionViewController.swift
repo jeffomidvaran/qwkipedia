@@ -12,6 +12,7 @@ class FavoritesCollectionViewController: UICollectionViewController, UISearchBar
 
 
     @IBOutlet var searchBar: UISearchBar!
+  
     
     let allData: [TempItem] = DummyData.previewData
     
@@ -22,6 +23,7 @@ class FavoritesCollectionViewController: UICollectionViewController, UISearchBar
         navigationItem.titleView = searchBar
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: view.frame.width-16, height: 66)
+        
         filteredSearchResults = allData
     }
 
@@ -34,6 +36,7 @@ class FavoritesCollectionViewController: UICollectionViewController, UISearchBar
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FavoritesItemCollectionViewCell
         cell.topicNameLabel.text = filteredSearchResults[indexPath.row].name
         cell.previewImageView.image = filteredSearchResults[indexPath.row].image
+        cell.favoriteBookmarkButtonObject.tintColor = QwkColors.buttonColor
         return cell
     }
 

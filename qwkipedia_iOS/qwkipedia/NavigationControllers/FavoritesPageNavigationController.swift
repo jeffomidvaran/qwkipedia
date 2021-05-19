@@ -11,7 +11,7 @@ class FavoritesPageNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.titleTextAttributes = [.foregroundColor: QwkColors.buttonColor,
+        self.navigationBar.titleTextAttributes = [.foregroundColor: QwkColors.textColor,
                                                   .font: UIFont(name: "Timmana", size: 25.0)!]
     }
 

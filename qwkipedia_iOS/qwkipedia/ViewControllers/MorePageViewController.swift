@@ -13,6 +13,8 @@ class MorePageViewController: UIViewController {
     var value = "empty"
     var urlToSend = "https://www.google.com"
     
+    @IBOutlet weak var addNewEntryButtonObject: UIBarButtonItem!
+    
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -26,7 +28,9 @@ class MorePageViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .systemBackground
+        addNewEntryButtonObject.tintColor = QwkColors.buttonColor
+    
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
@@ -48,13 +52,19 @@ class MorePageViewController: UIViewController {
     }
     
     @IBAction func newQwkEntryButtonAction(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "moreToNewQwkEEntrySegue", sender: self)
+        switch cellType {
+        case .qwkDescription:
+            performSegue(withIdentifier: "moreToEditQwkDescriptionSegue", sender: self)
+        case .video:
+            performSegue(withIdentifier: "moreToEditVideoSegue", sender: self)
+        case .image:
+            performSegue(withIdentifier: "moreToEditImageSegue", sender: self)
+        case .externalLink:
+            performSegue(withIdentifier: "moreToEditExternalLinkSegue", sender: self)
+        default:
+            fatalError()
+        }
     }
-    
-    
-
-    
-
 }
 
 extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -63,13 +73,12 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         switch cellType{
         case .qwkDescription:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkDescription
             cell.editButtonTapAction = {
-                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                self.performSegue(withIdentifier: "moreToEditQwkDescriptionSegue", sender: self)
             }
             
             if(indexPath[1] == 0) {
@@ -83,7 +92,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.cellType = .video
 //            cell.isCurrentUsersPost = false
             cell.editButtonTapAction = {
-                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                self.performSegue(withIdentifier: "moreToEditVideoSegue", sender: self)
             }
             if(indexPath[1] == 0) {
                 cell.isCurrentUsersPost = true
@@ -96,7 +105,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.cellType = .image
 
             cell.editButtonTapAction = {
-                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                self.performSegue(withIdentifier: "moreToEditImageSegue", sender: self)
             }
             if(indexPath[1] == 0) {
                 cell.isCurrentUsersPost = true
@@ -111,7 +120,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.isCurrentUsersPost = false
             cell.cellType = .externalLink
             cell.editButtonTapAction = {
-                self.performSegue(withIdentifier: "moreToEditSeque", sender: self)
+                self.performSegue(withIdentifier: "moreToEditExternalLinkSegue", sender: self)
             }
             
             cell.urlViewButtonTapAction = { (url:String) in
@@ -157,10 +166,11 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         }
         return CGSize(width: width, height: height)
     }
-    
-
 }
 
-
-
-// moreToWebViewSegue
+/*
+  moreToEditQwkDescriptionSegue
+ moreToEditVideoSegue
+ moreToEditImageSegue
+ moreToEditExternalLinkSegue
+*/
