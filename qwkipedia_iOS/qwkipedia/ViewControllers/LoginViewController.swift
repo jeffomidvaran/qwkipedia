@@ -15,6 +15,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var animatedText: UITextField!
     
+    @IBOutlet weak var SigninButton: UIButton!
+    @IBOutlet weak var forgotButton: UIButton!
+    @IBOutlet weak var createButton: UIButton!
+    
     @IBAction func signinPressed(_ sender: UIButton) {
         
         if let email = email.text, let password = password.text {
@@ -50,6 +54,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Password and email populated for quick testing
+        SigninButton.backgroundColor = QwkColors.buttonColor
+        createButton.setTitleColor(QwkColors.buttonColor, for: .normal)
+        forgotButton.setTitleColor(QwkColors.buttonColor, for: .normal)
+    
         email.text = "1@3.com"
         password.text = "1234567!a"
         

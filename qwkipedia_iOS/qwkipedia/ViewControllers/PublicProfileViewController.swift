@@ -13,6 +13,7 @@ class PublicProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
     var name = ""
+    var bio = ""
 lazy var profileView: UIView = {
     
     let view = UIView()
@@ -45,8 +46,8 @@ lazy var profileView: UIView = {
 
     view.addSubview(interestLabel)
     interestLabel.anchor(top:aboutTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 10)
-    view.addSubview(Interests)
-    Interests.anchor(top:interestLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 10)
+//    view.addSubview(Interests)
+//    Interests.anchor(top:interestLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 10)
     return view
 }()
 
@@ -63,7 +64,7 @@ let profileImageView: UIImageView = {
 let nameLabel: UILabel = {
     let label = UILabel()
     label.textAlignment = .left
-    label.text = "Marina"
+    label.text = " "
     label.font = UIFont.boldSystemFont(ofSize: 18)
     label.textColor = .darkGray
     return label
@@ -98,11 +99,10 @@ let bioLabel:UILabel = {
 let aboutTextField: UITextView = {
     let bio = UITextView()
     bio.font = UIFont.boldSystemFont(ofSize: 15)
-    bio.textColor = .darkGray
+    bio.textColor = .lightGray
     bio.clipsToBounds = true
-    bio.layer.borderColor = UIColor.gray.cgColor
     bio.textAlignment = .justified
-    bio.text = "Full-time Dentist 🦷, Part-time Dancer 💃, Fitness enthusiast 🧗‍♀️, and traveller 🏕️...as much as work allows!"
+    bio.layer.borderColor = UIColor.gray.cgColor
     bio.layer.borderWidth = 2
     bio.layer.cornerRadius = 12
     bio.layer.shadowOpacity = 0.5
@@ -112,25 +112,24 @@ let aboutTextField: UITextView = {
 let interestLabel:UILabel = {
     let label = UILabel()
     label.textAlignment = .left
-    label.text = "Interests"
+    label.text = "Qwktributions"
     label.font = UIFont.boldSystemFont(ofSize: 18)
     label.textColor = .darkGray
     return label
 }()
 
-let Interests:UITextField = {
-    let interests = UITextField()
-    interests.textColor = .darkGray
-    interests.text = "Surfing, Rock Climbing, House plants"
-    return interests
-}()
+//let Interests:UITextField = {
+//    let interests = UITextField()
+//    interests.textColor = .darkGray
+//    interests.text = "Surfing, Rock Climbing, House plants"
+//    return interests
+//}()
 
 // MARK: - Lifecycle
 
 override func viewDidLoad() {
     
     super.viewDidLoad()
-//    view.backgroundColor = QwkColors.backgroundColor
     
     view.addSubview(profileView)
     profileView.anchor(top: view.topAnchor, left: view.leftAnchor,
@@ -140,7 +139,7 @@ override func viewDidLoad() {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = false
         
         //Getting current user data
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
@@ -152,13 +151,38 @@ override func viewDidLoad() {
                         if let snapShotDocs = querySnapshot?.documents {
                             for doc in snapShotDocs {
                                 let data = doc.data()
-                                if user.uid == data[Constants.FStore.userid] as? String {
+                                if user.email == data[Constants.FStore.email] as? String {
                                     self.name = data[Constants.FStore.username] as! String
-                                    self.nameLabel.text = self.name    //show the correct entered name for the user
+                                    self.bio = data["bio"] as! String
+                                    self.nameLabel.text = self.name//show name retrieved from DB
+                                    self.aboutTextField.text = self.bio //show bio retrieved from DB
+                                    self.aboutTextField.textColor = .darkGray
                                 }
                             }
                         }
-                        
+                    }
+                }
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
+                    if let e = error {
+                        print("Couldn't save data, \(e)")
+                    } else {
+                        if let snapShotDocs = querySnapshot?.documents {
+                            for doc in snapShotDocs {
+                                let data = doc.data()
+                                if user.email == data[Constants.FStore.email] as? String {
+                                    if let docid = data[Constants.FStore.userid] as? String {
+                                        self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["bio":self.aboutTextField.text ?? ""])}
+                                }
+                             }
+                         }
                     }
                 }
             }
