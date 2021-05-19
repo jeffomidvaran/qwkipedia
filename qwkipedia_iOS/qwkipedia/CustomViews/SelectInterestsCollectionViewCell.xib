@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectInterestsCollectionCell" id="gTV-IL-0wX" customClass="SelectInterestsCollectionViewCell" customModule="qwkipedia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-Mr-Ii3">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VsB-ZK-Yiz">
+                                <rect key="frame" x="25" y="94" width="60" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="SNs-dO-gK2"/>
+                                    <constraint firstAttribute="height" constant="18" id="y1C-h5-p0E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9J-mn-Las">
+                                <rect key="frame" x="10" y="5" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Skl-T3-TkU"/>
+                                    <constraint firstAttribute="width" constant="90" id="gUA-if-UrP"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greyCheckmark" translatesAutoresizingMaskIntoConstraints="NO" id="bnX-OF-BBt">
+                                <rect key="frame" x="10" y="5" width="90" height="90"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="0PW-Vx-6G2"/>
+                                    <constraint firstAttribute="width" constant="90" id="EKK-EU-B4T"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bnX-OF-BBt" firstAttribute="centerX" secondItem="MRt-Mr-Ii3" secondAttribute="centerX" id="1Hi-2I-Nyi"/>
+                            <constraint firstAttribute="height" constant="110" id="8d6-Wg-Wck"/>
+                            <constraint firstAttribute="width" constant="110" id="8ez-Dr-BwD"/>
+                            <constraint firstItem="bnX-OF-BBt" firstAttribute="centerY" secondItem="MRt-Mr-Ii3" secondAttribute="centerY" constant="-5" id="Alp-vO-izV"/>
+                            <constraint firstItem="S9J-mn-Las" firstAttribute="centerX" secondItem="MRt-Mr-Ii3" secondAttribute="centerX" id="HgX-9g-icm"/>
+                            <constraint firstItem="VsB-ZK-Yiz" firstAttribute="centerY" secondItem="MRt-Mr-Ii3" secondAttribute="centerY" constant="48" id="UDp-0g-B7X"/>
+                            <constraint firstItem="VsB-ZK-Yiz" firstAttribute="centerX" secondItem="MRt-Mr-Ii3" secondAttribute="centerX" id="cha-Cf-kgT"/>
+                            <constraint firstItem="S9J-mn-Las" firstAttribute="centerY" secondItem="MRt-Mr-Ii3" secondAttribute="centerY" constant="-5" id="uJv-Nh-7X9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="MRt-Mr-Ii3" secondAttribute="bottom" id="7J5-6y-l2V"/>
+                <constraint firstItem="MRt-Mr-Ii3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Kzc-4j-nzj"/>
+                <constraint firstAttribute="trailing" secondItem="MRt-Mr-Ii3" secondAttribute="trailing" id="TE7-zN-rdz"/>
+                <constraint firstItem="MRt-Mr-Ii3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="t3r-ls-Q9o"/>
+            </constraints>
+            <size key="customSize" width="110" height="110"/>
+            <connections>
+                <outlet property="checkMarkImage" destination="bnX-OF-BBt" id="IsE-Dl-YvM"/>
+                <outlet property="containorView" destination="MRt-Mr-Ii3" id="64d-Qh-eO7"/>
+                <outlet property="imageView" destination="S9J-mn-Las" id="naB-gp-74G"/>
+                <outlet property="label" destination="VsB-ZK-Yiz" id="rhl-NO-HhW"/>
+            </connections>
+            <point key="canvasLocation" x="223.18840579710147" y="44.866071428571423"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="greyCheckmark" width="1010" height="926"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
