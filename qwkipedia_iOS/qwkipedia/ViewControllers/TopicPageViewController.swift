@@ -197,11 +197,10 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPageSegue" {
             let controller = segue.destination as! MorePageViewController
-            controller.value = "from topic vc"
             controller.cellType = cellSendType
         } else if segue.identifier == "discussionPageSegue" {
             let controller = segue.destination as! DiscussionViewController
-            controller.value = "chat from topic vc"
+            controller.topic = mainTopicPageHeader.title
         } else if segue.identifier == "externalLinkWebViewSegue" {
             let vc = segue.destination as! ExternalLinkWebViewController
             vc.sentUrlString = urlStringToSend

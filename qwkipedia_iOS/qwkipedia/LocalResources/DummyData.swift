@@ -11,7 +11,7 @@ import UIKit
 
 struct DummyData {
     static let title = "Puppy"
-    static let qwkDescription = "A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier. Puppy refers specifically to young dogs,[1] while pup may be used for other animals such as wolves, seals, giraffes, guinea pigs, rats or sharks.[2].Born after an average of 63 days of gestation, puppies emerge in an amnion that is bitten off and eaten by the mother dog.[3]"
+    static let qwkDescription = "A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier. Puppy refers specifically to young dogs,[1] while pup may be used for other animals such as wolves, seals, giraffes, guinea pigs, rats or sharks.[2].Born after an average of 63 days of gestation, puppies emerge in an amnion that is bitten off and eaten by the mother dog."
 
     static let videoURL: String = "https://www.youtube.com/watch?v=B1CPE6WWsAQ"
     static let image: UIImage = #imageLiteral(resourceName: "Image")

@@ -18,6 +18,9 @@
 		1C7D74A6264B705700E16168 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D74A5264B705700E16168 /* Message.swift */; };
 		1C7D74A8264B794A00E16168 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C7D74A7264B794A00E16168 /* GoogleService-Info.plist */; };
 		1C8FA067263FAF4700259484 /* PublicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8FA066263FAF4700259484 /* PublicProfileViewController.swift */; };
+		1C97B7C5265491CB008D91AC /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97B7C4265491CB008D91AC /* Interests.swift */; };
+		1C97B7C8265492D4008D91AC /* SelectInterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */; };
+		1C97B7C9265492D4008D91AC /* SelectInterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */; };
 		7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34BE261D913F00C9F893 /* AppDelegate.swift */; };
 		7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */; };
 		7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */; };
@@ -56,6 +59,7 @@
 		7CB2C54326338F12003A2F24 /* puppySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7CB2C54226338F12003A2F24 /* puppySound.wav */; };
 		7CB4037A264E1760004655E0 /* TopicExternalLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB40379264E1760004655E0 /* TopicExternalLinkTableViewCell.swift */; };
 		7CB4037E264F0FB6004655E0 /* ExternalLinkWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4037D264F0FB6004655E0 /* ExternalLinkWebViewController.swift */; };
+		7CB40CEE2655C4D00091A36E /* DataStructForRetrievingDataFromServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB40CED2655C4D00091A36E /* DataStructForRetrievingDataFromServer.swift */; };
 		7CC78E9E2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC78E9D2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift */; };
 		7CE25B59263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */; };
 		7CE25B5C263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B5B263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift */; };
@@ -85,6 +89,9 @@
 		1C7D74A5264B705700E16168 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1C7D74A7264B794A00E16168 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C8FA066263FAF4700259484 /* PublicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewController.swift; sourceTree = "<group>"; };
+		1C97B7C4265491CB008D91AC /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
+		1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectInterestsCollectionViewCell.xib; sourceTree = "<group>"; };
+		1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1C34BE261D913F00C9F893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +132,7 @@
 		7CB2C54226338F12003A2F24 /* puppySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = puppySound.wav; sourceTree = "<group>"; };
 		7CB40379264E1760004655E0 /* TopicExternalLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicExternalLinkTableViewCell.swift; sourceTree = "<group>"; };
 		7CB4037D264F0FB6004655E0 /* ExternalLinkWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkWebViewController.swift; sourceTree = "<group>"; };
+		7CB40CED2655C4D00091A36E /* DataStructForRetrievingDataFromServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructForRetrievingDataFromServer.swift; sourceTree = "<group>"; };
 		7CC78E9D2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CCCEE5426376B82002034EF /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		7CE25B58263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 				1C6EE591262E7FE20067F869 /* Utilities.swift */,
 				1C51821926364AA900137C0B /* UIViewExtensions.swift */,
 				1C7D74A5264B705700E16168 /* Message.swift */,
+				1C97B7C4265491CB008D91AC /* Interests.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -248,6 +257,7 @@
 				1C7D74A7264B794A00E16168 /* GoogleService-Info.plist */,
 				7C1C34CC261D914100C9F893 /* Info.plist */,
 				7C4DC09C2652F366009DA9E0 /* LocalResources */,
+				7CB40CED2655C4D00091A36E /* DataStructForRetrievingDataFromServer.swift */,
 			);
 			path = qwkipedia;
 			sourceTree = "<group>";
@@ -287,6 +297,8 @@
 				7C4E4667263FBD8E00DA51E4 /* VoterView.swift */,
 				1C7D74A3264B6FE100E16168 /* MessageCell.swift */,
 				1C7D74A1264B6FD600E16168 /* MessageCell.xib */,
+				1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */,
+				1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -416,6 +428,7 @@
 				7CB2C54326338F12003A2F24 /* puppySound.wav in Resources */,
 				1C7D74A2264B6FD600E16168 /* MessageCell.xib in Resources */,
 				7C1C34CB261D914100C9F893 /* LaunchScreen.storyboard in Resources */,
+				1C97B7C8265492D4008D91AC /* SelectInterestsCollectionViewCell.xib in Resources */,
 				7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */,
 				7C54489C2647B4DA00F069CE /* Assets.xcassets in Resources */,
 				7C71C9472652FAA4007B91EA /* Timmana-Regular.ttf in Resources */,
@@ -474,12 +487,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB4037E264F0FB6004655E0 /* ExternalLinkWebViewController.swift in Sources */,
+				1C97B7C9265492D4008D91AC /* SelectInterestsCollectionViewCell.swift in Sources */,
 				7CE25B682632452700ADFEDD /* TopicDiscussionCollectionViewCell.swift in Sources */,
 				7C65398B262E63B000014A51 /* UIImageExtensions.swift in Sources */,
 				7CE25B6E2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift in Sources */,
 				7CAD57A92638C62E00427ED0 /* UITextViewExtensions.swift in Sources */,
 				7CE25B622632450C00ADFEDD /* TopicImageCollectionViewCell.swift in Sources */,
 				7C689410262EAA790024DA06 /* FavoritesItemCollectionViewCell.swift in Sources */,
+				1C97B7C5265491CB008D91AC /* Interests.swift in Sources */,
 				7CE25B5F2632450000ADFEDD /* TopicVideoCollectionViewCell.swift in Sources */,
 				7C8A676E264F24E700C6F681 /* UrlStackViewCell.swift in Sources */,
 				7C23813E26525C7F0073ED55 /* MainTabBarViewController.swift in Sources */,
@@ -499,6 +514,7 @@
 				7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */,
 				7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */,
 				7C4C183B26531A2A0019BBB7 /* FavoritesPageNavigationController.swift in Sources */,
+				7CB40CEE2655C4D00091A36E /* DataStructForRetrievingDataFromServer.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
 				7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,

@@ -16,6 +16,8 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     var player: AVAudioPlayer?
     var surname: String = ""
     var urlString: String = ""
+    var qwkDescriptionText = ""
+    var qwkDescriptionTextView = UITextView()
 
     
     var cellType: TopicCellType = .qwkDescription {
@@ -23,17 +25,20 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
             switch cellType{
             case .qwkDescription:
                 
-                let qwkDescriptionTextView = UITextView()
-                qwkDescriptionTextView.text = DummyData.qwkDescription
+//                let qwkDescriptionTextView = UITextView()
+//                qwkDescriptionTextView.text = "this is a test"
                 qwkDescriptionTextView.isEditable = false
                 qwkDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+                qwkDescriptionTextView.isScrollEnabled = false
+
+                
                 contentView.addSubview(qwkDescriptionTextView)
                 
                 NSLayoutConstraint.activate([
                     qwkDescriptionTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
                     qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-                    qwkDescriptionTextView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 8),
-                    qwkDescriptionTextView.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
+                    qwkDescriptionTextView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 0),
+                    qwkDescriptionTextView.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 0),
                     qwkDescriptionTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
                 ])
 
@@ -136,10 +141,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
             }
         }
     }
-    
-    
-    
-    
+
    
     var numberOfVotes = 0 {
         didSet {
@@ -147,7 +149,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         }
     }
 
-    fileprivate let authorLabel: UILabel = {
+    let authorLabel: UILabel = {
         let l = UILabel()
         l.text = "Jane Doe"
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -200,7 +202,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         return vv
     }()
     
-    fileprivate let profilePic: UIImageView = {
+    let profilePic: UIImageView = {
         let v = UIImageView()
         v.image = #imageLiteral(resourceName: "janeDoe")
         v.contentMode = .scaleToFill

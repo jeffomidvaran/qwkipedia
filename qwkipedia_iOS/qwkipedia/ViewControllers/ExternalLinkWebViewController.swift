@@ -57,7 +57,6 @@ class ExternalLinkWebViewController: UIViewController {
         } else {
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = true
-//            activityIndicatorContainer.removeFromSuperview()
         }
     }
     

@@ -10,8 +10,6 @@ import UIKit
 class MorePageViewController: UIViewController {
  
     var cellType: TopicCellType = .qwkDescription
-    var value = "empty"
-    var urlToSend = "https://www.google.com"
     
     @IBOutlet weak var addNewEntryButtonObject: UIBarButtonItem!
     
@@ -39,15 +37,40 @@ class MorePageViewController: UIViewController {
         ])
     }
     
+    var qwkDataArray: [QwkDataFromServer] = []
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "moreToEditSeque") {
-            let vc = segue.destination as! EditDataViewController
-            vc.viewType = cellType
-            vc.videoURL = "https://www.youtube.com/watch?v=JJunp9xo4uA"
-        } else if(segue.identifier == "moreToWebViewSegue") {
-            let vc = segue.destination as! ExternalLinkWebViewController
-            vc.sentUrlString = urlToSend
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // MARK: DATA: Load Data for more page
+        // use variable "cellType" in a switch statment to know which type of data to bring in
+        
+        switch cellType {
+        case .qwkDescription:
+            // loop through revieved entries in database
+            
+            qwkDataArray = [
+                QwkDataFromServer(
+                      authorImage: #imageLiteral(resourceName: "janeDoe"),
+                      authorFirstName: "Jane",
+                      authorLastName: "Doe",
+                    qwkDescriptionText:DummyData.qwkDescription,
+                      voteCount: 10),
+                QwkDataFromServer(
+                      authorImage: #imageLiteral(resourceName: "profileImage3"),
+                      authorFirstName: "Bob",
+                      authorLastName: "Smith",
+                    qwkDescriptionText:"This article is about the domestic dog. For other uses, see Puppy (disambiguation).Golden Retriever puppy Basset Hound Newborn Welsh Springer Spaniels A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier. Puppy refers specifically to young dogs",
+                      voteCount: 10),
+                QwkDataFromServer(
+                      authorImage: #imageLiteral(resourceName: "profileImage2"),
+                      authorFirstName: "John",
+                      authorLastName: "Davis",
+                      qwkDescriptionText:"Puppies are best animals. I like the way that they howl! It is very very cool",
+                      voteCount: -5),
+            ]
+
+        default:
+            fatalError()
         }
     }
     
@@ -65,11 +88,36 @@ class MorePageViewController: UIViewController {
             fatalError()
         }
     }
+    
+    var urlToSend = "https://www.google.com"
+    var urlTitleToSend = "Empty Title"
+    var qwkDescriptionToSend = "Empty Qwk Description"
+    var videoURLToSend = "https://www.google.com"
+    var imageToSend: UIImage = #imageLiteral(resourceName: "Image")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if(segue.identifier == "moreToWebViewSegue") {
+            let vc = segue.destination as! ExternalLinkWebViewController
+            vc.sentUrlString = urlToSend
+        } else if(segue.identifier == "moreToEditQwkDescriptionSegue"){
+            let vc = segue.destination as! EditQwkDescriptionViewController
+            vc.currentQwkDescription = qwkDescriptionToSend
+        } else if(segue.identifier == "moreToEditVideoSegue"){
+            let vc = segue.destination as! EditVideoViewController
+            vc.currentVideoURL = videoURLToSend
+        } else if(segue.identifier == "moreToEditImageSegue"){
+            let vc = segue.destination as! EditImageViewController
+            vc.currentImage = imageToSend
+        } else if(segue.identifier == "moreToEditExternalLinkSegue"){
+            let vc = segue.destination as! EditExternalLinkViewController
+            vc.currentRecievedURL = urlToSend
+            vc.currentRecivedWebsiteTitle = urlTitleToSend
+        }
+    }
 }
 
 extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return qwkDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,20 +125,26 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .qwkDescription:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkDescription
+            cell.qwkDescriptionTextView.text = qwkDataArray[indexPath[1]].qwkDescriptionText!
+            cell.authorLabel.text = qwkDataArray[indexPath[1]].authorFirstName + " " + qwkDataArray[indexPath[1]].authorLastName
+            cell.profilePic.image = qwkDataArray[indexPath[1]].authorImage
+            
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditQwkDescriptionSegue", sender: self)
             }
             
+            // MARK: DATA: Check if Author in the database is the same as the current User (for edit button)
             if(indexPath[1] == 0) {
                 cell.isCurrentUsersPost = true
             } else {
                 cell.isCurrentUsersPost = false
+                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteCount
+                
             }
             return cell
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
-//            cell.isCurrentUsersPost = false
             cell.editButtonTapAction = {
                 self.performSegue(withIdentifier: "moreToEditVideoSegue", sender: self)
             }
@@ -145,12 +199,17 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width
+        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
         var height: CGFloat =  0.0
-
+        
         switch cellType{
         case .qwkDescription:
-            height = 200.0
+            // This UItextfield is used to generate the size of the CollectionView Cell
+            let dummyUITextField = UITextView()
+            dummyUITextField.text = qwkDataArray[indexPath[1]].qwkDescriptionText
+            dummyUITextField.isScrollEnabled = false
+            let newSize = dummyUITextField.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
+            height = newSize.height + 40 // extra points for author name and vote count
         case .video:
             height = 260.0
         case .image:

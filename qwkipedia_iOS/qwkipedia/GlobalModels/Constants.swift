@@ -17,6 +17,7 @@ struct Constants {
 
     struct Identifiers {
         static let messageCellIdentifier = "MessageTableViewCell"
+        static let interestCellIdentifier = "SelectInterestsCollectionCell"
     }
     
     struct FStore {

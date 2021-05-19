@@ -14,6 +14,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var NameTextfield: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,12 +32,14 @@ class RegisterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //email & password fields populated for quick testing
-        emailTextfield.text = "1@4.com"
+        emailTextfield.text = "8@4.com"
         passwordTextfield.text = "1234a!"
-        NameTextfield.text = "Marina"
+        NameTextfield.text = "Sara"
         
         errorLabel.alpha = 0 //Hiding the error label
+        createButton.backgroundColor = QwkColors.buttonColor
         
+        loginButton.setTitleColor(QwkColors.buttonColor, for: .normal)
         
     }
     func validateFields() -> String? {
@@ -85,14 +89,18 @@ class RegisterViewController: UIViewController {
                     self.showError("Error creating user")
                 } else {
                     //user was created successfully
-                    let db = Firestore.firestore()                    
-                    db.collection("users").addDocument(data: ["name":name,"uid": authResult!.user.uid, "email":email ]) { (error) in
-                        
+                    let db = Firestore.firestore()
+                    var ref: DocumentReference? = nil
+                    ref = db.collection("users").addDocument(data: ["name":name,"email":email, "bio":""]) { (error) in
+                        print("user saved successfully, here is their id:")
+                        print(ref?.documentID ?? "")
+                        db.collection("users").document((ref?.documentID)!).updateData(["uid":(ref?.documentID)!])
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data")
                         }
                 }
+                    
                     //transition to Home page
                     self.performSegue(withIdentifier: Constants.SegueNameConstants.createtoInterstSegue, sender: self)
             }

@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class DiscussionViewController: UIViewController {
-    var value = "empty"
+    var topic : String? = ""
     var handle: AuthStateDidChangeListenerHandle?
 
     
@@ -59,14 +59,18 @@ class DiscussionViewController: UIViewController {
                     for doc in snapShotDocuments {
                         let data = doc.data()
                         if let messageSender = data[Constants.FStore.senderField] as? String,
-                           let messageBody = data[Constants.FStore.bodyField] as? String {
-                            let newMessage = Message(sender: messageSender, body: messageBody)
+                           let messageBody = data[Constants.FStore.bodyField] as? String,
+                        let messageTopic = data["topic"]as?String {
+                            let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
+                            //show topic-related messages only
+                            if (newMessage.topic == self.topic) {
                             self.messages.append(newMessage)
-                            
+                            }
                             DispatchQueue.main.async {
-                                   self.tableView.reloadData()
+                                self.tableView.reloadData()
+                                if (self.messages.count>0) {
                                 let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                                self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+                                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: false)}
                             }
                         }
                     }
@@ -78,6 +82,7 @@ class DiscussionViewController: UIViewController {
     @IBAction func sendButtonPressed(_ sender: UIButton) {  //Storing the message-data in database
         let user = Auth.auth().currentUser
         var senderName = ""
+        
         if let messageBody = messageTextField.text,
            let messageSender = user?.email {
             if (!messageBody.isEmpty) { //Don't send empty messages
@@ -96,6 +101,7 @@ class DiscussionViewController: UIViewController {
                                               [Constants.FStore.senderField: senderName,
                                                Constants.FStore.senderEmail: messageSender,
                                                Constants.FStore.bodyField: messageBody,
+                                               "topic": self.topic!,
                                                Constants.FStore.dateField: Date().timeIntervalSince1970
                                               ]) { (error) in
                                     if let e = error {
