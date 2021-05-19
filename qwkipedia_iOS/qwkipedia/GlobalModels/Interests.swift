@@ -15,7 +15,7 @@ struct InterestChoices {
     static let interestsToChoose:[interests] = [
         
         interests(title: "Tech", image: #imageLiteral(resourceName: "Tech")),
-        interests(title: "Sports", image: #imageLiteral(resourceName: "sports")),
+        interests(title: "Sports", image: #imageLiteral(resourceName: "Sports")),
         interests(title: "Art", image: #imageLiteral(resourceName: "Art")),
         interests(title: "Music", image: #imageLiteral(resourceName: "Music")),
         interests(title: "Biology", image: #imageLiteral(resourceName: "Biology")),
