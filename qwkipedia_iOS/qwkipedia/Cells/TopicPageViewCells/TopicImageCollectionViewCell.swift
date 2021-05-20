@@ -36,8 +36,8 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(moreButton)
         
-        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
+//        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+//        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(imagePressedAction))
         imageView.addGestureRecognizer(tap)

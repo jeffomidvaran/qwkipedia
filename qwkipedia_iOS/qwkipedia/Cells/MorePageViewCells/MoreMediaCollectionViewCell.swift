@@ -14,9 +14,11 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 
     public static let identifier = "MoreMediaCollectionViewCellId"
     var player: AVAudioPlayer?
-    var surname: String = ""
-    var urlString: String = ""
-    var qwkDescriptionText = ""
+    var webSiteName: String?
+    var webSiteURL: URL?
+//    var urlString: String = ""
+    var videoURL: URL?
+    var qwkImage: UIImage?
     var qwkDescriptionTextView = UITextView()
 
     
@@ -173,7 +175,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     
     let editButton: UIButton = {
         let b = UIButton()
-//        b.setTitle("︎Edit", for: .normal)
         let squareAndPencil = UIImage(systemName: "square.and.pencil")
         b.setImage(squareAndPencil, for: .normal)
         b.tintColor = QwkColors.buttonColor
@@ -182,8 +183,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         b.setTitleColor(QwkColors.buttonColor, for: .normal)
         return b
     }()
-    
-    
     
 
     let suggestButton: UIButton = {
@@ -227,10 +226,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         
         editButton.addTarget(self, action: #selector(editButtonPressed(_:)), for: .touchUpInside)
         
-//        print("before hide")
-//        editButton.isHidden = true
-//        voterButtons.isHidden = true
-//        print("after hide")
         
         
         NSLayoutConstraint.activate([
@@ -251,20 +246,34 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     }
    
     
-    var editButtonTapAction : (()->())?
+    var editButtonTapActionQwkDescription : ((String)->())?
+    var editButtonTapActionVideo : ((URL)->())?
+    var editButtonTapActionImage : ((UIImage)->())?
+    var editButtonTapActionExternalLink : ((URL, String)->())?
     @objc func editButtonPressed(_ sender: UIButton) {
-        print("edit button pressed")
-        editButtonTapAction?()
+        switch cellType {
+        case .qwkDescription:
+            editButtonTapActionQwkDescription!(qwkDescriptionTextView.text)
+        case .video:
+            editButtonTapActionVideo!(videoURL!)
+        case .image:
+            editButtonTapActionImage!(qwkImage!)
+        case .externalLink:
+            editButtonTapActionExternalLink!(webSiteURL!, webSiteName!)
+        default:
+            fatalError()
+        }
+        
+
     }
 
-    var urlViewButtonTapAction : ((String)->())?
+    var externalURLViewButtonTapAction : ((URL)->())?
     @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
-        urlViewButtonTapAction!(urlString)
+        externalURLViewButtonTapAction!(webSiteURL!)
     }
     
     
     @objc func playAudio(_ sender: UIButton) {
-        print("audio button was pressed")
         let path = Bundle.main.path(forResource: "puppySound", ofType: "wav")!
         let url  = URL(fileURLWithPath: path)
         do {

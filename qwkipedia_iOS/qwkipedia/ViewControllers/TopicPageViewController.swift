@@ -43,11 +43,9 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-//        collectionView.backgroundColor = QwkColors.backgroundColor
+        
         mainTopicPageHeader.title = "Puppy"
         favoriteButton.tintColor = QwkColors.buttonColor
-        
-        
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
@@ -72,17 +70,23 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        let shadowRadius: CGFloat = 1.0
+        let shadowOpacity: Float = 0.2
         switch indexPath[1]{
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(qwkDescriptionMoreButtonPressed), for: .touchUpInside)
-            cell.backgroundColor = .clear
+            cell.backgroundColor = .systemBackground
+            cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
+            
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicVideoCollectionViewCell.identifier  , for: indexPath) as! TopicVideoCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreVideoButtonPressed), for: .touchUpInside)
-            cell.backgroundColor = .clear
+            cell.backgroundColor = .systemBackground
+            cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
@@ -105,19 +109,25 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
                 self.tabBarController?.tabBar.isHidden = true
             }
 
-            cell.backgroundColor = .clear
+            cell.backgroundColor = .systemBackground
+            cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
-            cell.backgroundColor = .clear
+            cell.backgroundColor = .systemBackground
+            cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             return cell
         case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreExternalLinksButtonPressed), for: .touchUpInside)
             let numberOfCells = DummyData.urls.count > 3 ? 3 : DummyData.urls.count
             cell.numberOfCells = numberOfCells
-            cell.backgroundColor = .clear
+            cell.backgroundColor = .systemBackground
+            cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             
         // TODO: potential memory issue
             cell.urlViewButtonTapAction = { (url:String) in

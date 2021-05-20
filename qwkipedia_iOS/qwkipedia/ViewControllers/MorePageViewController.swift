@@ -41,7 +41,7 @@ class MorePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // MARK: DATA: Load Data for more page
+        // MARK: DATA Load Data for more page
         // use variable "cellType" in a switch statment to know which type of data to bring in
         
         switch cellType {
@@ -53,7 +53,7 @@ class MorePageViewController: UIViewController {
                       authorImage: #imageLiteral(resourceName: "janeDoe"),
                       authorFirstName: "Jane",
                       authorLastName: "Doe",
-                    qwkDescriptionText:DummyData.qwkDescription,
+                      qwkDescriptionText:DummyData.qwkDescription,
                       voteCount: 10),
                 QwkDataFromServer(
                       authorImage: #imageLiteral(resourceName: "profileImage3"),
@@ -89,15 +89,16 @@ class MorePageViewController: UIViewController {
         }
     }
     
-    var urlToSend = "https://www.google.com"
-    var urlTitleToSend = "Empty Title"
+    var websiteURLToSend: URL?
+    var webSiteTitleToSend = "Empty Title"
     var qwkDescriptionToSend = "Empty Qwk Description"
-    var videoURLToSend = "https://www.google.com"
+    var videoURLToSend: URL?
     var imageToSend: UIImage = #imageLiteral(resourceName: "Image")
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if(segue.identifier == "moreToWebViewSegue") {
             let vc = segue.destination as! ExternalLinkWebViewController
-            vc.sentUrlString = urlToSend
+//            vc.sentUrlString = urlToSend
         } else if(segue.identifier == "moreToEditQwkDescriptionSegue"){
             let vc = segue.destination as! EditQwkDescriptionViewController
             vc.currentQwkDescription = qwkDescriptionToSend
@@ -109,8 +110,8 @@ class MorePageViewController: UIViewController {
             vc.currentImage = imageToSend
         } else if(segue.identifier == "moreToEditExternalLinkSegue"){
             let vc = segue.destination as! EditExternalLinkViewController
-            vc.currentRecievedURL = urlToSend
-            vc.currentRecivedWebsiteTitle = urlTitleToSend
+//            vc.currentRecievedURL = urlToSend
+//            vc.currentRecivedWebsiteTitle = urlTitleToSend
         }
     }
 }
@@ -129,9 +130,11 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             cell.authorLabel.text = qwkDataArray[indexPath[1]].authorFirstName + " " + qwkDataArray[indexPath[1]].authorLastName
             cell.profilePic.image = qwkDataArray[indexPath[1]].authorImage
             
-            cell.editButtonTapAction = {
+            cell.editButtonTapActionQwkDescription = { (qwkDescription: String) in
+                self.qwkDescriptionToSend = qwkDescription
                 self.performSegue(withIdentifier: "moreToEditQwkDescriptionSegue", sender: self)
             }
+            
             
             // MARK: DATA: Check if Author in the database is the same as the current User (for edit button)
             if(indexPath[1] == 0) {
@@ -145,7 +148,8 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
-            cell.editButtonTapAction = {
+            cell.editButtonTapActionVideo = { (videoURL: URL) in
+                self.videoURLToSend = videoURL
                 self.performSegue(withIdentifier: "moreToEditVideoSegue", sender: self)
             }
             if(indexPath[1] == 0) {
@@ -158,7 +162,8 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .image
 
-            cell.editButtonTapAction = {
+            cell.editButtonTapActionImage = { (image: UIImage) in
+                self.imageToSend = image
                 self.performSegue(withIdentifier: "moreToEditImageSegue", sender: self)
             }
             if(indexPath[1] == 0) {
@@ -169,16 +174,18 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             return cell
         case .externalLink:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
-            cell.surname = DummyData.urls[0][0]
-            cell.urlString = DummyData.urls[0][1]
+//            cell.webSiteName = DummyData.urls[0][0]
+//            cell.urlString = DummyData.urls[0][1]
             cell.isCurrentUsersPost = false
             cell.cellType = .externalLink
-            cell.editButtonTapAction = {
+            cell.editButtonTapActionExternalLink = { (url: URL, webSiteTitle: String) in
+                self.webSiteTitleToSend = webSiteTitle
+                self.websiteURLToSend = url
                 self.performSegue(withIdentifier: "moreToEditExternalLinkSegue", sender: self)
             }
             
-            cell.urlViewButtonTapAction = { (url:String) in
-                self.urlToSend = url
+            cell.externalURLViewButtonTapAction = { (url: URL) in
+                self.websiteURLToSend = url
                 self.performSegue(withIdentifier: "moreToWebViewSegue", sender: self)
             }
             

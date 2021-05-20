@@ -13,7 +13,7 @@ class EditVideoViewController: UIViewController {
     @IBOutlet weak var videoViewContainer: UIView!
     @IBOutlet weak var trashButtonObject: UIButton!
     @IBOutlet weak var imageContainerHeightConstraint: NSLayoutConstraint!
-    var currentVideoURL = ""
+    var currentVideoURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class EditVideoViewController: UIViewController {
     }
     
     @IBAction func trashButtonAction(_ sender: Any) {
-        currentVideoURL = ""
+//        currentVideoURL = ""
         // MARK: update database here
     }
     
