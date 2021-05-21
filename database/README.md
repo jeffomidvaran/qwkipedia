@@ -9,8 +9,8 @@ interests: array of strings <br>
 profilePictureID: ID or path to image in storage <br>
 qwktributions <br>
 <ul>
-        externalLinks: array of ids 
-        images: array of ids 
-        qwkdescriptions: array of ids 
-        videos: array of ids 
+        <li>externalLinks: array of ids 
+        <li>images: array of ids 
+        <li>qwkdescriptions: array of ids 
+        <li>videos: array of ids 
 <ul/>
