@@ -14,3 +14,15 @@ qwktributions <br>
         <li>qwkdescriptions: array of ids 
         <li>videos: array of ids 
 <ul/>
+
+
+## Topic Collection Fields  
+<ol>    
+<li>discussionMessages: Collection <br> 
+        message     
+        <ul>
+        <li>authorID: string with ID for user 
+        <li>body: test body
+        <li>timestamp: timestamp 
+        <ul/>
+<ol/>   
