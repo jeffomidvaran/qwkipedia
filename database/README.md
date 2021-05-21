@@ -1,4 +1,4 @@
-## UserDataFields 
+## User Collection Item Fields
 firstName: string <br>
 lastName: string <br>
 email: string <br>
@@ -16,7 +16,7 @@ qwktributions <br>
 </ul>
 
 
-## Topic Collection Fields  
+## Topic Collection Item Fields  
 discussionMessages: Collection <br>    
 --> message
         <ul>
