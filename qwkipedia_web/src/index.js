@@ -26,7 +26,7 @@ class App extends Component {
       if (user) {
         this.setState({ user });
         // console.log("user is:", user.email, user.uid);
-        // console.log({user});
+        console.log({user});
         // this.showUserInfo();
       } else {
         this.setState({ user: null });
