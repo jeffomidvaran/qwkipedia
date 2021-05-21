@@ -17,7 +17,8 @@ qwktributions <br>
 
 
 ## Topic Collection Fields  
-discussionMessages: Collection <br>      
+discussionMessages: Collection <br>    
+--> message
         <ul>
         <li>authorID: string with ID for user 
         <li>body: test body
