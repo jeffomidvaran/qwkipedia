@@ -17,12 +17,9 @@ qwktributions <br>
 
 
 ## Topic Collection Fields  
-<ol>    
-<li>discussionMessages: Collection <br> 
-        message     
+discussionMessages: Collection <br>      
         <ul>
         <li>authorID: string with ID for user 
         <li>body: test body
         <li>timestamp: timestamp 
-        <ul/>
-<ol/>   
+        <ul/>   
