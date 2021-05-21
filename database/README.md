@@ -37,14 +37,14 @@ usersWhoDownVoted: array with user documentIDs <br>
 usersWhoUpVoted: array with user documentIDs <br>
 votes: Int <br>
 
-## videos Collection Item Fields
+## Videos Collection Item Fields
 author: string documentID  <br>
 usersWhoDownVoted: array with user documentIDs <br>
 usersWhoUpVoted: array with user documentIDs <br>
 youTubeUrl: url <br>
 votes: Int <br>
 
-## images Collection Item Fields
+## Images Collection Item Fields
 imageID: id/path to image in storage <br>
 author: string documentID  <br>
 usersWhoDownVoted: array with user documentIDs <br>
