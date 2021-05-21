@@ -30,3 +30,9 @@ images: array of document ids to images collection<br>
 videos: array of document ids to videos collection<br>
 qwkDescriptions: array of document ids to qwkDesciption collection<br>
 
+## QwkDescription Collection Item Fields
+description: string <br>
+author: string documentID  <br>
+usersWhoDownVoted: array with user documentIDs <br>
+usersWhoUpVoted: array with user documentIDs <br>
+votes: Int <br>
