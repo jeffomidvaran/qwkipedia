@@ -37,6 +37,19 @@ usersWhoDownVoted: array with user documentIDs <br>
 usersWhoUpVoted: array with user documentIDs <br>
 votes: Int <br>
 
+## videos Collection Item Fields
+author: string documentID  <br>
+usersWhoDownVoted: array with user documentIDs <br>
+usersWhoUpVoted: array with user documentIDs <br>
+youTubeUrl: url <br>
+votes: Int <br>
+
+## images Collection Item Fields
+imageID: id/path to image in storage <br>
+author: string documentID  <br>
+usersWhoDownVoted: array with user documentIDs <br>
+usersWhoUpVoted: array with user documentIDs <br>
+votes: Int <br>
 
 ## Notes
 testUser2 has liked and disliked puppy qwkDescriptions this can be used to insure voting data is being retrieved properly 
