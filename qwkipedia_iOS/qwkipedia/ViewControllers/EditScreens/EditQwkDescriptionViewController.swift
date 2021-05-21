@@ -23,19 +23,29 @@ class EditQwkDescriptionViewController: UIViewController {
         qwkDescriptionTextView.layer.borderWidth = 0.5
         qwkDescriptionTextView.layer.borderColor = QwkColors.outlineColor.cgColor
         qwkDescriptionTextView.layer.cornerRadius = 5
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
-        let newSize = qwkDescriptionTextView.sizeThatFits(
-                                            CGSize(width: width,
-                                                   height: CGFloat.greatestFiniteMagnitude))
-        let height = newSize.height
-        textFieldHeigthConstraint.constant = height
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let newHeight = view.bounds.height - keyboardSize.height + 30
+            textFieldHeigthConstraint.constant = view.bounds.height - newHeight
+        }
     }
     
 
+    @objc func keyboardWillHide(notification: Notification) {
+        textFieldHeigthConstraint.constant = view.bounds.height - 30
+    }
+    
+    
+    var keyboardHeight:CGFloat = 0.0
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        qwkDescriptionTextView.becomeFirstResponder()
+    }
+    
 
     @IBAction func trashButtonAction(_ sender: Any) {
         qwkDescriptionTextView.text = ""
@@ -44,14 +54,17 @@ class EditQwkDescriptionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         // MARK: DATA update database here
     }
-    
-
 }
 
 
 extension EditQwkDescriptionViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        qwkDescriptionTextView.resignFirstResponder()
+        return true
+    }
+    
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        print("should end")
+        qwkDescriptionTextView.resignFirstResponder()
         return true
     }
 }
