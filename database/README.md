@@ -13,7 +13,7 @@ qwktributions <br>
         <li>images: array of ids 
         <li>qwkdescriptions: array of ids 
         <li>videos: array of ids 
-<ul/>
+</ul>
 
 
 ## Topic Collection Fields  
