@@ -24,3 +24,9 @@ discussionMessages: Collection <br>
         <li>body: test body
         <li>timestamp: timestamp 
         <ul/>   
+
+externalLinks: array of document ids to external links collection <br>
+images: array of document ids to images collection<br>
+videos: array of document ids to videos collection<br>
+qwkDescriptions: array of document ids to qwkDesciption collection<br>
+
