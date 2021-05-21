@@ -51,5 +51,13 @@ usersWhoDownVoted: array with user documentIDs <br>
 usersWhoUpVoted: array with user documentIDs <br>
 votes: Int <br>
 
+## External Links Collection Item Fields
+title: string
+url: url string
+author: string documentID  <br>
+usersWhoDownVoted: array with user documentIDs <br>
+usersWhoUpVoted: array with user documentIDs <br>
+votes: Int <br>
+
 ## Notes
 testUser2 has liked and disliked puppy qwkDescriptions this can be used to insure voting data is being retrieved properly 
