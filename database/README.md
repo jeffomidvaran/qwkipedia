@@ -23,7 +23,7 @@ discussionMessages: Collection <br>
         <li>authorID: string with ID for user 
         <li>body: test body
         <li>timestamp: timestamp 
-        <ul/>   
+        </ul>   
 
 externalLinks: array of document ids to external links collection <br>
 images: array of document ids to images collection<br>
