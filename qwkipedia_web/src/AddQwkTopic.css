@@ -17,3 +17,7 @@
 .searchTopic {
     display: none;
 }
+
+.btn-delete {
+    display: inline-block;
+}
