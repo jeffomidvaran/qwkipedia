@@ -8,12 +8,17 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseStorage
+import FirebaseUI
 
 class PublicProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
+    let storage = Storage.storage().reference()
+    
     var name = ""
     var bio = ""
+    
     lazy var profileView: UIView = {
         
         let view = UIView()
@@ -124,14 +129,7 @@ class PublicProfileViewController: UIViewController {
         label.textColor = QwkColors.textColor
         return label
     }()
-    
-    //let Interests:UITextField = {
-    //    let interests = UITextField()
-    //    interests.textColor = .darkGray
-    //    interests.text = "Surfing, Rock Climbing, House plants"
-    //    return interests
-    //}()
-    
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -142,6 +140,8 @@ class PublicProfileViewController: UIViewController {
         profileView.anchor(top: view.topAnchor, left: view.leftAnchor,
                            right: view.rightAnchor, height: 500)
         aboutTextField.textViewDidEndEditing(aboutTextField)
+        let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
+        profileImageView.sd_setImage(with: ref, placeholderImage: UIImage(named: "profile-pic"))
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -32,9 +32,9 @@ class RegisterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //email & password fields populated for quick testing
-        emailTextfield.text = "8@4.com"
+        emailTextfield.text = "Alex@gmail.com"
         passwordTextfield.text = "1234a!"
-        NameTextfield.text = "Sara"
+        //NameTextfield.text = "Sara"
         
         errorLabel.alpha = 0 //Hiding the error label
         createButton.backgroundColor = QwkColors.buttonColor

@@ -7,10 +7,12 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class SetProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
+    let storage = Storage.storage().reference()
     var name = ""
     
     @IBOutlet weak var collectionview: UICollectionView!
@@ -46,9 +48,6 @@ class SetProfileViewController: UIViewController {
 
         view.addSubview(interestLabel)
         interestLabel.anchor(top:aboutTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 10)
-        
-//        view.addSubview(Interests)
-//        Interests.anchor(top:interestLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 10)
         return view
     }()
     
@@ -111,14 +110,7 @@ class SetProfileViewController: UIViewController {
         label.textColor = .darkGray
         return label
     }()
-    
-//    let Interests:UITextField = {
-//        let interests = UITextField()
-//        interests.placeholder = "Tap to add your topics of interest ..."
-//        interests.textColor = .darkGray
-//        return interests
-//    }()
-        
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -213,6 +205,25 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
             UIImage {
             profileImageView.image = imageSelected
+            guard let imageData = imageSelected.pngData() else {
+                return
+            }
+            let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
+            ref.putData(imageData, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                  // Uh-oh, an error occurred!
+                  return
+                }
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                // You can also access to download URL after upload.
+                ref.downloadURL { (url, error) in
+                  guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                  }
+                }
+              }
         }
         
         if let imageOriginal = info[UIImagePickerController.InfoKey.editedImage] as?
@@ -226,6 +237,7 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
 }
 var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
 var arrSelectedData = [String]() // This is selected cell data array
+
 extension SetProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
