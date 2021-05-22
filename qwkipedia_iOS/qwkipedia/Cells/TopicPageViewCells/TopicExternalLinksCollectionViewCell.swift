@@ -30,7 +30,8 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
     
     let moreButton: UIButton = {
         let b = UIButton()
-        let rightArrow = UIImage(systemName: "arrow.right")
+//        let rightArrow = UIImage(systemName: "arrow.right")
+        let rightArrow = #imageLiteral(resourceName: "qwkArrow")
         b.setImage(rightArrow, for: .normal)
         b.tintColor = QwkColors.buttonColor
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -203,6 +204,8 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
             
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            moreButton.heightAnchor.constraint(equalToConstant: 20),
+            moreButton.widthAnchor.constraint(equalToConstant: 20),
         ])
     }
     
