@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iVz-c7-fqT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H0d-jE-Vgm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -864,28 +864,11 @@
                         <segue destination="U7G-Ld-JE5" kind="show" identifier="showPageSegue" id="9qP-c3-WFy"/>
                         <segue destination="TGP-l8-vbX" kind="show" identifier="discussionPageSegue" id="Vfo-73-KId"/>
                         <segue destination="EQZ-FE-Ghv" kind="show" identifier="externalLinkWebViewSegue" id="FVU-aB-oRT"/>
-                        <segue destination="Xob-c1-1WA" kind="show" id="bPI-Vu-rvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fo6-Z1-alf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8133" y="3362"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="wzF-WY-MLD">
-            <objects>
-                <viewController id="Xob-c1-1WA" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nAY-5p-ohU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="GLr-yR-kYI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="l3t-Fs-8TQ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="urU-9r-5GT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9255" y="3843"/>
         </scene>
         <!--Discussion-->
         <scene sceneID="ciG-1v-I8G">
@@ -1069,11 +1052,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VO8-7o-Rnw">
-                                <rect key="frame" x="8" y="96" width="398" height="220"/>
+                                <rect key="frame" x="8" y="96" width="398" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="220" id="8CJ-J1-7XY"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1086,6 +1066,7 @@
                             <constraint firstItem="Ct4-D8-0kT" firstAttribute="trailing" secondItem="VO8-7o-Rnw" secondAttribute="trailing" constant="8" id="DFL-Je-eqU"/>
                             <constraint firstItem="VO8-7o-Rnw" firstAttribute="top" secondItem="Ct4-D8-0kT" secondAttribute="top" constant="8" id="FPj-h5-LHE"/>
                             <constraint firstItem="VO8-7o-Rnw" firstAttribute="leading" secondItem="Ct4-D8-0kT" secondAttribute="leading" constant="8" id="OMM-kn-c9o"/>
+                            <constraint firstItem="Ct4-D8-0kT" firstAttribute="bottom" secondItem="VO8-7o-Rnw" secondAttribute="bottom" constant="8" id="doT-F5-emY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Qwk Description" id="BhY-Vl-Dqu">
@@ -1097,7 +1078,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="qwkDescriptionTextView" destination="VO8-7o-Rnw" id="CQ7-6f-fhv"/>
-                        <outlet property="textFieldHeigthConstraint" destination="8CJ-J1-7XY" id="pvp-CG-3i4"/>
                         <outlet property="trashButtonObject" destination="wMd-Xs-Uob" id="f00-8t-5hy"/>
                     </connections>
                 </viewController>
@@ -1315,7 +1295,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FVU-aB-oRT"/>
+        <segue reference="Iow-oi-v9Z"/>
         <segue reference="f4N-Jh-ZV8"/>
         <segue reference="tni-sQ-A7A"/>
     </inferredMetricsTieBreakers>

@@ -13,7 +13,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
     var cellSendType: TopicCellType = .qwkDescription
     var urlStringToSend = ""
     
-
+    
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
@@ -42,6 +42,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        mainTopicPageHeader.backBarButtonItem?.tintColor = QwkColors.buttonColor
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)

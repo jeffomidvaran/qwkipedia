@@ -16,10 +16,11 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     var player: AVAudioPlayer?
     var webSiteName: String?
     var webSiteURL: URL?
-//    var urlString: String = ""
-    var videoURL: URL?
+    var youTubeVideoURL: String?
     var qwkImage: UIImage?
     var qwkDescriptionTextView = UITextView()
+    let youTubeVideoPlayer: YTPlayerView = YTPlayerView()
+
 
     
     var cellType: TopicCellType = .qwkDescription {
@@ -45,16 +46,15 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
                 ])
 
             case .video:
-                let player: YTPlayerView = YTPlayerView()
-                player.load(withVideoId: "JJunp9xo4uA")
-                player.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(player)
+//                let youTubeTag = youTubeVideoURL!.deletingPrefix("https://www.youtube.com/watch?v=")
+                youTubeVideoPlayer.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(youTubeVideoPlayer)
 
                 NSLayoutConstraint.activate([
-                    player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-                    player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-                    player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
-                    player.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
+                    youTubeVideoPlayer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    youTubeVideoPlayer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    youTubeVideoPlayer.heightAnchor.constraint(equalTo: youTubeVideoPlayer.widthAnchor, multiplier: 9.0/16.0),
+                    youTubeVideoPlayer.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
                     
                 ])
             case .image:
@@ -247,7 +247,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
    
     
     var editButtonTapActionQwkDescription : ((String)->())?
-    var editButtonTapActionVideo : ((URL)->())?
+    var editButtonTapActionVideo : ((String)->())?
     var editButtonTapActionImage : ((UIImage)->())?
     var editButtonTapActionExternalLink : ((URL, String)->())?
     @objc func editButtonPressed(_ sender: UIButton) {
@@ -255,7 +255,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         case .qwkDescription:
             editButtonTapActionQwkDescription!(qwkDescriptionTextView.text)
         case .video:
-            editButtonTapActionVideo!(videoURL!)
+            editButtonTapActionVideo!(youTubeVideoURL!)
         case .image:
             editButtonTapActionImage!(qwkImage!)
         case .externalLink:

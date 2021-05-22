@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
+
 
 class MorePageViewController: UIViewController {
  
@@ -68,7 +70,28 @@ class MorePageViewController: UIViewController {
                       qwkDescriptionText:"Puppies are best animals. I like the way that they howl! It is very very cool",
                       voteCount: -5),
             ]
-
+        case .video:
+            qwkDataArray = [
+                QwkDataFromServer(
+                      authorImage: #imageLiteral(resourceName: "janeDoe"),
+                      authorFirstName: "Jane",
+                      authorLastName: "Doe",
+                      videoURL:  "https://www.youtube.com/watch?v=B1CPE6WWsAQ",
+                      voteCount: 9),
+                QwkDataFromServer(
+                      authorImage: #imageLiteral(resourceName: "profileImage2"),
+                      authorFirstName: "Bob",
+                      authorLastName: "Smith",
+                      videoURL:  "https://www.youtube.com/watch?v=hOc_9SRa8l4",
+                      voteCount: 2),
+                QwkDataFromServer(
+                      authorImage: #imageLiteral(resourceName: "profileImage3"),
+                      authorFirstName: "John",
+                      authorLastName: "Davis",
+                      videoURL: "https://www.youtube.com/watch?v=QLbZe4_IyMM",
+                      voteCount: -5),
+            ]
+            
         default:
             fatalError()
         }
@@ -92,7 +115,7 @@ class MorePageViewController: UIViewController {
     var websiteURLToSend: URL?
     var webSiteTitleToSend = "Empty Title"
     var qwkDescriptionToSend = "Empty Qwk Description"
-    var videoURLToSend: URL?
+    var videoURLToSend: String?
     var imageToSend: UIImage = #imageLiteral(resourceName: "Image")
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,6 +128,7 @@ class MorePageViewController: UIViewController {
         } else if(segue.identifier == "moreToEditVideoSegue"){
             let vc = segue.destination as! EditVideoViewController
             vc.currentVideoURL = videoURLToSend
+            
         } else if(segue.identifier == "moreToEditImageSegue"){
             let vc = segue.destination as! EditImageViewController
             vc.currentImage = imageToSend
@@ -131,7 +155,6 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let firstName = qwkDataArray[indexPath[1]].authorFirstName ?? "First Name"
             let lastName = qwkDataArray[indexPath[1]].authorLastName ?? "Last Name"
             cell.authorLabel.text = firstName + " " + lastName
-            
             cell.profilePic.image = qwkDataArray[indexPath[1]].authorImage
             
             cell.editButtonTapActionQwkDescription = { (qwkDescription: String) in
@@ -150,14 +173,25 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
-            cell.editButtonTapActionVideo = { (videoURL: URL) in
+            let youTubeID = qwkDataArray[indexPath[1]].videoURL!.deletingPrefix("https://www.youtube.com/watch?v=")
+            
+            cell.youTubeVideoPlayer.load(withVideoId: youTubeID)
+            let firstName = qwkDataArray[indexPath[1]].authorFirstName ?? "First Name"
+            let lastName = qwkDataArray[indexPath[1]].authorLastName ?? "Last Name"
+            cell.authorLabel.text = firstName + " " + lastName
+            cell.profilePic.image = qwkDataArray[indexPath[1]].authorImage
+            
+            cell.editButtonTapActionVideo = { (videoURL: String) in
                 self.videoURLToSend = videoURL
                 self.performSegue(withIdentifier: "moreToEditVideoSegue", sender: self)
             }
+            
+            // MARK: DATA: Check if Author in the database is the same as the current User (for edit button)
             if(indexPath[1] == 0) {
                 cell.isCurrentUsersPost = true
             } else {
                 cell.isCurrentUsersPost = false
+                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteCount!
             }
             return cell
         case .image:

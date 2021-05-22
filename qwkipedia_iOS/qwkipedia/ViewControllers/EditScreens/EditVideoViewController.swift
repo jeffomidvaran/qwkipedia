@@ -13,7 +13,7 @@ class EditVideoViewController: UIViewController {
     @IBOutlet weak var videoViewContainer: UIView!
     @IBOutlet weak var trashButtonObject: UIButton!
     @IBOutlet weak var imageContainerHeightConstraint: NSLayoutConstraint!
-    var currentVideoURL: URL?
+    var currentVideoURL: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
