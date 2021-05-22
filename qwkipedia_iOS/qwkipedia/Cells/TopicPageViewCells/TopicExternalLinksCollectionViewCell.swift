@@ -12,7 +12,7 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
 
     
     
-    var numberOfCells = 3 {
+    var numberOfCells = 0 {
         didSet {
             if (numberOfCells > 3) {
                 fatalError("Max number of cells is set to be 3 (change later)")

@@ -127,7 +127,11 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .qwkDescription
             cell.qwkDescriptionTextView.text = qwkDataArray[indexPath[1]].qwkDescriptionText!
-            cell.authorLabel.text = qwkDataArray[indexPath[1]].authorFirstName + " " + qwkDataArray[indexPath[1]].authorLastName
+           
+            let firstName = qwkDataArray[indexPath[1]].authorFirstName ?? "First Name"
+            let lastName = qwkDataArray[indexPath[1]].authorLastName ?? "Last Name"
+            cell.authorLabel.text = firstName + " " + lastName
+            
             cell.profilePic.image = qwkDataArray[indexPath[1]].authorImage
             
             cell.editButtonTapActionQwkDescription = { (qwkDescription: String) in
@@ -135,14 +139,12 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
                 self.performSegue(withIdentifier: "moreToEditQwkDescriptionSegue", sender: self)
             }
             
-            
             // MARK: DATA: Check if Author in the database is the same as the current User (for edit button)
             if(indexPath[1] == 0) {
                 cell.isCurrentUsersPost = true
             } else {
                 cell.isCurrentUsersPost = false
-                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteCount
-                
+                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteCount!
             }
             return cell
         case .video:

@@ -12,7 +12,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
 
     let imageView: UIImageView = {
         let i = UIImageView()
-        i.image = #imageLiteral(resourceName: "puppyImage")
+//        i.image = #imageLiteral(resourceName: "puppyImage")
         i.contentMode = .scaleAspectFit
         i.translatesAutoresizingMaskIntoConstraints = false
         i.isUserInteractionEnabled = true
@@ -35,9 +35,6 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(moreButton)
-        
-//        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-//        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(imagePressedAction))
         imageView.addGestureRecognizer(tap)

@@ -12,7 +12,7 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
 
     public static let identifier = "topicPageQwkDescriptionCell"
 
-    fileprivate let qwkDescriptionTextView: UITextView = {
+    let qwkDescriptionTextView: UITextView = {
         let tv = UITextView()
         tv.text = DummyData.qwkDescription
         tv.isEditable = false
