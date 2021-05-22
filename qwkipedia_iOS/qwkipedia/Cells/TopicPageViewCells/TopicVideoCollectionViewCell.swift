@@ -47,7 +47,7 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
 //            player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
             player.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ])
         
     }

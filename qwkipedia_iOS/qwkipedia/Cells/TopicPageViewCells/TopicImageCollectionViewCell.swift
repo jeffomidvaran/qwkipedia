@@ -35,6 +35,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(moreButton)
+        contentView.bringSubviewToFront(moreButton)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(imagePressedAction))
         imageView.addGestureRecognizer(tap)
@@ -46,7 +47,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ])
     }
     

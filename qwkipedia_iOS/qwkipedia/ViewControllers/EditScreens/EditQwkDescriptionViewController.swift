@@ -10,7 +10,6 @@ import UIKit
 class EditQwkDescriptionViewController: UIViewController {
 
     @IBOutlet weak var qwkDescriptionTextView: UITextView!
-//    @IBOutlet weak var trashButtonObject: UIButton!
     @IBOutlet weak var trashButtonObject: UIBarButtonItem!
     @IBOutlet weak var textFieldHeigthConstraint: NSLayoutConstraint!
     var currentQwkDescription = "Empty Description"

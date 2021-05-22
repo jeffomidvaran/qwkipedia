@@ -20,6 +20,14 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
         }
     }
     
+    let titleLabel: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.text = "External Links"
+        l.font = UIFont(name: "Timmana", size: 19)
+        return l
+    }()
+    
     let moreButton: UIButton = {
         let b = UIButton()
         let rightArrow = UIImage(systemName: "arrow.right")
@@ -116,6 +124,8 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
         super.init(frame: frame)
         
         let sizeOfConstantAroundGlobe: CGFloat = 12.0
+        
+        
 
         if(DummyData.urls.count > 0){
             urlStackView.addArrangedSubview(urlView1)
@@ -173,20 +183,26 @@ class TopicExternalLinksCollectionViewCell: UICollectionViewCell, UIGestureRecog
             ])
         }
         
+        contentView.addSubview(titleLabel)
         contentView.addSubview(urlStackView)
         contentView.addSubview(moreButton)
+        contentView.bringSubviewToFront(titleLabel)
         
 //        contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
 //        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
         
         NSLayoutConstraint.activate( [
-            urlStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            
+//            urlStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            urlStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
             urlStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             urlStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             urlStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ])
     }
     

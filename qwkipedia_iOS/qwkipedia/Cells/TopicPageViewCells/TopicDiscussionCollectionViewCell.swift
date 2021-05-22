@@ -18,6 +18,7 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
     fileprivate let myLabel: UILabel = {
         let l = UILabel()
         l.text = "Discussion"
+        l.font = UIFont(name: "Timmana", size: 19)
         l.translatesAutoresizingMaskIntoConstraints = false
         return l
     }()
@@ -36,6 +37,9 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
         let tv = UITableView()
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.separatorStyle = .none
+//        tv.layer.borderWidth = 0.5
+//        tv.layer.borderColor = QwkColors.outlineColor.cgColor
+//        tv.layer.cornerRadius = 5.0
         return tv
     }()
 
@@ -46,23 +50,26 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: Constants.Identifiers.messageCellIdentifier)
         loadDiscussion()
         
+        contentView.addSubview(tableView)
         contentView.addSubview(myLabel)
         contentView.addSubview(chatButton)
-        contentView.addSubview(tableView)
+        contentView.sendSubviewToBack(tableView)
+        contentView.bringSubviewToFront(chatButton)
         
         NSLayoutConstraint.activate([
             myLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             myLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             myLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
             
+            tableView.topAnchor.constraint(equalTo: myLabel.bottomAnchor, constant: 0),
+//            tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            tableView.topAnchor.constraint(equalTo: myLabel.bottomAnchor, constant: 8),
-            tableView.bottomAnchor.constraint(equalTo: chatButton.topAnchor, constant: -8),
+            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
             
             chatButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
-            chatButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8), 
+            chatButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ])
     }
     
