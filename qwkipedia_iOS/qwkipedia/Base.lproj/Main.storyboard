@@ -887,7 +887,7 @@
             </objects>
             <point key="canvasLocation" x="9255" y="3843"/>
         </scene>
-        <!--Discuss-->
+        <!--Discussion-->
         <scene sceneID="ciG-1v-I8G">
             <objects>
                 <viewController id="TGP-l8-vbX" customClass="DiscussionViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -925,7 +925,7 @@
                         <viewLayoutGuide key="safeArea" id="a6s-EY-52W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Discuss" id="tCd-P9-JGR"/>
+                    <navigationItem key="navigationItem" title="Discussion" id="tCd-P9-JGR"/>
                     <connections>
                         <outlet property="messageTextField" destination="sfk-RY-gcU" id="aVa-4E-GS4"/>
                         <outlet property="sendButton" destination="E9q-XZ-dEd" id="hZY-SU-2yc"/>

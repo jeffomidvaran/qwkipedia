@@ -9,8 +9,10 @@ import UIKit
 
 class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
+    var topic = "Puppy"
     var cellSendType: TopicCellType = .qwkDescription
     var urlStringToSend = ""
+    
 
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
@@ -44,7 +46,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         collectionView.delegate = self
         view.addSubview(collectionView)
         
-        mainTopicPageHeader.title = "Puppy"
+        mainTopicPageHeader.title = topic
         favoriteButton.tintColor = QwkColors.buttonColor
         
         NSLayoutConstraint.activate([
@@ -85,8 +87,6 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let shadowRadius: CGFloat = 1.0
-        let shadowOpacity: Float = 0.2
         switch indexPath[1]{
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
@@ -133,6 +133,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
+            cell.topic = topic
             return cell
         case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
@@ -185,8 +186,10 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             dummyUITextField.isScrollEnabled = false
             let newSize = dummyUITextField.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
             height = newSize.height + 20 // extra points for author name and vote count
-        case 1...3:
+        case 1...2:
             height = 200
+        case 3:
+            height = 300
         case 4:
             height = 133
         default:
