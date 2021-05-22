@@ -133,7 +133,6 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             return cell
         case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
@@ -159,7 +158,6 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             }
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             
         // TODO: potential memory issue
             cell.urlViewButtonTapAction = { (url:String) in

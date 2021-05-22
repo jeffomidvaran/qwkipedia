@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H0d-jE-Vgm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wtl-0J-e9P">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -96,7 +96,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="searchGlassNoBackground" translatesAutoresizingMaskIntoConstraints="NO" id="bH1-hH-qaf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qwkLogoFontCircle" translatesAutoresizingMaskIntoConstraints="NO" id="bH1-hH-qaf">
                                         <rect key="frame" x="48" y="0.0" width="129" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -887,7 +887,7 @@
             </objects>
             <point key="canvasLocation" x="9255" y="3843"/>
         </scene>
-        <!--Discussion View Controller-->
+        <!--Discuss-->
         <scene sceneID="ciG-1v-I8G">
             <objects>
                 <viewController id="TGP-l8-vbX" customClass="DiscussionViewController" customModule="qwkipedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -925,7 +925,7 @@
                         <viewLayoutGuide key="safeArea" id="a6s-EY-52W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tCd-P9-JGR"/>
+                    <navigationItem key="navigationItem" title="Discuss" id="tCd-P9-JGR"/>
                     <connections>
                         <outlet property="messageTextField" destination="sfk-RY-gcU" id="aVa-4E-GS4"/>
                         <outlet property="sendButton" destination="E9q-XZ-dEd" id="hZY-SU-2yc"/>
@@ -1333,7 +1333,7 @@
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="searchGlassNoBackground" width="1028" height="1279"/>
+        <image name="qwkLogoFontCircle" width="1028" height="1028"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
