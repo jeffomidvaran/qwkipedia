@@ -191,10 +191,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             height = ((width/16) * 9) + 40
         case 2:
             if let _ = qwkDataFromServer.qwkImage {
-                print(qwkDataFromServer.qwkImage!.size.width)
-                print(qwkDataFromServer.qwkImage!.size.height)
-                print(width)
-                let imageRatio =  (qwkDataFromServer.qwkImage?.size.width)! / (qwkDataFromServer.qwkImage?.size.height)!
+                let imageRatio =  qwkDataFromServer.qwkImage!.size.width / qwkDataFromServer.qwkImage!.size.height
                 height = (width / imageRatio) + 40
             } else {
                 height = 0

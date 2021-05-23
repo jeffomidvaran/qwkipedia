@@ -112,7 +112,30 @@ class MorePageViewController: UIViewController {
                     qwkImage: #imageLiteral(resourceName: "Image"),
                     voteCount: -5),
             ]
-            
+        case .externalLink:
+            qwkDataArray = [
+                QwkDataFromServer(
+                    authorImage: #imageLiteral(resourceName: "janeDoe"),
+                    authorFirstName: "Jane",
+                    authorLastName: "Doe",
+                    singleExternalLink: QwkExternalLink(url: "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/",
+                                                        title: "PetFinder.com"),
+                    voteCount: 9),
+                QwkDataFromServer(
+                    authorImage: #imageLiteral(resourceName: "profileImage2"),
+                    authorFirstName: "Bob",
+                    authorLastName: "Smith",
+                    singleExternalLink: QwkExternalLink(url: "https://www.thesprucepets.com/puppies-4162145",
+                                                        title: "TheSprucePets.com"),
+                    voteCount: 2),
+                QwkDataFromServer(
+                    authorImage: #imageLiteral(resourceName: "profileImage3"),
+                    authorFirstName: "John",
+                    authorLastName: "Davis",
+                    singleExternalLink: QwkExternalLink(url: "https://www.puppyspot.com",
+                                                        title: "ThePuppySpot.com"),
+                    voteCount: -5),
+            ]
         default:
             fatalError()
         }
@@ -133,7 +156,7 @@ class MorePageViewController: UIViewController {
         }
     }
     
-    var websiteURLToSend: URL?
+    var websiteURLToSend: String?
     var webSiteTitleToSend = "Empty Title"
     var qwkDescriptionToSend = "Empty Qwk Description"
     var videoURLToSend: String?
@@ -193,8 +216,13 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
         case .video:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier , for: indexPath) as! MoreMediaCollectionViewCell
             cell.cellType = .video
-            let youTubeID = qwkDataArray[indexPath[1]].videoURL!.deletingPrefix("https://www.youtube.com/watch?v=")
-            cell.youTubeVideoPlayer.load(withVideoId: youTubeID)
+            
+            if let _ = qwkDataArray[indexPath[1]].videoURL {
+                let youTubeID = qwkDataArray[indexPath[1]].videoURL!.deletingPrefix("https://www.youtube.com/watch?v=")
+                cell.youTubeVideoURL = qwkDataArray[indexPath[1]].videoURL
+                cell.youTubeVideoPlayer.load(withVideoId: youTubeID)
+            }
+            
             let firstName = qwkDataArray[indexPath[1]].authorFirstName ?? "First Name"
             let lastName = qwkDataArray[indexPath[1]].authorLastName ?? "Last Name"
             cell.authorLabel.text = firstName + " " + lastName
@@ -242,32 +270,42 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             return cell
         case .externalLink:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
-//            cell.webSiteName = DummyData.urls[0][0]
-//            cell.urlString = DummyData.urls[0][1]
-            cell.isCurrentUsersPost = false
+            
             cell.cellType = .externalLink
-            cell.editButtonTapActionExternalLink = { (url: URL, webSiteTitle: String) in
+            if let _ = qwkDataArray[indexPath[1]].singleExternalLink  {
+                cell.urlLabel.text = qwkDataArray[indexPath[1]].singleExternalLink!.title
+                cell.webSiteURL = qwkDataArray[indexPath[1]].singleExternalLink!.url
+            }
+            
+            let firstName = qwkDataArray[indexPath[1]].authorFirstName ?? "First Name"
+            let lastName = qwkDataArray[indexPath[1]].authorLastName ?? "Last Name"
+            cell.authorLabel.text = firstName + " " + lastName
+            cell.profilePic.image = qwkDataArray[indexPath[1]].authorImage
+            
+            cell.editButtonTapActionExternalLink = { (url: String, webSiteTitle: String) in
                 self.webSiteTitleToSend = webSiteTitle
                 self.websiteURLToSend = url
                 self.performSegue(withIdentifier: "moreToEditExternalLinkSegue", sender: self)
             }
             
-            cell.externalURLViewButtonTapAction = { (url: URL) in
+            cell.externalURLViewButtonTapAction = { (url: String) in
                 self.websiteURLToSend = url
                 self.performSegue(withIdentifier: "moreToWebViewSegue", sender: self)
             }
             
+            // MARK: DATA: Check if Author in the database is the same as the current User (for edit button)
             if(indexPath[1] == 0) {
                 cell.isCurrentUsersPost = true
             } else {
                 cell.isCurrentUsersPost = false
+                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteCount!
             }
             return cell
-        case .qwkRecommedation:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
-            cell.cellType = .qwkRecommedation
-            cell.isCurrentUsersPost = false
-            return cell
+//        case .qwkRecommedation:
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreMediaCollectionViewCell.identifier  , for: indexPath) as! MoreMediaCollectionViewCell
+//            cell.cellType = .qwkRecommedation
+//            cell.isCurrentUsersPost = false
+//            return cell
         default:
             fatalError()
         }
@@ -286,9 +324,14 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let newSize = dummyUITextField.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
             height = newSize.height + 40 // extra points for author name and vote count
         case .video:
-            height = 260.0
+            height = ((width/16) * 9) + 40
         case .image:
-            height = 230.0
+            if let _ = qwkDataArray[indexPath[1]].qwkImage {
+                let imageRatio =  qwkDataArray[indexPath[1]].qwkImage!.size.width / qwkDataArray[indexPath[1]].qwkImage!.size.height
+                height = (width / imageRatio) + 40
+            } else {
+                height = 0
+            }
         case .audio:
             height = 100.0
         case .externalLink:

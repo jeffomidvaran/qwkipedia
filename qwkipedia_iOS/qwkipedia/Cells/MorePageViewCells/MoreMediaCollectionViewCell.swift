@@ -14,14 +14,38 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 
     public static let identifier = "MoreMediaCollectionViewCellId"
     var player: AVAudioPlayer?
-    var webSiteName: String?
-    var webSiteURL: URL?
+//    var webSiteName: String?
+    var webSiteURL: String?
     var youTubeVideoURL: String?
     var qwkImage: UIImage?
     var qwkDescriptionTextView = UITextView()
     let youTubeVideoPlayer: YTPlayerView = YTPlayerView()
     let imageView = UIImageView()
 //    imageView.image = #imageLiteral(resourceName: "Image")
+    
+    
+    var urlLabel: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.text = "Label Not Set"
+        l.textColor = QwkColors.buttonColor
+        return l
+    }()
+    
+    let urlView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
+    let urlImage: UIImageView = {
+        let iv = UIImageView()
+        let globeImage = UIImage(systemName: "globe")
+        iv.image = globeImage
+        iv.tintColor = QwkColors.buttonColor
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
 
     
     var cellType: TopicCellType = .qwkDescription {
@@ -81,34 +105,9 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 //                ])
 //
             case .externalLink:
-                let urlView: UIView = {
-                    let v = UIView()
-                    v.translatesAutoresizingMaskIntoConstraints = false
-                    return v
-                }()
-                
-                let urlLabel: UILabel = {
-                    let l = UILabel()
-                    l.translatesAutoresizingMaskIntoConstraints = false
-                    l.text = "PetFinder.com"
-                    l.textColor = QwkColors.buttonColor
-                    return l
-                }()
-                
-                let urlImage: UIImageView = {
-                    let iv = UIImageView()
-                    let globeImage = UIImage(systemName: "globe")
-                    iv.image = globeImage
-                    iv.tintColor = QwkColors.buttonColor
-                    iv.translatesAutoresizingMaskIntoConstraints = false
-                    return iv
-                }()
-                
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(url1Clicked(_:)))
                 tapGesture.delegate = self
                 urlView.addGestureRecognizer(tapGesture)
-                
-                
         
                 let sizeOfConstantAroundGlobe: CGFloat = 12.0
                 contentView.addSubview(urlView)
@@ -243,7 +242,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     var editButtonTapActionQwkDescription : ((String)->())?
     var editButtonTapActionVideo : ((String)->())?
     var editButtonTapActionImage : ((UIImage)->())?
-    var editButtonTapActionExternalLink : ((URL, String)->())?
+    var editButtonTapActionExternalLink : ((String, String)->())?
     @objc func editButtonPressed(_ sender: UIButton) {
         switch cellType {
         case .qwkDescription:
@@ -251,9 +250,9 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
         case .video:
             editButtonTapActionVideo!(youTubeVideoURL!)
         case .image:
-            editButtonTapActionImage!(qwkImage!)
+            editButtonTapActionImage!(imageView.image!)
         case .externalLink:
-            editButtonTapActionExternalLink!(webSiteURL!, webSiteName!)
+            editButtonTapActionExternalLink!(webSiteURL!, urlLabel.text!)
         default:
             fatalError()
         }
@@ -261,7 +260,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 
     }
 
-    var externalURLViewButtonTapAction : ((URL)->())?
+    var externalURLViewButtonTapAction : ((String)->())?
     @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
         externalURLViewButtonTapAction!(webSiteURL!)
     }

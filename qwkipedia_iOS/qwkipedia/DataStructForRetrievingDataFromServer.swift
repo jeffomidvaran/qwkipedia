@@ -16,6 +16,7 @@ struct QwkDataFromServer {
     var qwkImage: UIImage?
     var videoURL: String?
     var sortedTopExternalLinks: [QwkExternalLink]?
+    var singleExternalLink: QwkExternalLink?
     var voteCount: Int?
 }
 
