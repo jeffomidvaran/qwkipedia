@@ -288,8 +288,9 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
                 self.performSegue(withIdentifier: "moreToEditExternalLinkSegue", sender: self)
             }
             
-            cell.externalURLViewButtonTapAction = { (url: String) in
+            cell.externalURLViewButtonTapAction = { (url: String, title: String) in
                 self.websiteURLToSend = url
+                self.webSiteTitleToSend = title
                 self.performSegue(withIdentifier: "moreToWebViewSegue", sender: self)
             }
             

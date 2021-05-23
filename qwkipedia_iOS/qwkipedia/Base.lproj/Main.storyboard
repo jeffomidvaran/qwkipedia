@@ -1153,36 +1153,29 @@
                                     <constraint firstAttribute="height" constant="294" id="dLg-FB-ulv"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jd-LO-Mzw">
-                                <rect key="frame" x="384" y="440" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="vK1-hN-lU8"/>
-                                    <constraint firstAttribute="height" constant="22" id="xk4-22-Izw"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="trash" catalog="system"/>
-                                <connections>
-                                    <action selector="trashButtonAction:" destination="EOG-Mn-yM1" eventType="touchUpInside" id="H3c-hY-f4i"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qMv-ch-vqR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0Jd-LO-Mzw" firstAttribute="top" secondItem="rk2-qR-rnx" secondAttribute="bottom" constant="8" id="5sj-ul-Gqs"/>
                             <constraint firstItem="hwt-GN-xsu" firstAttribute="top" secondItem="qMv-ch-vqR" secondAttribute="top" constant="8" id="9KA-tk-IOO"/>
                             <constraint firstItem="hwt-GN-xsu" firstAttribute="leading" secondItem="qMv-ch-vqR" secondAttribute="leading" constant="8" id="BT9-Nk-d2Z"/>
                             <constraint firstItem="qMv-ch-vqR" firstAttribute="trailing" secondItem="rk2-qR-rnx" secondAttribute="trailing" constant="8" id="IHR-fC-Gbz"/>
                             <constraint firstItem="rk2-qR-rnx" firstAttribute="top" secondItem="hwt-GN-xsu" secondAttribute="bottom" constant="8" id="lcH-P9-WQ4"/>
-                            <constraint firstItem="qMv-ch-vqR" firstAttribute="trailing" secondItem="0Jd-LO-Mzw" secondAttribute="trailing" constant="8" id="nPF-NV-2AM"/>
                             <constraint firstItem="rk2-qR-rnx" firstAttribute="leading" secondItem="qMv-ch-vqR" secondAttribute="leading" constant="8" id="sdk-N3-k3c"/>
                             <constraint firstItem="qMv-ch-vqR" firstAttribute="trailing" secondItem="hwt-GN-xsu" secondAttribute="trailing" constant="8" id="vgD-K3-UuH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Image" id="xw7-Ih-CTn"/>
+                    <navigationItem key="navigationItem" title="Edit Image" id="xw7-Ih-CTn">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="8g6-aF-bmF">
+                            <connections>
+                                <action selector="trashButtonAction:" destination="EOG-Mn-yM1" id="MXy-bM-LlR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="rk2-qR-rnx" id="V2h-WJ-s0s"/>
                         <outlet property="textEntryObject" destination="hwt-GN-xsu" id="ZA1-jM-e6K"/>
-                        <outlet property="trashButtonObject" destination="0Jd-LO-Mzw" id="YZU-Ah-mAs"/>
+                        <outlet property="trashButtonObject" destination="8g6-aF-bmF" id="wge-G6-icu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7KT-Gc-Nb8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1197,29 +1190,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-gg-suF">
-                                <rect key="frame" x="384" y="138" width="22" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="TXv-vt-mqE"/>
-                                    <constraint firstAttribute="width" constant="22" id="cKi-qa-0WN"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="trash" catalog="system"/>
-                                <connections>
-                                    <action selector="trashButtonAction:" destination="J1t-3l-U4L" eventType="touchUpInside" id="K08-jA-Ynm"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL To External Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zR4-v8-CDJ">
                                 <rect key="frame" x="8" y="96" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMM-LK-NHM">
-                                <rect key="frame" x="8" y="138" width="368" height="22"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="zip-la-udm"/>
-                                </constraints>
-                            </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMM-I8-p6W">
                                 <rect key="frame" x="0.0" y="769" width="414" height="44"/>
                                 <items>
@@ -1231,7 +1206,11 @@
                                                     <action selector="backButtonAction:" destination="J1t-3l-U4L" id="ybw-IL-SW1"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Item" image="chevron.right" catalog="system" id="f7T-jy-chq"/>
+                                            <barButtonItem title="Item" image="chevron.right" catalog="system" id="f7T-jy-chq">
+                                                <connections>
+                                                    <action selector="forwardButtonAction:" destination="J1t-3l-U4L" id="rbA-b4-e7B"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="A9s-b6-BWi">
                                             <connections>
@@ -1242,7 +1221,7 @@
                                 </items>
                             </navigationBar>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdo-XZ-2uK">
-                                <rect key="frame" x="8" y="168" width="398" height="601"/>
+                                <rect key="frame" x="8" y="138" width="398" height="623"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -1253,31 +1232,31 @@
                         <viewLayoutGuide key="safeArea" id="t8t-3H-jRA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qMM-LK-NHM" firstAttribute="top" secondItem="zR4-v8-CDJ" secondAttribute="bottom" constant="8" id="2hf-5O-I5v"/>
-                            <constraint firstItem="qMM-LK-NHM" firstAttribute="leading" secondItem="t8t-3H-jRA" secondAttribute="leading" constant="8" id="CO9-as-IY6"/>
+                            <constraint firstItem="t8t-3H-jRA" firstAttribute="trailing" secondItem="wdo-XZ-2uK" secondAttribute="trailing" constant="8" id="0iF-D3-GSB"/>
+                            <constraint firstItem="ZMM-I8-p6W" firstAttribute="top" secondItem="wdo-XZ-2uK" secondAttribute="bottom" constant="8" id="3tV-yI-YyV"/>
                             <constraint firstItem="t8t-3H-jRA" firstAttribute="trailing" secondItem="zR4-v8-CDJ" secondAttribute="trailing" constant="8" id="Dzz-0r-NSo"/>
-                            <constraint firstItem="jRb-gg-suF" firstAttribute="leading" secondItem="qMM-LK-NHM" secondAttribute="trailing" constant="8" id="ED8-Wb-cFS"/>
                             <constraint firstItem="t8t-3H-jRA" firstAttribute="bottom" secondItem="ZMM-I8-p6W" secondAttribute="bottom" id="Hgi-1H-b6E"/>
                             <constraint firstItem="zR4-v8-CDJ" firstAttribute="top" secondItem="t8t-3H-jRA" secondAttribute="top" constant="8" id="JkP-bi-eRm"/>
-                            <constraint firstItem="jRb-gg-suF" firstAttribute="centerY" secondItem="qMM-LK-NHM" secondAttribute="centerY" id="OaW-Gn-DUX"/>
-                            <constraint firstItem="t8t-3H-jRA" firstAttribute="trailing" secondItem="wdo-XZ-2uK" secondAttribute="trailing" constant="8" id="WpT-c6-HWz"/>
+                            <constraint firstItem="wdo-XZ-2uK" firstAttribute="leading" secondItem="t8t-3H-jRA" secondAttribute="leading" constant="8" id="Qub-04-ev7"/>
                             <constraint firstItem="ZMM-I8-p6W" firstAttribute="leading" secondItem="t8t-3H-jRA" secondAttribute="leading" id="bmk-bj-Tqz"/>
-                            <constraint firstItem="wdo-XZ-2uK" firstAttribute="leading" secondItem="t8t-3H-jRA" secondAttribute="leading" constant="8" id="gOG-bZ-Kch"/>
                             <constraint firstItem="zR4-v8-CDJ" firstAttribute="leading" secondItem="t8t-3H-jRA" secondAttribute="leading" constant="8" id="gQq-FF-g94"/>
-                            <constraint firstItem="wdo-XZ-2uK" firstAttribute="top" secondItem="qMM-LK-NHM" secondAttribute="bottom" constant="8" id="h4u-2z-xye"/>
                             <constraint firstItem="t8t-3H-jRA" firstAttribute="trailing" secondItem="ZMM-I8-p6W" secondAttribute="trailing" id="i8K-OV-3gM"/>
-                            <constraint firstItem="t8t-3H-jRA" firstAttribute="trailing" secondItem="jRb-gg-suF" secondAttribute="trailing" constant="8" id="sAg-Fb-T1P"/>
-                            <constraint firstItem="ZMM-I8-p6W" firstAttribute="top" secondItem="wdo-XZ-2uK" secondAttribute="bottom" id="xgx-Hs-lUi"/>
+                            <constraint firstItem="wdo-XZ-2uK" firstAttribute="top" secondItem="zR4-v8-CDJ" secondAttribute="bottom" constant="8" id="tE3-zs-P5R"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit External LInk" id="jbF-0y-LGy"/>
+                    <navigationItem key="navigationItem" title="Edit External LInk" id="jbF-0y-LGy">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash" catalog="system" id="ctm-3h-SY0">
+                            <connections>
+                                <action selector="trashButtonAction:" destination="J1t-3l-U4L" id="EaT-mE-x5l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backButtonObject" destination="4pl-PT-9oZ" id="Scy-rT-t34"/>
                         <outlet property="forwardButtonObject" destination="f7T-jy-chq" id="dAI-aw-j22"/>
-                        <outlet property="linkContainer" destination="qMM-LK-NHM" id="FH4-bR-AyQ"/>
                         <outlet property="reloadButtonObject" destination="A9s-b6-BWi" id="rry-6j-sZh"/>
                         <outlet property="textEntryField" destination="zR4-v8-CDJ" id="KZQ-Do-u3H"/>
-                        <outlet property="trashButtonObject" destination="jRb-gg-suF" id="3j5-pm-iLb"/>
+                        <outlet property="trashButtonObject" destination="ctm-3h-SY0" id="2Ha-0t-Vkd"/>
                         <outlet property="webView" destination="wdo-XZ-2uK" id="HnC-vl-aSj"/>
                     </connections>
                 </viewController>

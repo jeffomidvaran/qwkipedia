@@ -260,9 +260,9 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 
     }
 
-    var externalURLViewButtonTapAction : ((String)->())?
+    var externalURLViewButtonTapAction : ((String, String)->())?
     @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
-        externalURLViewButtonTapAction!(webSiteURL!)
+        externalURLViewButtonTapAction!(webSiteURL!, urlLabel.text!)
     }
     
     
