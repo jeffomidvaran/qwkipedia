@@ -10,11 +10,18 @@ import UIKit
 
 struct QwkDataFromServer {
     var authorImage: UIImage?
-    var authorFirstName: String
-    var authorLastName: String
+    var authorFirstName: String?
+    var authorLastName: String?
     var qwkDescriptionText: String?
     var qwkImage: UIImage?
-    var videoURL: URL?
-    var externalLink: URL?
-    var voteCount: Int = 0
+    var videoURL: String?
+    var sortedTopExternalLinks: [QwkExternalLink]?
+    var voteCount: Int?
 }
+
+
+struct QwkExternalLink {
+    var url: String?
+    var title: String?
+}
+

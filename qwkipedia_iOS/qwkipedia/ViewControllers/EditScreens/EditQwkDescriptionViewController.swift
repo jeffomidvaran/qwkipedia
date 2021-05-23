@@ -10,14 +10,14 @@ import UIKit
 class EditQwkDescriptionViewController: UIViewController {
 
     @IBOutlet weak var qwkDescriptionTextView: UITextView!
-//    @IBOutlet weak var trashButtonObject: UIButton!
     @IBOutlet weak var trashButtonObject: UIBarButtonItem!
-    @IBOutlet weak var textFieldHeigthConstraint: NSLayoutConstraint!
+    
     var currentQwkDescription = "Empty Description"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         qwkDescriptionTextView.delegate = self
+        qwkDescriptionTextView.isEditable = true
         trashButtonObject.tintColor = QwkColors.buttonColor
         qwkDescriptionTextView.text = currentQwkDescription
         qwkDescriptionTextView.layer.borderWidth = 0.5
@@ -27,15 +27,9 @@ class EditQwkDescriptionViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
-        let newSize = qwkDescriptionTextView.sizeThatFits(
-                                            CGSize(width: width,
-                                                   height: CGFloat.greatestFiniteMagnitude))
-        let height = newSize.height
-        textFieldHeigthConstraint.constant = height
+        qwkDescriptionTextView.becomeFirstResponder()
     }
     
-
 
     @IBAction func trashButtonAction(_ sender: Any) {
         qwkDescriptionTextView.text = ""
@@ -44,14 +38,17 @@ class EditQwkDescriptionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         // MARK: DATA update database here
     }
-    
-
 }
 
 
 extension EditQwkDescriptionViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        qwkDescriptionTextView.resignFirstResponder()
+        return true
+    }
+    
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        print("should end")
+        qwkDescriptionTextView.resignFirstResponder()
         return true
     }
 }

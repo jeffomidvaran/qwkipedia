@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Message {
     let sender: String
     let body: String
     let topic: String
+    var profilePic: UIImage?
 }

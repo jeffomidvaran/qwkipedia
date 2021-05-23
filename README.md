@@ -46,8 +46,8 @@ https://docs.google.com/presentation/d/1k8VJ3D9qZa-1lKGz-0-nVLHVXHjQKQNieIk16WCp
 
 ### Selecting Video Software
 https://docs.google.com/document/d/1h5Ae6TgS_PFY9StSzYOc_zk-aGXmJ5rx41kzPyyqtNM/edit?ts=6088a1a6 
-### First Video draft
-https://app.animaker.com/video/BELJTS46D86DZY5T
+### Ad video
+https://app.animaker.com/dashboard
 
 ## Link For The Class Meetings
 ### Spread Sheet

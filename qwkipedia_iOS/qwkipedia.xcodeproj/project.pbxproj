@@ -70,6 +70,7 @@
 		7CE25B6B2632453D00ADFEDD /* TopicExpertSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B6A2632453D00ADFEDD /* TopicExpertSummaryCollectionViewCell.swift */; };
 		7CE25B6E2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B6D2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift */; };
 		7CE25B712632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE25B702632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift */; };
+		7CE7D16A2658D8570020700A /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7D1692658D8570020700A /* StringExtensions.swift */; };
 		7CEAEA8626374D7F0029138E /* RecomendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEAEA8526374D7F0029138E /* RecomendationCollectionViewCell.swift */; };
 		7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E5264876B6007F767F /* EditDataViewController.swift */; };
 		7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */; };
@@ -144,6 +145,7 @@
 		7CE25B6A2632453D00ADFEDD /* TopicExpertSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicExpertSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CE25B6D2632456500ADFEDD /* TopicExternalLinksCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicExternalLinksCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CE25B702632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicQwkRecomendtionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CE7D1692658D8570020700A /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		7CEAEA8526374D7F0029138E /* RecomendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CECD4E5264876B6007F767F /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		1C6EE590262E7FB60067F869 /* GlobalModels */ = {
 			isa = PBXGroup;
 			children = (
+				7CE7D1692658D8570020700A /* StringExtensions.swift */,
 				7C4E4627263F35C900DA51E4 /* ChooserEnums.swift */,
 				7CAD57A82638C62E00427ED0 /* UITextViewExtensions.swift */,
 				7C65398A262E63B000014A51 /* UIImageExtensions.swift */,
@@ -536,6 +539,7 @@
 				7CB4037A264E1760004655E0 /* TopicExternalLinkTableViewCell.swift in Sources */,
 				7C4E4625263F2FE400DA51E4 /* DiscussionViewController.swift in Sources */,
 				7CB2C5402633757A003A2F24 /* DummyData.swift in Sources */,
+				7CE7D16A2658D8570020700A /* StringExtensions.swift in Sources */,
 				7C48663B263149B200DC9AC4 /* SearchResultsTableViewCell.swift in Sources */,
 				7C48663E2631548D00DC9AC4 /* TopicPageViewController.swift in Sources */,
 				7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */,

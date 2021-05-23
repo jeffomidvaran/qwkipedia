@@ -9,9 +9,11 @@ import UIKit
 
 class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
+    var topic = "Puppy"
     var cellSendType: TopicCellType = .qwkDescription
     var urlStringToSend = ""
-
+    
+    
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
@@ -40,11 +42,12 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        mainTopicPageHeader.backBarButtonItem?.tintColor = QwkColors.buttonColor
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
         
-        mainTopicPageHeader.title = "Puppy"
+        mainTopicPageHeader.title = topic
         favoriteButton.tintColor = QwkColors.buttonColor
         
         NSLayoutConstraint.activate([
@@ -55,12 +58,27 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         ])
     }
     
+    
+    // MARK: DATA load data for database here and put in the qwkDataFromServer
+    var qwkDataFromServer = QwkDataFromServer()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        qwkDataFromServer.qwkDescriptionText = "A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier."
+        qwkDataFromServer.qwkImage = #imageLiteral(resourceName: "puppyImage")
+        qwkDataFromServer.videoURL = "https://www.youtube.com/watch?v=JJunp9xo4uA"
+        qwkDataFromServer.sortedTopExternalLinks = [
+            QwkExternalLink(url: "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/", title: "PetFinder.com"),
+            QwkExternalLink(url: "https://www.thesprucepets.com/puppies-4162145",title: "TheSprucePets.com"),
+            QwkExternalLink(url: "https://www.puppyspot.com",title: "ThePuppySpot.com")
+        ]
+        qwkDataFromServer.voteCount = 9
+    }
+    
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
         sender.view?.removeFromSuperview()
     }
-    
 }
 
 
@@ -70,23 +88,23 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let shadowRadius: CGFloat = 1.0
-        let shadowOpacity: Float = 0.2
         switch indexPath[1]{
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicQwkDescriptionCollectionViewCell.identifier , for: indexPath) as! TopicQwkDescriptionCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(qwkDescriptionMoreButtonPressed), for: .touchUpInside)
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
-            
+            cell.qwkDescriptionTextView.text = qwkDataFromServer.qwkDescriptionText
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicVideoCollectionViewCell.identifier  , for: indexPath) as! TopicVideoCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreVideoButtonPressed), for: .touchUpInside)
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
+            if let fullVideoURL = qwkDataFromServer.videoURL {
+                let youTubeVideoTag = fullVideoURL.deletingPrefix("https://www.youtube.com/watch?v=")
+                cell.youTubeVideoPlayer.load(withVideoId: youTubeVideoTag)
+            }
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicImageCollectionViewCell.identifier  , for: indexPath) as! TopicImageCollectionViewCell
@@ -101,33 +119,47 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
                 let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullscreenImage))
                 let swipe = UISwipeGestureRecognizer(target: self, action: #selector(self.dismissFullscreenImage))
                 swipe.direction = .down
-
                 newImageView.addGestureRecognizer(tap)
                 newImageView.addGestureRecognizer(swipe)
                 self.view.addSubview(newImageView)
                 self.navigationController?.isNavigationBarHidden = true
                 self.tabBarController?.tabBar.isHidden = true
             }
-
+            cell.imageView.image = qwkDataFromServer.qwkImage
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicDiscussionCollectionViewCell.identifier  , for: indexPath) as! TopicDiscussionCollectionViewCell
             cell.chatButton.addTarget(self, action: #selector(chatButtonPressed), for: .touchUpInside)
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
+            cell.topic = topic
             return cell
         case 4 :
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicExternalLinksCollectionViewCell.identifier  , for: indexPath) as! TopicExternalLinksCollectionViewCell
             cell.moreButton.addTarget(self, action: #selector(moreExternalLinksButtonPressed), for: .touchUpInside)
-            let numberOfCells = DummyData.urls.count > 3 ? 3 : DummyData.urls.count
-            cell.numberOfCells = numberOfCells
+            
+            var numberOfCells = 0
+            if let _ = qwkDataFromServer.sortedTopExternalLinks?.count {
+                numberOfCells = qwkDataFromServer.sortedTopExternalLinks!.count > 3 ? 3 : qwkDataFromServer.sortedTopExternalLinks!.count
+                cell.numberOfCells = numberOfCells
+
+                if(numberOfCells > 0) {
+                    cell.urlView1.url = qwkDataFromServer.sortedTopExternalLinks![0].url!
+                    cell.label1.text = qwkDataFromServer.sortedTopExternalLinks![0].title ?? "No Title Set"
+                }
+                if(numberOfCells > 1) {
+                    cell.urlView2.url = qwkDataFromServer.sortedTopExternalLinks![1].url!
+                    cell.label2.text =  qwkDataFromServer.sortedTopExternalLinks![1].title ?? "No Title Set"
+                }
+                if(numberOfCells > 2) {
+                    cell.urlView3.url = qwkDataFromServer.sortedTopExternalLinks![2].url!
+                    cell.label3.text =  qwkDataFromServer.sortedTopExternalLinks![2].title ?? "No Title Set"
+                }
+            }
             cell.backgroundColor = .systemBackground
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-            cell.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: shadowRadius, opacity: shadowOpacity)
             
         // TODO: potential memory issue
             cell.urlViewButtonTapAction = { (url:String) in
@@ -135,18 +167,9 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
                 self.performSegue(withIdentifier: "externalLinkWebViewSegue", sender: self)
             }
             
-            if(numberOfCells > 0) {
-                cell.urlView1.url = DummyData.urls[0][1]
-                cell.label1.text = DummyData.urls[0][0]
-            }
-            if(numberOfCells > 1) {
-                cell.urlView2.url = DummyData.urls[1][1]
-                cell.label2.text = DummyData.urls[1][0]
-            }
-            if(numberOfCells > 2) {
-                cell.urlView3.url = DummyData.urls[2][1]
-                cell.label3.text = DummyData.urls[2][0]
-            }
+            
+            
+            
             return cell
         default:
             fatalError()
@@ -158,10 +181,29 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
         var height: CGFloat = 200.0
         switch indexPath[1]{
-        case 0...3:
-            height = 200
+        case 0:
+            let dummyUITextField = UITextView()
+            dummyUITextField.text = qwkDataFromServer.qwkDescriptionText
+            dummyUITextField.isScrollEnabled = false
+            let newSize = dummyUITextField.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
+            height = newSize.height + 20 // extra points for author name and vote count
+        case 1:
+            height = ((width/16) * 9) + 40
+        case 2:
+            if let _ = qwkDataFromServer.qwkImage {
+                print(qwkDataFromServer.qwkImage!.size.width)
+                print(qwkDataFromServer.qwkImage!.size.height)
+                print(width)
+                let imageRatio =  (qwkDataFromServer.qwkImage?.size.width)! / (qwkDataFromServer.qwkImage?.size.height)!
+                height = (width / imageRatio) + 40
+            } else {
+                height = 0
+            }
+        case 3:
+            height = 300
         case 4:
-            height = 133
+//            height = 133
+            height = 165
         default:
             fatalError()
         }
