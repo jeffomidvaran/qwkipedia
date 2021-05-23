@@ -8,11 +8,7 @@ import AddQwkTopic from "./AddQwkTopic";
 import Navbar from "./Navbar";
 import "./Qwkcontainer.css";
 import Image from "./Image";
-import QwkList from "./QwkList";
-import InputQwk from "./InputQwk";
-import QwkContainer from "./Qwkcontainer";
-
-import {showUserInfo} from './index';
+import Video from "./Video";
 import "./Qwkcontainer.css";
 import "./styles.css";
 
@@ -65,6 +61,9 @@ const Main = (props) => {
         </Route>
         <Route path="/image">
           <Image />
+        </Route>
+        <Route path="/video">
+          <Video />
         </Route>
         </Switch>
       </>
