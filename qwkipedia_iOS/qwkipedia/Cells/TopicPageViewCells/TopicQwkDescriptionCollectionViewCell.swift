@@ -50,9 +50,9 @@ class TopicQwkDescriptionCollectionViewCell: UICollectionViewCell {
             qwkDescriptionTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             qwkDescriptionTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            moreButton.heightAnchor.constraint(equalToConstant: 20),
-            moreButton.widthAnchor.constraint(equalToConstant: 20),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            moreButton.heightAnchor.constraint(equalToConstant: 25),
+            moreButton.widthAnchor.constraint(equalToConstant: 25),
         ])
         
     }

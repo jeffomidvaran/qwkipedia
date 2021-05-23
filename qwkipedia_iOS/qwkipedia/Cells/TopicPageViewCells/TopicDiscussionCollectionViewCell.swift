@@ -70,9 +70,9 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
             
             
             chatButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8), 
-            chatButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            chatButton.heightAnchor.constraint(equalToConstant: 20),
-            chatButton.widthAnchor.constraint(equalToConstant: 20),
+            chatButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            chatButton.heightAnchor.constraint(equalToConstant: 25),
+            chatButton.widthAnchor.constraint(equalToConstant: 25),
         ])
     }
     

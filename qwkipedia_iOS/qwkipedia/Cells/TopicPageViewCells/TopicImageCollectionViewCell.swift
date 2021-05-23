@@ -16,7 +16,10 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         i.contentMode = .scaleAspectFit
         i.translatesAutoresizingMaskIntoConstraints = false
         i.isUserInteractionEnabled = true
-        i.backgroundColor = .clear
+        i.backgroundColor = .systemBackground
+        i.layer.cornerRadius = 5
+        i.layer.masksToBounds = true
+        
         return i
     }()
 
@@ -43,15 +46,16 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            
+            moreButton.heightAnchor.constraint(equalToConstant: 25),
+            moreButton.widthAnchor.constraint(equalToConstant: 25),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            moreButton.heightAnchor.constraint(equalToConstant: 20),
-            moreButton.widthAnchor.constraint(equalToConstant: 20),
+            
+            
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant:0 ),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:0),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(25+16)),
         ])
     }
     

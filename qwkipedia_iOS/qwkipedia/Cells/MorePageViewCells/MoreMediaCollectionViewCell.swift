@@ -20,21 +20,17 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     var qwkImage: UIImage?
     var qwkDescriptionTextView = UITextView()
     let youTubeVideoPlayer: YTPlayerView = YTPlayerView()
-
+    let imageView = UIImageView()
+//    imageView.image = #imageLiteral(resourceName: "Image")
 
     
     var cellType: TopicCellType = .qwkDescription {
         didSet {
             switch cellType{
             case .qwkDescription:
-                
-//                let qwkDescriptionTextView = UITextView()
-//                qwkDescriptionTextView.text = "this is a test"
                 qwkDescriptionTextView.isEditable = false
                 qwkDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
                 qwkDescriptionTextView.isScrollEnabled = false
-
-                
                 contentView.addSubview(qwkDescriptionTextView)
                 
                 NSLayoutConstraint.activate([
@@ -46,7 +42,6 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
                 ])
 
             case .video:
-//                let youTubeTag = youTubeVideoURL!.deletingPrefix("https://www.youtube.com/watch?v=")
                 youTubeVideoPlayer.translatesAutoresizingMaskIntoConstraints = false
                 contentView.addSubview(youTubeVideoPlayer)
 
@@ -58,8 +53,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
                     
                 ])
             case .image:
-                let imageView = UIImageView()
-                imageView.image = #imageLiteral(resourceName: "Image")
+                
                 imageView.translatesAutoresizingMaskIntoConstraints = false
                 imageView.contentMode = .scaleAspectFit
                 contentView.addSubview(imageView)

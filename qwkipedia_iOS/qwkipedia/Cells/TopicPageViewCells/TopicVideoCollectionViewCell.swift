@@ -26,10 +26,11 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
     }()
     
     
-    let player: YTPlayerView = {
+    let youTubeVideoPlayer: YTPlayerView = {
         let p = YTPlayerView()
         p.translatesAutoresizingMaskIntoConstraints = false
-//        p.load(withVideoId: "JJunp9xo4uA")
+        p.layer.cornerRadius = 5
+        p.layer.masksToBounds = true
         p.backgroundColor = .clear
         return p
     }()
@@ -38,19 +39,19 @@ class TopicVideoCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(player)
+        contentView.addSubview(youTubeVideoPlayer)
         contentView.addSubview(moreButton)
 
         NSLayoutConstraint.activate([
-            player.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 0),
-            player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-//            player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
-            player.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            moreButton.heightAnchor.constraint(equalToConstant: 20),
-            moreButton.widthAnchor.constraint(equalToConstant: 20),
+            youTubeVideoPlayer.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 0),
+            youTubeVideoPlayer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            youTubeVideoPlayer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            youTubeVideoPlayer.heightAnchor.constraint(equalTo: youTubeVideoPlayer.widthAnchor, multiplier: 9.0/16.0),
+            
+            moreButton.topAnchor.constraint(equalTo: youTubeVideoPlayer.bottomAnchor, constant: 8),
+            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            moreButton.heightAnchor.constraint(equalToConstant: 25),
+            moreButton.widthAnchor.constraint(equalToConstant: 25),
         ])
         
     }

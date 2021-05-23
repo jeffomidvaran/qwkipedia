@@ -64,7 +64,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         qwkDataFromServer.qwkDescriptionText = "A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier."
-        qwkDataFromServer.qwkImage = #imageLiteral(resourceName: "Image")
+        qwkDataFromServer.qwkImage = #imageLiteral(resourceName: "puppyImage")
         qwkDataFromServer.videoURL = "https://www.youtube.com/watch?v=JJunp9xo4uA"
         qwkDataFromServer.sortedTopExternalLinks = [
             QwkExternalLink(url: "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/", title: "PetFinder.com"),
@@ -103,7 +103,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             cell.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
             if let fullVideoURL = qwkDataFromServer.videoURL {
                 let youTubeVideoTag = fullVideoURL.deletingPrefix("https://www.youtube.com/watch?v=")
-                cell.player.load(withVideoId: youTubeVideoTag)
+                cell.youTubeVideoPlayer.load(withVideoId: youTubeVideoTag)
             }
             return cell
         case 2:
@@ -187,8 +187,18 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             dummyUITextField.isScrollEnabled = false
             let newSize = dummyUITextField.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
             height = newSize.height + 20 // extra points for author name and vote count
-        case 1...2:
-            height = 200
+        case 1:
+            height = ((width/16) * 9) + 40
+        case 2:
+            if let _ = qwkDataFromServer.qwkImage {
+                print(qwkDataFromServer.qwkImage!.size.width)
+                print(qwkDataFromServer.qwkImage!.size.height)
+                print(width)
+                let imageRatio =  (qwkDataFromServer.qwkImage?.size.width)! / (qwkDataFromServer.qwkImage?.size.height)!
+                height = (width / imageRatio) + 40
+            } else {
+                height = 0
+            }
         case 3:
             height = 300
         case 4:
