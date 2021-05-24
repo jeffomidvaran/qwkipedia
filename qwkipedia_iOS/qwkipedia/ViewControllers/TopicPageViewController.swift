@@ -9,10 +9,9 @@ import UIKit
 
 class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
-    var topic = "Puppy"
+    var topic = ""
     var cellSendType: TopicCellType = .qwkDescription
     var urlStringToSend = ""
-    var topic = ""
 
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!

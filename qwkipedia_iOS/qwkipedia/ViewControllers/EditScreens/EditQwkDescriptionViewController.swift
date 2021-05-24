@@ -35,7 +35,7 @@ class EditQwkDescriptionViewController: UIViewController {
                 if let e = error {
                      print("There was an issue retrieving data. \(e)")
                 } else {
-                    if let snapShotDocuments = querySnapshot?.documents { //generate id for desc
+                    if let snapShotDocuments = querySnapshot?.documents { //generate id for the new desc
                     self.docid = String(snapShotDocuments.count+1)
                     print("new doc id is \(self.docid)")
             }
@@ -55,6 +55,7 @@ class EditQwkDescriptionViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         // MARK: DATA update database here
+        if (qwkDescriptionTextView.text != "") {
         db.collection("topics-v2").document(self.topic).collection("descriptions").document(docid)
             .setData(["body": self.qwkDescriptionTextView.text!,"owner": Currentuser!, "voteSum":0])
             print("data saved successfully")
@@ -64,7 +65,8 @@ class EditQwkDescriptionViewController: UIViewController {
                          "qwktributionRefs":FieldValue.arrayUnion([docRef])])
             }
     }
-}
+    }
+
 
 extension EditQwkDescriptionViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
