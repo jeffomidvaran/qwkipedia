@@ -14,26 +14,47 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 
     public static let identifier = "MoreMediaCollectionViewCellId"
     var player: AVAudioPlayer?
-    var webSiteName: String?
-    var webSiteURL: URL?
-//    var urlString: String = ""
-    var videoURL: URL?
+//    var webSiteName: String?
+    var webSiteURL: String?
+    var youTubeVideoURL: String?
     var qwkImage: UIImage?
     var qwkDescriptionTextView = UITextView()
+    let youTubeVideoPlayer: YTPlayerView = YTPlayerView()
+    let imageView = UIImageView()
+//    imageView.image = #imageLiteral(resourceName: "Image")
+    
+    
+    var urlLabel: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.text = "Label Not Set"
+        l.textColor = QwkColors.buttonColor
+        return l
+    }()
+    
+    let urlView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
+    let urlImage: UIImageView = {
+        let iv = UIImageView()
+        let globeImage = UIImage(systemName: "globe")
+        iv.image = globeImage
+        iv.tintColor = QwkColors.buttonColor
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
+    }()
 
     
     var cellType: TopicCellType = .qwkDescription {
         didSet {
             switch cellType{
             case .qwkDescription:
-                
-//                let qwkDescriptionTextView = UITextView()
-//                qwkDescriptionTextView.text = "this is a test"
                 qwkDescriptionTextView.isEditable = false
                 qwkDescriptionTextView.translatesAutoresizingMaskIntoConstraints = false
                 qwkDescriptionTextView.isScrollEnabled = false
-
-                
                 contentView.addSubview(qwkDescriptionTextView)
                 
                 NSLayoutConstraint.activate([
@@ -45,21 +66,18 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
                 ])
 
             case .video:
-                let player: YTPlayerView = YTPlayerView()
-                player.load(withVideoId: "JJunp9xo4uA")
-                player.translatesAutoresizingMaskIntoConstraints = false
-                contentView.addSubview(player)
+                youTubeVideoPlayer.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(youTubeVideoPlayer)
 
                 NSLayoutConstraint.activate([
-                    player.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-                    player.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-                    player.heightAnchor.constraint(equalTo: player.widthAnchor, multiplier: 9.0/16.0),
-                    player.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
+                    youTubeVideoPlayer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                    youTubeVideoPlayer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                    youTubeVideoPlayer.heightAnchor.constraint(equalTo: youTubeVideoPlayer.widthAnchor, multiplier: 9.0/16.0),
+                    youTubeVideoPlayer.topAnchor.constraint(equalTo: voterButtons.bottomAnchor, constant: 8),
                     
                 ])
             case .image:
-                let imageView = UIImageView()
-                imageView.image = #imageLiteral(resourceName: "Image")
+                
                 imageView.translatesAutoresizingMaskIntoConstraints = false
                 imageView.contentMode = .scaleAspectFit
                 contentView.addSubview(imageView)
@@ -87,34 +105,9 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 //                ])
 //
             case .externalLink:
-                let urlView: UIView = {
-                    let v = UIView()
-                    v.translatesAutoresizingMaskIntoConstraints = false
-                    return v
-                }()
-                
-                let urlLabel: UILabel = {
-                    let l = UILabel()
-                    l.translatesAutoresizingMaskIntoConstraints = false
-                    l.text = "PetFinder.com"
-                    l.textColor = QwkColors.buttonColor
-                    return l
-                }()
-                
-                let urlImage: UIImageView = {
-                    let iv = UIImageView()
-                    let globeImage = UIImage(systemName: "globe")
-                    iv.image = globeImage
-                    iv.tintColor = QwkColors.buttonColor
-                    iv.translatesAutoresizingMaskIntoConstraints = false
-                    return iv
-                }()
-                
                 let tapGesture = UITapGestureRecognizer(target: self, action: #selector(url1Clicked(_:)))
                 tapGesture.delegate = self
                 urlView.addGestureRecognizer(tapGesture)
-                
-                
         
                 let sizeOfConstantAroundGlobe: CGFloat = 12.0
                 contentView.addSubview(urlView)
@@ -247,19 +240,19 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
    
     
     var editButtonTapActionQwkDescription : ((String)->())?
-    var editButtonTapActionVideo : ((URL)->())?
+    var editButtonTapActionVideo : ((String)->())?
     var editButtonTapActionImage : ((UIImage)->())?
-    var editButtonTapActionExternalLink : ((URL, String)->())?
+    var editButtonTapActionExternalLink : ((String, String)->())?
     @objc func editButtonPressed(_ sender: UIButton) {
         switch cellType {
         case .qwkDescription:
             editButtonTapActionQwkDescription!(qwkDescriptionTextView.text)
         case .video:
-            editButtonTapActionVideo!(videoURL!)
+            editButtonTapActionVideo!(youTubeVideoURL!)
         case .image:
-            editButtonTapActionImage!(qwkImage!)
+            editButtonTapActionImage!(imageView.image!)
         case .externalLink:
-            editButtonTapActionExternalLink!(webSiteURL!, webSiteName!)
+            editButtonTapActionExternalLink!(webSiteURL!, urlLabel.text!)
         default:
             fatalError()
         }
@@ -267,9 +260,9 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
 
     }
 
-    var externalURLViewButtonTapAction : ((URL)->())?
+    var externalURLViewButtonTapAction : ((String, String)->())?
     @objc func url1Clicked(_ sender: UITapGestureRecognizer) {
-        externalURLViewButtonTapAction!(webSiteURL!)
+        externalURLViewButtonTapAction!(webSiteURL!, urlLabel.text!)
     }
     
     

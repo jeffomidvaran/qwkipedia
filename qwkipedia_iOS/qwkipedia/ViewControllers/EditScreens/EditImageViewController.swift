@@ -11,7 +11,8 @@ class EditImageViewController: UIViewController {
 
     @IBOutlet weak var textEntryObject: UITextField!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var trashButtonObject: UIButton!
+    @IBOutlet weak var trashButtonObject: UIBarButtonItem!
+    
     var currentImage = #imageLiteral(resourceName: "Image")
     
     override func viewDidLoad() {
@@ -19,6 +20,7 @@ class EditImageViewController: UIViewController {
         trashButtonObject.tintColor = QwkColors.buttonColor
         imageView.image = currentImage
     }
+    
     @IBAction func trashButtonAction(_ sender: Any) {
     }
 }

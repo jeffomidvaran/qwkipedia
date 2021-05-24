@@ -20,6 +20,7 @@ class MessageCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         nameLabel.font = .boldSystemFont(ofSize: 16)
+        leftImageView.tintColor = QwkColors.buttonColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

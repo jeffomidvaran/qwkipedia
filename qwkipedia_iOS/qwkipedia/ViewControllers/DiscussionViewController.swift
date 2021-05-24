@@ -11,7 +11,7 @@ import Firebase
 class DiscussionViewController: UIViewController {
     var topic : String? = ""
     var handle: AuthStateDidChangeListenerHandle?
-
+ 
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
@@ -32,7 +32,6 @@ class DiscussionViewController: UIViewController {
         sendButton.tintColor = QwkColors.buttonColor
         addTopBorder()
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: Constants.Identifiers.messageCellIdentifier)
-        
         loadDiscussion()
        
     }
@@ -40,7 +39,7 @@ class DiscussionViewController: UIViewController {
        let thickness: CGFloat = 1.0
        let topBorder = CALayer()
        topBorder.frame = CGRect(x: 0.0, y: 0.0, width: self.textView.frame.size.width, height: thickness)
-       topBorder.backgroundColor = UIColor.darkGray.cgColor
+        topBorder.backgroundColor = QwkColors.outlineColor.cgColor
        textView.layer.addSublayer(topBorder)
  
     }

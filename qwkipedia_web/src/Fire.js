@@ -1,12 +1,12 @@
 import Firebase from "firebase";
 var firebaseConfig = {
-  apiKey: "AIzaSyCtrLB80TbcXqQCjJCXTtV6V-Pox2X9BfQ",
-  authDomain: "qwkipedia.firebaseapp.com",
-  projectId: "qwkipedia",
-  storageBucket: "qwkipedia.appspot.com",
-  messagingSenderId: "165744363171",
-  appId: "1:165744363171:web:26439c04cfc68caee92116",
-  measurementId: "G-M4ZPYDRYR1"
+  apiKey: "AIzaSyCaBQXuTRkPmDu-0Cn-VnDC_YWW3FAIN4U",
+  authDomain: "qwkipeda.firebaseapp.com",
+  projectId: "qwkipeda",
+  storageBucket: "qwkipeda.appspot.com",
+  messagingSenderId: "653011529704",
+  appId: "1:653011529704:web:80d77c3a2ab07921cfbe5d",
+  measurementId: "G-PBZJRHD51C"
 };
 // Initialize Firebase
 const Fire = Firebase.initializeApp(firebaseConfig);

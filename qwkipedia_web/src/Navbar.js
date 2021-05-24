@@ -24,6 +24,11 @@ const Navbar = () => {
         path: "/image",
         text: "Image",
     },
+    {
+        id: 5,
+        path: "/video",
+        text: "Video",
+    },
     ]
     return (
       <div className="navBar1">
