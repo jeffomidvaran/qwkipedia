@@ -18,14 +18,16 @@ class FavoritesItemCollectionViewCell: UICollectionViewCell {
         
         
         contentView.addBottomBorderWithColor(color: QwkColors.outlineColor, width: 0.5)
-        contentView.addShadow(offset: CGSize.init(width: 0, height: 3), color: QwkColors.outlineColor, radius: 2.0, opacity: 0.5)
-//        self.layer.cornerRadius = 10
-//        self.layer.borderColor = QwkColors.outlineColor.cgColor
-//        self.layer.borderWidth = 0.5
+
     }
     
     
-    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        previewImageView.layer.cornerRadius = 5
+        previewImageView.layer.masksToBounds = true
+        
+    }
     
     @IBAction func favoriteBookmarkButtonAction(_ sender: Any) {
         print("favorite pressed")
