@@ -17,7 +17,7 @@ class EditQwkDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         qwkDescriptionTextView.delegate = self
-        qwkDescriptionTextView.isEditable = true
+//        qwkDescriptionTextView.isEditable = true
         trashButtonObject.tintColor = QwkColors.buttonColor
         qwkDescriptionTextView.text = currentQwkDescription
         qwkDescriptionTextView.layer.borderWidth = 0.5
@@ -43,7 +43,6 @@ class EditQwkDescriptionViewController: UIViewController {
 
 extension EditQwkDescriptionViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        qwkDescriptionTextView.resignFirstResponder()
         return true
     }
     
