@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import "./Qwkcontainer.css";
 import Image from "./Image";
 import Video from "./Video";
+import Database from "./Database";
 import "./Qwkcontainer.css";
 import "./styles.css";
 
@@ -64,6 +65,9 @@ const Main = (props) => {
         </Route>
         <Route path="/video">
           <Video />
+        </Route>
+        <Route path="/database">
+          <Database />
         </Route>
         </Switch>
       </>
