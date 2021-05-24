@@ -16,9 +16,6 @@ class PublicProfileViewController: UIViewController {
     let db = Firestore.firestore()
     let storage = Storage.storage().reference()
     
-    var name = ""
-    var bio = ""
-    
     lazy var profileView: UIView = {
         
         let view = UIView()
@@ -51,8 +48,6 @@ class PublicProfileViewController: UIViewController {
         
         view.addSubview(interestLabel)
         interestLabel.anchor(top:aboutTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 10)
-        //    view.addSubview(Interests)
-        //    Interests.anchor(top:interestLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 10)
         return view
     }()
     
@@ -140,6 +135,7 @@ class PublicProfileViewController: UIViewController {
         profileView.anchor(top: view.topAnchor, left: view.leftAnchor,
                            right: view.rightAnchor, height: 500)
         aboutTextField.textViewDidEndEditing(aboutTextField)
+        
         let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
         profileImageView.sd_setImage(with: ref, placeholderImage: UIImage(named: "profile-pic"))
     }
@@ -148,70 +144,56 @@ class PublicProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         
-        //Getting current user data
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't retrieve name, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    self.name = data[Constants.FStore.username] as! String
-                                    self.bio = data["bio"] as! String
-                                    self.nameLabel.text = self.name//show name retrieved from DB
-                                    self.aboutTextField.text = self.bio //show bio retrieved from DB
-                                    //self.aboutTextField.textColor = .darkGray
-                                    self.aboutTextField.textColor = QwkColors.textColor
-                                }
-                            }
-                        }
-                    }
-                }
+        //Getting current user data to show on profile
+        let docid = (Auth.auth().currentUser?.email!.lowercased())!
+        let docRef = db.collection("users").document(docid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.nameLabel.text = (document["name"] as! String)
+                self.aboutTextField.text = (document["bio"] as! String)
+                let count = document["qwktributionCount"] as? NSNumber
+                self.numQwktribution.text = (count?.stringValue)! + " Qwktributions"
+                self.aboutTextField.textColor = QwkColors.textColor
+                
+            } else {
+                print("User does not exist")
             }
         }
+
+       // self.name =
+       // self.bio = data["bio"] as! String
+       // self.nameLabel.text = self.name//show name retrieved from DB
+       // self.aboutTextField.text = self.bio //show bio retrieved from DB
+        
+//        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if let user = user {
+//                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
+//                    if let e = error {
+//                        print("Couldn't retrieve name, \(e)")
+//                    } else {
+//                        if let snapShotDocs = querySnapshot?.documents {
+//                            for doc in snapShotDocs {
+//                                let data = doc.data()
+//                                if user.email == data[Constants.FStore.email] as? String {
+//                                    self.name = data[Constants.FStore.username] as! String
+//                                    self.bio = data["bio"] as! String
+//                                    self.nameLabel.text = self.name//show name retrieved from DB
+//                                    self.aboutTextField.text = self.bio //show bio retrieved from DB
+//                                    self.aboutTextField.textColor = QwkColors.textColor
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't save data, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    if let docid = data[Constants.FStore.userid] as? String {
-                                        self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["bio":self.aboutTextField.text ?? ""])}
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        
+         self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser!.email?.lowercased())!).updateData(["bio":self.aboutTextField.text ?? ""])
+      
     }
-    
-//    @IBAction func logOutPressed(_ sender: UIButton) {
-//        
-//        do {
-//            try Auth.auth().signOut()
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let loginViewController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
-//            
-//            // get the SceneDelegate object from your view controller
-//            // then call the change root view controller function to change to main tab bar to login again
-//            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginViewController)
-//            
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-//    }
-    
-    
+        
 }

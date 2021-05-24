@@ -14,7 +14,14 @@ struct QwkDataFromServer {
     var authorLastName: String
     var qwkDescriptionText: String?
     var qwkImage: UIImage?
-    var videoURL: URL?
-    var externalLink: URL?
-    var voteCount: Int = 0
+    var videoURL: String?
+    var sortedTopExternalLinks: [QwkExternalLink]?
+    var singleExternalLink: QwkExternalLink?
+    var voteSum: Int = 0
+}
+
+
+struct QwkExternalLink {
+    var url: String?
+    var title: String?
 }

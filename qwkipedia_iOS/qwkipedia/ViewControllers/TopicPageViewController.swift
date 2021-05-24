@@ -11,6 +11,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
     var cellSendType: TopicCellType = .qwkDescription
     var urlStringToSend = ""
+    var topic = ""
 
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
@@ -44,7 +45,7 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
         collectionView.delegate = self
         view.addSubview(collectionView)
         
-        mainTopicPageHeader.title = "Puppy"
+        mainTopicPageHeader.title = topic
         favoriteButton.tintColor = QwkColors.buttonColor
         
         NSLayoutConstraint.activate([
@@ -208,9 +209,10 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
         if segue.identifier == "showPageSegue" {
             let controller = segue.destination as! MorePageViewController
             controller.cellType = cellSendType
+            controller.topic = topic
         } else if segue.identifier == "discussionPageSegue" {
             let controller = segue.destination as! DiscussionViewController
-            controller.topic = mainTopicPageHeader.title
+            controller.topic = topic
         } else if segue.identifier == "externalLinkWebViewSegue" {
             let vc = segue.destination as! ExternalLinkWebViewController
             vc.sentUrlString = urlStringToSend

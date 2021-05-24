@@ -13,10 +13,9 @@ class SetProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
     let storage = Storage.storage().reference()
-    var name = ""
+    var name:String = ""
     
-    @IBOutlet weak var collectionview: UICollectionView!
-    
+    @IBOutlet weak var collectionview: UICollectionView!    
     @IBOutlet weak var skipButton: UIButton!
     
     //setting up the view
@@ -65,7 +64,7 @@ class SetProfileViewController: UIViewController {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "name not retrieved yet"
+        //label.text = name
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .darkGray
         return label
@@ -132,56 +131,19 @@ class SetProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        
-        //Getting current user data
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't retrieve name, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    self.name = data[Constants.FStore.username] as! String
-                                    self.nameLabel.text = self.name    //show the correct entered name for the user
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-            }
-        }
+        self.nameLabel.text = self.name
     }
     
     @IBAction func SkipPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
         
-        //saving bio
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't save data, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    let docid = data[Constants.FStore.userid] as! String
-                                    if(self.aboutTextField.textColor == .darkGray) {
-                                        self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["bio":self.aboutTextField.text ?? ""])}
-                                    self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["interests":arrSelectedData])
-                                }
-                             }
-                         }
-                    }
-                }
-            }
-        }
+        //saving user interestss and bio to DB
+        if(self.aboutTextField.textColor == .darkGray) {
+            self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser?.email)!.lowercased()).updateData(["bio":self.aboutTextField.text ?? ""])}
+        self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser?.email)!.lowercased()).updateData(["interests":arrSelectedData])
+        let photoPath = "gs://qwkipeda.appspot.com/profileimages/"+Auth.auth().currentUser!.uid
+        self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser?.email)!.lowercased()).updateData(["profilePhotoRef":photoPath])
        
             // This is to get the SceneDelegate object from your view controller
             // then call the change root view controller function to change to main tab bar
@@ -209,6 +171,7 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
                 return
             }
             let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
+            print(ref)
             ref.putData(imageData, metadata: nil) { (metadata, error) in
                 guard let metadata = metadata else {
                   // Uh-oh, an error occurred!
@@ -275,6 +238,7 @@ extension SetProfileViewController: UICollectionViewDataSource, UICollectionView
                     arrSelectedData.append(strData)
                 }
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 
         let cell = collectionView.cellForItem(at: indexPath) as? SelectInterestsCollectionViewCell

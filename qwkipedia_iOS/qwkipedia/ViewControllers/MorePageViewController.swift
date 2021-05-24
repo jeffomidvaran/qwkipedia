@@ -10,6 +10,7 @@ import UIKit
 class MorePageViewController: UIViewController {
  
     var cellType: TopicCellType = .qwkDescription
+    var topic = ""
     
     @IBOutlet weak var addNewEntryButtonObject: UIBarButtonItem!
     
@@ -54,19 +55,19 @@ class MorePageViewController: UIViewController {
                       authorFirstName: "Jane",
                       authorLastName: "Doe",
                       qwkDescriptionText:DummyData.qwkDescription,
-                      voteCount: 10),
+                      voteSum: 10),
                 QwkDataFromServer(
                       authorImage: #imageLiteral(resourceName: "profileImage3"),
                       authorFirstName: "Bob",
                       authorLastName: "Smith",
                     qwkDescriptionText:"This article is about the domestic dog. For other uses, see Puppy (disambiguation).Golden Retriever puppy Basset Hound Newborn Welsh Springer Spaniels A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier. Puppy refers specifically to young dogs",
-                      voteCount: 10),
+                    voteSum: 10),
                 QwkDataFromServer(
                       authorImage: #imageLiteral(resourceName: "profileImage2"),
                       authorFirstName: "John",
                       authorLastName: "Davis",
                       qwkDescriptionText:"Puppies are best animals. I like the way that they howl! It is very very cool",
-                      voteCount: -5),
+                    voteSum: -5),
             ]
 
         default:
@@ -102,6 +103,7 @@ class MorePageViewController: UIViewController {
         } else if(segue.identifier == "moreToEditQwkDescriptionSegue"){
             let vc = segue.destination as! EditQwkDescriptionViewController
             vc.currentQwkDescription = qwkDescriptionToSend
+            vc.topic = topic
         } else if(segue.identifier == "moreToEditVideoSegue"){
             let vc = segue.destination as! EditVideoViewController
             vc.currentVideoURL = videoURLToSend
@@ -141,7 +143,7 @@ extension MorePageViewController: UICollectionViewDelegateFlowLayout, UICollecti
                 cell.isCurrentUsersPost = true
             } else {
                 cell.isCurrentUsersPost = false
-                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteCount
+                cell.numberOfVotes = qwkDataArray[indexPath[1]].voteSum
                 
             }
             return cell

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4AA9AB26597C7B009E3FE6 /* QwkUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4AA9AA26597C7B009E3FE6 /* QwkUser.swift */; };
 		1C51821A26364AA900137C0B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C51821926364AA900137C0B /* UIViewExtensions.swift */; };
 		1C51821D2636662F00137C0B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C51821C2636662F00137C0B /* ForgotPasswordViewController.swift */; };
 		1C6C4EA1262CD2D60067B444 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C4AA9AA26597C7B009E3FE6 /* QwkUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwkUser.swift; sourceTree = "<group>"; };
 		1C51821926364AA900137C0B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1C51821C2636662F00137C0B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				1C51821926364AA900137C0B /* UIViewExtensions.swift */,
 				1C7D74A5264B705700E16168 /* Message.swift */,
 				1C97B7C4265491CB008D91AC /* Interests.swift */,
+				1C4AA9AA26597C7B009E3FE6 /* QwkUser.swift */,
 			);
 			path = GlobalModels;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */,
 				7C4C183B26531A2A0019BBB7 /* FavoritesPageNavigationController.swift in Sources */,
 				7CB40CEE2655C4D00091A36E /* DataStructForRetrievingDataFromServer.swift in Sources */,
+				1C4AA9AB26597C7B009E3FE6 /* QwkUser.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
 				7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,

@@ -28,4 +28,10 @@ class Utilities {
         return alert
     }
     
+    struct HomePageData {
+        let title : String
+        let text: String
+        var image : UIImage?
+    }
+    
 }

@@ -443,7 +443,7 @@
                                     <outlet property="previewImageView" destination="Kno-oO-2U3" id="jEA-Dz-Gmr"/>
                                     <outlet property="qwkDescriptionLabel" destination="DcG-fY-2OW" id="lsz-bt-aYK"/>
                                     <outlet property="topicNameLabel" destination="OEe-UA-g5D" id="r09-Ir-SMu"/>
-                                    <segue destination="H0d-jE-Vgm" kind="show" id="f4N-Jh-ZV8"/>
+                                    <segue destination="H0d-jE-Vgm" kind="show" identifier="" id="f4N-Jh-ZV8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

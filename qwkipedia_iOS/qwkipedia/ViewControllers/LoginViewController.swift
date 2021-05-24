@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var createButton: UIButton!
     
     @IBAction func signinPressed(_ sender: UIButton) {
-        
+        let db = Firestore.firestore()
         if let email = email.text, let password = password.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if error != nil {
@@ -31,7 +31,17 @@ class LoginViewController: UIViewController {
                 else {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
-                        
+                    //Upon Login change the name in userDefaults
+                    let docRef = db.collection("users").document(email.lowercased())
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let name = document["name"] as! String
+                            let defaults = UserDefaults.standard
+                            defaults.set(name, forKey: "Name")
+                        } else {
+                            print("Document does not exist")
+                        }
+                    
                         // This is to get the SceneDelegate object from your view controller
                         // then call the change root view controller function to change to main tab bar
                         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
@@ -39,6 +49,7 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+    }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,8 +69,8 @@ class LoginViewController: UIViewController {
         createButton.setTitleColor(QwkColors.buttonColor, for: .normal)
         forgotButton.setTitleColor(QwkColors.buttonColor, for: .normal)
     
-        email.text = "1@3.com"
-        password.text = "1234567!a"
+        email.text = "Alex@gmail.com"
+        password.text = "1234a!"
         
         errorLabel.alpha = 0 //Hiding the error label
         animatedText.text = ""
