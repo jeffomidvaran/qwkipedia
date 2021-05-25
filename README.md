@@ -43,6 +43,8 @@ https://docs.google.com/presentation/d/1oafXez6u-Zjw5Sa51GYDInLvimq5KTy6cpX7Q22l
 ### Slides For Class Presentation 2
 https://docs.google.com/presentation/d/1k8VJ3D9qZa-1lKGz-0-nVLHVXHjQKQNieIk16WCpWHM/edit#slide=id.gd717e2f81d_1_196
 
+### Slies For Class Presentation 3
+https://docs.google.com/presentation/d/1Fh4bzx9xfj4vG847UDR8fpoRYW9_XBezsAy4fjsqFCY/edit#slide=id.gdc86e011bf_0_77
 
 ### Selecting Video Software
 https://docs.google.com/document/d/1h5Ae6TgS_PFY9StSzYOc_zk-aGXmJ5rx41kzPyyqtNM/edit?ts=6088a1a6 
