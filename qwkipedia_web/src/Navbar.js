@@ -29,6 +29,11 @@ const Navbar = () => {
         path: "/video",
         text: "Video",
     },
+    {
+        id: 6,
+        path: "/database",
+        text: "Database",
+    },
     ]
     return (
       <div className="navBar1">
