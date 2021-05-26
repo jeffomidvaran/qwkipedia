@@ -15,6 +15,9 @@ class PublicProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
     let storage = Storage.storage().reference()
+    let user = Auth.auth().currentUser?.email
+
+    @IBOutlet weak var collectionview: UICollectionView!
     
     lazy var profileView: UIView = {
         
@@ -138,12 +141,17 @@ class PublicProfileViewController: UIViewController {
         
         let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
         profileImageView.sd_setImage(with: ref, placeholderImage: UIImage(named: "profile-pic"))
+        
+        //qwktributioncell
+        //collectionview.register(UINib(nibName: "QwktributionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QwktributionCollectionViewCell")
+        //collectionview.dataSource = self
+        //collectionview.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
-        
+        loadUserData()
         //Getting current user data to show on profile
         let docid = (Auth.auth().currentUser?.email!.lowercased())!
         let docRef = db.collection("users").document(docid)
@@ -159,34 +167,6 @@ class PublicProfileViewController: UIViewController {
                 print("User does not exist")
             }
         }
-
-       // self.name =
-       // self.bio = data["bio"] as! String
-       // self.nameLabel.text = self.name//show name retrieved from DB
-       // self.aboutTextField.text = self.bio //show bio retrieved from DB
-        
-//        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-//            if let user = user {
-//                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-//                    if let e = error {
-//                        print("Couldn't retrieve name, \(e)")
-//                    } else {
-//                        if let snapShotDocs = querySnapshot?.documents {
-//                            for doc in snapShotDocs {
-//                                let data = doc.data()
-//                                if user.email == data[Constants.FStore.email] as? String {
-//                                    self.name = data[Constants.FStore.username] as! String
-//                                    self.bio = data["bio"] as! String
-//                                    self.nameLabel.text = self.name//show name retrieved from DB
-//                                    self.aboutTextField.text = self.bio //show bio retrieved from DB
-//                                    self.aboutTextField.textColor = QwkColors.textColor
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -195,5 +175,32 @@ class PublicProfileViewController: UIViewController {
          self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser!.email?.lowercased())!).updateData(["bio":self.aboutTextField.text ?? ""])
       
     }
-        
+    
+    //MARK: Load data
+    func loadUserData() {
+        db.collection("users").document(user!).getDocument { document, error in
+            if let document = document, document.exists {
+                    let dataDescription = document.get("qwktributionRefs")
+                    print("Document data:")
+                } else {
+                    print("Document does not exist")
+                }
+        }
+    }
 }
+
+extension PublicProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QwktributionCollectionViewCell", for: indexPath as IndexPath) as! QwktributionCollectionViewCell
+        
+        cell.text.text = InterestChoices.interestsToChoose[indexPath[1]].title
+        return cell
+    }
+}
+

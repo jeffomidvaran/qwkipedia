@@ -7,10 +7,12 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 class EditQwkDescriptionViewController: UIViewController {
     
     let db = Firestore.firestore()
-    let Currentuser = Auth.auth().currentUser?.email
+    let storage = Storage.storage().reference()
+    let user = Auth.auth().currentUser?.email
 
     @IBOutlet weak var qwkDescriptionTextView: UITextView!
     @IBOutlet weak var trashButtonObject: UIBarButtonItem!
@@ -30,6 +32,7 @@ class EditQwkDescriptionViewController: UIViewController {
         qwkDescriptionTextView.layer.borderColor = QwkColors.outlineColor.cgColor
         qwkDescriptionTextView.layer.cornerRadius = 5
         
+        // Generating the new id is a bit early at this point, but also too late in view will disappear
         db.collection("topics-v2").document(self.topic).collection("descriptions").addSnapshotListener { (querySnapshot, error) in
 
                 if let e = error {
@@ -55,10 +58,15 @@ class EditQwkDescriptionViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         // MARK: DATA update database here
-        if (qwkDescriptionTextView.text != "") {
+        let ownerName = UserDefaults.standard.string(forKey: "Name")
+        let ownerImageRef = "gs://qwkipeda.appspot.com/profileimages/"+Auth.auth().currentUser!.uid
+        
+        if (!(qwkDescriptionTextView.text.isEmpty) && (qwkDescriptionTextView.text != "Empty Qwk Description")) {
         db.collection("topics-v2").document(self.topic).collection("descriptions").document(docid)
-            .setData(["body": self.qwkDescriptionTextView.text!,"owner": Currentuser!, "voteSum":0])
+            .setData(["body": self.qwkDescriptionTextView.text!,"owner": user!, "ownerName": ownerName!,"ownerImageRef": ownerImageRef, "voteSum":0])
             print("data saved successfully")
+            
+            //add a refernece to the contribution under user
         let docRef = db.collection("topics-v2").document(self.topic).collection("descriptions").document(docid)
         self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser!.email?.lowercased())!)
             .updateData(["qwktributionCount": FieldValue.increment(Int64(1)),

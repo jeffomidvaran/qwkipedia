@@ -95,8 +95,8 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
                         let data = doc.data()
                         if let messageSender = data[Constants.FStore.senderField] as? String,
                            let messageBody = data[Constants.FStore.bodyField] as? String,
-                        let messageTopic = data["topic"]as?String {
-                            let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
+                           let messageTopic = data["topic"]as?String {
+                           let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
                             //show topic-related messages only
                             if (newMessage.topic == self.topic) {
                             self.messages.append(newMessage)

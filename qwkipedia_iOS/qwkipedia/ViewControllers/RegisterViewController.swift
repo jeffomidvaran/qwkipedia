@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //email & password fields populated for quick testing
-        emailTextfield.text = "Alex@email.com"
+        emailTextfield.text = "Sara@email.com"
         passwordTextfield.text = "1234a!"
         //NameTextfield.text = "Alex"
         

@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
+import FirebaseUI
 
 class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
      
     var topic = ""
     var cellSendType: TopicCellType = .qwkDescription
     var urlStringToSend = ""
+    var topDesc = ""
+    
+    let db = Firestore.firestore()
+    let storage = Storage.storage().reference()
 
     @IBOutlet weak var mainTopicPageHeader: UINavigationItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
@@ -62,15 +69,43 @@ class TopicPageViewController: UIViewController, UIGestureRecognizerDelegate {
     var qwkDataFromServer = QwkDataFromServer()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        qwkDataFromServer.qwkDescriptionText = "A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier."
-        qwkDataFromServer.qwkImage = #imageLiteral(resourceName: "puppyImage")
-        qwkDataFromServer.videoURL = "https://www.youtube.com/watch?v=JJunp9xo4uA"
-        qwkDataFromServer.sortedTopExternalLinks = [
-            QwkExternalLink(url: "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/", title: "PetFinder.com"),
-            QwkExternalLink(url: "https://www.thesprucepets.com/puppies-4162145",title: "TheSprucePets.com"),
-            QwkExternalLink(url: "https://www.puppyspot.com",title: "ThePuppySpot.com")
-        ]
-        qwkDataFromServer.voteCount = 9
+        
+        let docRef = db.collection("topics-v2").document(topic)
+        docRef.getDocument() { (document, error) in
+            if let document = document, document.exists {
+                
+                let dataDescription = document.get("topDesc")
+                self.qwkDataFromServer.qwkDescriptionText = (dataDescription as? String)!
+                self.qwkDataFromServer.videoURL = (document.get("topURL") as? String)!
+                
+                
+                let path = (document.get("title")as?String)! + ".png"
+                let imageRef = self.storage.child("topicImages").child(path)
+                    imageRef.getData(maxSize: 1 * 5000 * 5000) { data, error in
+                    if let error = error {
+                        print(error)
+                      } else {
+                        // image data is returned
+                        let image = UIImage(data: data!)
+                        self.qwkDataFromServer.qwkImage = image
+                        DispatchQueue.main.async {
+                        self.collectionView.reloadData()}
+                      }
+
+                    }
+
+                self.qwkDataFromServer.sortedTopExternalLinks = [
+                        QwkExternalLink(url: "https://www.petfinder.com/pet-adoption/dog-adoption/puppies-for-adoption/", title: "PetFinder.com"),
+                        QwkExternalLink(url: "https://www.thesprucepets.com/puppies-4162145",title: "TheSprucePets.com"),
+                        QwkExternalLink(url: "https://www.puppyspot.com",title: "ThePuppySpot.com")
+                    ]
+                    self.qwkDataFromServer.voteCount = 9
+                
+                } else {
+                    print("Document does not exist")
+                }
+        }
+        
     }
     
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
@@ -174,8 +209,7 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             fatalError()
         }
     }
-    
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = view.safeAreaLayoutGuide.layoutFrame.width-16
         var height: CGFloat = 200.0
@@ -255,7 +289,5 @@ extension TopicPageViewController: UICollectionViewDelegateFlowLayout, UICollect
             vc.sentUrlString = urlStringToSend
         }
     }
-    
-    
-    
+
 }

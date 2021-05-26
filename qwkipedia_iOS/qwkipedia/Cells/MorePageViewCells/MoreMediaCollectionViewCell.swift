@@ -189,7 +189,7 @@ class MoreMediaCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDele
     fileprivate let voterButtons: VoterView = {
         let vv = VoterView()
         vv.initilizeCounter()
-        vv.translatesAutoresizingMaskIntoConstraints = false 
+        vv.translatesAutoresizingMaskIntoConstraints = false
         vv.voterColor = QwkColors.buttonColor
         return vv
     }()

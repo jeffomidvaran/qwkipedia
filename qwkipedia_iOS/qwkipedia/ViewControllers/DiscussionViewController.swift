@@ -55,13 +55,13 @@ class DiscussionViewController: UIViewController {
                      print("There was an issue retrieving data. \(e)")
                 } else {
                     if let snapShotDocuments = querySnapshot?.documents {
-                    print(snapShotDocuments.count)
+                    
                     for doc in snapShotDocuments {
                         let data = doc.data()
                         if let messageSender = data[Constants.FStore.senderField] as? String,
                            let messageBody = data[Constants.FStore.bodyField] as? String,
-                            let messageTopic = data["topic"]as?String {
-                            let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
+                           let messageTopic = data["topic"]as?String {
+                           let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
                             //show topic-related messages only
                             if (newMessage.topic == self.topic) {
                             self.messages.append(newMessage)
@@ -87,12 +87,12 @@ class DiscussionViewController: UIViewController {
            let messageSender = UserDefaults.standard.string(forKey: "Name") {
            if (!messageBody.isEmpty) { //Don't send empty messages
             
-                                self.db.collection(Constants.FStore.messagesCollection).addDocument(data:
-                                              [ Constants.FStore.senderEmail: user?.email!,
-                                               Constants.FStore.senderField: messageSender,
-                                               Constants.FStore.bodyField: messageBody,
-                                               "topic": self.topic!,
-                                               Constants.FStore.dateField: Date().timeIntervalSince1970
+                         self.db.collection(Constants.FStore.messagesCollection).addDocument(data:
+                                          [ Constants.FStore.senderEmail: user?.email!,
+                                            Constants.FStore.senderField: messageSender,
+                                            Constants.FStore.bodyField: messageBody,
+                                            "topic": self.topic!,
+                                            Constants.FStore.dateField: Date().timeIntervalSince1970
                                               ]) { (error) in
                                     if let e = error {
                                         print("There was an issue saving data, \(e)")

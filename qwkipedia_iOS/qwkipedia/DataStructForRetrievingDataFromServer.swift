@@ -11,7 +11,9 @@ import UIKit
 struct QwkDataFromServer {
     var authorImage: UIImage?
     var authorFirstName: String?
-    var authorLastName: String?
+    var itemID : String?
+    //var authorLastName: String?
+    var authorEmail: String?
     var qwkDescriptionText: String?
     var qwkImage: UIImage?
     var videoURL: String?

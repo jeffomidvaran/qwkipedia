@@ -34,4 +34,8 @@ class Utilities {
         var image : UIImage?
     }
     
+    struct Qwktribution {
+        let title : String?
+        let desc : String?
+    }
 }
