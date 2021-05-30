@@ -16,3 +16,16 @@
 .addTopic {
     display: none;
 }
+span {
+    display: inline-block;
+    /* max-height: 10px; */
+    /* height: 10px; */
+}
+
+li {
+    /* height: 10px; */
+    margin-bottom: 2%;
+}
+ul {
+    /* margin-bottom: 10px; */
+}

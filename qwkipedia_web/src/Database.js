@@ -8,6 +8,7 @@ function DataBase() {
     const [blogs, setBlogs] = useState([])
     const [videoId, setVideoId] = useState("")
     const [image1, setImage] = useState("")
+    const [description, setDescription] = useState("")
 
     const fetchBlogs = async() => {
         const response = db.collection('users').doc('testUser1');
@@ -29,13 +30,24 @@ function DataBase() {
           console.log(videoId1);
           setVideoId(videoId1);
         }
+
+        const des = db.collection('topics-v2').doc('Puppy')
+        const desData = await des.get();
+        if (!desData.exists) {
+          console.log("no such topic!")
+        } else {
+          var descrip = desData.data()['descriptions'][0]['body'];
+          // console.log(descrip);
+          setDescription(descrip);
+        }
+
         // data.doc.forEach(item=>{
         //     setBlogs([...blogs, item.data()])
         // })
     }
 
     const fetchImages = () => {
-      let imageRef = Fire.storage().ref("/puppy1.jpeg");
+      let imageRef = Fire.storage().ref("/topicImages/puppy.png");
       imageRef
         .getDownloadURL()
         .then((url) => {
@@ -51,10 +63,16 @@ function DataBase() {
 
     return (
         <div className="App">
-          DB
+          <br></br>
+          <div>{description}</div>
+          <br></br>
           {/* {videoId} */}
-          <YoutubeEmbed embedId={videoId} />
-          <img src={image1}  />
+          <div>
+          <img src={image1} width="400" height="300" />
+          </div>
+          <br></br>
+
+          <YoutubeEmbed embedId={videoId} /> 
           {/* {
             blogs && blogs.map(blog=>{
               return(
