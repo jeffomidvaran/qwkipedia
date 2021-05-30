@@ -48,10 +48,10 @@ const fetchImages = (doc,li) => {
     .then((url) => {
       setImage(url);
       console.log(image1)
-      var _img = document.createElement('img');
-      _img.src="url";
-      _img.alt="logo";
-      li.appendChild(_img);
+      // var _img = document.createElement('img');
+      // _img.src="url";
+      // _img.alt="logo";
+      // li.appendChild(_img);
     })
     .catch((e) => console.log('getting downloadURL of image error => ', e));
 }
