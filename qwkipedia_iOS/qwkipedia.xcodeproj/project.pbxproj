@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C414167265EE8DE00898F1D /* QwktributionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C414165265EE8DE00898F1D /* QwktributionCollectionViewCell.swift */; };
-		1C414168265EE8DE00898F1D /* QwktributionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C414166265EE8DE00898F1D /* QwktributionCollectionViewCell.xib */; };
 		1C51821A26364AA900137C0B /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C51821926364AA900137C0B /* UIViewExtensions.swift */; };
 		1C51821D2636662F00137C0B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C51821C2636662F00137C0B /* ForgotPasswordViewController.swift */; };
 		1C6C4EA1262CD2D60067B444 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */; };
@@ -23,6 +21,8 @@
 		1C97B7C5265491CB008D91AC /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97B7C4265491CB008D91AC /* Interests.swift */; };
 		1C97B7C8265492D4008D91AC /* SelectInterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */; };
 		1C97B7C9265492D4008D91AC /* SelectInterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */; };
+		1CCB6176266442C40060CA84 /* ContributionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */; };
+		1CCB6177266442C40060CA84 /* ContributionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */; };
 		7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34BE261D913F00C9F893 /* AppDelegate.swift */; };
 		7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */; };
 		7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */; };
@@ -81,8 +81,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C414165265EE8DE00898F1D /* QwktributionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QwktributionCollectionViewCell.swift; sourceTree = "<group>"; };
-		1C414166265EE8DE00898F1D /* QwktributionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QwktributionCollectionViewCell.xib; sourceTree = "<group>"; };
 		1C51821926364AA900137C0B /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		1C51821C2636662F00137C0B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		1C6C4EA0262CD2D60067B444 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +95,8 @@
 		1C97B7C4265491CB008D91AC /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
 		1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectInterestsCollectionViewCell.xib; sourceTree = "<group>"; };
 		1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInterestsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionTableViewCell.swift; sourceTree = "<group>"; };
+		1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContributionTableViewCell.xib; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1C34BE261D913F00C9F893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,8 +306,8 @@
 				1C7D74A1264B6FD600E16168 /* MessageCell.xib */,
 				1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */,
 				1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */,
-				1C414165265EE8DE00898F1D /* QwktributionCollectionViewCell.swift */,
-				1C414166265EE8DE00898F1D /* QwktributionCollectionViewCell.xib */,
+				1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */,
+				1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -433,7 +433,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C71C93E2652FA70007B91EA /* Galada-Regular.ttf in Resources */,
-				1C414168265EE8DE00898F1D /* QwktributionCollectionViewCell.xib in Resources */,
 				7C71C9442652FA9B007B91EA /* Shrikhand-Regular.ttf in Resources */,
 				7CB2C54326338F12003A2F24 /* puppySound.wav in Resources */,
 				1C7D74A2264B6FD600E16168 /* MessageCell.xib in Resources */,
@@ -442,6 +441,7 @@
 				7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */,
 				7C54489C2647B4DA00F069CE /* Assets.xcassets in Resources */,
 				7C71C9472652FAA4007B91EA /* Timmana-Regular.ttf in Resources */,
+				1CCB6177266442C40060CA84 /* ContributionTableViewCell.xib in Resources */,
 				7C71C9412652FA81007B91EA /* Megrim-Regular.ttf in Resources */,
 				1C7D74A8264B794A00E16168 /* GoogleService-Info.plist in Resources */,
 			);
@@ -516,7 +516,6 @@
 				7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */,
 				1C7D74A6264B705700E16168 /* Message.swift in Sources */,
 				7C36B1222654505800694E17 /* EditQwkDescriptionViewController.swift in Sources */,
-				1C414167265EE8DE00898F1D /* QwktributionCollectionViewCell.swift in Sources */,
 				7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */,
 				7CC78E9E2647AF9100ECD48B /* TopicPreviewCollectionViewCell.swift in Sources */,
 				7CE25B652632451C00ADFEDD /* TopicAudioCollectionViewCell.swift in Sources */,
@@ -530,6 +529,7 @@
 				7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
 				7CE25B712632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift in Sources */,
+				1CCB6176266442C40060CA84 /* ContributionTableViewCell.swift in Sources */,
 				1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */,
 				7C7BF00B2652F14700285A5F /* HomePageNavigationController.swift in Sources */,
 				7CE25B5C263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift in Sources */,

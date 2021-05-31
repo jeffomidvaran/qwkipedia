@@ -17,7 +17,8 @@ class PublicProfileViewController: UIViewController {
     let storage = Storage.storage().reference()
     let user = Auth.auth().currentUser?.email
 
-    @IBOutlet weak var collectionview: UICollectionView!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     lazy var profileView: UIView = {
         
@@ -143,8 +144,8 @@ class PublicProfileViewController: UIViewController {
         profileImageView.sd_setImage(with: ref, placeholderImage: UIImage(named: "profile-pic"))
         
         //qwktributioncell
-        //collectionview.register(UINib(nibName: "QwktributionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QwktributionCollectionViewCell")
-        //collectionview.dataSource = self
+        tableView.register(UINib(nibName: "ContributionTableViewCell", bundle: nil), forCellReuseIdentifier: "ContributionTableViewCell")
+        tableView.dataSource = self
         //collectionview.delegate = self
     }
     
@@ -176,31 +177,34 @@ class PublicProfileViewController: UIViewController {
       
     }
     
+    var contributionData : [Utilities.HomePageData] = []
     //MARK: Load data
     func loadUserData() {
         db.collection("users").document(user!).getDocument { document, error in
             if let document = document, document.exists {
-                    let dataDescription = document.get("qwktributionRefs")
-                    print("Document data:")
+                let array = document.get("qwktributionDocs")
+                
+                
                 } else {
                     print("Document does not exist")
                 }
         }
+        print(self.contributionData)
     }
 }
 
-extension PublicProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+extension PublicProfileViewController:UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QwktributionCollectionViewCell", for: indexPath as IndexPath) as! QwktributionCollectionViewCell
-        
-        cell.text.text = InterestChoices.interestsToChoose[indexPath[1]].title
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContributionTableViewCell", for:indexPath) as! ContributionTableViewCell
+        cell.titleLabel.text = "Bloom Filter"
+        cell.contentLabel.text = "A Bloom filter is a data structure designed to tell you, rapidly and memory-efficiently, whether an element is present in a set. The price paid for this efficiency is that a Bloom filter is a probabilistic data structure: it tells us that the element either definitely is not in the set or may be in the set."
         return cell
     }
+    
+    
 }
 
