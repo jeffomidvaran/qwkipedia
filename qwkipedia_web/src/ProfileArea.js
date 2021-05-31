@@ -7,7 +7,7 @@ import "./styles.css";
 const ProfileArea = (props) => {
   return (
     <div>
-      <h1>Profile for {props.username}</h1>
+      <h1>&emsp;Profile for {props.username}</h1>
 
       <ul>
         <li>Email address: {props.emailAddress}</li>
