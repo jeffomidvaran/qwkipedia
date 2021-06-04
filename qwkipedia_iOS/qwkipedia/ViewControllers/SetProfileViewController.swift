@@ -42,7 +42,7 @@ class SetProfileViewController: UIViewController {
         view.addSubview(aboutTextField)
         aboutTextField.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive=true
         aboutTextField.anchor(top:bioLabel.bottomAnchor, left:view.leftAnchor, paddingTop:5, paddingLeft: 8,
-                              width: 150,height: 150)
+                              width: 150,height: 100)
         aboutTextField.delegate = aboutTextField
 
         view.addSubview(interestLabel)

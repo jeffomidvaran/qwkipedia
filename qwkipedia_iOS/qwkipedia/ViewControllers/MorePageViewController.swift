@@ -58,7 +58,7 @@ class MorePageViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         addNewEntryButtonObject.tintColor = QwkColors.buttonColor
-        self.qwkDataArray = []
+        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),

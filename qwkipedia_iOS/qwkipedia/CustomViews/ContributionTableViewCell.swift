@@ -14,7 +14,9 @@ class ContributionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = .boldSystemFont(ofSize: 15)
+        //contentLabel.font =
+        contentLabel.textAlignment = .justified
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

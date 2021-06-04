@@ -24,17 +24,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLg-AZ-Bqc">
                                 <rect key="frame" x="0.0" y="0.0" width="498" height="14"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2t-TB-TjA">
-                                        <rect key="frame" x="5" y="0.0" width="82" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2t-TB-TjA">
+                                        <rect key="frame" x="5" y="-2.5" width="82" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBT-rt-kZg">
+                                        <rect key="frame" x="431.5" y="-1" width="61.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.3633157789" green="0.3633157789" blue="0.3633157789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="lBT-rt-kZg" secondAttribute="trailing" constant="5" id="EEN-nk-9Jh"/>
+                                    <constraint firstItem="n2t-TB-TjA" firstAttribute="centerY" secondItem="mLg-AZ-Bqc" secondAttribute="centerY" id="EGG-5P-Pyo"/>
+                                    <constraint firstItem="n2t-TB-TjA" firstAttribute="leading" secondItem="mLg-AZ-Bqc" secondAttribute="leading" constant="5" id="LrI-c2-mYO"/>
                                     <constraint firstAttribute="height" constant="14" id="YVk-Zr-dGb"/>
+                                    <constraint firstItem="lBT-rt-kZg" firstAttribute="centerY" secondItem="mLg-AZ-Bqc" secondAttribute="centerY" id="cXU-fz-CRT"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0LI-TD-0bR">
@@ -77,6 +86,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dateLabel" destination="lBT-rt-kZg" id="Ebz-W7-f9c"/>
                 <outlet property="leftImageView" destination="Cuz-zf-Lqp" id="QJo-YK-dzU"/>
                 <outlet property="messageFrame" destination="0LI-TD-0bR" id="l6d-Bp-epJ"/>
                 <outlet property="messageLabel" destination="va4-4w-6Zi" id="Pcu-Oc-zRU"/>

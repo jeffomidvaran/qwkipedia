@@ -12,5 +12,5 @@ struct Message {
     let sender: String
     let body: String
     let topic: String
-    var profilePic: UIImage?
+    var date: String?
 }
