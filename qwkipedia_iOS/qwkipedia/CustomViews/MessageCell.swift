@@ -13,14 +13,16 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-
-    @IBOutlet weak var messageFrame: UIView!
+    @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var messageFrame: UIView!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         nameLabel.font = .boldSystemFont(ofSize: 16)
         leftImageView.tintColor = QwkColors.buttonColor
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
