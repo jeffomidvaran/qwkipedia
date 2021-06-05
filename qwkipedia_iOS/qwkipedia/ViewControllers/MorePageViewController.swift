@@ -45,6 +45,11 @@ class MorePageViewController: UIViewController {
 //        ])
 //    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.qwkDataArray = []
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -53,7 +58,7 @@ class MorePageViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         addNewEntryButtonObject.tintColor = QwkColors.buttonColor
-        
+        self.qwkDataArray = []
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
@@ -98,13 +103,15 @@ class MorePageViewController: UIViewController {
                                     let newDesc = QwkDataFromServer(authorImage: image,authorFirstName: ownerName, itemID:  doc.documentID,authorEmail: ownerEmail, qwkDescriptionText: body,voteCount: voteSum)
 
                                 self.qwkDataArray.append(newDesc)
+                                    
                                 DispatchQueue.main.async {
                                 self.collectionView.reloadData()
                           }
+                                   
                         }
                       }
-                    }
-                }
+                   }
+               }
             }
           }
         }
@@ -170,7 +177,7 @@ class MorePageViewController: UIViewController {
                               }
                             }
                           }
-                        }
+                       }
                     }
                 }
             }

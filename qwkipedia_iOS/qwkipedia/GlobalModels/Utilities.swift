@@ -30,7 +30,7 @@ class Utilities {
     
     struct HomePageData {
         let title : String
-        let text: String
+        let text: String?
         var image : UIImage?
     }
     
