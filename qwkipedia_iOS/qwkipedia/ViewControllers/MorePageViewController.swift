@@ -49,7 +49,6 @@ class MorePageViewController: UIViewController {
         switch cellType {
         case .qwkDescription:
             // loop through revieved entries in database
-            
             qwkDataArray = [
                 QwkDataFromServer(
                     authorImage: #imageLiteral(resourceName: "janeDoe"),
