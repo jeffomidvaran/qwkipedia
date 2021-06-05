@@ -49,7 +49,7 @@ https://docs.google.com/presentation/d/1Fh4bzx9xfj4vG847UDR8fpoRYW9_XBezsAy4fjsq
 ### Selecting Video Software
 https://docs.google.com/document/d/1h5Ae6TgS_PFY9StSzYOc_zk-aGXmJ5rx41kzPyyqtNM/edit?ts=6088a1a6 
 ### Ad video
-https://app.animaker.com/video/AOINADK2TVFVCJN8
+https://app.animaker.com/video/DNZXC0253CKP9PUN
 
 ## Link For The Class Meetings
 ### Spread Sheet
