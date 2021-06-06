@@ -28,7 +28,7 @@ class DiscussionViewController: UIViewController {
         tableView.dataSource = self
         
         messageTextField.placeholder = "Join the discussion..."
-//        textView.layer.backgroundColor = QwkColors.backgroundColor.cgColor
+        textView.layer.backgroundColor = .init(gray: 0.9, alpha: 0.5)
         sendButton.tintColor = QwkColors.buttonColor
         addTopBorder()
         tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: Constants.Identifiers.messageCellIdentifier)
@@ -55,12 +55,14 @@ class DiscussionViewController: UIViewController {
                      print("There was an issue retrieving data. \(e)")
                 } else {
                     if let snapShotDocuments = querySnapshot?.documents {
+                    
                     for doc in snapShotDocuments {
                         let data = doc.data()
                         if let messageSender = data[Constants.FStore.senderField] as? String,
                            let messageBody = data[Constants.FStore.bodyField] as? String,
-                        let messageTopic = data["topic"]as?String {
-                            let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
+                           let messageTopic = data["topic"]as?String,
+                           let messageDate = data["timeStamp"] as? String{
+                            let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic, date:messageDate)
                             //show topic-related messages only
                             if (newMessage.topic == self.topic) {
                             self.messages.append(newMessage)
@@ -80,28 +82,19 @@ class DiscussionViewController: UIViewController {
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {  //Storing the message-data in database
         let user = Auth.auth().currentUser
-        var senderName = ""
+        //var senderName = ""
         
         if let messageBody = messageTextField.text,
-           let messageSender = user?.email {
-            if (!messageBody.isEmpty) { //Don't send empty messages
-            db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                if let e = error {
-                    print("Couldn't retrieve name, \(e)")
-                } else {
-                    if let snapShotDocs = querySnapshot?.documents {
-                        for doc in snapShotDocs {
-                            let data = doc.data()
-                            
-                            if messageSender == data[Constants.FStore.email] as? String {
-                                //Sender name retrieved by cross checking sender's email address
-                                senderName = data[Constants.FStore.username] as! String
-                                self.db.collection(Constants.FStore.messagesCollection).addDocument(data:
-                                              [Constants.FStore.senderField: senderName,
-                                               Constants.FStore.senderEmail: messageSender,
-                                               Constants.FStore.bodyField: messageBody,
-                                               "topic": self.topic!,
-                                               Constants.FStore.dateField: Date().timeIntervalSince1970
+           let messageSender = UserDefaults.standard.string(forKey: "Name") {
+           if (!messageBody.isEmpty) { //Don't send empty messages
+            
+                         self.db.collection(Constants.FStore.messagesCollection).addDocument(data:
+                                          [ Constants.FStore.senderEmail: user?.email!,
+                                            Constants.FStore.senderField: messageSender,
+                                            Constants.FStore.bodyField: messageBody,
+                                            "topic": self.topic!,
+                                            Constants.FStore.dateField: Date().timeIntervalSince1970 ,
+                                            "timeStamp" : "June 3rd, 2021"
                                               ]) { (error) in
                                     if let e = error {
                                         print("There was an issue saving data, \(e)")
@@ -115,18 +108,15 @@ class DiscussionViewController: UIViewController {
                                 }
                                 
                             }
-                        }
-                    }
-                    
-                }
-            }
-            } else {
+
+   else {
                 print("please type a message")
             }
         }
  
     }
 }
+
 extension DiscussionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
@@ -136,7 +126,7 @@ extension DiscussionViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.messageCellIdentifier, for:indexPath) as! MessageCell
         cell.messageLabel.text = messages[indexPath.row].body
         cell.nameLabel.text = messages[indexPath.row].sender
-        //cell.dateLabel.text = messages[indexPath.row].date
+        cell.dateLabel.text = messages[indexPath.row].date
         return cell
     }
     

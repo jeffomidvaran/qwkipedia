@@ -7,14 +7,15 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class SetProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
-    var name = ""
+    let storage = Storage.storage().reference()
+    var name:String = ""
     
-    @IBOutlet weak var collectionview: UICollectionView!
-    
+    @IBOutlet weak var collectionview: UICollectionView!    
     @IBOutlet weak var skipButton: UIButton!
     
     //setting up the view
@@ -41,14 +42,11 @@ class SetProfileViewController: UIViewController {
         view.addSubview(aboutTextField)
         aboutTextField.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive=true
         aboutTextField.anchor(top:bioLabel.bottomAnchor, left:view.leftAnchor, paddingTop:5, paddingLeft: 8,
-                              width: 150,height: 150)
+                              width: 150,height: 100)
         aboutTextField.delegate = aboutTextField
 
         view.addSubview(interestLabel)
         interestLabel.anchor(top:aboutTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 10)
-        
-//        view.addSubview(Interests)
-//        Interests.anchor(top:interestLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 10)
         return view
     }()
     
@@ -66,7 +64,7 @@ class SetProfileViewController: UIViewController {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = "name not retrieved yet"
+        //label.text = name
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .darkGray
         return label
@@ -111,14 +109,7 @@ class SetProfileViewController: UIViewController {
         label.textColor = .darkGray
         return label
     }()
-    
-//    let Interests:UITextField = {
-//        let interests = UITextField()
-//        interests.placeholder = "Tap to add your topics of interest ..."
-//        interests.textColor = .darkGray
-//        return interests
-//    }()
-        
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -140,56 +131,19 @@ class SetProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        
-        //Getting current user data
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't retrieve name, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    self.name = data[Constants.FStore.username] as! String
-                                    self.nameLabel.text = self.name    //show the correct entered name for the user
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-            }
-        }
+        self.nameLabel.text = self.name
     }
     
     @IBAction func SkipPressed(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarViewController")
         
-        //saving bio
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't save data, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    let docid = data[Constants.FStore.userid] as! String
-                                    if(self.aboutTextField.textColor == .darkGray) {
-                                        self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["bio":self.aboutTextField.text ?? ""])}
-                                    self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["interests":arrSelectedData])
-                                }
-                             }
-                         }
-                    }
-                }
-            }
-        }
+        //saving user interestss and bio to DB
+        if(self.aboutTextField.textColor == .darkGray) {
+            self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser?.email)!.lowercased()).updateData(["bio":self.aboutTextField.text ?? ""])}
+        self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser?.email)!.lowercased()).updateData(["interests":arrSelectedData])
+        let photoPath = "gs://qwkipeda.appspot.com/profileimages/"+Auth.auth().currentUser!.uid
+        self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser?.email)!.lowercased()).updateData(["profilePhotoRef":photoPath])
        
             // This is to get the SceneDelegate object from your view controller
             // then call the change root view controller function to change to main tab bar
@@ -213,6 +167,26 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
             UIImage {
             profileImageView.image = imageSelected
+            guard let imageData = imageSelected.pngData() else {
+                return
+            }
+            let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
+            print(ref)
+            ref.putData(imageData, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                  // Uh-oh, an error occurred!
+                  return
+                }
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                // You can also access to download URL after upload.
+                ref.downloadURL { (url, error) in
+                  guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                  }
+                }
+              }
         }
         
         if let imageOriginal = info[UIImagePickerController.InfoKey.editedImage] as?
@@ -226,6 +200,7 @@ extension SetProfileViewController: UIImagePickerControllerDelegate, UINavigatio
 }
 var arrSelectedIndex = [IndexPath]() // This is selected cell Index array
 var arrSelectedData = [String]() // This is selected cell data array
+
 extension SetProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -263,6 +238,7 @@ extension SetProfileViewController: UICollectionViewDataSource, UICollectionView
                     arrSelectedData.append(strData)
                 }
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 
         let cell = collectionView.cellForItem(at: indexPath) as? SelectInterestsCollectionViewCell

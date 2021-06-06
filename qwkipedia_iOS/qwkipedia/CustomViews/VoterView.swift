@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseStorage
 class VoterView: UIView {
 
     
@@ -93,7 +94,7 @@ class VoterView: UIView {
     func initilizeCounter() {
         voteCount = 0;
     }
-    
+
     @objc func incrementVoteCounter() {
         voteCount += 1
         let arrowUp = UIImage(systemName: "arrowtriangle.up.fill")

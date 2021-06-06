@@ -37,6 +37,7 @@ class ForgotPasswordViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetButton.layer.cornerRadius = 15
+        resetButton.backgroundColor = QwkColors.buttonColor
     }
 }
 

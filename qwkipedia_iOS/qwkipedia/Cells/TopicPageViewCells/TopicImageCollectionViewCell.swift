@@ -45,6 +45,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
         imageView.addGestureRecognizer(tap)
         
         
+        
         NSLayoutConstraint.activate([
             moreButton.heightAnchor.constraint(equalToConstant: 25),
             moreButton.widthAnchor.constraint(equalToConstant: 25),
@@ -55,7 +56,7 @@ class TopicImageCollectionViewCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant:0 ),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:0),
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -(25+16)),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -41),
         ])
     }
     

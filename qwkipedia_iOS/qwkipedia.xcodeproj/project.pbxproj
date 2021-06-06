@@ -21,6 +21,8 @@
 		1C97B7C5265491CB008D91AC /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97B7C4265491CB008D91AC /* Interests.swift */; };
 		1C97B7C8265492D4008D91AC /* SelectInterestsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */; };
 		1C97B7C9265492D4008D91AC /* SelectInterestsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */; };
+		1CCB6176266442C40060CA84 /* ContributionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */; };
+		1CCB6177266442C40060CA84 /* ContributionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */; };
 		7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34BE261D913F00C9F893 /* AppDelegate.swift */; };
 		7C1C34C1261D913F00C9F893 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */; };
 		7C1C34C3261D913F00C9F893 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C34C2261D913F00C9F893 /* RegisterViewController.swift */; };
@@ -77,7 +79,7 @@
 		7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E5264876B6007F767F /* EditDataViewController.swift */; };
 		7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */; };
 		7CECD4EC2649C88D007F767F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4EB2649C88D007F767F /* SettingsTableViewController.swift */; };
-		9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */; };
+		A55F3CBB263DCE7DFD47166A /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B7B31D09DCF0FAE3F1E5D6 /* Pods_qwkipedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,9 @@
 		1C97B7C4265491CB008D91AC /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
 		1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectInterestsCollectionViewCell.xib; sourceTree = "<group>"; };
 		1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInterestsCollectionViewCell.swift; sourceTree = "<group>"; };
+		1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionTableViewCell.swift; sourceTree = "<group>"; };
+		1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContributionTableViewCell.xib; sourceTree = "<group>"; };
+		5F7FB03C13873AD48972E728 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1C34BE261D913F00C9F893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,9 +159,8 @@
 		7CECD4E5264876B6007F767F /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CECD4EB2649C88D007F767F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
-		92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
+		A09CFEFE7AA07770C021CB68 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
+		F3B7B31D09DCF0FAE3F1E5D6 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */,
+				A55F3CBB263DCE7DFD47166A /* Pods_qwkipedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,19 +216,11 @@
 			path = GlobalModels;
 			sourceTree = "<group>";
 		};
-		48243A56626DBE4CC21AB469 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6B49817A744B645A23D8B78E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */,
-				8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */,
+				5F7FB03C13873AD48972E728 /* Pods-qwkipedia.debug.xcconfig */,
+				A09CFEFE7AA07770C021CB68 /* Pods-qwkipedia.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -235,8 +231,8 @@
 				7C1C34BD261D913F00C9F893 /* qwkipedia */,
 				7C1C34BC261D913F00C9F893 /* Products */,
 				6B49817A744B645A23D8B78E /* Pods */,
-				48243A56626DBE4CC21AB469 /* Frameworks */,
 				7CAD575C2638BC2500427ED0 /* Recovered References */,
+				A2A4762B24151C2C70364DB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -307,6 +303,8 @@
 				1C7D74A1264B6FD600E16168 /* MessageCell.xib */,
 				1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */,
 				1C97B7C6265492D4008D91AC /* SelectInterestsCollectionViewCell.xib */,
+				1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */,
+				1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -373,6 +371,14 @@
 			path = TopicPageViewCells;
 			sourceTree = "<group>";
 		};
+		A2A4762B24151C2C70364DB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3B7B31D09DCF0FAE3F1E5D6 /* Pods_qwkipedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,11 +386,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C1C34CF261D914100C9F893 /* Build configuration list for PBXNativeTarget "qwkipedia" */;
 			buildPhases = (
-				392D4B05BFFA63450DB8EA97 /* [CP] Check Pods Manifest.lock */,
+				90EF8D5261F25CB3ABE6B8ED /* [CP] Check Pods Manifest.lock */,
 				7C1C34B7261D913F00C9F893 /* Sources */,
 				7C1C34B8261D913F00C9F893 /* Frameworks */,
 				7C1C34B9261D913F00C9F893 /* Resources */,
-				3245C159A1A00AB7BE9C088F /* [CP] Embed Pods Frameworks */,
+				A26D087CDCF04A43C63CA6E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -441,6 +447,7 @@
 				7C1C34C6261D913F00C9F893 /* Main.storyboard in Resources */,
 				7C54489C2647B4DA00F069CE /* Assets.xcassets in Resources */,
 				7C71C9472652FAA4007B91EA /* Timmana-Regular.ttf in Resources */,
+				1CCB6177266442C40060CA84 /* ContributionTableViewCell.xib in Resources */,
 				7C71C9412652FA81007B91EA /* Megrim-Regular.ttf in Resources */,
 				1C7D74A8264B794A00E16168 /* GoogleService-Info.plist in Resources */,
 			);
@@ -449,24 +456,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3245C159A1A00AB7BE9C088F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		392D4B05BFFA63450DB8EA97 /* [CP] Check Pods Manifest.lock */ = {
+		90EF8D5261F25CB3ABE6B8ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -486,6 +476,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A26D087CDCF04A43C63CA6E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -530,6 +537,7 @@
 				7CAEF1B62648658800FFD2FC /* GradientBackgroundUIView.swift in Sources */,
 				1C6C4EBC262CD7D50067B444 /* SetProfileViewController.swift in Sources */,
 				7CE25B712632458500ADFEDD /* TopicQwkRecomendtionsCollectionViewCell.swift in Sources */,
+				1CCB6176266442C40060CA84 /* ContributionTableViewCell.swift in Sources */,
 				1C6C4EA4262CD5170067B444 /* Constants.swift in Sources */,
 				7C7BF00B2652F14700285A5F /* HomePageNavigationController.swift in Sources */,
 				7CE25B5C263244EF00ADFEDD /* TopicQwkDescriptionCollectionViewCell.swift in Sources */,
@@ -699,7 +707,7 @@
 		};
 		7C1C34D0261D914100C9F893 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */;
+			baseConfigurationReference = 5F7FB03C13873AD48972E728 /* Pods-qwkipedia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-9";
 				CODE_SIGN_STYLE = Automatic;
@@ -719,7 +727,7 @@
 		};
 		7C1C34D1261D914100C9F893 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */;
+			baseConfigurationReference = A09CFEFE7AA07770C021CB68 /* Pods-qwkipedia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-9";
 				CODE_SIGN_STYLE = Automatic;

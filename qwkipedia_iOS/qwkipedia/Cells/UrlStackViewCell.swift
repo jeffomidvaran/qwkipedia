@@ -29,7 +29,7 @@ class UrlStackViewCell: UIView {
     }
     
     private func setUpView() {
-        print("this is stackview cell")
+        
         
     }
 

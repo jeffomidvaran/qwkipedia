@@ -17,6 +17,7 @@ npm install react-icons
 
 npm install react-router-dom
 
+npm install get-youtube-id
 
 ### Files Jeff Changed
 add fonts folder in src. </br>

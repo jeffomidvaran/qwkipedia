@@ -6,9 +6,10 @@ target 'qwkipedia' do
   use_frameworks!
 
   # Pods for qwkipedia
-  pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'IQKeyboardManager'
   pod 'youtube-ios-player-helper'
   pod 'SwiftSoup'

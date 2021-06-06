@@ -28,4 +28,14 @@ class Utilities {
         return alert
     }
     
+    struct HomePageData {
+        let title : String
+        let text: String?
+        var image : UIImage?
+    }
+    
+    struct Qwktribution {
+        let title : String?
+        let desc : String?
+    }
 }

@@ -32,9 +32,9 @@ class RegisterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         //email & password fields populated for quick testing
-        emailTextfield.text = "8@4.com"
+        emailTextfield.text = "alex@email.com"
         passwordTextfield.text = "1234a!"
-        NameTextfield.text = "Sara"
+        NameTextfield.text = "Alex Allen"
         
         errorLabel.alpha = 0 //Hiding the error label
         createButton.backgroundColor = QwkColors.buttonColor
@@ -90,11 +90,11 @@ class RegisterViewController: UIViewController {
                 } else {
                     //user was created successfully
                     let db = Firestore.firestore()
-                    var ref: DocumentReference? = nil
-                    ref = db.collection("users").addDocument(data: ["name":name,"email":email, "bio":""]) { (error) in
+                    //var ref: DocumentReference? = nil
+                    db.collection("users").document(email.lowercased()).setData(["name":name,"email":email, "bio":"", "qwktributionCount":0]) { (error) in
                         print("user saved successfully, here is their id:")
-                        print(ref?.documentID ?? "")
-                        db.collection("users").document((ref?.documentID)!).updateData(["uid":(ref?.documentID)!])
+                        //print(ref?.documentID ?? "")
+                        //db.collection("users").document((ref?.documentID)!).updateData(["uid":(ref?.documentID)!])
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data")
@@ -102,9 +102,20 @@ class RegisterViewController: UIViewController {
                 }
                     
                     //transition to Home page
+                    let defaults = UserDefaults.standard
+                    defaults.set(name, forKey: "Name")
                     self.performSegue(withIdentifier: Constants.SegueNameConstants.createtoInterstSegue, sender: self)
             }
         }
+    }
+    
+}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == Constants.SegueNameConstants.createtoInterstSegue {
+            let controller = segue.destination as! SetProfileViewController
+            controller.name = NameTextfield.text! 
+
     }
     
 }

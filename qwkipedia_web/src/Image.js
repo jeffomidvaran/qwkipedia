@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const Image = () => {
-  const [image, setImage] = useState({ preview: "", raw: "", height:300, width:300 });
+  const [image, setImage] = useState({ preview: "", raw: "", height:300, width:400 });
 
   const handleChange = e => {
     if (e.target.files.length) {
@@ -32,7 +32,7 @@ const Image = () => {
     <div>
       <label htmlFor="upload-button">
         {image.preview ? (
-          <img src={image.preview} alt="dummy" width="300" height="300" />
+          <img src={image.preview} alt="dummy" width="400" height="300" />
         ) : (
           <>
             <span className="fa-stack fa-2x mt-3 mb-2">

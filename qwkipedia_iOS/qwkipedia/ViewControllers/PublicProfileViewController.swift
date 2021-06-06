@@ -8,12 +8,18 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseStorage
+import FirebaseUI
 
 class PublicProfileViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
-    var name = ""
-    var bio = ""
+    let storage = Storage.storage().reference()
+    let user = Auth.auth().currentUser?.email
+
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     lazy var profileView: UIView = {
         
         let view = UIView()
@@ -41,13 +47,11 @@ class PublicProfileViewController: UIViewController {
         view.addSubview(aboutTextField)
         aboutTextField.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive=true
         aboutTextField.anchor(top:bioLabel.bottomAnchor, left:view.leftAnchor, paddingTop:5, paddingLeft: 8,
-                              width: 150,height: 150)
+                              width: 150,height: 100)
         aboutTextField.delegate = aboutTextField
         
         view.addSubview(interestLabel)
         interestLabel.anchor(top:aboutTextField.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 10)
-        //    view.addSubview(Interests)
-        //    Interests.anchor(top:interestLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 10)
         return view
     }()
     
@@ -107,7 +111,6 @@ class PublicProfileViewController: UIViewController {
         bio.textColor = .lightGray
         bio.clipsToBounds = true
         bio.textAlignment = .justified
-        //bio.layer.borderColor = UIColor.gray.cgColor
         bio.layer.borderColor = QwkColors.outlineColor.cgColor
         bio.layer.borderWidth = 0.5
         bio.layer.cornerRadius = 12
@@ -120,18 +123,10 @@ class PublicProfileViewController: UIViewController {
         label.textAlignment = .left
         label.text = "Qwktributions"
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        //label.textColor = .darkGray
         label.textColor = QwkColors.textColor
         return label
     }()
-    
-    //let Interests:UITextField = {
-    //    let interests = UITextField()
-    //    interests.textColor = .darkGray
-    //    interests.text = "Surfing, Rock Climbing, House plants"
-    //    return interests
-    //}()
-    
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -142,76 +137,93 @@ class PublicProfileViewController: UIViewController {
         profileView.anchor(top: view.topAnchor, left: view.leftAnchor,
                            right: view.rightAnchor, height: 500)
         aboutTextField.textViewDidEndEditing(aboutTextField)
+        
+        let ref = storage.child("profileimages").child(Auth.auth().currentUser?.uid ?? "image.png")
+        profileImageView.sd_setImage(with: ref, placeholderImage: UIImage(named: "profile-pic"))
+        
+        //qwktributioncell
+        tableView.register(UINib(nibName: "ContributionTableViewCell", bundle: nil), forCellReuseIdentifier: "ContributionTableViewCell")
+        tableView.dataSource = self
+        tableView.layer.borderColor = QwkColors.outlineColor.cgColor
+        tableView.layer.borderWidth = 0.5
+        tableView.layer.cornerRadius = 12
+        loadUserData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         
-        //Getting current user data
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't retrieve name, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    self.name = data[Constants.FStore.username] as! String
-                                    self.bio = data["bio"] as! String
-                                    self.nameLabel.text = self.name//show name retrieved from DB
-                                    self.aboutTextField.text = self.bio //show bio retrieved from DB
-                                    //self.aboutTextField.textColor = .darkGray
-                                    self.aboutTextField.textColor = QwkColors.textColor
-                                }
-                            }
-                        }
-                    }
-                }
+        //Getting current user data to show on profile
+        let docid = (Auth.auth().currentUser?.email!.lowercased())!
+        let docRef = db.collection("users").document(docid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.nameLabel.text = (document["name"] as! String)
+                self.aboutTextField.text = (document["bio"] as! String)
+                let count = document["qwktributionCount"] as? NSNumber
+                self.numQwktribution.text = (count?.stringValue)! + " Qwktributions"
+                self.aboutTextField.textColor = QwkColors.textColor
+                
+            } else {
+                print("User does not exist")
             }
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                self.db.collection(Constants.FStore.usersCollection).getDocuments { (querySnapshot, error) in
-                    if let e = error {
-                        print("Couldn't save data, \(e)")
-                    } else {
-                        if let snapShotDocs = querySnapshot?.documents {
-                            for doc in snapShotDocs {
-                                let data = doc.data()
-                                if user.email == data[Constants.FStore.email] as? String {
-                                    if let docid = data[Constants.FStore.userid] as? String {
-                                        self.db.collection(Constants.FStore.usersCollection).document(docid).updateData(["bio":self.aboutTextField.text ?? ""])}
-                                }
-                            }
-                        }
+        
+         self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser!.email?.lowercased())!).updateData(["bio":self.aboutTextField.text ?? ""])
+      
+    }
+    
+    var contributionData : [Utilities.HomePageData] = []
+    //MARK: Load data
+    func loadUserData() {
+        
+        db.collection("users").document(user!).collection("contributions").addSnapshotListener{(querySnapshot, err) in
+            self.contributionData = []
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    if let title = data["title"] as? String,
+                       let body = data ["desc"] as? String {
+                       let dataToAppend = Utilities.HomePageData(title: title, text: body)
+                        self.contributionData.append(dataToAppend)
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()}
                     }
                 }
             }
+    }
+}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MorePageViewController,
+           let index = tableView.indexPathsForSelectedRows?.first {
+            vc.topic = contributionData[index.row].title
+            }
+            
         }
+}
+
+extension PublicProfileViewController:UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contributionData.count
     }
     
-//    @IBAction func logOutPressed(_ sender: UIButton) {
-//        
-//        do {
-//            try Auth.auth().signOut()
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let loginViewController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
-//            
-//            // get the SceneDelegate object from your view controller
-//            // then call the change root view controller function to change to main tab bar to login again
-//            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginViewController)
-//            
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-//    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContributionTableViewCell", for:indexPath) as! ContributionTableViewCell
+        cell.titleLabel.text = contributionData[indexPath.row].title
+        cell.contentLabel.text = contributionData[indexPath.row].text
+        return cell
+    }
     
     
 }
+
