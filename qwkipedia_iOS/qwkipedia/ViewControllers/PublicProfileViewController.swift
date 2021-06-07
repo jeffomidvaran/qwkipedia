@@ -17,7 +17,8 @@ class PublicProfileViewController: UIViewController {
     let storage = Storage.storage().reference()
     let user = Auth.auth().currentUser?.email
 
-    @IBOutlet weak var collectionview: UICollectionView!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     lazy var profileView: UIView = {
         
@@ -46,7 +47,7 @@ class PublicProfileViewController: UIViewController {
         view.addSubview(aboutTextField)
         aboutTextField.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive=true
         aboutTextField.anchor(top:bioLabel.bottomAnchor, left:view.leftAnchor, paddingTop:5, paddingLeft: 8,
-                              width: 150,height: 150)
+                              width: 150,height: 100)
         aboutTextField.delegate = aboutTextField
         
         view.addSubview(interestLabel)
@@ -110,7 +111,6 @@ class PublicProfileViewController: UIViewController {
         bio.textColor = .lightGray
         bio.clipsToBounds = true
         bio.textAlignment = .justified
-        //bio.layer.borderColor = UIColor.gray.cgColor
         bio.layer.borderColor = QwkColors.outlineColor.cgColor
         bio.layer.borderWidth = 0.5
         bio.layer.cornerRadius = 12
@@ -123,7 +123,6 @@ class PublicProfileViewController: UIViewController {
         label.textAlignment = .left
         label.text = "Qwktributions"
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        //label.textColor = .darkGray
         label.textColor = QwkColors.textColor
         return label
     }()
@@ -143,15 +142,18 @@ class PublicProfileViewController: UIViewController {
         profileImageView.sd_setImage(with: ref, placeholderImage: UIImage(named: "profile-pic"))
         
         //qwktributioncell
-        //collectionview.register(UINib(nibName: "QwktributionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QwktributionCollectionViewCell")
-        //collectionview.dataSource = self
-        //collectionview.delegate = self
+        tableView.register(UINib(nibName: "ContributionTableViewCell", bundle: nil), forCellReuseIdentifier: "ContributionTableViewCell")
+        tableView.dataSource = self
+        tableView.layer.borderColor = QwkColors.outlineColor.cgColor
+        tableView.layer.borderWidth = 0.5
+        tableView.layer.cornerRadius = 12
+        loadUserData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
-        loadUserData()
+        
         //Getting current user data to show on profile
         let docid = (Auth.auth().currentUser?.email!.lowercased())!
         let docRef = db.collection("users").document(docid)
@@ -176,31 +178,52 @@ class PublicProfileViewController: UIViewController {
       
     }
     
+    var contributionData : [Utilities.HomePageData] = []
     //MARK: Load data
     func loadUserData() {
-        db.collection("users").document(user!).getDocument { document, error in
-            if let document = document, document.exists {
-                    let dataDescription = document.get("qwktributionRefs")
-                    print("Document data:")
-                } else {
-                    print("Document does not exist")
+        
+        db.collection("users").document(user!).collection("contributions").addSnapshotListener{(querySnapshot, err) in
+            self.contributionData = []
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    if let title = data["title"] as? String,
+                       let body = data ["desc"] as? String {
+                       let dataToAppend = Utilities.HomePageData(title: title, text: body)
+                        self.contributionData.append(dataToAppend)
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()}
+                    }
                 }
-        }
+            }
     }
 }
-
-extension PublicProfileViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MorePageViewController,
+           let index = tableView.indexPathsForSelectedRows?.first {
+            vc.topic = contributionData[index.row].title
+            }
+            
+        }
+}
+
+extension PublicProfileViewController:UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contributionData.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QwktributionCollectionViewCell", for: indexPath as IndexPath) as! QwktributionCollectionViewCell
-        
-        cell.text.text = InterestChoices.interestsToChoose[indexPath[1]].title
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContributionTableViewCell", for:indexPath) as! ContributionTableViewCell
+        cell.titleLabel.text = contributionData[indexPath.row].title
+        cell.contentLabel.text = contributionData[indexPath.row].text
         return cell
     }
+    
+    
 }
 

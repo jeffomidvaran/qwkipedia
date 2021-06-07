@@ -45,6 +45,11 @@ class MorePageViewController: UIViewController {
 //        ])
 //    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.qwkDataArray = []
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -53,7 +58,7 @@ class MorePageViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         addNewEntryButtonObject.tintColor = QwkColors.buttonColor
-        
+        self.qwkDataArray = []
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
@@ -70,6 +75,27 @@ class MorePageViewController: UIViewController {
         switch cellType {
         
         case .qwkDescription:
+            // // loop through revieved entries in database
+            // qwkDataArray = [
+            //     QwkDataFromServer(
+            //         authorImage: #imageLiteral(resourceName: "janeDoe"),
+            //         authorFirstName: "Jane",
+            //         authorLastName: "Doe",
+            //         qwkDescriptionText:DummyData.qwkDescription,
+            //         voteCount: 10),
+            //     QwkDataFromServer(
+            //         authorImage: #imageLiteral(resourceName: "profileImage3"),
+            //         authorFirstName: "Bob",
+            //         authorLastName: "Smith",
+            //         qwkDescriptionText:"This article is about the domestic dog. For other uses, see Puppy (disambiguation).Golden Retriever puppy Basset Hound Newborn Welsh Springer Spaniels A puppy is a juvenile dog. Some puppies can weigh 1–1.5 kg (1-3 lb), while larger ones can weigh up to 7–11 kg (15-23 lb). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the Yorkshire Terrier. Puppy refers specifically to young dogs",
+            //         voteCount: 10),
+            //     QwkDataFromServer(
+            //         authorImage: #imageLiteral(resourceName: "profileImage2"),
+            //         authorFirstName: "John",
+            //         authorLastName: "Davis",
+            //         qwkDescriptionText:"Puppies are best animals. I like the way that they howl! It is very very cool",
+            //         voteCount: -5),
+            // ]
             
         descriptionCollection.order(by: "voteSum", descending: true)
                 .addSnapshotListener { (querySnapshot, error) in
@@ -98,13 +124,15 @@ class MorePageViewController: UIViewController {
                                     let newDesc = QwkDataFromServer(authorImage: image,authorFirstName: ownerName, itemID:  doc.documentID,authorEmail: ownerEmail, qwkDescriptionText: body,voteCount: voteSum)
 
                                 self.qwkDataArray.append(newDesc)
+                                    
                                 DispatchQueue.main.async {
                                 self.collectionView.reloadData()
                           }
+                                   
                         }
                       }
-                    }
-                }
+                   }
+               }
             }
           }
         }
@@ -170,7 +198,7 @@ class MorePageViewController: UIViewController {
                               }
                             }
                           }
-                        }
+                       }
                     }
                 }
             }

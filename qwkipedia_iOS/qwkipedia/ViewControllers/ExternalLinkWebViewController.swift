@@ -64,7 +64,6 @@ class ExternalLinkWebViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.dismiss(animated: true, completion: nil)
         webView.stopLoading()
-        
         webView = nil
     }
 }

@@ -68,9 +68,12 @@ class EditQwkDescriptionViewController: UIViewController {
             
             //add a refernece to the contribution under user
         let docRef = db.collection("topics-v2").document(self.topic).collection("descriptions").document(docid)
+        
         self.db.collection(Constants.FStore.usersCollection).document((Auth.auth().currentUser!.email?.lowercased())!)
-            .updateData(["qwktributionCount": FieldValue.increment(Int64(1)),
-                         "qwktributionRefs":FieldValue.arrayUnion([docRef])])
+            .updateData(["qwktributionCount": FieldValue.increment(Int64(1))])
+                         //"qwktributionRefs":FieldValue.arrayUnion([docRef])])
+            
+            self.db.collection("users").document((Auth.auth().currentUser!.email?.lowercased())!).collection("contributions").addDocument(data: ["title":self.topic, "desc":self.qwkDescriptionTextView.text!])
             }
     }
     }

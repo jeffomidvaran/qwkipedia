@@ -26,7 +26,7 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
     let chatButton: UIButton = {
         let b = UIButton()
         let rightArrow = UIImage(systemName: "arrow.right")
-//        let rightArrow = #imageLiteral(resourceName: "qwkArrow")
+
         b.setImage(rightArrow, for: .normal)
         b.tintColor = QwkColors.buttonColor
         b.translatesAutoresizingMaskIntoConstraints = false
@@ -95,8 +95,9 @@ class TopicDiscussionCollectionViewCell: UICollectionViewCell {
                         let data = doc.data()
                         if let messageSender = data[Constants.FStore.senderField] as? String,
                            let messageBody = data[Constants.FStore.bodyField] as? String,
-                           let messageTopic = data["topic"]as?String {
-                           let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic)
+                           let messageTopic = data["topic"]as?String,
+                           let messageDate = data["timeStamp"] as? String{
+                           let newMessage = Message(sender: messageSender, body: messageBody, topic: messageTopic, date: messageDate)
                             //show topic-related messages only
                             if (newMessage.topic == self.topic) {
                             self.messages.append(newMessage)
@@ -126,7 +127,7 @@ extension TopicDiscussionCollectionViewCell: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.messageCellIdentifier, for:indexPath) as! MessageCell
         cell.messageLabel.text = messages[indexPath.row].body
         cell.nameLabel.text = messages[indexPath.row].sender
-        //cell.dateLabel.text = messages[indexPath.row].date
+        cell.dateLabel.text = messages[indexPath.row].date
         return cell
     }
     
