@@ -33,17 +33,3 @@ import Fire from './Fire';
 import {db} from './Fire';
 import React,{useState,useEffect} from 'react';
 
-const [topics, setTopics] = useState();
-
-const fetchTopics = () => {
-  return db.collection('topics-v2').onSnapshot((snapsot) => {
-    const topicsData = [];
-    snapsot.forEach((doc) => postData.push({ ...doc.data(), id: doc.id}));
-    console.log(topicsData);
-    setTopics(topicsData);
-  })
-}
-
-useEffect(() => {
-  fetchTopics();
-})
