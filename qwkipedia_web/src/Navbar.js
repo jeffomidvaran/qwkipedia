@@ -14,26 +14,26 @@ const Navbar = () => {
         path: "/profile",
         text: "Profile",
     },    
-    {
-        id: 3,
-        path: "/addQwkTopic",
-        text: "AddQwkTopic",
-    },
-    {
-        id: 4,
-        path: "/image",
-        text: "Image",
-    },
-    {
-        id: 5,
-        path: "/video",
-        text: "Video",
-    },
-    {
-        id: 6,
-        path: "/database",
-        text: "Database",
-    },
+    // {
+    //     id: 3,
+    //     path: "/addQwkTopic",
+    //     text: "AddQwkTopic",
+    // },
+    // {
+    //     id: 4,
+    //     path: "/image",
+    //     text: "Image",
+    // },
+    // {
+    //     id: 5,
+    //     path: "/video",
+    //     text: "Video",
+    // },
+    // {
+    //     id: 6,
+    //     path: "/database",
+    //     text: "Database",
+    // },
     ]
     return (
       <div className="navBar1">

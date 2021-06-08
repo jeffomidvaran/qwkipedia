@@ -9,7 +9,7 @@ function DataBase() {
     const [videoId, setVideoId] = useState("")
     const [image1, setImage] = useState("")
     const [description, setDescription] = useState("")
-
+    const [title, setTitle] = useState("Puppy")
     const fetchBlogs = async() => {
         const response = db.collection('users').doc('testUser1');
         const data = await response.get();
@@ -52,6 +52,8 @@ function DataBase() {
         .getDownloadURL()
         .then((url) => {
           setImage(url);
+          console.log(url);
+          console.log(image1)
         })
         .catch((e) => console.log('getting downloadURL of image error => ', e));
     }
@@ -63,7 +65,9 @@ function DataBase() {
 
     return (
         <div className="App">
+          
           <br></br>
+          <div><h1>{title}</h1></div>
           <div>{description}</div>
           <br></br>
           {/* {videoId} */}

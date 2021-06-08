@@ -1,15 +1,45 @@
-import react, { useEffect } from "react"
+import react, { useEffect, useState } from "react"
+import Fire from './Fire';
+import {db} from './Fire';
 
-const homeContainer = (props) => {
-    
+const HomeContainer = (props) => {
+    const topicList = document.querySelector('#topic-list');
+    // const imageList = document.querySelector('#image-list');
+
+    var imageList = [];
+    // const [imList, setImList] = useState([])
+    var iList = [];
+    const fetchTopics = (topicList, imageList) => {
+      
+      props.fetchTopics(topicList, imageList);
+    //   setImList(imageList)
+      console.log("HC.js")
+      console.log(topicList)
+    //   console.log(imageList)
+    //   var iList = imageList.map(function(url,index){
+    //       return <li key={ index }>{url}</li>
+    //   })
+    }
+
     useEffect (()=> {
-        props.topics.docs.forEach(doc => [
-            console.log(doc.data())
-          ])
-    })
+      fetchTopics(topicList, imageList);
+    //   console.log(imageList)
+      console.log("fetching...")
+    }, []);
+
     return (
-        <div></div>
+        <div>
+        <div className="topic-content">
+
+          <ul id="topic-list"></ul>
+          <ul id="image-list"></ul>
+        </div>
+          {/* {imageList.map(url => (
+            <img url={url}></img>
+          ))} */}
+
+        </div>
     )
 }
 
-export default homeContainer
+export default HomeContainer

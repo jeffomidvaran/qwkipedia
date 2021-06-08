@@ -26,6 +26,15 @@ li {
     /* height: 10px; */
     margin-bottom: 2%;
 }
-ul {
+.topic-content {
     /* margin-bottom: 10px; */
+    width: 85%;
+    float: right; 
+}
+
+.image-content {
+    /* margin-bottom: 10px; */
+    width: 15%;
+    float: left; 
+    padding-left: 1%;
 }
