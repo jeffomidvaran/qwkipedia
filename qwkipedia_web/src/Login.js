@@ -91,7 +91,7 @@ const Login = () => {
           </div>
           <br></br>
           {/* <Link to={Home} class="forgot-text"> Forgot Password? </Link> <br></br> */}
-          <a class="forgot-text" type="bold" href="React.js"> Forgot Password? </a><br></br>
+          <a class="forgot-text" type="bold" href="index.js"> Forgot Password? </a><br></br>
 
           <button type="submit" className="btn btn-primary">
             SignIn
