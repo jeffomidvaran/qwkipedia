@@ -86,6 +86,11 @@ const fetchImages = async(doc, imageList) => {
   //   .catch((e) => console.log('getting downloadURL of image error => ', e));
 }
 
+const recordTitle=(title)=>{
+  console.log("!!!!!")
+  console.log(title)
+}
+
   const fetchTopics = async(topicList, imageList) => {
   //   // return db.collection('topics-v2').onSnapshot((snapsot) => {
   //   //   const topicsData = [];
@@ -153,7 +158,7 @@ const fetchImages = async(doc, imageList) => {
       <div className="image-content">{images.sort((a,b)=>a.title > b.title ? 1:-1).map( e=> 
       <li key={e.id}>
       <NavLink to="/Database">
-        <img src={e.url} width="90%" ></img>
+        <img src={e.url} width="90%" onClick={recordTitle(e.title)}></img>
       </NavLink>
       </li>
       )}
