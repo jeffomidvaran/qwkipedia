@@ -94,7 +94,7 @@ class DiscussionViewController: UIViewController {
                                             Constants.FStore.bodyField: messageBody,
                                             "topic": self.topic!,
                                             Constants.FStore.dateField: Date().timeIntervalSince1970 ,
-                                            "timeStamp" : "June 3rd, 2021"
+                                            "timeStamp" : "June 6th, 2021"
                                               ]) { (error) in
                                     if let e = error {
                                         print("There was an issue saving data, \(e)")

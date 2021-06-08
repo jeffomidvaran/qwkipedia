@@ -20,7 +20,7 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        nameLabel.font = .boldSystemFont(ofSize: 16)
+        nameLabel.font = .boldSystemFont(ofSize: 14)
         leftImageView.tintColor = QwkColors.buttonColor
         
     }

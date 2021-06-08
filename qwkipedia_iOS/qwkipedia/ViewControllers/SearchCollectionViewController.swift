@@ -31,24 +31,20 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
         
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let indexPath = searchResultsTableView.indexPathForSelectedRow
-//        let topicViewController = segue.destination as! TopicPageViewController
-//        topicViewController.text = filteredSearchResults[indexPath!.row].name
-    }
-    
-    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? TopicPageViewController,
-//           let index = searchResultsTableView.indexPathsForSelectedRows?.first {
-//                vc.topic = filteredSearchResults[index.row].title
-//            }
-//
-//    }
 //        let indexPath = searchResultsTableView.indexPathForSelectedRow
 //        let topicViewController = segue.destination as! TopicPageViewController
 //        topicViewController.text = filteredSearchResults[indexPath!.row].name
 //    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? TopicPageViewController,
+           let index = searchResultsTableView.indexPathsForSelectedRows?.first {
+                vc.topic = filteredSearchResults[index.row].title
+            }
+
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredSearchResults.count + 1

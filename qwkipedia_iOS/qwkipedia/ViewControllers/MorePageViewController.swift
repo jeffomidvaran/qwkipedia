@@ -264,6 +264,7 @@ class MorePageViewController: UIViewController {
         } else if(segue.identifier == "moreToEditVideoSegue"){
             let vc = segue.destination as! EditVideoViewController
             vc.currentVideoURL = videoURLToSend
+            vc.topic = topic
         } else if(segue.identifier == "moreToEditImageSegue"){
             let vc = segue.destination as! EditImageViewController
             vc.currentImage = imageToSend
