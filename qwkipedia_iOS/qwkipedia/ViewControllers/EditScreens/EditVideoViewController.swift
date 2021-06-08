@@ -47,7 +47,7 @@ class EditVideoViewController: UIViewController {
         handleVideo()
         urlEntryTextField.becomeFirstResponder()
         
-        db.collection("topics-v2").document(self.topic).collection("descriptions").addSnapshotListener { (querySnapshot, error) in
+        db.collection("topics-v2").document(self.topic).collection("videos").addSnapshotListener { (querySnapshot, error) in
 
                 if let e = error {
                      print("There was an issue retrieving data. \(e)")
