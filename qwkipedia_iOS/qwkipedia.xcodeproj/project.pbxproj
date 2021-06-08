@@ -43,6 +43,8 @@
 		7C4E462C263F53A000DA51E4 /* MoreMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E462B263F53A000DA51E4 /* MoreMediaCollectionViewCell.swift */; };
 		7C4E4668263FBD8E00DA51E4 /* VoterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E4667263FBD8E00DA51E4 /* VoterView.swift */; };
 		7C54489C2647B4DA00F069CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C54489B2647B4DA00F069CE /* Assets.xcassets */; };
+		7C5C885A2664C871006BE7ED /* CreateNewPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C88592664C871006BE7ED /* CreateNewPageTableViewCell.swift */; };
+		7C5C885D2664CB29006BE7ED /* AddNewTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5C885C2664CB29006BE7ED /* AddNewTopicViewController.swift */; };
 		7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */; };
 		7C653973262D5B7300014A51 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */; };
 		7C653978262E14CB00014A51 /* HomePageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C653977262E14CB00014A51 /* HomePageCollectionViewController.swift */; };
@@ -77,7 +79,7 @@
 		7CECD4E6264876B6007F767F /* EditDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E5264876B6007F767F /* EditDataViewController.swift */; };
 		7CECD4E92648C4B4007F767F /* SuggestionCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */; };
 		7CECD4EC2649C88D007F767F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CECD4EB2649C88D007F767F /* SettingsTableViewController.swift */; };
-		9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */; };
+		A55F3CBB263DCE7DFD47166A /* Pods_qwkipedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3B7B31D09DCF0FAE3F1E5D6 /* Pods_qwkipedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +99,7 @@
 		1C97B7C7265492D4008D91AC /* SelectInterestsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectInterestsCollectionViewCell.swift; sourceTree = "<group>"; };
 		1CCB6174266442C40060CA84 /* ContributionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionTableViewCell.swift; sourceTree = "<group>"; };
 		1CCB6175266442C40060CA84 /* ContributionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContributionTableViewCell.xib; sourceTree = "<group>"; };
+		5F7FB03C13873AD48972E728 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
 		7C1C34BB261D913F00C9F893 /* qwkipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwkipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1C34BE261D913F00C9F893 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C1C34C0261D913F00C9F893 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 		7C4E462B263F53A000DA51E4 /* MoreMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C4E4667263FBD8E00DA51E4 /* VoterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoterView.swift; sourceTree = "<group>"; };
 		7C54489B2647B4DA00F069CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C5C88592664C871006BE7ED /* CreateNewPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPageTableViewCell.swift; sourceTree = "<group>"; };
+		7C5C885C2664CB29006BE7ED /* AddNewTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTopicViewController.swift; sourceTree = "<group>"; };
 		7C65396F262D5A0E00014A51 /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
 		7C653972262D5B7300014A51 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		7C653977262E14CB00014A51 /* HomePageCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewController.swift; sourceTree = "<group>"; };
@@ -154,9 +159,8 @@
 		7CECD4E5264876B6007F767F /* EditDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDataViewController.swift; sourceTree = "<group>"; };
 		7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		7CECD4EB2649C88D007F767F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
-		92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.debug.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.debug.xcconfig"; sourceTree = "<group>"; };
+		A09CFEFE7AA07770C021CB68 /* Pods-qwkipedia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qwkipedia.release.xcconfig"; path = "Target Support Files/Pods-qwkipedia/Pods-qwkipedia.release.xcconfig"; sourceTree = "<group>"; };
+		F3B7B31D09DCF0FAE3F1E5D6 /* Pods_qwkipedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qwkipedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9976943381AF366305B6FD7E /* Pods_qwkipedia.framework in Frameworks */,
+				A55F3CBB263DCE7DFD47166A /* Pods_qwkipedia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +178,7 @@
 		1C6C4E85262CCCA00067B444 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C5C885C2664CB29006BE7ED /* AddNewTopicViewController.swift */,
 				7C36B11F26544F5D00694E17 /* EditScreens */,
 				7C23813D26525C7F0073ED55 /* MainTabBarViewController.swift */,
 				7CB4037D264F0FB6004655E0 /* ExternalLinkWebViewController.swift */,
@@ -211,19 +216,11 @@
 			path = GlobalModels;
 			sourceTree = "<group>";
 		};
-		48243A56626DBE4CC21AB469 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				92C770B3D84FFB4686113AC1 /* Pods_qwkipedia.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6B49817A744B645A23D8B78E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */,
-				8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */,
+				5F7FB03C13873AD48972E728 /* Pods-qwkipedia.debug.xcconfig */,
+				A09CFEFE7AA07770C021CB68 /* Pods-qwkipedia.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -234,8 +231,8 @@
 				7C1C34BD261D913F00C9F893 /* qwkipedia */,
 				7C1C34BC261D913F00C9F893 /* Products */,
 				6B49817A744B645A23D8B78E /* Pods */,
-				48243A56626DBE4CC21AB469 /* Frameworks */,
 				7CAD575C2638BC2500427ED0 /* Recovered References */,
+				A2A4762B24151C2C70364DB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,6 +341,7 @@
 		7CAE80CF262FEE4700CB1979 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7C5C88592664C871006BE7ED /* CreateNewPageTableViewCell.swift */,
 				7C8A676D264F24E700C6F681 /* UrlStackViewCell.swift */,
 				7CECD4E82648C4B4007F767F /* SuggestionCellCollectionViewCell.swift */,
 				7C4E462A263F534D00DA51E4 /* MorePageViewCells */,
@@ -373,6 +371,14 @@
 			path = TopicPageViewCells;
 			sourceTree = "<group>";
 		};
+		A2A4762B24151C2C70364DB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3B7B31D09DCF0FAE3F1E5D6 /* Pods_qwkipedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,11 +386,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C1C34CF261D914100C9F893 /* Build configuration list for PBXNativeTarget "qwkipedia" */;
 			buildPhases = (
-				392D4B05BFFA63450DB8EA97 /* [CP] Check Pods Manifest.lock */,
+				90EF8D5261F25CB3ABE6B8ED /* [CP] Check Pods Manifest.lock */,
 				7C1C34B7261D913F00C9F893 /* Sources */,
 				7C1C34B8261D913F00C9F893 /* Frameworks */,
 				7C1C34B9261D913F00C9F893 /* Resources */,
-				3245C159A1A00AB7BE9C088F /* [CP] Embed Pods Frameworks */,
+				A26D087CDCF04A43C63CA6E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -450,24 +456,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3245C159A1A00AB7BE9C088F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		392D4B05BFFA63450DB8EA97 /* [CP] Check Pods Manifest.lock */ = {
+		90EF8D5261F25CB3ABE6B8ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -487,6 +476,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A26D087CDCF04A43C63CA6E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qwkipedia/Pods-qwkipedia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -510,6 +516,8 @@
 				7C23813E26525C7F0073ED55 /* MainTabBarViewController.swift in Sources */,
 				7C1C34BF261D913F00C9F893 /* AppDelegate.swift in Sources */,
 				7CE25B59263244D900ADFEDD /* TopicHeaderCollectionViewCell.swift in Sources */,
+				7C5C885D2664CB29006BE7ED /* AddNewTopicViewController.swift in Sources */,
+				7C5C885A2664C871006BE7ED /* CreateNewPageTableViewCell.swift in Sources */,
 				1C51821D2636662F00137C0B /* ForgotPasswordViewController.swift in Sources */,
 				7C4C183E26531AAD0019BBB7 /* SearchPageNavigationController.swift in Sources */,
 				7C653970262D5A0E00014A51 /* FavoritesCollectionViewController.swift in Sources */,
@@ -699,7 +707,7 @@
 		};
 		7C1C34D0261D914100C9F893 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B36EB940E52B48D0ED4067A7 /* Pods-qwkipedia.debug.xcconfig */;
+			baseConfigurationReference = 5F7FB03C13873AD48972E728 /* Pods-qwkipedia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-9";
 				CODE_SIGN_STYLE = Automatic;
@@ -719,7 +727,7 @@
 		};
 		7C1C34D1261D914100C9F893 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8979D1FF1C3EB49BB786CD81 /* Pods-qwkipedia.release.xcconfig */;
+			baseConfigurationReference = A09CFEFE7AA07770C021CB68 /* Pods-qwkipedia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-9";
 				CODE_SIGN_STYLE = Automatic;

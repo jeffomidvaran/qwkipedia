@@ -5,13 +5,11 @@
 .bg {
   position: absolute;
   pointer-events: none;
+  height: 88px;
+  /* Accent / Default */
   left: 0px;
   right: 0px;
   top: 0px;
-  bottom: 0px;
-
-  /* Accent / Default */
-
   background: #3c64b1;
   opacity: 0.06;
   order: 0;

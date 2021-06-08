@@ -11,6 +11,7 @@ import FirebaseStorage
 class SearchCollectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     let tableViewCellReuseIdentifier = "SearchResultTableViewCell"
+    let createNewPageTableViewCellID = "CreateNewPageTableViewCell"
 
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchResultsTableView: UITableView!
@@ -30,16 +31,49 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let indexPath = searchResultsTableView.indexPathForSelectedRow
+//        let topicViewController = segue.destination as! TopicPageViewController
+//        topicViewController.text = filteredSearchResults[indexPath!.row].name
+    }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let vc = segue.destination as? TopicPageViewController,
+//           let index = searchResultsTableView.indexPathsForSelectedRows?.first {
+//                vc.topic = filteredSearchResults[index.row].title
+//            }
+//
+//    }
+//        let indexPath = searchResultsTableView.indexPathForSelectedRow
+//        let topicViewController = segue.destination as! TopicPageViewController
+//        topicViewController.text = filteredSearchResults[indexPath!.row].name
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredSearchResults.count
+        return filteredSearchResults.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellReuseIdentifier)
+        if(indexPath[1] != filteredSearchResults.count){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell")
+            cell?.textLabel?.text = filteredSearchResults[indexPath.row].title
+            cell?.imageView?.image = filteredSearchResults[indexPath.row].image?.cropsToSquare()
+            return cell!
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CreateNewPageTableViewCell")
+            cell?.textLabel?.text = "Add New Topic Page"
+            cell?.textLabel?.textColor = QwkColors.buttonColor
+            
+            return cell!
+        }
         
-        cell?.textLabel?.text = filteredSearchResults[indexPath.row].title
-        cell?.imageView?.image = filteredSearchResults[indexPath.row].image?.cropsToSquare()
-        return cell!
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellReuseIdentifier)
+//
+//        cell?.textLabel?.text = filteredSearchResults[indexPath.row].title
+//        cell?.imageView?.image = filteredSearchResults[indexPath.row].image?.cropsToSquare()
+//        return cell!
     }
     
     func loadData() -> [Utilities.HomePageData] {
@@ -80,17 +114,8 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
         return self.allData
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? TopicPageViewController,
-           let index = searchResultsTableView.indexPathsForSelectedRows?.first {
-                vc.topic = filteredSearchResults[index.row].title
-            }
-            
-        }
-//        let indexPath = searchResultsTableView.indexPathForSelectedRow
-//        let topicViewController = segue.destination as! TopicPageViewController
-//        topicViewController.text = filteredSearchResults[indexPath!.row].name
-//    }
+
+
 
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -113,9 +138,9 @@ class SearchCollectionViewController: UIViewController, UITableViewDelegate, UIT
         filteredSearchResults = allData
         searchResultsTableView.reloadData()
     }
-    
-    
 }
+
+
 
 
 //struct TempData {
