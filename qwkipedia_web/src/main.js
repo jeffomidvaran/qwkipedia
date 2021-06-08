@@ -4,13 +4,13 @@ import { Route, Switch } from "react-router-dom";
 import HeaderLogin from "./HeaderLogin";
 import Home from "./Home";
 import Profile from "./Profile";
-import AddQwkTopic from "./AddQwkTopic";
+// import AddQwkTopic from "./AddQwkTopic";
 import Navbar from "./Navbar";
-import "./Qwkcontainer.css";
+// import "./Qwkcontainer.css";
 import Image from "./Image";
 import Video from "./Video";
 import Database from "./Database";
-import "./Qwkcontainer.css";
+import "./temp/Qwkcontainer.css";
 import "./styles.css";
 
 const Main = (props) => {
@@ -57,9 +57,9 @@ const Main = (props) => {
             uid={props.user.uid}
           />
         </Route>
-        <Route path="/addQwkTopic">
+        {/* <Route path="/addQwkTopic">
           <AddQwkTopic />
-        </Route>
+        </Route> */}
         <Route path="/image">
           <Image />
         </Route>
