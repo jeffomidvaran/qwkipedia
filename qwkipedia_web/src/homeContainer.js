@@ -21,7 +21,7 @@ const HomeContainer = (props) => {
     //   })
     }
 
-    useEffect (()=> {
+    useEffect (()=> { 
       fetchTopics(topicList, imageList);
     //   console.log(imageList)
       console.log("fetching...")

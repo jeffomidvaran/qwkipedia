@@ -16,7 +16,8 @@ function DataBase() {
         if (!data.exists) {
           console.log("no such doc!")
         } else {
-          console.log("doc data:", data.data());
+          // console.log("doc data:", data.data());
+          console.log("Doc Found!")
         }
 
         const video = db.collection('videos').doc('puppyVideoData1');
