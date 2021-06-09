@@ -23,21 +23,13 @@ const HomeContainer = (props) => {
 
     useEffect (()=> { 
       fetchTopics(topicList, imageList);
-    //   console.log(imageList)
       console.log("fetching...")
     }, []);
 
     return (
-        <div>
         <div className="topic-content">
-
-          <ul id="topic-list"></ul>
-          <ul id="image-list"></ul>
-        </div>
-          {/* {imageList.map(url => (
-            <img url={url}></img>
-          ))} */}
-
+            <ul id="topic-list"></ul>
+            <ul id="image-list"></ul>
         </div>
     )
 }
