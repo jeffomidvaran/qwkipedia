@@ -4,12 +4,12 @@ import ProfileArea from "./ProfileArea";
 // import { BrowserRouter as Router } from "react-router-dom"
 
 // import HeaderLogin from "./HeaderLogin";
+
 import "./styles.css";
-import "./Home.css";
 const Profile = (props) => {
 
   return (
-    <div className="home1">
+    <div>
 
     {/* <h1>&emsp;&ensp;&nbsp;Profile</h1> */}
     <ProfileArea 

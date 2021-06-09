@@ -1,40 +1,17 @@
-.home1 {
-    /* margin-top: 10px; */
-    /* position: relative;
-    display: block; */
-}
-.big-box1 {
-    width: 1500px;
-    margin-top: 3%;
-    padding: 0% 5%;
-}
 
-.btn-delete {
-    display: none;
-}
 
-.addTopic {
-    display: none;
-}
-span {
-    display: inline-block;
-    /* max-height: 10px; */
-    /* height: 10px; */
-}
 
-li {
-    /* height: 10px; */
-    margin-bottom: 2%;
-}
 .topic-content {
-    /* margin-bottom: 10px; */
     width: 85%;
     float: right; 
 }
 
 .image-content {
-    /* margin-bottom: 10px; */
     width: 15%;
     float: left; 
     padding-left: 1%;
+}
+
+.image-content li {
+    list-style-type: none ;
 }

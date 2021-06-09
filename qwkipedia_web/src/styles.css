@@ -1,29 +1,69 @@
+@font-face {
+  font-family: 'Timmana';
+  src: local('Timmana-Regular'), url(./fonts/Timmana-Regular.ttf) format('truetype');
+}
+
+
+
+/* ################################################### */
+/* ################# Global Styles ################### */
+/* ################################################### */
+
+:root {
+  --gray: #ececec;
+  --purple: #750bcc;
+  --textColor: #474747;
+}
+
+
 .App {
   font-family: sans-serif;
   text-align: center;
 }
-.bg {
-  position: absolute;
-  pointer-events: none;
-  height: 88px;
-  /* Accent / Default */
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  background: #3c64b1;
-  opacity: 0.06;
-  order: 0;
-  display: flex;
+
+
+h2 {
+  font-family: Timmana;
+  font-style: normal;
+  /* font-weight: bold; */
+  font-size: 24px;
+  line-height: 32px;
+  color: #212429;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 4px 0px;
 }
 
-.header1 {
+h3 {
+  font-family: Timmana;
+  font-style: normal;
+  color: #474747;
+}
+
+h4 {
+  font-family: Timmana;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #474747;
+}
+
+/* ################################################### */
+/* ##################### Header ###################### */
+/* ################################################### */
+
+.headerBackground {
   position: absolute;
   pointer-events: none;
-  height: 88px;
+  height: 60px;
   left: 0px;
   right: 0px;
   top: 0px;
-  background: #3c64b1;
+  background: #585858;
   opacity: 0.06;
   display: flex;
   justify-content: center;
@@ -34,255 +74,202 @@
 
 .header_text {
   position: absolute;
-  height: 90px;
-  left: 80px;
+  height: 60px;
+  left: 40px;
   right: 0px;
-  top: 0px;
+  top: 10px;
 
-  font-family: Lato;
+  font-family: Timmana;
   font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 32px;
-  /* or 133% */
+  font-size: 30px;
+  line-height: 32px;  
 
   display: flex;
   align-items: center;
   letter-spacing: 0.2px;
-  text-transform: uppercase;
-
-  /* Accent / Default */
-
-  color: #3c64b1;
+  color: #000000;
   order: 1;
 }
-.big-box {
-  /* container */
-  /* Height nor defined */
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+.logoutButton {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+
+  font-family: sans-serif;
+  background-color: var(--purple);
+  color: white;
+  font-size: 16px;
+  text-align: center; 
+
+  border-radius: 24px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+.qwkLogoImageHeader {
+  border-radius: 18px;
+  height: 36px;
+  width: 36px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/* ################################################ */
+/* ################# Navbar ####################### */
+/* ################################################ */
+
+.navBar1 {
+  position: relative;
+  top: 5px;
+  left: 50px;
+  margin-top: 10px;
+  display: block;
+  margin-bottom: 50px;
+  color:  var(--purple);
+}
+
+.navBar1 li {
+  display: inline-block;
+  padding-right: 1%;
+}
+
+
+.headerLinks {
+  display: inline-block;
+  padding-right: 1%;
+}
+
+
+
+.navLinks {
+  color: var(--textColor);
+}
+
+.navLinks:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.active-link {
+  color: var(--purple);
+  text-decoration: none;
+}
+.active-link:hover {
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+
+/* ################################################ */
+/* ############### Welcome Screen ################# */
+/* ################################################ */
+
+
+.WelcomeBox {
   padding: 28px 40px;
-
   position: fixed;
   width: 404px;
   left: 518px;
   top: 220px;
 
   background: #ffffff;
-  /* Grey / T4 */
 
-  border: 2px solid #ececec;
-  box-sizing: border-box;
+  border: 2px solid var(--gray);
   border-radius: 16px;
 
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
-.welcome-box {
-  /* height not defined */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
 
-  position: static;
-  width: 324px;
-  left: 40px;
-  top: 48px;
 
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 0px 0px 40px;
-}
-
-h3 {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-  /* identical to box height, or 125% */
-
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #98989e;
-}
-
-h2 {
-  /* H2 */
-  font-family: Inter;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 32px;
-  /* identical to box height, or 133% */
-
-  color: #212429;
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  margin: 4px 0px;
-}
-.form-group {
-  position: static;
-}
-.form-group i {
-  position: absolute;
-  padding: 10px;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 2.5px 0px 0px 0px;
-}
-.form-group #lock {
-  font-size: 22px;
-}
-
-.form-group input {
-  position: static;
-  width: 324px;
-  height: 40px;
-  left: 0px;
-  top: 24px;
+.qwkLogoImage {
+  /* size */
+  border-radius: 60px;
+  height: 120px;
+  width: 120;
   padding: 10px;
 
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 8px 0px;
-
-  position: static;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-
-  border: px solid #d8d8d8;
-  box-sizing: border-box;
-  border-radius: 24px;
-  padding-left: 40px;
-}
-.forgot-text {
-  /* Forgot password? */
-
-  position: static;
-  width: 136px;
-  height: 20px;
-  left: 40px;
-  top: 336px;
-
-  font-family: Mulish;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 10px;
-  /* or 67% */
-
-  color: #000000;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 2;
-  flex-grow: 0;
+  /* center */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.EU {
-  /* E-Mail or Username */
-
-  position: static;
-  width: 114px;
-  height: 16px;
-  left: 0px;
-  top: 0px;
-
-  /* Body 2 */
-
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  /* identical to box height, or 133% */
-
-  /* Black */
-
-  color: #212429;
-}
-button {
-  position: static;
-  width: 160px;
-  height: 48px;
-  left: 40px;
-  top: 396px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 3;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 10px 0px;
-
-  position: static;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-
-  background: #3c64b1;
-  border-radius: 24px;
-  color: white;
-  font-size: 16px;
+.welcomeText {
   text-align: center;
+
 }
 
-.error::before{
-  position: absolute;
-  top: -110%; left: 31%;
-  padding: 1% 20%;
-  border-radius: 3px;
-  background-color: #FDCAC4;
-  color: #ED6160;
-  display: none;
+.loginPageForgotPasswordButton {
+  color: var(--purple);
 }
 
-.error{
-  content: "";
-  width: 1200;
-  height: 100;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-
-  position: absolute;
-  bottom: 30%; left: 0%;
-  padding: 1% 0% 1% 10%;
-  border-radius: 3px;
-  color: #ED6160;
-  order:100;
-  font-size: 15px;
+.invalidEmailOrPasswordMessage {
+  color: red;
 }
 
 .super{
   order: 1;
 }
 
-.active-link {
-  color: orangered;
-  text-decoration: underline;
+/* ################################################  */
+/* ############### Main Topic Page ################  */
+/* ################################################  */
+
+.externalLinksList li {
+  list-style-type: none ;
+}
+
+.topic-content {
+    width: 85%;
+    float: right; 
+}
+
+.topic-content li {
+  list-style-type: none ;
+}
+
+.image-content {
+    width: 15%;
+    float: left; 
+    padding-left: 1%;
+}
+
+.image-content li {
+    list-style-type: none ;
+}
+
+/* ################################################  */
+/* ############### Profile ########################  */
+/* ################################################  */
+
+.profileItems li {
+  list-style-type: none ;
+}
+
+/* ################################################  */
+/* ############### BUTTON STYLES ##################  */
+/* ################################################  */
+
+
+.loginPurpleButton {
+  /* color: #750bcc; */
+  background-color: #750bcc;
+  border: 2px solid white;
+  cursor: pointer;
+
+  position: static;
+  width: 160px;
+  height: 48px;
+  left: 40px;
+  top: 396px;
+
+  border-radius: 24px;
+  color: white;
+  font-size: 16px;
+  text-align: center; 
 }

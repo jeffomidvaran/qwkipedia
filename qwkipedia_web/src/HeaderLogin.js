@@ -1,7 +1,8 @@
 import React from "react"
 import Fire from "./Fire";
-import "./HeaderLogin.css";
+// import "./HeaderLogin.css";
 import "./styles.css";
+import qwkLogo from './images/qwkLogoFont.png'
 
 const HeaderLogin = () => {
   function Logout() {
@@ -9,19 +10,18 @@ const HeaderLogin = () => {
   }
 
   return (
-    
-    // <header>
     <div >
-      <div className="header1"></div>
-      <div className="bg"></div>
-
-      <div className="header_text">QWKIPEDIA &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
-        <button type="submit" onClick={Logout} className="btn btn-danger btn-logout">
-          Logout
+      <div className="headerBackground"></div>
+      <div className="header_text"> 
+        <img src={qwkLogo} alt="Logo" className="qwkLogoImageHeader" />
+        
+        <button type="submit" 
+          onClick={Logout} 
+          className="logoutButton"> Log Out 
         </button>
+
       </div>
     </div>
-    // </header>
   )
 }
 export default HeaderLogin

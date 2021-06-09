@@ -53,7 +53,7 @@ const Main = (props) => {
         </Route>
         <Route path="/profile">
           <Profile 
-            email={props.user.email}
+            email={props.user.email} 
             uid={props.user.uid}
           />
         </Route>

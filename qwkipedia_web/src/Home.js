@@ -1,49 +1,27 @@
 import React, {useState,useEffect} from "react";
-// import { BrowserRouter as Router } from "react-router-dom"
-
-// import HeaderLogin from "./HeaderLogin";
-// import QwkContainer from "./Qwkcontainer";
 import Fire from './Fire';
 import {db} from './Fire';
 import HomeContainer from './HomeContainer';
-import logo from './logo.svg'
 import { Link, NavLink } from "react-router-dom";
-
-import "./styles.css";
 import { v4 as uuidv4 } from "uuid";
 
-// import "./Home.css";
-// const topicList = document.querySelector('#topic-list');
+import "./styles.css";
+import "./Home.css";
 
 const Home = () => {
-  // function Logout() {
-  //   Fire.auth().signOut();
-  // }
-
-  // const [topics, setTopics] = useState();
   const ima = [];
-  // const [image1, setImage] = useState();
   const [images, setImages] = useState([]);
-  // const topicsRef = db.collection('topics-v2').limit(3)
-  var clickTitle = ""
-
 
 function renderTopic(doc, topicList) {
   let li = document.createElement('li');
   let title = document.createElement('span');
   let desc = document.createElement('span');
-  // let image = document.createElement('img');
 
   li.setAttribute('data-id', doc.id);
   title.textContent = doc.data().title;
   desc.textContent = doc.data().topDesc;
   console.log(title)
-  // const imgs = [];
-  // fetchImages(doc);
-  // console.log(images)
-  // image=image1;
   
-  // li.appendChild(image1)
   li.appendChild(title);
   li.appendChild(desc);
   topicList.appendChild(li);
@@ -132,38 +110,23 @@ const recordTitle=(title)=>{
     console.log(images)
   }
 
-  // useEffect(() => {
-  //   // fetchTopics();
-  //   // console.log("Setting done!")
-  //   // console.log({images});
-  //   // console.log(topics[0].data())
-  //   // topics.docs.forEach(doc => [
-  //   //   console.log(doc.data())
-  //   // ])
-  //   // setTopics(fetchTopics());
-  //   // console.log(topics)
-
-  // }, [topics])
-
   return (
-    <div className="home1">
+    // <div className="home1">
+    <div >
+      <h1>&emsp;Home</h1>
+      <HomeContainer 
+        fetchTopics={fetchTopics}
+        renderTopic={renderTopic}
+      />
 
-    <h1>&emsp;&ensp;&nbsp;Home Page</h1>
-    
-    <HomeContainer 
-      fetchTopics={fetchTopics}
-      renderTopic={renderTopic}
-      // topicList={topicList}
-    />
       <div className="image-content">{images.sort((a,b)=>a.title > b.title ? 1:-1).map( e=> 
-      <li key={e.id}>
-      <NavLink to="/Database">
-        <img src={e.url} width="90%" onClick={recordTitle(e.title)}></img>
-      </NavLink>
-      </li>
+        <li key={e.id}>
+          <NavLink to="/Database">
+            <img src={e.url} width="90%" onClick={recordTitle(e.title)}></img>
+          </NavLink>
+        </li>
       )}
       </div>
-
     </div>
   );
 };

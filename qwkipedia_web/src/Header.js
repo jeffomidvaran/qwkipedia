@@ -7,11 +7,8 @@ const Header = () => {
   return (
     
     <header>
-      <div className="header1"></div>
-      <div className="bg"></div>
-
-      <div className="header_text">QWKIPEDIA</div>
-
+      <div className="headerBackground"></div>
+      <div className="header_text">Qwkipedia</div>
     </header>
   )
 }
