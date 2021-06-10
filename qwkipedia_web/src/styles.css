@@ -228,8 +228,9 @@ h4 {
 }
 
 .topic-content {
-    width: 85%;
+    width: 70%;
     float: right; 
+    margin-right: 8%;
 }
 
 .topic-content li {
@@ -242,13 +243,22 @@ h4 {
 }
 
 .image-content {
-    width: 15%;
+    width: 22%;
     float: left; 
-    padding-left: 1%;
+    padding-left: 3%;
 }
 
 .image-content li {
     list-style-type: none ;
+}
+
+.image-content img {
+  width: 95%; /* width of container */
+  height: 150px; /* height of container */
+  
+  object-fit: cover;
+  margin-top: 9%;
+  margin-bottom: 3%;
 }
 
 /* ################################################  */

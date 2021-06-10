@@ -37,7 +37,7 @@ function DataBase() {
     if (!desData.exists) {
       console.log("no such topic!")
     } else {
-      var descrip = desData.data()['descriptions'][0]['body'];
+      var descrip = desData.data()['topDesc'];
       // console.log(descrip);
       setDescription(descrip);
     }

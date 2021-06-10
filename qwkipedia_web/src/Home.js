@@ -21,7 +21,7 @@ function renderTopic(doc, topicList) {
 
   li.setAttribute('data-id', doc.id);
   title.textContent = doc.data().title;
-  desc.textContent = doc.data().topDesc;
+  desc.textContent = doc.data().topDesc.substring(840,841) ? doc.data().topDesc.substring(0,840) + "...": doc.data().topDesc.substring(0,840);
   // console.log(title)
   
   li.appendChild(title);
@@ -31,6 +31,7 @@ function renderTopic(doc, topicList) {
 
 const fetchImages = async(doc, imageList) => {
   let imageRef = await Fire.storage().ref("/topicImages/"+doc.data().title+".png").getDownloadURL();
+
   // let imageRef = Fire.storage().ref("/topicImages/puppy.png");
   console.log(imageRef)
   imageList.push(imageRef.toString())
@@ -113,7 +114,7 @@ const recordTitle=(title)=>{
   return (
     // <div className="home1">
     <div >
-      <h1>&emsp;Home</h1>
+      <h1>&emsp;&ensp;Home</h1>
       <HomeContainer 
         fetchTopics={fetchTopics}
         renderTopic={renderTopic}
