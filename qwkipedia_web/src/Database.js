@@ -73,7 +73,7 @@ function DataBase() {
       <br></br>
       {/* {videoId} */}
       <div>
-        <img src={image1} width="400" height="300" />
+        <img className="dbimg" src={image1} width="72%" />
       </div>
       <br></br>
 
