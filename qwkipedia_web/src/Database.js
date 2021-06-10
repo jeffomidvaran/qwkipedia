@@ -60,6 +60,7 @@ function DataBase() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchBlogs();
     fetchImages();
   }, [])
