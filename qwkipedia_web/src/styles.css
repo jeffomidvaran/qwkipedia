@@ -93,10 +93,10 @@ h4 {
 
 
 .logoutButton {
-  position: absolute;
-  top: 0px;
+  position: absolute; 
+  top: 0px; 
   right: 40px;
-
+  
   font-family: sans-serif;
   background-color: var(--purple);
   color: white;
@@ -106,6 +106,9 @@ h4 {
   border-radius: 24px;
   border: 2px solid rgba(255, 255, 255, 0);
   cursor: pointer;
+
+  /* margin: 10px 0px; */
+  z-index: 10;
 }
 
 .qwkLogoImageHeader {
@@ -231,6 +234,11 @@ h4 {
 
 .topic-content li {
   list-style-type: none ;
+  margin-bottom: 2%;
+}
+
+.topic-content span {
+  display: inline-block;
 }
 
 .image-content {

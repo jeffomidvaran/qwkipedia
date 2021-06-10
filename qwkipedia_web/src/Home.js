@@ -15,19 +15,19 @@ const Home = () => {
 function renderTopic(doc, topicList) {
   let li = document.createElement('li');
   let title = document.createElement('span');
+  title.style.fontWeight = "bold";
+  title.style.fontSize = "130%";
   let desc = document.createElement('span');
 
   li.setAttribute('data-id', doc.id);
   title.textContent = doc.data().title;
   desc.textContent = doc.data().topDesc;
-  console.log(title)
+  // console.log(title)
   
   li.appendChild(title);
   li.appendChild(desc);
   topicList.appendChild(li);
 }
-
-
 
 const fetchImages = async(doc, imageList) => {
   let imageRef = await Fire.storage().ref("/topicImages/"+doc.data().title+".png").getDownloadURL();
