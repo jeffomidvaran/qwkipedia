@@ -293,7 +293,7 @@ h4 {
 }
 
 .video-responsive {
-  margin: 0% 14% 0% 14%;
+  margin: 0% 14% 2% 14%;
 }
 
 iframe {
@@ -301,5 +301,5 @@ iframe {
 }
 
 .dbimg {
-  margin-bottom: -12%;
+  margin-bottom: -13%;
 }
